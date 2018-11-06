@@ -16,6 +16,9 @@
   OCILogon below to be your ORACLE username and password -->
 
 <p>If you wish to reset the table, press the reset button. If this is the first time you're running this page, you MUST use reset</p>
+
+<p>This is a test to make sure file permissions are working correctly</p>
+
 <form method="POST" action="main.php">
    
 <p><input type="submit" value="Reset" name="reset"></p>
