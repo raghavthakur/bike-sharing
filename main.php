@@ -18,7 +18,10 @@
 <p>If you wish to reset the table, press the reset button. If this is the first time you're running this page, you MUST use reset</p>
 
 <p>This is a test to make sure file permissions are working correctly</p>
-<p>Raghav</p>
+<p>
+	Raghav <br>
+	Jacques
+</p>
 
 <form method="POST" action="main.php">
    
