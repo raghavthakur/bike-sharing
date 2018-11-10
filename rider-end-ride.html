@@ -1,0 +1,99 @@
+<!doctype html>
+<html lang="en">
+	<head>
+	   <title>Bike Sharing</title>
+	   <meta charset="utf-8">
+	   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+	   <script src="project.js" type="text/javascript" defer></script>
+	   <link rel="stylesheet" href="project.css">
+	   <!--[if lt IE 9]>
+	      <script src="http://html5shim.googlecode.com/svn/trunk/html5.js">
+	      </script>
+	   <![endif]-->
+	</head>
+	<div id="wrapper">
+
+   <nav>
+         <div id="mysidenav" class="sidenavigation">
+               <a href="javascript:void(0)" id="closebutton" onclick="closeNav()">&times;</a>
+               <a class="active" href="index.html">Home</a>
+               <a href="loginselection.html">Login</a>
+               <a id="rider" href="riderlogin.html">&gt; Rider</a>
+               <a id="customerservice" href="customerservicelogin.html">&gt; Customer Serv. Rep.</a>
+               <a id="maintenance" href="maintenancelogin.html">&gt; Maintenance Tech.</a>
+               <a href="about.html">About</a>
+               <a href="faq.html">FAQ</a>
+               <a href="ourbikes.html">Our Bikes</a>
+               <a href="contact.html">Contact</a>
+         </div>
+         
+         <ul id="desktopnavigation">
+               <li><span class="dot active"></span><a class="active" href="index.html">Home</a></li>
+               <li><span class="dot"></span><a href="loginselection.html">Login</a></li>
+               <li><span class="dot"></span><a href="about.html">About</a></li>
+               <li><span class="dot"></span><a href="faq.html">FAQ</a></li>
+               <li><span class="dot"></span><a href="ourbikes.html">Our Bikes</a></li>
+               <li><span class="dot"></span><a href="contact.html">Contact</a></li>
+         </ul>
+   </nav>
+
+   <div id="rightcol">
+
+   <header>
+         <div id="navicon">
+               <img src="images/navicon.png" alt="three horizontal bars" width="30" onclick="openNav()">
+         </div>
+         
+         <h1>Bike Sharing</h1>
+   </header>
+
+   <div id="shadowbox">
+   <main>   
+         <div>
+               <h3>RIDER - End Ride</h3>
+
+               <form method="POST" action="new-oracle-test.php">
+
+               <p>Information about your current (active) rental:</p>
+
+               <p>
+                  A table which displays information about the rider's current active rental. It should have a "status" column which should say "Active" if the rental is still active and "Completed" if they have ended the trip. There should also be a "Total Cost" column which becomes populated after the rental has ended.
+               </p>
+
+               <p>
+
+            <p>
+
+               <p>Where will you be ending your ride? Please choose a return area below to end your current ride at that location.</p>
+
+            <p>
+               <select name="returnAreas">
+                  <option value="put returnArea ID here">Describe the return area here</option>
+                  <option value="put returnArea ID here">Describe the return area here</option>
+                  <option value="put returnArea ID here">Describe the return area here</option>
+                  <option value="put returnArea ID here">Describe the return area here</option>
+               </select>
+               </p>
+            </p>
+
+
+               </p>
+
+               <input type="submit" value="End Rental" name="endRental">
+
+               <p>NOTE: The table at the top (which shows the rider's currently active ride) should get updated after the Submit button is pressed. For example, the  total cost field needs to be updated when a rider finishesa ride. </p>
+
+               </form>
+         </div>
+   </main>
+
+   <footer>
+         <p>
+               Copyright &copy; 2018 Bike Sharing <br>
+               <a href="mailto:email@domain.com">email@domain.com</a>
+         </p>
+   </footer>
+   </div>
+   </div>
+   </div>
+</html>
