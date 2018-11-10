@@ -59,6 +59,16 @@ footer {
 header, nav, main, footer {
    display: block;
 }
+dl {
+   margin-top: 0;
+}
+dt {
+   font-weight: bold;
+   margin-bottom: 5px;
+}
+dd {
+   margin-bottom: 20px;
+}
 
 
 
