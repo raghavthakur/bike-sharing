@@ -50,22 +50,55 @@
    <div id="shadowbox">
    <main>   
          <div>
-               <h3>RIDER - Maintenance Issue Submission Form</h3>
+               <h3>RIDER - Personal Information</h3>
 
                <form method="POST" action="new-oracle-test.php">
 
                <p>
-                  Bike ID: 
-                  <input type="number" name="bikeID" size="20">
+                  A table showing the rider's personal information here:
+                  ...
                </p>
 
                <p>
-                  <textarea name="description" rows="5" cols="40">Use PHP to get the contents of this textarea</textarea>
+                  Complete the form to update your personal information:
                </p>
 
-               <input type="submit" value="Submit Issue" name="submitIssue">
+               <p>
+                  Name: 
+                  <input type="text" name="riderName" size="20">
+               </p>
 
-               <p>Display a confirmation message containing the "issueID" and the current date/time here.</p>
+               <p>
+                  Phone Number: 
+                  <input type="tel" name="riderPhoneNumber" size="20">
+               </p>
+
+               <p>
+                  Email: 
+                  <input type="email" name="riderEmail" size="20">
+               </p>
+
+               <p>
+                  Address: 
+                  <input type="text" name="riderAddress" size="20">
+               </p>
+
+               <input type="submit" value="Update Personal Info" name="updateInfo">
+
+               <p>Change your password here:</p>
+
+               <p>
+                  Old Password: 
+                  <input type="password" name="oldPassword" size="20">
+               </p>
+
+               <p>
+                  New Password: 
+                  <input type="password" name="newPassword" size="20">
+               </p>
+
+               <input type="submit" value="Update Password" name="updatePassword">
+
 
                </form>
          </div>
