@@ -27,7 +27,7 @@
 <form method="POST" action="main.php">
 <!--refresh page when submit-->
 
-   <p><input type="text" name="insNo" size="6"><input type="text" name="insName" size="18"><input type="text" name="insPhone" size="18"><input type="text" name="insAdd" size="18">
+   <p><input type="text" name="insNo" size="6"><input type="text" name="insName" size="18"><input type="text" name="insPhone" size="18"><input type="text" name="insAddress" size="18">
 <!--define four variables to pass the value-->
       
 <input type="submit" value="insert" name="insertsubmit"></p>
@@ -143,7 +143,7 @@ if ($db_conn) {
 
 		// Create new table...
 		echo "<br> creating new table <br>";
-		executePlainSQL("create table tab1 (nid number, name varchar2(30), phone number, address varchar2(50), primary key (nid))");
+		executePlainSQL("create table tab1 (nid number, name varchar2(30), phone number, address varchar2(100), primary key (nid))");
 		OCICommit($db_conn);
 
 	} else
