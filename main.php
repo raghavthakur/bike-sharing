@@ -196,7 +196,7 @@ if ($db_conn) {
                 $alltuples = array(
                     $tuple
                 );
-                executeBoundSQL("update tab1 set name=:bind2, phone=:bind4, address=:bind6 where name=:bind1 and phone=:bind3 and address=:bind5", $alltuples);
+                executeBoundSQL("update tab1 set name=:bind2, phone=:bind4, address=:bind6 where name=:bind1 or phone=:bind3 or address=:bind5", $alltuples);
                 OCICommit($db_conn);
 
             } else
