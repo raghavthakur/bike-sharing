@@ -143,7 +143,7 @@ if ($db_conn) {
 
 		// Create new table...
 		echo "<br> creating new table <br>";
-		executePlainSQL("create table tab1 (nid number, name varchar2(30), phone varchar2(30), address varchar2(30), primary key (nid))");
+		executePlainSQL("create table tab1 (nid number, name varchar2(30), phone number, address varchar2(50), primary key (nid))");
 		OCICommit($db_conn);
 
 	} else
