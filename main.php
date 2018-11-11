@@ -23,14 +23,12 @@
 </form>
 
 <p>Insert values into tab1 below:</p>
-<p><font size="2"> Number&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
-Name</font></p>
+<p><font size="2"> ID Number Name Phone Address</font></p>
 <form method="POST" action="main.php">
 <!--refresh page when submit-->
 
-   <p><input type="text" name="insNo" size="6"><input type="text" name="insName" 
-size="18">
-<!--define two variables to pass the value-->
+   <p><input type="text" name="insNo" size="6"><input type="text" name="insName" size="18"><input type="text" name="insPhone" size="18"><input type="text" name="insAdd" size="18">
+<!--define four variables to pass the value-->
       
 <input type="submit" value="insert" name="insertsubmit"></p>
 </form>
@@ -38,7 +36,7 @@ size="18">
 get the values--> 
 
 <p> Update the name by inserting the old and new values below: </p>
-<p><font size="2"> Old Name&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+<p><font size="2"> Old Name
 New Name</font></p>
 <form method="POST" action="main.php">
 <!--refresh page when submit-->
@@ -126,10 +124,10 @@ function executeBoundSQL($cmdstr, $list) {
 function printResult($result) { //prints results from a select statement
 	echo "<br>Got data from table tab1:<br>";
 	echo "<table>";
-	echo "<tr><th>ID</th><th>Name</th></tr>";
+	echo "<tr><th>ID</th><th>Name</th><th>Phone</th><th>Address</th></tr>";
 
 	while ($row = OCI_Fetch_Array($result, OCI_BOTH)) {
-		echo "<tr><td>" . $row["NID"] . "</td><td>" . $row["NAME"] . "</td></tr>"; //or just use "echo $row[0]" 
+		echo "<tr><td>" . $row["NID"] . "</td><td>" . $row["NAME"] . "</td><td>" . $row["PHONE"] . "</td><td>" . $row["ADDRESS"] . "</td></tr>"; //or just use "echo $row[0]"
 	}
 	echo "</table>";
 
@@ -145,7 +143,7 @@ if ($db_conn) {
 
 		// Create new table...
 		echo "<br> creating new table <br>";
-		executePlainSQL("create table tab1 (nid number, name varchar2(30), primary key (nid))");
+		executePlainSQL("create table tab1 (nid number, name varchar2(30), phone varchar2(30), address varchar2(30), primary key (nid))");
 		OCICommit($db_conn);
 
 	} else
@@ -153,12 +151,14 @@ if ($db_conn) {
 			//Getting the values from user and insert data into the table
 			$tuple = array (
 				":bind1" => $_POST['insNo'],
-				":bind2" => $_POST['insName']
+				":bind2" => $_POST['insName'],
+                ":bind3" => $_POST['insPhone'],
+                ":bind4" => $_POST['insAddress']
 			);
 			$alltuples = array (
 				$tuple
 			);
-			executeBoundSQL("insert into tab1 values (:bind1, :bind2)", $alltuples);
+			executeBoundSQL("insert into tab1 values (:bind1, :bind2, :bind3, :bind4)", $alltuples);
 			OCICommit($db_conn);
 
 		} else
