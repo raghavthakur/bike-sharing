@@ -43,7 +43,7 @@
 <!-- create a form to pass the values. See below for how to 
 get the values-->
 
-<p> Update the name by inserting the old and new values below: </p>
+<p> Update the name, phone, address by inserting the old and new values below: </p>
 <p><font size="2"> Old Name
         New Name
         Old Phone
@@ -55,16 +55,28 @@ get the values-->
     <!--refresh page when submit-->
 
     <p>
-        <input type="text" name="oldName" size="6">
-        <input type="text" name="newName" size="18">
-        <input type="text" name="oldPhone" size="6">
-        <input type="text" name="newPhone" size="18">
-        <input type="text" name="oldAddress" size="6">
-        <input type="text" name="newAddress" size="18">
+        <input type="text" name="oldName" size="10">
+        <input type="text" name="newName" size="10">
+        <input type="text" name="oldPhone" size="10">
+        <input type="text" name="newPhone" size="10">
+        <input type="text" name="oldAddress" size="10">
+        <input type="text" name="newAddress" size="10">
         <!--define six variables to pass the value-->
 
         <input type="submit" value="update" name="updatesubmit"></p>
     <input type="submit" value="run hardcoded queries" name="dostuff"></p>
+</form>
+
+<p>Delete row from tab1 below using number:</p>
+<p><font size="2">Number</font></p>
+<form method="POST" action="main.php">
+    <!--refresh page when submit-->
+
+    <p>
+        <input type="text" name="delNo" size="6">
+        <!--define four variables to pass the value-->
+
+        <input type="submit" value="delete" name="deletesubmit"></p>
 </form>
 
 <?php
@@ -200,29 +212,41 @@ if ($db_conn) {
                 OCICommit($db_conn);
 
             } else
-                if (array_key_exists('dostuff', $_POST)) {
-                    // Insert data into table...
-                    executePlainSQL("insert into tab1 values (10, 'Frank')");
-                    // Inserting data into table using bound variables
-                    $list1 = array(
-                        ":bind1" => 6,
-                        ":bind2" => "All"
+                if (array_key_exists('deletesubmit', $_POST)) {
+                    // Delete tuple using data from user
+                    $tuple = array(
+                        ":bind1" => $_POST['delNo']
                     );
-                    $list2 = array(
-                        ":bind1" => 7,
-                        ":bind2" => "John"
+                    $alltuples = array(
+                        $tuple
                     );
-                    $allrows = array(
-                        $list1,
-                        $list2
-                    );
-                    executeBoundSQL("insert into tab1 values (:bind1, :bind2)", $allrows); //the function takes a list of lists
-                    // Update data...
-                    //executePlainSQL("update tab1 set nid=10 where nid=2");
-                    // Delete data...
-                    //executePlainSQL("delete from tab1 where nid=1");
+                    executeBoundSQL("delete from tab1 where nid=:bind1", $alltuples);
                     OCICommit($db_conn);
-                }
+
+                } else
+                    if (array_key_exists('dostuff', $_POST)) {
+                        // Insert data into table...
+                        executePlainSQL("insert into tab1 values (10, 'Frank')");
+                        // Inserting data into table using bound variables
+                        $list1 = array(
+                            ":bind1" => 6,
+                            ":bind2" => "All"
+                        );
+                        $list2 = array(
+                            ":bind1" => 7,
+                            ":bind2" => "John"
+                        );
+                        $allrows = array(
+                            $list1,
+                            $list2
+                        );
+                        executeBoundSQL("insert into tab1 values (:bind1, :bind2)", $allrows); //the function takes a list of lists
+                        // Update data...
+                        //executePlainSQL("update tab1 set nid=10 where nid=2");
+                        // Delete data...
+                        //executePlainSQL("delete from tab1 where nid=1");
+                        OCICommit($db_conn);
+                    }
 
     if ($_POST && $success) {
         //POST-REDIRECT-GET -- See http://en.wikipedia.org/wiki/Post/Redirect/Get
