@@ -1,109 +1,81 @@
 <!doctype html>
 <html lang="en">
-	<head>
-	   <title>Bike Sharing</title>
-	   <meta charset="utf-8">
-	   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-	   <script src="../project.js" type="text/javascript" defer></script>
-	   <link rel="stylesheet" href="../project.css">
-	</head>
-	<div id="wrapper">
+<head>
+    <title>Bike Sharing</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="../project.js" type="text/javascript" defer></script>
+    <link rel="stylesheet" href="../project.css">
+</head>
+<div id="wrapper">
 
-   <nav>
-         <div id="mysidenav" class="sidenavigation">
-               <a href="javascript:void(0)" id="closebutton" onclick="closeNav()">&times;</a>
-               <a href="../index.html">Home</a>
-               <a href="../login.html">Login</a>
-               <a id="rider" href="../rider/rider-mainpage.html">&gt; Rider</a>
-               <a id="customerservice" href="../custrep/custrep-mainpage.html">&gt; Customer Serv. Rep.</a>
-               <a id="maintenance" class="active" href="technician-mainpage.html">&gt; Maintenance Tech.</a>
-               <a href="../about.html">About</a>
-               <a href="../faq.html">FAQ</a>
-               <a href="../ourbikes.html">Our Bikes</a>
-               <a href="../contact.html">Contact</a>
-         </div>
-         
-         <ul id="desktopnavigation">
-               <li><span class="dot"></span><a href="../index.html">Home</a></li>
-               <li><span class="dot"></span><a href="../login.html">Login</a></li>
-               <li class="submenu"><span>&gt; </span><a href="../rider/rider-mainpage.html">Rider</a></li>
-               <li class="submenu"><span>&gt; </span><a href="../custrep/custrep-mainpage.html">Customer Service</a></li>
-               <li class="submenu active"><span>&gt; </span><a class="active" href="technician-mainpage.html">Maintenance Tech.</a></li>
-               <li><span class="dot"></span><a href="../about.html">About</a></li>
-               <li><span class="dot"></span><a href="../faq.html">FAQ</a></li>
-               <li><span class="dot"></span><a href="../ourbikes.html">Our Bikes</a></li>
-               <li><span class="dot"></span><a href="../contact.html">Contact</a></li>
-         </ul>
-   </nav>
+    <nav>
+        <div id="mysidenav" class="sidenavigation">
+            <a href="javascript:void(0)" id="closebutton" onclick="closeNav()">&times;</a>
+            <a href="../index.html">Home</a>
+            <a href="../login.html">Login</a>
+            <a id="rider" href="../rider/rider-mainpage.html">&gt; Rider</a>
+            <a id="customerservice" href="../custrep/custrep-mainpage.html">&gt; Customer Serv. Rep.</a>
+            <a id="maintenance" class="active" href="technician-mainpage.html">&gt; Maintenance Tech.</a>
+            <a href="../about.html">About</a>
+            <a href="../faq.html">FAQ</a>
+            <a href="../ourbikes.html">Our Bikes</a>
+            <a href="../contact.html">Contact</a>
+        </div>
 
-   <div id="rightcol">
+        <ul id="desktopnavigation">
+            <li><span class="dot"></span><a href="../index.html">Home</a></li>
+            <li><span class="dot"></span><a href="../login.html">Login</a></li>
+            <li class="submenu"><span>&gt; </span><a href="../rider/rider-mainpage.html">Rider</a></li>
+            <li class="submenu"><span>&gt; </span><a href="../custrep/custrep-mainpage.html">Customer Service</a></li>
+            <li class="submenu active"><span>&gt; </span><a class="active" href="technician-mainpage.html">Maintenance
+                Tech.</a></li>
+            <li><span class="dot"></span><a href="../about.html">About</a></li>
+            <li><span class="dot"></span><a href="../faq.html">FAQ</a></li>
+            <li><span class="dot"></span><a href="../ourbikes.html">Our Bikes</a></li>
+            <li><span class="dot"></span><a href="../contact.html">Contact</a></li>
+        </ul>
+    </nav>
 
-   <header>
-         <div id="navicon">
-               <img src="../images/navicon.png" alt="three horizontal bars" width="30" onclick="openNav()">
-         </div>
-         
-         <h1>Bike Sharing</h1>
-   </header>
+    <div id="rightcol">
 
-   <div id="shadowbox">
-   <main>   
-         <div>
-               <h3>MAINTENANCE TECHNICIAN - Bike Info</h3>
+        <header>
+            <div id="navicon">
+                <img src="../images/navicon.png" alt="three horizontal bars" width="30" onclick="openNav()">
+            </div>
 
-               <form method="POST" action="new-oracle-test.php">
+            <h1>Bike Sharing</h1>
+        </header>
 
-               <p>
-                  Table showing all bikes and their info.
-               </p>
+        <div id="shadowbox">
+            <main>
+                <div>
+                    <h3>MAINTENANCE TECHNICIAN - Bike Info</h3>
 
-               <h4>Add new bike to system:</h4>
+                    <form method="POST" action="new-oracle-test.php">
 
-               <p>
-                  Enter date purchased:
-                  <input type="date" name="datePurchased">
-               </p>
+                        <input type="submit" value="Add Bike" name="addBike">
 
-               <p>
-                  Enter latitude:
-                  <input type="number" name="latitude" size="20">
-               </p>
+                        <p>
+                            Table showing all bikes and their info. We should have a column for the "number of unique
+                            riders who submitted issues for this bike". Will have to GROUP BY bike_id and then count
+                            the unique rider IDs. This is to satisfy our GROUP BY requirements of the project. In our
+                            formal spec document, under Deliverable 7, the third query we described is not very good.
+                            Doesn't make sense in the current website design. So the query for this page should serve
+                            as a replacement GROUP BY query.
+                        </p>
 
-               <p>
-                  Enter longitude:
-                  <input type="number" name="longitude" size="20">
-               </p>
+                    </form>
+                </div>
+            </main>
 
-               <input type="submit" value="Add Bike" name="addBike">
-
-               <p>
-                  Display confirmation message showing bikeID of the new bike.
-               </p>
-
-               <h4>Remove existing bike from system:</h4>
-
-               <p>
-                  Enter bike ID:
-                  <input type="number" name="bikeID" size="20">
-               </p>
-
-               <input type="submit" value="Delete Bike" name="deleteBike">
-
-               <p>
-                  Display confirmation message showing bikeID of the deleted bike.
-               </p>
-
-               </form>
-         </div>
-   </main>
-
-   <footer>
-         <p>
-               Copyright &copy; 2018 Bike Sharing <br>
-               <a href="mailto:email@domain.com">email@domain.com</a>
-         </p>
-   </footer>
-   </div>
-   </div>
-   </div>
+            <footer>
+                <p>
+                    Copyright &copy; 2018 Bike Sharing <br>
+                    <a href="mailto:email@domain.com">email@domain.com</a>
+                </p>
+            </footer>
+        </div>
+    </div>
+</div>
 </html>

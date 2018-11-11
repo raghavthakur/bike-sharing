@@ -1,71 +1,94 @@
 <!doctype html>
 <html lang="en">
-	<head>
-	   <title>Bike Sharing</title>
-	   <meta charset="utf-8">
-	   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-	   <script src="../project.js" type="text/javascript" defer></script>
-	   <link rel="stylesheet" href="../project.css">
-	</head>
-	<div id="wrapper">
+<head>
+    <title>Bike Sharing</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="../project.js" type="text/javascript" defer></script>
+    <link rel="stylesheet" href="../project.css">
+</head>
+<div id="wrapper">
 
-   <nav>
-         <div id="mysidenav" class="sidenavigation">
-               <a href="javascript:void(0)" id="closebutton" onclick="closeNav()">&times;</a>
-               <a href="../index.html">Home</a>
-               <a href="../login.html">Login</a>
-               <a id="rider" href="../rider/rider-mainpage.html">&gt; Rider</a>
-               <a id="customerservice" href="../custrep/custrep-mainpage.html">&gt; Customer Serv. Rep.</a>
-               <a id="maintenance" class="active" href="technician-mainpage.html">&gt; Maintenance Tech.</a>
-               <a href="../about.html">About</a>
-               <a href="../faq.html">FAQ</a>
-               <a href="../ourbikes.html">Our Bikes</a>
-               <a href="../contact.html">Contact</a>
-         </div>
-         
-         <ul id="desktopnavigation">
-               <li><span class="dot"></span><a href="../index.html">Home</a></li>
-               <li><span class="dot"></span><a href="../login.html">Login</a></li>
-               <li class="submenu"><span>&gt; </span><a href="../rider/rider-mainpage.html">Rider</a></li>
-               <li class="submenu"><span>&gt; </span><a href="../custrep/custrep-mainpage.html">Customer Service</a></li>
-               <li class="submenu active"><span>&gt; </span><a class="active" href="technician-mainpage.html">Maintenance Tech.</a></li>
-               <li><span class="dot"></span><a href="../about.html">About</a></li>
-               <li><span class="dot"></span><a href="../faq.html">FAQ</a></li>
-               <li><span class="dot"></span><a href="../ourbikes.html">Our Bikes</a></li>
-               <li><span class="dot"></span><a href="../contact.html">Contact</a></li>
-         </ul>
-   </nav>
+    <nav>
+        <div id="mysidenav" class="sidenavigation">
+            <a href="javascript:void(0)" id="closebutton" onclick="closeNav()">&times;</a>
+            <a href="../index.html">Home</a>
+            <a href="../login.html">Login</a>
+            <a id="rider" href="../rider/rider-mainpage.html">&gt; Rider</a>
+            <a id="customerservice" href="../custrep/custrep-mainpage.html">&gt; Customer Serv. Rep.</a>
+            <a id="maintenance" class="active" href="technician-mainpage.html">&gt; Maintenance Tech.</a>
+            <a href="../about.html">About</a>
+            <a href="../faq.html">FAQ</a>
+            <a href="../ourbikes.html">Our Bikes</a>
+            <a href="../contact.html">Contact</a>
+        </div>
 
-   <div id="rightcol">
+        <ul id="desktopnavigation">
+            <li><span class="dot"></span><a href="../index.html">Home</a></li>
+            <li><span class="dot"></span><a href="../login.html">Login</a></li>
+            <li class="submenu"><span>&gt; </span><a href="../rider/rider-mainpage.html">Rider</a></li>
+            <li class="submenu"><span>&gt; </span><a href="../custrep/custrep-mainpage.html">Customer Service</a></li>
+            <li class="submenu active"><span>&gt; </span><a class="active" href="technician-mainpage.html">Maintenance
+                Tech.</a></li>
+            <li><span class="dot"></span><a href="../about.html">About</a></li>
+            <li><span class="dot"></span><a href="../faq.html">FAQ</a></li>
+            <li><span class="dot"></span><a href="../ourbikes.html">Our Bikes</a></li>
+            <li><span class="dot"></span><a href="../contact.html">Contact</a></li>
+        </ul>
+    </nav>
 
-   <header>
-         <div id="navicon">
-               <img src="../images/navicon.png" alt="three horizontal bars" width="30" onclick="openNav()">
-         </div>
-         
-         <h1>Bike Sharing</h1>
-   </header>
+    <div id="rightcol">
 
-   <div id="shadowbox">
-   <main>   
-         <div>
-               <h3>MAINTENANCE TECHNICIAN MAIN PAGE</h3>
-               
-               <p>
-                  <a href="technician-bike-info.html">Bike Info</a> <br> <br>
-                  <a href="technician-maintenance-issues.html">Maintenance Issues</a> <br> <br>
-                  <a href="technician-replacement-parts.html">Replacement Parts</a>
-               </p>
-         </div>
-   </main>
+        <header>
+            <div id="navicon">
+                <img src="../images/navicon.png" alt="three horizontal bars" width="30" onclick="openNav()">
+            </div>
 
-   <footer>
-         <p>
-               Copyright &copy; 2018 Bike Sharing <br>
-               <a href="mailto:email@domain.com">email@domain.com</a>
-         </p>
-   </footer>
-   </div>
-   </div>
-   </div>
+            <h1>Bike Sharing</h1>
+        </header>
+
+        <div id="shadowbox">
+            <main>
+                <div>
+                    <h3>MAINTENANCE TECHNICIAN MAIN PAGE</h3>
+
+                    <h4>Bikes:</h4>
+
+                    <p>
+                        <a href="technician-bike-info.html">Bike Info</a> <br> <br>
+                        <a href="technician-add-bike.html">Add a New Bike</a> <br> <br>
+                        <a href="technician-delete-bike.html">Delete an Existing Bike</a>
+                    </p>
+
+                    <hr>
+                    <h4>Maintenance Issues</h4>
+
+                    <p>
+                        <a href="technician-maintenance-issue-display.html">Maintenance Issues - Display</a> <br> <br>
+                        <a href="technician-maintenance-issue-resolve.html">Maintenance Issues - Resolve</a> <br> <br>
+                    </p>
+
+                    <hr>
+                    <h4>Replacement Parts</h4>
+
+                    <p>
+                        <a href="technician-replacement-part-view.html">Replacement Parts - View</a> <br> <br>
+                        <a href="technician-replacement-part-increment-decrement.html">Replacement Parts -
+                            Increment/Decrement Quantity</a> <br> <br>
+                        <a href="technician-replacement-part-add.html">Replacement Parts - Add Part</a> <br> <br>
+                        <a href="technician-replacement-part-update.html">Replacement Parts - Update Part</a> <br> <br>
+                        <a href="technician-replacement-part-delete.html">Replacement Parts - Delete Part</a>
+                    </p>
+                </div>
+            </main>
+
+            <footer>
+                <p>
+                    Copyright &copy; 2018 Bike Sharing <br>
+                    <a href="mailto:email@domain.com">email@domain.com</a>
+                </p>
+            </footer>
+        </div>
+    </div>
+</div>
 </html>

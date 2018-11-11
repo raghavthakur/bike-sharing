@@ -51,15 +51,24 @@
         <div id="shadowbox">
             <main>
                 <div>
-                    <h3>CUSTOMER SERVICE REP. - Bike Info</h3>
+                    <h3>CUSTOMER SERVICE REP. - Delete a Rider</h3>
 
                     <form method="POST" action="new-oracle-test.php">
 
-                        <input type="submit" value="Get All Bike Info" name="getAllBikeInfo">
+                        <p>
+                            Delete a rider from the system:
+                        </p>
 
                         <p>
-                            Table showing all bikes and their info.
+                            Enter rider ID: <input type="number" name="riderID" size="20">
                         </p>
+
+                        <input type="submit" value="Delete Rider" name="deleteRider">
+
+                        <p>
+                            Display a short confirmation message here to say rider was deleted.
+                        </p>
+
 
                     </form>
                 </div>
