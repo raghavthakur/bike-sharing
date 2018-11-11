@@ -15,38 +15,56 @@
   extension.  You must also change the username and password on the 
   OCILogon below to be your ORACLE username and password -->
 
-<p>If you wish to reset the table, press the reset button. If this is the first time you're running this page, you MUST use reset</p>
+<p>If you wish to reset the table, press the reset button. If this is the first time you're running this page, you MUST
+    use reset</p>
 
 <form method="POST" action="main.php">
-   
-<p><input type="submit" value="Reset" name="reset"></p>
+
+    <p><input type="submit" value="Reset" name="reset"></p>
 </form>
 
 <p>Insert values into tab1 below:</p>
-<p><font size="2"> ID Number Name Phone Address</font></p>
+<p><font size="2"> Number
+        Name
+        Phone
+        Address</font></p>
 <form method="POST" action="main.php">
-<!--refresh page when submit-->
+    <!--refresh page when submit-->
 
-   <p><input type="text" name="insNo" size="6"><input type="text" name="insName" size="18"><input type="text" name="insPhone" size="18"><input type="text" name="insAddress" size="18">
-<!--define four variables to pass the value-->
-      
-<input type="submit" value="insert" name="insertsubmit"></p>
+    <p>
+        <input type="text" name="insNo" size="6">
+        <input type="text" name="insName" size="18">
+        <input type="text" name="insPhone" size="18">
+        <input type="text" name="insAddress" size="18">
+        <!--define four variables to pass the value-->
+
+        <input type="submit" value="insert" name="insertsubmit"></p>
 </form>
 <!-- create a form to pass the values. See below for how to 
-get the values--> 
+get the values-->
 
 <p> Update the name by inserting the old and new values below: </p>
 <p><font size="2"> Old Name
-New Name</font></p>
+        New Name
+        Old Phone
+        New Phone
+        Old Address
+        New Address
+    </font></p>
 <form method="POST" action="main.php">
-<!--refresh page when submit-->
+    <!--refresh page when submit-->
 
-   <p><input type="text" name="oldName" size="6"><input type="text" name="newName" 
-size="18">
-<!--define two variables to pass the value-->
-      
-<input type="submit" value="update" name="updatesubmit"></p>
-<input type="submit" value="run hardcoded queries" name="dostuff"></p>
+    <p>
+        <input type="text" name="oldName" size="6">
+        <input type="text" name="newName" size="18">
+        <input type="text" name="oldPhone" size="6">
+        <input type="text" name="newPhone" size="18">
+        <input type="text" name="oldAddress" size="6">
+        <input type="text" name="newAddress" size="18">
+        <!--define six variables to pass the value-->
+
+        <input type="submit" value="update" name="updatesubmit"></p>
+    <input type="submit" value="run hardcoded queries" name="dostuff"></p>
 </form>
 
 <?php
@@ -57,163 +75,170 @@ size="18">
 $success = True; //keep track of errors so it redirects the page only if there are no errors
 $db_conn = OCILogon("ora_f4l0b", "a60250157", "dbhost.ugrad.cs.ubc.ca:1522/ug");
 
-function executePlainSQL($cmdstr) { //takes a plain (no bound variables) SQL command and executes it
-	//echo "<br>running ".$cmdstr."<br>";
-	global $db_conn, $success;
-	$statement = OCIParse($db_conn, $cmdstr); //There is a set of comments at the end of the file that describe some of the OCI specific functions and how they work
+function executePlainSQL($cmdstr)
+{ //takes a plain (no bound variables) SQL command and executes it
+    //echo "<br>running ".$cmdstr."<br>";
+    global $db_conn, $success;
+    $statement = OCIParse($db_conn, $cmdstr); //There is a set of comments at the end of the file that describe some of the OCI specific functions and how they work
 
-	if (!$statement) {
-		echo "<br>Cannot parse the following command: " . $cmdstr . "<br>";
-		$e = OCI_Error($db_conn); // For OCIParse errors pass the       
-		// connection handle
-		echo htmlentities($e['message']);
-		$success = False;
-	}
+    if (!$statement) {
+        echo "<br>Cannot parse the following command: " . $cmdstr . "<br>";
+        $e = OCI_Error($db_conn); // For OCIParse errors pass the
+        // connection handle
+        echo htmlentities($e['message']);
+        $success = False;
+    }
 
-	$r = OCIExecute($statement, OCI_DEFAULT);
-	if (!$r) {
-		echo "<br>Cannot execute the following command: " . $cmdstr . "<br>";
-		$e = oci_error($statement); // For OCIExecute errors pass the statementhandle
-		echo htmlentities($e['message']);
-		$success = False;
-	} else {
+    $r = OCIExecute($statement, OCI_DEFAULT);
+    if (!$r) {
+        echo "<br>Cannot execute the following command: " . $cmdstr . "<br>";
+        $e = oci_error($statement); // For OCIExecute errors pass the statementhandle
+        echo htmlentities($e['message']);
+        $success = False;
+    } else {
 
-	}
-	return $statement;
+    }
+    return $statement;
 
 }
 
-function executeBoundSQL($cmdstr, $list) {
-	/* Sometimes the same statement will be executed for several times ... only
-	 the value of variables need to be changed.
-	 In this case, you don't need to create the statement several times; 
-	 using bind variables can make the statement be shared and just parsed once.
-	 This is also very useful in protecting against SQL injection.  
+function executeBoundSQL($cmdstr, $list)
+{
+    /* Sometimes the same statement will be executed for several times ... only
+     the value of variables need to be changed.
+     In this case, you don't need to create the statement several times;
+     using bind variables can make the statement be shared and just parsed once.
+     This is also very useful in protecting against SQL injection.
       See the sample code below for how this functions is used */
 
-	global $db_conn, $success;
-	$statement = OCIParse($db_conn, $cmdstr);
+    global $db_conn, $success;
+    $statement = OCIParse($db_conn, $cmdstr);
 
-	if (!$statement) {
-		echo "<br>Cannot parse the following command: " . $cmdstr . "<br>";
-		$e = OCI_Error($db_conn);
-		echo htmlentities($e['message']);
-		$success = False;
-	}
+    if (!$statement) {
+        echo "<br>Cannot parse the following command: " . $cmdstr . "<br>";
+        $e = OCI_Error($db_conn);
+        echo htmlentities($e['message']);
+        $success = False;
+    }
 
-	foreach ($list as $tuple) {
-		foreach ($tuple as $bind => $val) {
-			//echo $val;
-			//echo "<br>".$bind."<br>";
-			OCIBindByName($statement, $bind, $val);
-			unset ($val); //make sure you do not remove this. Otherwise $val will remain in an array object wrapper which will not be recognized by Oracle as a proper datatype
+    foreach ($list as $tuple) {
+        foreach ($tuple as $bind => $val) {
+            //echo $val;
+            //echo "<br>".$bind."<br>";
+            OCIBindByName($statement, $bind, $val);
+            unset ($val); //make sure you do not remove this. Otherwise $val will remain in an array object wrapper which will not be recognized by Oracle as a proper datatype
 
-		}
-		$r = OCIExecute($statement, OCI_DEFAULT);
-		if (!$r) {
-			echo "<br>Cannot execute the following command: " . $cmdstr . "<br>";
-			$e = OCI_Error($statement); // For OCIExecute errors pass the statement handle
-			echo htmlentities($e['message']);
-			echo "<br>";
-			$success = False;
-		}
-	}
+        }
+        $r = OCIExecute($statement, OCI_DEFAULT);
+        if (!$r) {
+            echo "<br>Cannot execute the following command: " . $cmdstr . "<br>";
+            $e = OCI_Error($statement); // For OCIExecute errors pass the statement handle
+            echo htmlentities($e['message']);
+            echo "<br>";
+            $success = False;
+        }
+    }
 
 }
 
-function printResult($result) { //prints results from a select statement
-	echo "<br>Got data from table tab1:<br>";
-	echo "<table>";
-	echo "<tr><th>ID</th><th>Name</th><th>Phone</th><th>Address</th></tr>";
+function printResult($result)
+{ //prints results from a select statement
+    echo "<br>Got data from table tab1:<br>";
+    echo "<table>";
+    echo "<tr><th>ID</th><th>Name</th><th>Phone</th><th>Address</th></tr>";
 
-	while ($row = OCI_Fetch_Array($result, OCI_BOTH)) {
-		echo "<tr><td>" . $row["NID"] . "</td><td>" . $row["NAME"] . "</td><td>" . $row["PHONE"] . "</td><td>" . $row["ADDRESS"] . "</td></tr>"; //or just use "echo $row[0]"
-	}
-	echo "</table>";
+    while ($row = OCI_Fetch_Array($result, OCI_BOTH)) {
+        echo "<tr><td>" . $row["NID"] . "</td><td>" . $row["NAME"] . "</td><td>" . $row["PHONE"] . "</td><td>" . $row["ADDRESS"] . "</td></tr>"; //or just use "echo $row[0]"
+    }
+    echo "</table>";
 
 }
 
 // Connect Oracle...
 if ($db_conn) {
 
-	if (array_key_exists('reset', $_POST)) {
-		// Drop old table...
-		echo "<br> dropping table <br>";
-		executePlainSQL("Drop table tab1");
+    if (array_key_exists('reset', $_POST)) {
+        // Drop old table...
+        echo "<br> dropping table <br>";
+        executePlainSQL("Drop table tab1");
 
-		// Create new table...
-		echo "<br> creating new table <br>";
-		executePlainSQL("create table tab1 (nid number, name varchar2(30), phone number, address varchar2(100), primary key (nid))");
-		OCICommit($db_conn);
+        // Create new table...
+        echo "<br> creating new table <br>";
+        executePlainSQL("create table tab1 (nid number, name varchar2(30), phone number, address varchar2(100), primary key (nid))");
+        OCICommit($db_conn);
 
-	} else
-		if (array_key_exists('insertsubmit', $_POST)) {
-			//Getting the values from user and insert data into the table
-			$tuple = array (
-				":bind1" => $_POST['insNo'],
-				":bind2" => $_POST['insName'],
+    } else
+        if (array_key_exists('insertsubmit', $_POST)) {
+            //Getting the values from user and insert data into the table
+            $tuple = array(
+                ":bind1" => $_POST['insNo'],
+                ":bind2" => $_POST['insName'],
                 ":bind3" => $_POST['insPhone'],
                 ":bind4" => $_POST['insAddress']
-			);
-			$alltuples = array (
-				$tuple
-			);
-			executeBoundSQL("insert into tab1 values (:bind1, :bind2, :bind3, :bind4)", $alltuples);
-			OCICommit($db_conn);
+            );
+            $alltuples = array(
+                $tuple
+            );
+            executeBoundSQL("insert into tab1 values (:bind1, :bind2, :bind3, :bind4)", $alltuples);
+            OCICommit($db_conn);
 
-		} else
-			if (array_key_exists('updatesubmit', $_POST)) {
-				// Update tuple using data from user
-				$tuple = array (
-					":bind1" => $_POST['oldName'],
-					":bind2" => $_POST['newName']
-				);
-				$alltuples = array (
-					$tuple
-				);
-				executeBoundSQL("update tab1 set name=:bind2 where name=:bind1", $alltuples);
-				OCICommit($db_conn);
+        } else
+            if (array_key_exists('updatesubmit', $_POST)) {
+                // Update tuple using data from user
+                $tuple = array(
+                    ":bind1" => $_POST['oldName'],
+                    ":bind2" => $_POST['newName'],
+                    ":bind3" => $_POST['oldPhone'],
+                    ":bind4" => $_POST['newPhone'],
+                    ":bind5" => $_POST['oldAddress'],
+                    ":bind6" => $_POST['newAddress']
+                );
+                $alltuples = array(
+                    $tuple
+                );
+                executeBoundSQL("update tab1 set name=:bind2, phone=:bind4, address=:bind6, where name=:bind1 and phone=:bind3 and address=:bind5", $alltuples);
+                OCICommit($db_conn);
 
-			} else
-				if (array_key_exists('dostuff', $_POST)) {
-					// Insert data into table...
-					executePlainSQL("insert into tab1 values (10, 'Frank')");
-					// Inserting data into table using bound variables
-					$list1 = array (
-						":bind1" => 6,
-						":bind2" => "All"
-					);
-					$list2 = array (
-						":bind1" => 7,
-						":bind2" => "John"
-					);
-					$allrows = array (
-						$list1,
-						$list2
-					);
-					executeBoundSQL("insert into tab1 values (:bind1, :bind2)", $allrows); //the function takes a list of lists
-					// Update data...
-					//executePlainSQL("update tab1 set nid=10 where nid=2");
-					// Delete data...
-					//executePlainSQL("delete from tab1 where nid=1");
-					OCICommit($db_conn);
-				}
+            } else
+                if (array_key_exists('dostuff', $_POST)) {
+                    // Insert data into table...
+                    executePlainSQL("insert into tab1 values (10, 'Frank')");
+                    // Inserting data into table using bound variables
+                    $list1 = array(
+                        ":bind1" => 6,
+                        ":bind2" => "All"
+                    );
+                    $list2 = array(
+                        ":bind1" => 7,
+                        ":bind2" => "John"
+                    );
+                    $allrows = array(
+                        $list1,
+                        $list2
+                    );
+                    executeBoundSQL("insert into tab1 values (:bind1, :bind2)", $allrows); //the function takes a list of lists
+                    // Update data...
+                    //executePlainSQL("update tab1 set nid=10 where nid=2");
+                    // Delete data...
+                    //executePlainSQL("delete from tab1 where nid=1");
+                    OCICommit($db_conn);
+                }
 
-	if ($_POST && $success) {
-		//POST-REDIRECT-GET -- See http://en.wikipedia.org/wiki/Post/Redirect/Get
-		header("location: main.php");
-	} else {
-		// Select data...
-		$result = executePlainSQL("select * from tab1");
-		printResult($result);
-	}
+    if ($_POST && $success) {
+        //POST-REDIRECT-GET -- See http://en.wikipedia.org/wiki/Post/Redirect/Get
+        header("location: main.php");
+    } else {
+        // Select data...
+        $result = executePlainSQL("select * from tab1");
+        printResult($result);
+    }
 
-	//Commit to save changes...
-	OCILogoff($db_conn);
+    //Commit to save changes...
+    OCILogoff($db_conn);
 } else {
-	echo "cannot connect";
-	$e = OCI_Error(); // For OCILogon errors pass no handle
-	echo htmlentities($e['message']);
+    echo "cannot connect";
+    $e = OCI_Error(); // For OCILogon errors pass no handle
+    echo htmlentities($e['message']);
 }
 
 /* OCILogon() allows you to log onto the Oracle database
