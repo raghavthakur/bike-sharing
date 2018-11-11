@@ -31,7 +31,7 @@
 <p>Insert values into tab1 below:</p>
 <p><font size="2"> Number&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
 Name</font></p>
-<form method="POST" action="oracle-test.php">
+<form method="POST" action="main.php">
 <!--refresh page when submit-->
 
    <p><input type="text" name="insNo" size="6"><input type="text" name="insName" 
@@ -46,7 +46,7 @@ get the values-->
 <p> Update the name by inserting the old and new values below: </p>
 <p><font size="2"> Old Name&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
 New Name</font></p>
-<form method="POST" action="oracle-test.php">
+<form method="POST" action="main.php">
 <!--refresh page when submit-->
 
    <p><input type="text" name="oldName" size="6"><input type="text" name="newName" 
@@ -207,7 +207,7 @@ if ($db_conn) {
 
 	if ($_POST && $success) {
 		//POST-REDIRECT-GET -- See http://en.wikipedia.org/wiki/Post/Redirect/Get
-		header("location: oracle-test.php");
+		header("location: main.php");
 	} else {
 		// Select data...
 		$result = executePlainSQL("select * from tab1");
