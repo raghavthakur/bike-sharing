@@ -73,7 +73,6 @@ function executeBoundSQL($cmdstr, $list)
 
 }
 
-/*
 function printResult($result)
 { //prints results from a select statement
     echo "<br>Got data from table tab1:<br>";
@@ -86,7 +85,6 @@ function printResult($result)
     echo "</table>";
 
 }
-*/
 
 // Connect Oracle...
 if ($db_conn) {
