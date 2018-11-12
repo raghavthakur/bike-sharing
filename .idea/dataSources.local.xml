@@ -9,6 +9,7 @@
       <case-sensitivity plain-identifiers="upper" quoted-identifiers="exact" />
       <secret-storage>master_key</secret-storage>
       <user-name>ora_f4l0b</user-name>
+      <introspection-schemas>*:@</introspection-schemas>
       <ssh-properties>
         <enabled>true</enabled>
         <proxy-host>lulu.ugrad.cs.ubc.ca</proxy-host>

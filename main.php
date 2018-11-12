@@ -1,84 +1,3 @@
-<!--Test Oracle file for UBC CPSC 304
-  Created by Jiemin Zhang, 2011
-  Modified by Simona Radu and others
-  This file shows the very basics of how to execute PHP commands
-  on Oracle.  
-  specifically, it will drop a table, create a table, insert values
-  update values, and then query for values
- 
-  IF YOU HAVE A TABLE CALLED "tab1" IT WILL BE DESTROYED
-
-  The script assumes you already have a server set up
-  All OCI commands are commands to the Oracle libraries
-  To get the file to work, you must place it somewhere where your
-  Apache server can run it, and you must rename it to have a ".php"
-  extension.  You must also change the username and password on the 
-  OCILogon below to be your ORACLE username and password -->
-
-<p>If you wish to reset the table, press the reset button. If this is the first time you're running this page, you MUST
-    use reset</p>
-
-<form method="POST" action="main.php">
-
-    <p><input type="submit" value="Reset" name="reset"></p>
-</form>
-
-<p>Insert values into tab1 below:</p>
-<p><font size="2"> Number
-        Name
-        Phone
-        Address</font></p>
-<form method="POST" action="main.php">
-    <!--refresh page when submit-->
-
-    <p>
-        <input type="text" name="insNo" size="6">
-        <input type="text" name="insName" size="18">
-        <input type="text" name="insPhone" size="18">
-        <input type="text" name="insAddress" size="18">
-        <!--define four variables to pass the value-->
-
-        <input type="submit" value="insert" name="insertsubmit"></p>
-</form>
-<!-- create a form to pass the values. See below for how to 
-get the values-->
-
-<p> Update the name, phone, address by inserting the old and new values below: </p>
-<p><font size="2"> Old Name
-        New Name
-        Old Phone
-        New Phone
-        Old Address
-        New Address
-    </font></p>
-<form method="POST" action="main.php">
-    <!--refresh page when submit-->
-
-    <p>
-        <input type="text" name="oldName" size="10">
-        <input type="text" name="newName" size="10">
-        <input type="text" name="oldPhone" size="10">
-        <input type="text" name="newPhone" size="10">
-        <input type="text" name="oldAddress" size="10">
-        <input type="text" name="newAddress" size="10">
-        <!--define six variables to pass the value-->
-
-        <input type="submit" value="update" name="updatesubmit"></p>
-    <input type="submit" value="run hardcoded queries" name="dostuff"></p>
-</form>
-
-<p>Delete row from tab1 below using number:</p>
-<p><font size="2">Number</font></p>
-<form method="POST" action="main.php">
-    <!--refresh page when submit-->
-
-    <p>
-        <input type="text" name="delNo" size="6">
-        <!--define four variables to pass the value-->
-
-        <input type="submit" value="delete" name="deletesubmit"></p>
-</form>
-
 <?php
 
 //this tells the system that it's no longer just parsing 
@@ -153,6 +72,7 @@ function executeBoundSQL($cmdstr, $list)
 
 }
 
+/*
 function printResult($result)
 { //prints results from a select statement
     echo "<br>Got data from table tab1:<br>";
@@ -165,6 +85,7 @@ function printResult($result)
     echo "</table>";
 
 }
+*/
 
 // Connect Oracle...
 if ($db_conn) {
@@ -180,18 +101,19 @@ if ($db_conn) {
         OCICommit($db_conn);
 
     } else
-        if (array_key_exists('insertsubmit', $_POST)) {
+        if (array_key_exists('addBike', $_POST)) {
             //Getting the values from user and insert data into the table
             $tuple = array(
-                ":bind1" => $_POST['insNo'],
-                ":bind2" => $_POST['insName'],
-                ":bind3" => $_POST['insPhone'],
-                ":bind4" => $_POST['insAddress']
+                ":bind1" => random_int(0, 1000),
+                ":bind2" => $_POST['datePurchased'],
+                ":bind3" => $_POST['latitude'],
+                ":bind4" => $_POST['longitude'],
+                ":bind5" => 0
             );
             $alltuples = array(
                 $tuple
             );
-            executeBoundSQL("insert into tab1 values (:bind1, :bind2, :bind3, :bind4)", $alltuples);
+            executeBoundSQL("insert into bike values (:bind1, :bind2, :bind3, :bind4, :bind5)", $alltuples);
             OCICommit($db_conn);
 
         } else
