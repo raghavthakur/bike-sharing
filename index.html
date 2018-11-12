@@ -43,6 +43,31 @@
             <h1>Bike Sharing</h1>
         </header>
 
+        <form method="POST" action="main.php">
+
+            <p>
+                Enter date purchased:
+                <input type="date" name="datePurchased">
+            </p>
+
+            <p>
+                Enter latitude:
+                <input type="number" name="latitude" size="20">
+            </p>
+
+            <p>
+                Enter longitude:
+                <input type="number" name="longitude" size="20">
+            </p>
+
+            <input type="submit" value="Add Bike" name="addBike">
+
+            <p>
+                Display confirmation message showing bikeID of the new bike.
+            </p>
+
+        </form>
+
         <div id="shadowbox">
             <main>
                 <div>
