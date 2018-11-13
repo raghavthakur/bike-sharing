@@ -87,47 +87,103 @@
 
 <?php
 
-include '../server.php';
+require '../server.php';
+
+function printResult($result)
+{ //prints results from a select statement
+    echo "<br>Got data from table tab1:<br>";
+    echo "<table>";
+    echo "<tr><th>ID</th><th>Name</th><th>Phone</th><th>Address</th></tr>";
+
+    while ($row = OCI_Fetch_Array($result, OCI_BOTH)) {
+        echo "<tr><td>" . $row["NID"] . "</td><td>" . $row["NAME"] . "</td><td>" . $row["PHONE"] . "</td><td>" . $row["ADDRESS"] . "</td></tr>"; //or just use "echo $row[0]"
+    }
+    echo "</table>";
+
+}
 
 // Connect Oracle...
 if ($db_conn) {
 
+    if (array_key_exists('reset', $_POST)) {
+        // Drop old table...
+        echo "<br> dropping table <br>";
+        executePlainSQL("Drop table tab1");
 
-            if (array_key_exists('deleteRider', $_POST)) {
-                // Delete tuple using data from user
+        // Create new table...
+        echo "<br> creating new table <br>";
+        executePlainSQL("create table tab1 (nid number, name varchar2(30), phone number, address varchar2(100), primary key (nid))");
+        OCICommit($db_conn);
+
+    } else
+        if (array_key_exists('addBike', $_POST)) {
+            //Getting the values from user and insert data into the table
+            $tuple = array(
+                ":bind1" => random_int(0, 1000),
+                ":bind2" => $_POST['datePurchased'],
+                ":bind3" => $_POST['latitude'],
+                ":bind4" => $_POST['longitude'],
+                ":bind5" => 0
+            );
+            $alltuples = array(
+                $tuple
+            );
+            executeBoundSQL("insert into bike values (:bind1, :bind2, :bind3, :bind4, :bind5)", $alltuples);
+            OCICommit($db_conn);
+
+        } else
+            if (array_key_exists('updatesubmit', $_POST)) {
+                // Update tuple using data from user
                 $tuple = array(
-                    ":bind1" => $_POST['riderID']
+                    ":bind1" => $_POST['oldName'],
+                    ":bind2" => $_POST['newName'],
+                    ":bind3" => $_POST['oldPhone'],
+                    ":bind4" => $_POST['newPhone'],
+                    ":bind5" => $_POST['oldAddress'],
+                    ":bind6" => $_POST['newAddress']
                 );
                 $alltuples = array(
                     $tuple
                 );
-                executeBoundSQL("delete from tab1 where nid=:bind1", $alltuples);
+                executeBoundSQL("update tab1 set name=:bind2, phone=:bind4, address=:bind6 where name=:bind1 and phone=:bind3 and address=:bind5", $alltuples);
                 OCICommit($db_conn);
 
             } else
-                if (array_key_exists('dostuff', $_POST)) {
-                    // Insert data into table...
-                    executePlainSQL("insert into tab1 values (10, 'Frank')");
-                    // Inserting data into table using bound variables
-                    $list1 = array(
-                        ":bind1" => 6,
-                        ":bind2" => "All"
+                if (array_key_exists('deletesubmit', $_POST)) {
+                    // Delete tuple using data from user
+                    $tuple = array(
+                        ":bind1" => $_POST['delNo']
                     );
-                    $list2 = array(
-                        ":bind1" => 7,
-                        ":bind2" => "John"
+                    $alltuples = array(
+                        $tuple
                     );
-                    $allrows = array(
-                        $list1,
-                        $list2
-                    );
-                    executeBoundSQL("insert into tab1 values (:bind1, :bind2)", $allrows); //the function takes a list of lists
-                    // Update data...
-                    //executePlainSQL("update tab1 set nid=10 where nid=2");
-                    // Delete data...
-                    //executePlainSQL("delete from tab1 where nid=1");
+                    executeBoundSQL("delete from tab1 where nid=:bind1", $alltuples);
                     OCICommit($db_conn);
-                }
+
+                } else
+                    if (array_key_exists('dostuff', $_POST)) {
+                        // Insert data into table...
+                        executePlainSQL("insert into tab1 values (10, 'Frank')");
+                        // Inserting data into table using bound variables
+                        $list1 = array(
+                            ":bind1" => 6,
+                            ":bind2" => "All"
+                        );
+                        $list2 = array(
+                            ":bind1" => 7,
+                            ":bind2" => "John"
+                        );
+                        $allrows = array(
+                            $list1,
+                            $list2
+                        );
+                        executeBoundSQL("insert into tab1 values (:bind1, :bind2)", $allrows); //the function takes a list of lists
+                        // Update data...
+                        //executePlainSQL("update tab1 set nid=10 where nid=2");
+                        // Delete data...
+                        //executePlainSQL("delete from tab1 where nid=1");
+                        OCICommit($db_conn);
+                    }
 
     if ($_POST && $success) {
         //POST-REDIRECT-GET -- See http://en.wikipedia.org/wiki/Post/Redirect/Get
@@ -179,5 +235,4 @@ if ($db_conn) {
      OCI_RETURN_LOBS - return the value of a LOB of the descriptor.
      Default mode is OCI_BOTH.  */
 ?>
-
 
