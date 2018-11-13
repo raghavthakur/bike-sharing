@@ -77,15 +77,6 @@
                 <p>
                     Copyright &copy; 2018 Bike Sharing <br>
                     <a href="mailto:email@domain.com">email@domain.com</a>
-                    <?php
-                    if ($db_conn) {
-                        echo "<select name='RIDER_ID'>";
-                        foreach ($results as $row) {
-                            echo "<option value='" . $row['RIDER_ID'] . "'>" . $row['RIDER_ID'] . "</option>";
-                        }
-                        echo "</select>";
-                    }
-                    ?>
                 </p>
             </footer>
         </div>
@@ -100,6 +91,14 @@ require '../server.php';
 
 // Connect Oracle...
 if ($db_conn) {
+
+    if ($db_conn) {
+        echo "<select name='RIDER_ID'>";
+        foreach ($results as $row) {
+            echo "<option value='" . $row['RIDER_ID'] . "'>" . $row['RIDER_ID'] . "</option>";
+        }
+        echo "</select>";
+    }
 
     if (array_key_exists('deleteRider', $_POST)) {
         // Delete tuple using data from user
