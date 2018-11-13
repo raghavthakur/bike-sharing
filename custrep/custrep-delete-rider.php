@@ -57,13 +57,13 @@
                         <p>
                             Delete a rider from the system:
                             <?php
-//                            if ($db_conn) {
-//                                echo "<select name='RIDER_ID'>";
-//                                foreach ($results as $row) {
-//                                    echo "<option value='" . $row['RIDER_ID'] . "'>" . $row['RIDER_ID'] . "</option>";
-//                                }
+                            if ($db_conn) {
+                                echo "<select name='RIDER_ID'>";
+                                foreach ($results as $row) {
+                                    echo "<option value='" . $row['RIDER_ID'] . "'>" . $row['RIDER_ID'] . "</option>";
+                                }
                                 echo "</select>";
-                           // }
+                             }
                             ?>
                         </p>
 
