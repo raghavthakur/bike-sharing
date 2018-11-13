@@ -89,19 +89,6 @@
 
 require '../server.php';
 
-function printResult($result)
-{ //prints results from a select statement
-    echo "<br>Got data from table tab1:<br>";
-    echo "<table>";
-    echo "<tr><th>ID</th><th>Name</th><th>Phone</th><th>Address</th></tr>";
-
-    while ($row = OCI_Fetch_Array($result, OCI_BOTH)) {
-        echo "<tr><td>" . $row["NID"] . "</td><td>" . $row["NAME"] . "</td><td>" . $row["PHONE"] . "</td><td>" . $row["ADDRESS"] . "</td></tr>"; //or just use "echo $row[0]"
-    }
-    echo "</table>";
-
-}
-
 // Connect Oracle...
 if ($db_conn) {
 
