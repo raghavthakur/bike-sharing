@@ -120,7 +120,7 @@ if ($db_conn) {
 
     if ($_POST && $success) {
         //POST-REDIRECT-GET -- See http://en.wikipedia.org/wiki/Post/Redirect/Get
-        header("location: server.php");
+        header("location: ../server.php");
     } else {
         // Select data...
         $result = executePlainSQL("select * from RIDER");
