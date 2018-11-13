@@ -52,7 +52,7 @@
                 <div>
                     <h3>CUSTOMER SERVICE REP. - Delete a Rider</h3>
 
-                    <form method="POST" action="custrep-delete-rider.php.php">
+                    <form method="POST" action="custrep-delete-rider.php">
 
                         <p>
                             Delete a rider from the system:
