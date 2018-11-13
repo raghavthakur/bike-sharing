@@ -87,7 +87,7 @@
 
 <?php
 
-require '../server.php';
+include '../server.php';
 
 // Connect Oracle...
 if ($db_conn) {
