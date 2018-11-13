@@ -56,6 +56,15 @@
 
                         <p>
                             Delete a rider from the system:
+                            <?php
+//                            if ($db_conn) {
+//                                echo "<select name='RIDER_ID'>";
+//                                foreach ($results as $row) {
+//                                    echo "<option value='" . $row['RIDER_ID'] . "'>" . $row['RIDER_ID'] . "</option>";
+//                                }
+                                echo "</select>";
+                           // }
+                            ?>
                         </p>
 
                         <p>
@@ -105,35 +114,13 @@ if ($db_conn) {
 
     }
 
-
-//    $sql = "SELECT * FROM RIDER";
-//    $result = mysql_query($sql);
-//
-//    echo "<select name='PcID'>";
-//    while ($row = mysql_fetch_array($result)) {
-//        echo "<option value='" . $row['RIDER_ID'] . "'>" . $row['RIDER_ID'] . "</option>";
-//    }
-//    echo "</select>";
-
-//query
-    $sql = mysql_query("SELECT RIDER_ID FROM RIDER");
-    if(mysql_num_rows($sql)){
-        $select= '<select name="select">';
-        while($rs=mysql_fetch_array($sql)){
-            $select.='<option value="'.$rs['RIDER_ID'].'"></option>';
-        }
-    }
-    $select.='</select>';
-    echo $select;
-
-
     if ($_POST && $success) {
-        // POST-REDIRECT-GET -- See http://en.wikipedia.org/wiki/Post/Redirect/Get
+// POST-REDIRECT-GET -- See http://en.wikipedia.org/wiki/Post/Redirect/Get
         header("location: custrep-delete-rider.php");
     }
 
 
-    // Commit to save changes...
+// Commit to save changes...
     OCILogoff($db_conn);
 } else {
     echo "cannot connect";
