@@ -115,6 +115,17 @@ if ($db_conn) {
 //    }
 //    echo "</select>";
 
+//query
+    $sql = mysql_query("SELECT RIDER_ID FROM RIDER");
+    if(mysql_num_rows($sql)){
+        $select= '<select name="select">';
+        while($rs=mysql_fetch_array($sql)){
+            $select.='<option value="'.$rs['id'].'">'.$rs['name'].'</option>';
+        }
+    }
+    $select.='</select>';
+    echo $select;
+
 
     if ($_POST && $success) {
         // POST-REDIRECT-GET -- See http://en.wikipedia.org/wiki/Post/Redirect/Get
