@@ -56,15 +56,6 @@
 
                         <p>
                             Delete a rider from the system:
-                            <?php
-                            if ($db_conn) {
-                                echo "<select name='RIDER_ID'>";
-                                foreach ($results as $row) {
-                                    echo "<option value='" . $row['RIDER_ID'] . "'>" . $row['RIDER_ID'] . "</option>";
-                                }
-                                echo "</select>";
-                             }
-                            ?>
                         </p>
 
                         <p>
@@ -86,6 +77,15 @@
                 <p>
                     Copyright &copy; 2018 Bike Sharing <br>
                     <a href="mailto:email@domain.com">email@domain.com</a>
+                    <?php
+                    if ($db_conn) {
+                        echo "<select name='RIDER_ID'>";
+                        foreach ($results as $row) {
+                            echo "<option value='" . $row['RIDER_ID'] . "'>" . $row['RIDER_ID'] . "</option>";
+                        }
+                        echo "</select>";
+                    }
+                    ?>
                 </p>
             </footer>
         </div>
