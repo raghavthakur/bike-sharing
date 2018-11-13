@@ -100,7 +100,7 @@ if ($db_conn) {
         $alltuples = array(
             $tuple
         );
-        executeBoundSQL("delete from RIDER where RIDER_ID=:bind1", $alltuples);
+        executeBoundSQL("DELETE FROM RIDER WHERE RIDER_ID=:bind1", $alltuples);
         OCICommit($db_conn);
 
     }
@@ -109,6 +109,8 @@ if ($db_conn) {
         //POST-REDIRECT-GET -- See http://en.wikipedia.org/wiki/Post/Redirect/Get
         header("location: custrep-delete-rider.php");
         echo "Rider " . $_POST['riderID'] . " has been deleted";
+    } else {
+        echo "HELLO";
     }
 
 
