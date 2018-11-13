@@ -92,6 +92,7 @@ require '../server.php';
 // Connect Oracle...
 if ($db_conn) {
 
+        $results = executePlainSQL("SELECT RIDER_ID FROM RIDER");
         echo "<select name='RIDER_ID'>";
         foreach ($results as $row) {
             echo "<option value='" . $row['RIDER_ID'] . "'>" . $row['RIDER_ID'] . "</option>";
