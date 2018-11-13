@@ -77,7 +77,7 @@
                 <p>
                     Copyright &copy; 2018 Bike Sharing <br>
                     <a href="mailto:email@domain.com">email@domain.com</a>
-                    <select name="riderID-dropdown">
+                    <select value="Select Rider ID" name="riderID-dropdown">
                         <option value="put the employee ID here">Show bike ID and latitude/longitude from the DB
                             here
                         </option>
