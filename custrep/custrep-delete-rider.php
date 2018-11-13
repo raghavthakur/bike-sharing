@@ -108,9 +108,8 @@ if ($db_conn) {
     if ($_POST && $success) {
         //POST-REDIRECT-GET -- See http://en.wikipedia.org/wiki/Post/Redirect/Get
         header("location: custrep-delete-rider.php");
-        echo "Rider " . $_POST['riderID'] . " has been deleted";
     } else {
-        echo "HELLO";
+        echo "Rider " . $_POST . " has been deleted from system";
     }
 
 
