@@ -77,20 +77,6 @@
                 <p>
                     Copyright &copy; 2018 Bike Sharing <br>
                     <a href="mailto:email@domain.com">email@domain.com</a>
-                    <select value="Select Rider ID" name="riderID-dropdown">
-                        <option value="put the employee ID here">Show bike ID and latitude/longitude from the DB
-                            here
-                        </option>
-                        <option value="put the employee ID here">Show bike ID and latitude/longitude from the DB
-                            here
-                        </option>
-                        <option value="put the employee ID here">Show bike ID and latitude/longitude from the DB
-                            here
-                        </option>
-                        <option value="put the employee ID here">Show bike ID and latitude/longitude from the DB
-                            here
-                        </option>
-                    </select>
                 </p>
             </footer>
         </div>
@@ -107,15 +93,11 @@ require '../server.php';
 if ($db_conn) {
 
     $results = executePlainSQL("SELECT RIDER_ID FROM RIDER");
-    echo "<select name='RIDER_ID'>";
+    echo "<select name='riderID'>";
     foreach ($results as $row) {
         echo "<option value='" . $row['RIDER_ID'] . "'>" . $row['RIDER_ID'] . "</option>";
     }
     echo "</select>";
-
-    if (array_key_exists('deleteRider-dropdown', $_POST)) {
-        echo 'HELLOOOO';
-    }
 
     if (array_key_exists('deleteRider', $_POST)) {
         // Delete tuple using data from user

@@ -56,11 +56,11 @@ CREATE TABLE Maintenance_Issue(
 	technican_notes		CHAR(255),
 	resolved_date		date,
 	bike_ID				INTEGER,
-	rider_ID			INTEGER,
+	rider_ID			INTEGER NOT NULL,
 	technician_ID		INTEGER NOT NULL,
 	PRIMARY KEY (issueDateTime, bike_ID),
 	FOREIGN KEY (bike_ID) REFERENCES Bike(bike_ID) ON DELETE CASCADE,
-	FOREIGN KEY (rider_ID) REFERENCES Rider(rider_ID) ON DELETE SET NULL,
+	FOREIGN KEY (rider_ID) REFERENCES Rider(rider_ID) ON DELETE CASCADE,
 	FOREIGN KEY (technician_ID) REFERENCES Maintenance_Technician(employee_ID));
 
 CREATE TABLE Issue_Requires_Part(
@@ -73,7 +73,7 @@ CREATE TABLE Issue_Requires_Part(
 
 CREATE TABLE Complaint(
 	complaint_ID		INTEGER,
-	rider_ID 			INTEGER,
+	rider_ID 			INTEGER NOT NULL,
 	customer_rep_ID 	INTEGER,
 	cust_description 	CHAR(255),
 	agent_notes 		CHAR(255),
@@ -82,7 +82,7 @@ CREATE TABLE Complaint(
 	action_taken 		CHAR(255),
 	is_resolved 		CHAR(1),
 	PRIMARY KEY (complaint_ID),
-	FOREIGN KEY (rider_ID) REFERENCES Rider(rider_ID) ON DELETE SET NULL,
+	FOREIGN KEY (rider_ID) REFERENCES Rider(rider_ID) ON DELETE CASCADE,
 	FOREIGN KEY (customer_rep_ID) REFERENCES Customer_Service_Rep(employee_ID));
 
 CREATE TABLE Trip(
@@ -98,17 +98,17 @@ CREATE TABLE Trip(
 	end_latitude 		NUMBER,
 	end_longitude 		NUMBER,
 	PRIMARY KEY (trip_ID),
-	FOREIGN KEY (rider_ID) REFERENCES Rider(rider_ID) ON DELETE SET NULL,
+	FOREIGN KEY (rider_ID) REFERENCES Rider(rider_ID) ON DELETE CASCADE,
 	FOREIGN KEY (bike_ID) REFERENCES Bike(bike_ID),
 	FOREIGN KEY (end_location_ID) REFERENCES Designated_Return_Area(location_ID) ON DELETE SET NULL);
 
 CREATE TABLE Refund(
 	refund_ID 			INTEGER,
-	rider_ID 			INTEGER,
+	rider_ID 			INTEGER NOT NULL,
 	employee_ID 		INTEGER NOT NULL,
 	refundDate 			date,
 	refundTime 			timestamp,
 	reason 				CHAR(255),
 	PRIMARY KEY (refund_ID),
-	FOREIGN KEY (rider_ID) REFERENCES Rider(rider_ID) ON DELETE SET NULL,
+	FOREIGN KEY (rider_ID) REFERENCES Rider(rider_ID) ON DELETE CASCADE,
 	FOREIGN KEY (employee_ID) REFERENCES Customer_Service_Rep(employee_ID));
