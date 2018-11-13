@@ -77,6 +77,20 @@
                 <p>
                     Copyright &copy; 2018 Bike Sharing <br>
                     <a href="mailto:email@domain.com">email@domain.com</a>
+                    <select name="bikeIdsAndLocations">
+                        <option value="put the employee ID here">Show bike ID and latitude/longitude from the DB
+                            here
+                        </option>
+                        <option value="put the employee ID here">Show bike ID and latitude/longitude from the DB
+                            here
+                        </option>
+                        <option value="put the employee ID here">Show bike ID and latitude/longitude from the DB
+                            here
+                        </option>
+                        <option value="put the employee ID here">Show bike ID and latitude/longitude from the DB
+                            here
+                        </option>
+                    </select>
                 </p>
             </footer>
         </div>
