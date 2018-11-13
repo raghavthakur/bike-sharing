@@ -58,20 +58,6 @@
                             Delete a rider from the system:
                         </p>
 
-                        <?php
-
-
-                        $sql = "SELECT * FROM RIDER";
-                        $result = mysql_query($sql);
-
-                        echo "<select name='PcID'>";
-                        while ($row = mysql_fetch_array($result)) {
-                            echo "<option value='" . $row['RIDER_ID'] . "'>" . $row['RIDER_ID'] . "</option>";
-                        }
-                        echo "</select>";
-
-                        ?>
-
                         <p>
                             Enter rider ID: <input type="number" name="riderID" size="20">
                         </p>
@@ -119,6 +105,15 @@ if ($db_conn) {
 
     }
 
+
+    $sql = "SELECT * FROM RIDER";
+    $result = mysql_query($sql);
+
+    echo "<select name='PcID'>";
+    while ($row = mysql_fetch_array($result)) {
+        echo "<option value='" . $row['RIDER_ID'] . "'>" . $row['RIDER_ID'] . "</option>";
+    }
+    echo "</select>";
 
 
     if ($_POST && $success) {
