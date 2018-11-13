@@ -6,9 +6,9 @@
     </root>
     <schema id="2" parent="1" name="ORA_F4L0B">
       <ObjectId>4956</ObjectId>
-      <IntrospectionTimestamp>2018-11-11.12:10:10</IntrospectionTimestamp>
+      <IntrospectionTimestamp>2018-11-13.04:30:33</IntrospectionTimestamp>
       <CreatedTimestamp>2018-11-03.14:21:21</CreatedTimestamp>
-      <ModifiedTimestamp>2018-11-11.08:52:30</ModifiedTimestamp>
+      <ModifiedTimestamp>2018-11-13.04:30:32</ModifiedTimestamp>
       <Current>1</Current>
       <Visible>1</Visible>
     </schema>
@@ -2067,126 +2067,198 @@
     <schema id="687" parent="1" name="XS$NULL">
       <ObjectId>2147483638</ObjectId>
     </schema>
-    <table id="688" parent="2" name="AUTHORS">
+    <schema id="688" parent="1" name="ORA_G1Q1B">
+      <ObjectId>5121</ObjectId>
+    </schema>
+    <schema id="689" parent="1" name="ORA_C6Q0B">
+      <ObjectId>5122</ObjectId>
+    </schema>
+    <table id="690" parent="2" name="AUTHORS">
       <ObjectId>1306129</ObjectId>
       <CreatedTimestamp>2018-11-10.04:46:17</CreatedTimestamp>
       <ModifiedTimestamp>2018-11-10.04:46:17</ModifiedTimestamp>
       <TemporaryPreserve>1</TemporaryPreserve>
     </table>
-    <table id="689" parent="2" name="BRANCH">
+    <table id="691" parent="2" name="BIKE">
+      <ObjectId>1314700</ObjectId>
+      <CreatedTimestamp>2018-11-13.04:30:31</CreatedTimestamp>
+      <ModifiedTimestamp>2018-11-13.04:30:31</ModifiedTimestamp>
+      <TemporaryPreserve>1</TemporaryPreserve>
+    </table>
+    <table id="692" parent="2" name="BRANCH">
       <ObjectId>1298704</ObjectId>
       <CreatedTimestamp>2018-11-03.14:21:21</CreatedTimestamp>
       <ModifiedTimestamp>2018-11-03.14:21:21</ModifiedTimestamp>
       <TemporaryPreserve>1</TemporaryPreserve>
     </table>
-    <table id="690" parent="2" name="DRIVER">
+    <table id="693" parent="2" name="COMPLAINT">
+      <ObjectId>1314714</ObjectId>
+      <CreatedTimestamp>2018-11-13.04:30:32</CreatedTimestamp>
+      <ModifiedTimestamp>2018-11-13.04:30:32</ModifiedTimestamp>
+      <TemporaryPreserve>1</TemporaryPreserve>
+    </table>
+    <table id="694" parent="2" name="CUSTOMER_SERVICE_REP">
+      <ObjectId>1314706</ObjectId>
+      <CreatedTimestamp>2018-11-13.04:30:31</CreatedTimestamp>
+      <ModifiedTimestamp>2018-11-13.04:30:31</ModifiedTimestamp>
+      <TemporaryPreserve>1</TemporaryPreserve>
+    </table>
+    <table id="695" parent="2" name="DESIGNATED_RETURN_AREA">
+      <ObjectId>1314708</ObjectId>
+      <CreatedTimestamp>2018-11-13.04:30:31</CreatedTimestamp>
+      <ModifiedTimestamp>2018-11-13.04:30:31</ModifiedTimestamp>
+      <TemporaryPreserve>1</TemporaryPreserve>
+    </table>
+    <table id="696" parent="2" name="DRIVER">
       <ObjectId>1298706</ObjectId>
       <CreatedTimestamp>2018-11-03.14:21:21</CreatedTimestamp>
       <ModifiedTimestamp>2018-11-03.14:21:21</ModifiedTimestamp>
       <TemporaryPreserve>1</TemporaryPreserve>
     </table>
-    <table id="691" parent="2" name="EDITORS">
+    <table id="697" parent="2" name="EDITORS">
       <ObjectId>1306137</ObjectId>
       <CreatedTimestamp>2018-11-10.04:46:17</CreatedTimestamp>
       <ModifiedTimestamp>2018-11-10.04:46:17</ModifiedTimestamp>
       <TemporaryPreserve>1</TemporaryPreserve>
     </table>
-    <table id="692" parent="2" name="EXAM">
+    <table id="698" parent="2" name="EXAM">
       <ObjectId>1298710</ObjectId>
       <CreatedTimestamp>2018-11-03.14:21:21</CreatedTimestamp>
       <ModifiedTimestamp>2018-11-03.14:21:21</ModifiedTimestamp>
       <TemporaryPreserve>1</TemporaryPreserve>
     </table>
-    <table id="693" parent="2" name="LICENSE">
+    <table id="699" parent="2" name="ISSUE_REQUIRES_PART">
+      <ObjectId>1314712</ObjectId>
+      <CreatedTimestamp>2018-11-13.04:30:31</CreatedTimestamp>
+      <ModifiedTimestamp>2018-11-13.04:30:31</ModifiedTimestamp>
+      <TemporaryPreserve>1</TemporaryPreserve>
+    </table>
+    <table id="700" parent="2" name="LICENSE">
       <ObjectId>1298708</ObjectId>
       <CreatedTimestamp>2018-11-03.14:21:21</CreatedTimestamp>
       <ModifiedTimestamp>2018-11-03.14:21:21</ModifiedTimestamp>
       <TemporaryPreserve>1</TemporaryPreserve>
     </table>
-    <table id="694" parent="2" name="MYTESTTABLE">
+    <table id="701" parent="2" name="MAINTENANCE_ISSUE">
+      <ObjectId>1314710</ObjectId>
+      <CreatedTimestamp>2018-11-13.04:30:31</CreatedTimestamp>
+      <ModifiedTimestamp>2018-11-13.04:30:31</ModifiedTimestamp>
+      <TemporaryPreserve>1</TemporaryPreserve>
+    </table>
+    <table id="702" parent="2" name="MAINTENANCE_TECHNICIAN">
+      <ObjectId>1314704</ObjectId>
+      <CreatedTimestamp>2018-11-13.04:30:31</CreatedTimestamp>
+      <ModifiedTimestamp>2018-11-13.04:30:31</ModifiedTimestamp>
+      <TemporaryPreserve>1</TemporaryPreserve>
+    </table>
+    <table id="703" parent="2" name="MYTESTTABLE">
       <ObjectId>1307620</ObjectId>
       <CreatedTimestamp>2018-11-11.08:52:30</CreatedTimestamp>
       <ModifiedTimestamp>2018-11-11.08:52:30</ModifiedTimestamp>
       <TemporaryPreserve>1</TemporaryPreserve>
     </table>
-    <table id="695" parent="2" name="PUBLISHERS">
+    <table id="704" parent="2" name="PUBLISHERS">
       <ObjectId>1306131</ObjectId>
       <CreatedTimestamp>2018-11-10.04:46:17</CreatedTimestamp>
       <ModifiedTimestamp>2018-11-10.04:46:17</ModifiedTimestamp>
       <TemporaryPreserve>1</TemporaryPreserve>
     </table>
-    <table id="696" parent="2" name="SALES">
+    <table id="705" parent="2" name="REFUND">
+      <ObjectId>1314718</ObjectId>
+      <CreatedTimestamp>2018-11-13.04:30:32</CreatedTimestamp>
+      <ModifiedTimestamp>2018-11-13.04:30:32</ModifiedTimestamp>
+      <TemporaryPreserve>1</TemporaryPreserve>
+    </table>
+    <table id="706" parent="2" name="REPLACEMENT_PART">
+      <ObjectId>1314702</ObjectId>
+      <CreatedTimestamp>2018-11-13.04:30:31</CreatedTimestamp>
+      <ModifiedTimestamp>2018-11-13.04:30:31</ModifiedTimestamp>
+      <TemporaryPreserve>1</TemporaryPreserve>
+    </table>
+    <table id="707" parent="2" name="RIDER">
+      <ObjectId>1314697</ObjectId>
+      <CreatedTimestamp>2018-11-13.04:30:31</CreatedTimestamp>
+      <ModifiedTimestamp>2018-11-13.04:30:31</ModifiedTimestamp>
+      <TemporaryPreserve>1</TemporaryPreserve>
+    </table>
+    <table id="708" parent="2" name="SALES">
       <ObjectId>1306141</ObjectId>
       <CreatedTimestamp>2018-11-10.04:46:17</CreatedTimestamp>
       <ModifiedTimestamp>2018-11-10.04:46:17</ModifiedTimestamp>
       <TemporaryPreserve>1</TemporaryPreserve>
     </table>
-    <table id="697" parent="2" name="SALESDETAILS">
+    <table id="709" parent="2" name="SALESDETAILS">
       <ObjectId>1306143</ObjectId>
       <CreatedTimestamp>2018-11-10.04:46:17</CreatedTimestamp>
       <ModifiedTimestamp>2018-11-10.04:46:17</ModifiedTimestamp>
       <TemporaryPreserve>1</TemporaryPreserve>
     </table>
-    <table id="698" parent="2" name="TAB1">
+    <table id="710" parent="2" name="TAB1">
       <ObjectId>1307324</ObjectId>
       <CreatedTimestamp>2018-11-11.08:03:35</CreatedTimestamp>
       <ModifiedTimestamp>2018-11-11.08:03:35</ModifiedTimestamp>
       <TemporaryPreserve>1</TemporaryPreserve>
     </table>
-    <table id="699" parent="2" name="TITLEAUTHORS">
+    <table id="711" parent="2" name="TITLEAUTHORS">
       <ObjectId>1306135</ObjectId>
       <CreatedTimestamp>2018-11-10.04:46:17</CreatedTimestamp>
       <ModifiedTimestamp>2018-11-10.04:46:17</ModifiedTimestamp>
       <TemporaryPreserve>1</TemporaryPreserve>
     </table>
-    <table id="700" parent="2" name="TITLEDITORS">
+    <table id="712" parent="2" name="TITLEDITORS">
       <ObjectId>1306139</ObjectId>
       <CreatedTimestamp>2018-11-10.04:46:17</CreatedTimestamp>
       <ModifiedTimestamp>2018-11-10.04:46:17</ModifiedTimestamp>
       <TemporaryPreserve>1</TemporaryPreserve>
     </table>
-    <table id="701" parent="2" name="TITLES">
+    <table id="713" parent="2" name="TITLES">
       <ObjectId>1306133</ObjectId>
       <CreatedTimestamp>2018-11-10.04:46:17</CreatedTimestamp>
       <ModifiedTimestamp>2018-11-10.04:46:17</ModifiedTimestamp>
       <TemporaryPreserve>1</TemporaryPreserve>
     </table>
-    <column id="702" parent="688" name="AU_ID">
+    <table id="714" parent="2" name="TRIP">
+      <ObjectId>1314716</ObjectId>
+      <CreatedTimestamp>2018-11-13.04:30:32</CreatedTimestamp>
+      <ModifiedTimestamp>2018-11-13.04:30:32</ModifiedTimestamp>
+      <TemporaryPreserve>1</TemporaryPreserve>
+    </table>
+    <column id="715" parent="690" name="AU_ID">
       <Position>1</Position>
       <DataType>CHAR(11 byte)|0s</DataType>
       <NotNull>1</NotNull>
     </column>
-    <column id="703" parent="688" name="AU_LNAME">
+    <column id="716" parent="690" name="AU_LNAME">
       <Position>2</Position>
       <DataType>VARCHAR2(40 byte)|0s</DataType>
       <NotNull>1</NotNull>
     </column>
-    <column id="704" parent="688" name="AU_FNAME">
+    <column id="717" parent="690" name="AU_FNAME">
       <Position>3</Position>
       <DataType>VARCHAR2(20 byte)|0s</DataType>
       <NotNull>1</NotNull>
     </column>
-    <column id="705" parent="688" name="PHONE">
+    <column id="718" parent="690" name="PHONE">
       <Position>4</Position>
       <DataType>CHAR(12 byte)|0s</DataType>
     </column>
-    <column id="706" parent="688" name="ADDRESS">
+    <column id="719" parent="690" name="ADDRESS">
       <Position>5</Position>
       <DataType>VARCHAR2(40 byte)|0s</DataType>
     </column>
-    <column id="707" parent="688" name="CITY">
+    <column id="720" parent="690" name="CITY">
       <Position>6</Position>
       <DataType>VARCHAR2(20 byte)|0s</DataType>
     </column>
-    <column id="708" parent="688" name="STATE">
+    <column id="721" parent="690" name="STATE">
       <Position>7</Position>
       <DataType>CHAR(2 byte)|0s</DataType>
     </column>
-    <column id="709" parent="688" name="ZIP">
+    <column id="722" parent="690" name="ZIP">
       <Position>8</Position>
       <DataType>CHAR(5 byte)|0s</DataType>
     </column>
-    <index id="710" parent="688" name="SYS_C001733813">
+    <index id="723" parent="690" name="SYS_C001733813">
       <ObjectId>1306130</ObjectId>
       <NameSurrogate>1</NameSurrogate>
       <CreatedTimestamp>2018-11-10.04:46:17</CreatedTimestamp>
@@ -2195,7 +2267,7 @@
       <ColNames>AU_ID</ColNames>
       <Unique>1</Unique>
     </index>
-    <key id="711" parent="688" name="SYS_C001733813">
+    <key id="724" parent="690" name="SYS_C001733813">
       <NameSurrogate>1</NameSurrogate>
       <ModifiedTimestamp>2018-11-10.04:46:17</ModifiedTimestamp>
       <ColNames>AU_ID</ColNames>
@@ -2203,30 +2275,68 @@
       <UnderlyingIndexName>SYS_C001733813</UnderlyingIndexName>
       <Primary>1</Primary>
     </key>
-    <column id="712" parent="689" name="BRANCH_ID">
+    <column id="725" parent="691" name="BIKE_ID">
       <Position>1</Position>
       <DataType>NUMBER(*)|0s</DataType>
       <NotNull>1</NotNull>
     </column>
-    <column id="713" parent="689" name="BRANCH_NAME">
+    <column id="726" parent="691" name="DATE_PURCHASED">
+      <Position>2</Position>
+      <DataType>DATE|0s</DataType>
+    </column>
+    <column id="727" parent="691" name="LATITUDE">
+      <Position>3</Position>
+      <DataType>NUMBER(*)|0s</DataType>
+    </column>
+    <column id="728" parent="691" name="LONGITUDE">
+      <Position>4</Position>
+      <DataType>NUMBER(*)|0s</DataType>
+    </column>
+    <column id="729" parent="691" name="IS_BROKEN">
+      <Position>5</Position>
+      <DataType>CHAR(1 byte)|0s</DataType>
+    </column>
+    <index id="730" parent="691" name="SYS_C001741514">
+      <ObjectId>1314701</ObjectId>
+      <NameSurrogate>1</NameSurrogate>
+      <CreatedTimestamp>2018-11-13.04:30:31</CreatedTimestamp>
+      <ModifiedTimestamp>2018-11-13.04:30:31</ModifiedTimestamp>
+      <TablespaceName>USERS</TablespaceName>
+      <ColNames>BIKE_ID</ColNames>
+      <Unique>1</Unique>
+    </index>
+    <key id="731" parent="691" name="SYS_C001741514">
+      <NameSurrogate>1</NameSurrogate>
+      <ModifiedTimestamp>2018-11-13.04:30:31</ModifiedTimestamp>
+      <ColNames>BIKE_ID</ColNames>
+      <InitiallyDeferred>1</InitiallyDeferred>
+      <UnderlyingIndexName>SYS_C001741514</UnderlyingIndexName>
+      <Primary>1</Primary>
+    </key>
+    <column id="732" parent="692" name="BRANCH_ID">
+      <Position>1</Position>
+      <DataType>NUMBER(*)|0s</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="733" parent="692" name="BRANCH_NAME">
       <Position>2</Position>
       <DataType>VARCHAR2(20 byte)|0s</DataType>
       <NotNull>1</NotNull>
     </column>
-    <column id="714" parent="689" name="BRANCH_ADDR">
+    <column id="734" parent="692" name="BRANCH_ADDR">
       <Position>3</Position>
       <DataType>VARCHAR2(50 byte)|0s</DataType>
     </column>
-    <column id="715" parent="689" name="BRANCH_CITY">
+    <column id="735" parent="692" name="BRANCH_CITY">
       <Position>4</Position>
       <DataType>VARCHAR2(20 byte)|0s</DataType>
       <NotNull>1</NotNull>
     </column>
-    <column id="716" parent="689" name="BRANCH_PHONE">
+    <column id="736" parent="692" name="BRANCH_PHONE">
       <Position>5</Position>
       <DataType>NUMBER(*)|0s</DataType>
     </column>
-    <index id="717" parent="689" name="SYS_C001724271">
+    <index id="737" parent="692" name="SYS_C001724271">
       <ObjectId>1298705</ObjectId>
       <NameSurrogate>1</NameSurrogate>
       <CreatedTimestamp>2018-11-03.14:21:21</CreatedTimestamp>
@@ -2235,7 +2345,7 @@
       <ColNames>BRANCH_ID</ColNames>
       <Unique>1</Unique>
     </index>
-    <key id="718" parent="689" name="SYS_C001724271">
+    <key id="738" parent="692" name="SYS_C001724271">
       <NameSurrogate>1</NameSurrogate>
       <ModifiedTimestamp>2018-11-03.14:21:21</ModifiedTimestamp>
       <ColNames>BRANCH_ID</ColNames>
@@ -2243,36 +2353,185 @@
       <UnderlyingIndexName>SYS_C001724271</UnderlyingIndexName>
       <Primary>1</Primary>
     </key>
-    <column id="719" parent="690" name="DRIVER_SIN">
+    <column id="739" parent="693" name="COMPLAINT_ID">
       <Position>1</Position>
       <DataType>NUMBER(*)|0s</DataType>
       <NotNull>1</NotNull>
     </column>
-    <column id="720" parent="690" name="DRIVER_NAME">
+    <column id="740" parent="693" name="RIDER_ID">
+      <Position>2</Position>
+      <DataType>NUMBER(*)|0s</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="741" parent="693" name="CUSTOMER_REP_ID">
+      <Position>3</Position>
+      <DataType>NUMBER(*)|0s</DataType>
+    </column>
+    <column id="742" parent="693" name="CUST_DESCRIPTION">
+      <Position>4</Position>
+      <DataType>CHAR(255 byte)|0s</DataType>
+    </column>
+    <column id="743" parent="693" name="AGENT_NOTES">
+      <Position>5</Position>
+      <DataType>CHAR(255 byte)|0s</DataType>
+    </column>
+    <column id="744" parent="693" name="URGENCY_LEVEL">
+      <Position>6</Position>
+      <DataType>CHAR(50 byte)|0s</DataType>
+    </column>
+    <column id="745" parent="693" name="COMPLAINTDATETIME">
+      <Position>7</Position>
+      <DataType>TIMESTAMP(6)|0s</DataType>
+    </column>
+    <column id="746" parent="693" name="ACTION_TAKEN">
+      <Position>8</Position>
+      <DataType>CHAR(255 byte)|0s</DataType>
+    </column>
+    <column id="747" parent="693" name="IS_RESOLVED">
+      <Position>9</Position>
+      <DataType>CHAR(1 byte)|0s</DataType>
+    </column>
+    <index id="748" parent="693" name="SYS_C001741529">
+      <ObjectId>1314715</ObjectId>
+      <NameSurrogate>1</NameSurrogate>
+      <CreatedTimestamp>2018-11-13.04:30:32</CreatedTimestamp>
+      <ModifiedTimestamp>2018-11-13.04:30:32</ModifiedTimestamp>
+      <TablespaceName>USERS</TablespaceName>
+      <ColNames>COMPLAINT_ID</ColNames>
+      <Unique>1</Unique>
+    </index>
+    <key id="749" parent="693" name="SYS_C001741529">
+      <NameSurrogate>1</NameSurrogate>
+      <ModifiedTimestamp>2018-11-13.04:30:32</ModifiedTimestamp>
+      <ColNames>COMPLAINT_ID</ColNames>
+      <InitiallyDeferred>1</InitiallyDeferred>
+      <UnderlyingIndexName>SYS_C001741529</UnderlyingIndexName>
+      <Primary>1</Primary>
+    </key>
+    <foreign-key id="750" parent="693" name="SYS_C001741530">
+      <NameSurrogate>1</NameSurrogate>
+      <ModifiedTimestamp>2018-11-13.04:30:32</ModifiedTimestamp>
+      <ColNames>RIDER_ID</ColNames>
+      <RefSchemaName>ORA_F4L0B</RefSchemaName>
+      <RefTableName>RIDER</RefTableName>
+      <RefKeyName>SYS_C001741512</RefKeyName>
+      <OnDelete>restrict</OnDelete>
+    </foreign-key>
+    <foreign-key id="751" parent="693" name="SYS_C001741531">
+      <NameSurrogate>1</NameSurrogate>
+      <ModifiedTimestamp>2018-11-13.04:30:32</ModifiedTimestamp>
+      <ColNames>CUSTOMER_REP_ID</ColNames>
+      <RefSchemaName>ORA_F4L0B</RefSchemaName>
+      <RefTableName>CUSTOMER_SERVICE_REP</RefTableName>
+      <RefKeyName>SYS_C001741517</RefKeyName>
+      <OnDelete>restrict</OnDelete>
+    </foreign-key>
+    <column id="752" parent="694" name="EMPLOYEE_ID">
+      <Position>1</Position>
+      <DataType>NUMBER(*)|0s</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="753" parent="694" name="NAME">
+      <Position>2</Position>
+      <DataType>CHAR(50 byte)|0s</DataType>
+    </column>
+    <column id="754" parent="694" name="PHONE_NUM">
+      <Position>3</Position>
+      <DataType>NUMBER(*)|0s</DataType>
+    </column>
+    <column id="755" parent="694" name="EMAIL">
+      <Position>4</Position>
+      <DataType>CHAR(50 byte)|0s</DataType>
+    </column>
+    <column id="756" parent="694" name="ADDRESS">
+      <Position>5</Position>
+      <DataType>CHAR(100 byte)|0s</DataType>
+    </column>
+    <column id="757" parent="694" name="ALIAS_NAME">
+      <Position>6</Position>
+      <DataType>CHAR(50 byte)|0s</DataType>
+    </column>
+    <index id="758" parent="694" name="SYS_C001741517">
+      <ObjectId>1314707</ObjectId>
+      <NameSurrogate>1</NameSurrogate>
+      <CreatedTimestamp>2018-11-13.04:30:31</CreatedTimestamp>
+      <ModifiedTimestamp>2018-11-13.04:30:31</ModifiedTimestamp>
+      <TablespaceName>USERS</TablespaceName>
+      <ColNames>EMPLOYEE_ID</ColNames>
+      <Unique>1</Unique>
+    </index>
+    <key id="759" parent="694" name="SYS_C001741517">
+      <NameSurrogate>1</NameSurrogate>
+      <ModifiedTimestamp>2018-11-13.04:30:31</ModifiedTimestamp>
+      <ColNames>EMPLOYEE_ID</ColNames>
+      <InitiallyDeferred>1</InitiallyDeferred>
+      <UnderlyingIndexName>SYS_C001741517</UnderlyingIndexName>
+      <Primary>1</Primary>
+    </key>
+    <column id="760" parent="695" name="LOCATION_ID">
+      <Position>1</Position>
+      <DataType>NUMBER(*)|0s</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="761" parent="695" name="LATITUDE">
+      <Position>2</Position>
+      <DataType>NUMBER(*)|0s</DataType>
+    </column>
+    <column id="762" parent="695" name="LONGITUDE">
+      <Position>3</Position>
+      <DataType>NUMBER(*)|0s</DataType>
+    </column>
+    <column id="763" parent="695" name="RADIUS">
+      <Position>4</Position>
+      <DataType>NUMBER(*)|0s</DataType>
+    </column>
+    <index id="764" parent="695" name="SYS_C001741518">
+      <ObjectId>1314709</ObjectId>
+      <NameSurrogate>1</NameSurrogate>
+      <CreatedTimestamp>2018-11-13.04:30:31</CreatedTimestamp>
+      <ModifiedTimestamp>2018-11-13.04:30:31</ModifiedTimestamp>
+      <TablespaceName>USERS</TablespaceName>
+      <ColNames>LOCATION_ID</ColNames>
+      <Unique>1</Unique>
+    </index>
+    <key id="765" parent="695" name="SYS_C001741518">
+      <NameSurrogate>1</NameSurrogate>
+      <ModifiedTimestamp>2018-11-13.04:30:31</ModifiedTimestamp>
+      <ColNames>LOCATION_ID</ColNames>
+      <InitiallyDeferred>1</InitiallyDeferred>
+      <UnderlyingIndexName>SYS_C001741518</UnderlyingIndexName>
+      <Primary>1</Primary>
+    </key>
+    <column id="766" parent="696" name="DRIVER_SIN">
+      <Position>1</Position>
+      <DataType>NUMBER(*)|0s</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="767" parent="696" name="DRIVER_NAME">
       <Position>2</Position>
       <DataType>VARCHAR2(20 byte)|0s</DataType>
       <NotNull>1</NotNull>
     </column>
-    <column id="721" parent="690" name="DRIVER_ADDR">
+    <column id="768" parent="696" name="DRIVER_ADDR">
       <Position>3</Position>
       <DataType>VARCHAR2(50 byte)|0s</DataType>
       <NotNull>1</NotNull>
     </column>
-    <column id="722" parent="690" name="DRIVER_CITY">
+    <column id="769" parent="696" name="DRIVER_CITY">
       <Position>4</Position>
       <DataType>VARCHAR2(20 byte)|0s</DataType>
       <NotNull>1</NotNull>
     </column>
-    <column id="723" parent="690" name="DRIVER_BIRTHDATE">
+    <column id="770" parent="696" name="DRIVER_BIRTHDATE">
       <Position>5</Position>
       <DataType>DATE|0s</DataType>
       <NotNull>1</NotNull>
     </column>
-    <column id="724" parent="690" name="DRIVER_PHONE">
+    <column id="771" parent="696" name="DRIVER_PHONE">
       <Position>6</Position>
       <DataType>NUMBER(*)|0s</DataType>
     </column>
-    <index id="725" parent="690" name="SYS_C001724277">
+    <index id="772" parent="696" name="SYS_C001724277">
       <ObjectId>1298707</ObjectId>
       <NameSurrogate>1</NameSurrogate>
       <CreatedTimestamp>2018-11-03.14:21:21</CreatedTimestamp>
@@ -2281,7 +2540,7 @@
       <ColNames>DRIVER_SIN</ColNames>
       <Unique>1</Unique>
     </index>
-    <key id="726" parent="690" name="SYS_C001724277">
+    <key id="773" parent="696" name="SYS_C001724277">
       <NameSurrogate>1</NameSurrogate>
       <ModifiedTimestamp>2018-11-03.14:21:21</ModifiedTimestamp>
       <ColNames>DRIVER_SIN</ColNames>
@@ -2289,50 +2548,50 @@
       <UnderlyingIndexName>SYS_C001724277</UnderlyingIndexName>
       <Primary>1</Primary>
     </key>
-    <column id="727" parent="691" name="ED_ID">
+    <column id="774" parent="697" name="ED_ID">
       <Position>1</Position>
       <DataType>CHAR(11 byte)|0s</DataType>
       <NotNull>1</NotNull>
     </column>
-    <column id="728" parent="691" name="ED_LNAME">
+    <column id="775" parent="697" name="ED_LNAME">
       <Position>2</Position>
       <DataType>VARCHAR2(40 byte)|0s</DataType>
       <NotNull>1</NotNull>
     </column>
-    <column id="729" parent="691" name="ED_FNAME">
+    <column id="776" parent="697" name="ED_FNAME">
       <Position>3</Position>
       <DataType>VARCHAR2(20 byte)|0s</DataType>
       <NotNull>1</NotNull>
     </column>
-    <column id="730" parent="691" name="ED_POS">
+    <column id="777" parent="697" name="ED_POS">
       <Position>4</Position>
       <DataType>VARCHAR2(12 byte)|0s</DataType>
     </column>
-    <column id="731" parent="691" name="PHONE">
+    <column id="778" parent="697" name="PHONE">
       <Position>5</Position>
       <DataType>CHAR(12 byte)|0s</DataType>
     </column>
-    <column id="732" parent="691" name="ADDRESS">
+    <column id="779" parent="697" name="ADDRESS">
       <Position>6</Position>
       <DataType>VARCHAR2(40 byte)|0s</DataType>
     </column>
-    <column id="733" parent="691" name="CITY">
+    <column id="780" parent="697" name="CITY">
       <Position>7</Position>
       <DataType>VARCHAR2(20 byte)|0s</DataType>
     </column>
-    <column id="734" parent="691" name="STATE">
+    <column id="781" parent="697" name="STATE">
       <Position>8</Position>
       <DataType>CHAR(2 byte)|0s</DataType>
     </column>
-    <column id="735" parent="691" name="ZIP">
+    <column id="782" parent="697" name="ZIP">
       <Position>9</Position>
       <DataType>CHAR(5 byte)|0s</DataType>
     </column>
-    <column id="736" parent="691" name="ED_BOSS">
+    <column id="783" parent="697" name="ED_BOSS">
       <Position>10</Position>
       <DataType>CHAR(11 byte)|0s</DataType>
     </column>
-    <index id="737" parent="691" name="SYS_C001733829">
+    <index id="784" parent="697" name="SYS_C001733829">
       <ObjectId>1306138</ObjectId>
       <NameSurrogate>1</NameSurrogate>
       <CreatedTimestamp>2018-11-10.04:46:17</CreatedTimestamp>
@@ -2341,7 +2600,7 @@
       <ColNames>ED_ID</ColNames>
       <Unique>1</Unique>
     </index>
-    <key id="738" parent="691" name="SYS_C001733829">
+    <key id="785" parent="697" name="SYS_C001733829">
       <NameSurrogate>1</NameSurrogate>
       <ModifiedTimestamp>2018-11-10.04:46:17</ModifiedTimestamp>
       <ColNames>ED_ID</ColNames>
@@ -2349,7 +2608,7 @@
       <UnderlyingIndexName>SYS_C001733829</UnderlyingIndexName>
       <Primary>1</Primary>
     </key>
-    <foreign-key id="739" parent="691" name="SYS_C001733830">
+    <foreign-key id="786" parent="697" name="SYS_C001733830">
       <NameSurrogate>1</NameSurrogate>
       <ModifiedTimestamp>2018-11-10.04:46:17</ModifiedTimestamp>
       <ColNames>ED_BOSS</ColNames>
@@ -2358,31 +2617,31 @@
       <RefKeyName>SYS_C001733829</RefKeyName>
       <OnDelete>cascade</OnDelete>
     </foreign-key>
-    <column id="740" parent="692" name="DRIVER_SIN">
+    <column id="787" parent="698" name="DRIVER_SIN">
       <Position>1</Position>
       <DataType>NUMBER(*)|0s</DataType>
       <NotNull>1</NotNull>
     </column>
-    <column id="741" parent="692" name="BRANCH_ID">
+    <column id="788" parent="698" name="BRANCH_ID">
       <Position>2</Position>
       <DataType>NUMBER(*)|0s</DataType>
       <NotNull>1</NotNull>
     </column>
-    <column id="742" parent="692" name="EXAM_DATE">
+    <column id="789" parent="698" name="EXAM_DATE">
       <Position>3</Position>
       <DataType>DATE|0s</DataType>
       <NotNull>1</NotNull>
     </column>
-    <column id="743" parent="692" name="EXAM_TYPE">
+    <column id="790" parent="698" name="EXAM_TYPE">
       <Position>4</Position>
       <DataType>CHAR(1 byte)|0s</DataType>
       <NotNull>1</NotNull>
     </column>
-    <column id="744" parent="692" name="EXAM_SCORE">
+    <column id="791" parent="698" name="EXAM_SCORE">
       <Position>5</Position>
       <DataType>NUMBER(*)|0s</DataType>
     </column>
-    <index id="745" parent="692" name="SYS_C001724291">
+    <index id="792" parent="698" name="SYS_C001724291">
       <ObjectId>1298711</ObjectId>
       <NameSurrogate>1</NameSurrogate>
       <CreatedTimestamp>2018-11-03.14:21:21</CreatedTimestamp>
@@ -2393,7 +2652,7 @@ BRANCH_ID
 EXAM_DATE</ColNames>
       <Unique>1</Unique>
     </index>
-    <key id="746" parent="692" name="SYS_C001724291">
+    <key id="793" parent="698" name="SYS_C001724291">
       <NameSurrogate>1</NameSurrogate>
       <ModifiedTimestamp>2018-11-03.14:21:21</ModifiedTimestamp>
       <ColNames>DRIVER_SIN
@@ -2403,7 +2662,7 @@ EXAM_DATE</ColNames>
       <UnderlyingIndexName>SYS_C001724291</UnderlyingIndexName>
       <Primary>1</Primary>
     </key>
-    <foreign-key id="747" parent="692" name="SYS_C001724292">
+    <foreign-key id="794" parent="698" name="SYS_C001724292">
       <NameSurrogate>1</NameSurrogate>
       <ModifiedTimestamp>2018-11-03.14:21:21</ModifiedTimestamp>
       <ColNames>DRIVER_SIN</ColNames>
@@ -2412,7 +2671,7 @@ EXAM_DATE</ColNames>
       <RefKeyName>SYS_C001724277</RefKeyName>
       <OnDelete>restrict</OnDelete>
     </foreign-key>
-    <foreign-key id="748" parent="692" name="SYS_C001724293">
+    <foreign-key id="795" parent="698" name="SYS_C001724293">
       <NameSurrogate>1</NameSurrogate>
       <ModifiedTimestamp>2018-11-03.14:21:21</ModifiedTimestamp>
       <ColNames>BRANCH_ID</ColNames>
@@ -2421,41 +2680,96 @@ EXAM_DATE</ColNames>
       <RefKeyName>SYS_C001724271</RefKeyName>
       <OnDelete>restrict</OnDelete>
     </foreign-key>
-    <column id="749" parent="693" name="LICENSE_NO">
+    <column id="796" parent="699" name="PARTNO">
       <Position>1</Position>
       <DataType>NUMBER(*)|0s</DataType>
       <NotNull>1</NotNull>
     </column>
-    <column id="750" parent="693" name="DRIVER_SIN">
+    <column id="797" parent="699" name="ISSUEDATETIME">
+      <Position>2</Position>
+      <DataType>TIMESTAMP(6)|0s</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="798" parent="699" name="BIKE_ID">
+      <Position>3</Position>
+      <DataType>NUMBER(*)|0s</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <index id="799" parent="699" name="SYS_C001741525">
+      <ObjectId>1314713</ObjectId>
+      <NameSurrogate>1</NameSurrogate>
+      <CreatedTimestamp>2018-11-13.04:30:31</CreatedTimestamp>
+      <ModifiedTimestamp>2018-11-13.04:30:31</ModifiedTimestamp>
+      <TablespaceName>USERS</TablespaceName>
+      <ColNames>PARTNO
+ISSUEDATETIME
+BIKE_ID</ColNames>
+      <Unique>1</Unique>
+    </index>
+    <key id="800" parent="699" name="SYS_C001741525">
+      <NameSurrogate>1</NameSurrogate>
+      <ModifiedTimestamp>2018-11-13.04:30:32</ModifiedTimestamp>
+      <ColNames>PARTNO
+ISSUEDATETIME
+BIKE_ID</ColNames>
+      <InitiallyDeferred>1</InitiallyDeferred>
+      <UnderlyingIndexName>SYS_C001741525</UnderlyingIndexName>
+      <Primary>1</Primary>
+    </key>
+    <foreign-key id="801" parent="699" name="SYS_C001741526">
+      <NameSurrogate>1</NameSurrogate>
+      <ModifiedTimestamp>2018-11-13.04:30:32</ModifiedTimestamp>
+      <ColNames>PARTNO</ColNames>
+      <RefSchemaName>ORA_F4L0B</RefSchemaName>
+      <RefTableName>REPLACEMENT_PART</RefTableName>
+      <RefKeyName>SYS_C001741515</RefKeyName>
+      <OnDelete>restrict</OnDelete>
+    </foreign-key>
+    <foreign-key id="802" parent="699" name="SYS_C001741527">
+      <NameSurrogate>1</NameSurrogate>
+      <ModifiedTimestamp>2018-11-13.04:30:32</ModifiedTimestamp>
+      <ColNames>ISSUEDATETIME
+BIKE_ID</ColNames>
+      <RefSchemaName>ORA_F4L0B</RefSchemaName>
+      <RefTableName>MAINTENANCE_ISSUE</RefTableName>
+      <RefKeyName>SYS_C001741521</RefKeyName>
+      <OnDelete>cascade</OnDelete>
+    </foreign-key>
+    <column id="803" parent="700" name="LICENSE_NO">
+      <Position>1</Position>
+      <DataType>NUMBER(*)|0s</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="804" parent="700" name="DRIVER_SIN">
       <Position>2</Position>
       <DataType>NUMBER(*)|0s</DataType>
       <NotNull>1</NotNull>
     </column>
-    <column id="751" parent="693" name="LICENSE_TYPE">
+    <column id="805" parent="700" name="LICENSE_TYPE">
       <Position>3</Position>
       <DataType>CHAR(1 byte)|0s</DataType>
       <NotNull>1</NotNull>
     </column>
-    <column id="752" parent="693" name="LICENSE_CLASS">
+    <column id="806" parent="700" name="LICENSE_CLASS">
       <Position>4</Position>
       <DataType>NUMBER(*)|0s</DataType>
     </column>
-    <column id="753" parent="693" name="LICENSE_EXPIRY">
+    <column id="807" parent="700" name="LICENSE_EXPIRY">
       <Position>5</Position>
       <DataType>DATE|0s</DataType>
       <NotNull>1</NotNull>
     </column>
-    <column id="754" parent="693" name="ISSUE_DATE">
+    <column id="808" parent="700" name="ISSUE_DATE">
       <Position>6</Position>
       <DataType>DATE|0s</DataType>
       <NotNull>1</NotNull>
     </column>
-    <column id="755" parent="693" name="BRANCH_ID">
+    <column id="809" parent="700" name="BRANCH_ID">
       <Position>7</Position>
       <DataType>NUMBER(*)|0s</DataType>
       <NotNull>1</NotNull>
     </column>
-    <index id="756" parent="693" name="SYS_C001724284">
+    <index id="810" parent="700" name="SYS_C001724284">
       <ObjectId>1298709</ObjectId>
       <NameSurrogate>1</NameSurrogate>
       <CreatedTimestamp>2018-11-03.14:21:21</CreatedTimestamp>
@@ -2464,7 +2778,7 @@ EXAM_DATE</ColNames>
       <ColNames>LICENSE_NO</ColNames>
       <Unique>1</Unique>
     </index>
-    <key id="757" parent="693" name="SYS_C001724284">
+    <key id="811" parent="700" name="SYS_C001724284">
       <NameSurrogate>1</NameSurrogate>
       <ModifiedTimestamp>2018-11-03.14:21:21</ModifiedTimestamp>
       <ColNames>LICENSE_NO</ColNames>
@@ -2472,7 +2786,7 @@ EXAM_DATE</ColNames>
       <UnderlyingIndexName>SYS_C001724284</UnderlyingIndexName>
       <Primary>1</Primary>
     </key>
-    <foreign-key id="758" parent="693" name="SYS_C001724285">
+    <foreign-key id="812" parent="700" name="SYS_C001724285">
       <NameSurrogate>1</NameSurrogate>
       <ModifiedTimestamp>2018-11-03.14:21:21</ModifiedTimestamp>
       <ColNames>DRIVER_SIN</ColNames>
@@ -2481,7 +2795,7 @@ EXAM_DATE</ColNames>
       <RefKeyName>SYS_C001724277</RefKeyName>
       <OnDelete>restrict</OnDelete>
     </foreign-key>
-    <foreign-key id="759" parent="693" name="SYS_C001724286">
+    <foreign-key id="813" parent="700" name="SYS_C001724286">
       <NameSurrogate>1</NameSurrogate>
       <ModifiedTimestamp>2018-11-03.14:21:21</ModifiedTimestamp>
       <ColNames>BRANCH_ID</ColNames>
@@ -2490,32 +2804,156 @@ EXAM_DATE</ColNames>
       <RefKeyName>SYS_C001724271</RefKeyName>
       <OnDelete>restrict</OnDelete>
     </foreign-key>
-    <column id="760" parent="694" name="MYFEILD">
+    <column id="814" parent="701" name="ISSUEDATETIME">
+      <Position>1</Position>
+      <DataType>TIMESTAMP(6)|0s</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="815" parent="701" name="ISSUE_DESCRIPTION">
+      <Position>2</Position>
+      <DataType>CHAR(255 byte)|0s</DataType>
+    </column>
+    <column id="816" parent="701" name="TECHNICAN_NOTES">
+      <Position>3</Position>
+      <DataType>CHAR(255 byte)|0s</DataType>
+    </column>
+    <column id="817" parent="701" name="RESOLVED_DATE">
+      <Position>4</Position>
+      <DataType>DATE|0s</DataType>
+    </column>
+    <column id="818" parent="701" name="BIKE_ID">
+      <Position>5</Position>
+      <DataType>NUMBER(*)|0s</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="819" parent="701" name="RIDER_ID">
+      <Position>6</Position>
+      <DataType>NUMBER(*)|0s</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="820" parent="701" name="TECHNICIAN_ID">
+      <Position>7</Position>
+      <DataType>NUMBER(*)|0s</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <index id="821" parent="701" name="SYS_C001741521">
+      <ObjectId>1314711</ObjectId>
+      <NameSurrogate>1</NameSurrogate>
+      <CreatedTimestamp>2018-11-13.04:30:31</CreatedTimestamp>
+      <ModifiedTimestamp>2018-11-13.04:30:31</ModifiedTimestamp>
+      <TablespaceName>USERS</TablespaceName>
+      <ColNames>ISSUEDATETIME
+BIKE_ID</ColNames>
+      <Unique>1</Unique>
+    </index>
+    <key id="822" parent="701" name="SYS_C001741521">
+      <NameSurrogate>1</NameSurrogate>
+      <ModifiedTimestamp>2018-11-13.04:30:31</ModifiedTimestamp>
+      <ColNames>ISSUEDATETIME
+BIKE_ID</ColNames>
+      <InitiallyDeferred>1</InitiallyDeferred>
+      <UnderlyingIndexName>SYS_C001741521</UnderlyingIndexName>
+      <Primary>1</Primary>
+    </key>
+    <foreign-key id="823" parent="701" name="SYS_C001741522">
+      <NameSurrogate>1</NameSurrogate>
+      <ModifiedTimestamp>2018-11-13.04:30:31</ModifiedTimestamp>
+      <ColNames>BIKE_ID</ColNames>
+      <RefSchemaName>ORA_F4L0B</RefSchemaName>
+      <RefTableName>BIKE</RefTableName>
+      <RefKeyName>SYS_C001741514</RefKeyName>
+      <OnDelete>cascade</OnDelete>
+    </foreign-key>
+    <foreign-key id="824" parent="701" name="SYS_C001741523">
+      <NameSurrogate>1</NameSurrogate>
+      <ModifiedTimestamp>2018-11-13.04:30:31</ModifiedTimestamp>
+      <ColNames>RIDER_ID</ColNames>
+      <RefSchemaName>ORA_F4L0B</RefSchemaName>
+      <RefTableName>RIDER</RefTableName>
+      <RefKeyName>SYS_C001741512</RefKeyName>
+      <OnDelete>restrict</OnDelete>
+    </foreign-key>
+    <foreign-key id="825" parent="701" name="SYS_C001741524">
+      <NameSurrogate>1</NameSurrogate>
+      <ModifiedTimestamp>2018-11-13.04:30:31</ModifiedTimestamp>
+      <ColNames>TECHNICIAN_ID</ColNames>
+      <RefSchemaName>ORA_F4L0B</RefSchemaName>
+      <RefTableName>MAINTENANCE_TECHNICIAN</RefTableName>
+      <RefKeyName>SYS_C001741516</RefKeyName>
+      <OnDelete>restrict</OnDelete>
+    </foreign-key>
+    <column id="826" parent="702" name="EMPLOYEE_ID">
+      <Position>1</Position>
+      <DataType>NUMBER(*)|0s</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="827" parent="702" name="NAME">
+      <Position>2</Position>
+      <DataType>CHAR(50 byte)|0s</DataType>
+    </column>
+    <column id="828" parent="702" name="PHONE_NUM">
+      <Position>3</Position>
+      <DataType>NUMBER(*)|0s</DataType>
+    </column>
+    <column id="829" parent="702" name="EMAIL">
+      <Position>4</Position>
+      <DataType>CHAR(50 byte)|0s</DataType>
+    </column>
+    <column id="830" parent="702" name="ADDRESS">
+      <Position>5</Position>
+      <DataType>CHAR(100 byte)|0s</DataType>
+    </column>
+    <column id="831" parent="702" name="DRIVERS_LICENSE_NUM">
+      <Position>6</Position>
+      <DataType>NUMBER(*)|0s</DataType>
+    </column>
+    <column id="832" parent="702" name="LICENSE_EXPIRY_DATE">
+      <Position>7</Position>
+      <DataType>DATE|0s</DataType>
+    </column>
+    <index id="833" parent="702" name="SYS_C001741516">
+      <ObjectId>1314705</ObjectId>
+      <NameSurrogate>1</NameSurrogate>
+      <CreatedTimestamp>2018-11-13.04:30:31</CreatedTimestamp>
+      <ModifiedTimestamp>2018-11-13.04:30:31</ModifiedTimestamp>
+      <TablespaceName>USERS</TablespaceName>
+      <ColNames>EMPLOYEE_ID</ColNames>
+      <Unique>1</Unique>
+    </index>
+    <key id="834" parent="702" name="SYS_C001741516">
+      <NameSurrogate>1</NameSurrogate>
+      <ModifiedTimestamp>2018-11-13.04:30:31</ModifiedTimestamp>
+      <ColNames>EMPLOYEE_ID</ColNames>
+      <InitiallyDeferred>1</InitiallyDeferred>
+      <UnderlyingIndexName>SYS_C001741516</UnderlyingIndexName>
+      <Primary>1</Primary>
+    </key>
+    <column id="835" parent="703" name="MYFEILD">
       <Position>1</Position>
       <DataType>NUMBER(*)|0s</DataType>
     </column>
-    <column id="761" parent="695" name="PUB_ID">
+    <column id="836" parent="704" name="PUB_ID">
       <Position>1</Position>
       <DataType>CHAR(4 byte)|0s</DataType>
       <NotNull>1</NotNull>
     </column>
-    <column id="762" parent="695" name="PUB_NAME">
+    <column id="837" parent="704" name="PUB_NAME">
       <Position>2</Position>
       <DataType>VARCHAR2(40 byte)|0s</DataType>
     </column>
-    <column id="763" parent="695" name="ADDRESS">
+    <column id="838" parent="704" name="ADDRESS">
       <Position>3</Position>
       <DataType>VARCHAR2(40 byte)|0s</DataType>
     </column>
-    <column id="764" parent="695" name="CITY">
+    <column id="839" parent="704" name="CITY">
       <Position>4</Position>
       <DataType>VARCHAR2(20 byte)|0s</DataType>
     </column>
-    <column id="765" parent="695" name="STATE">
+    <column id="840" parent="704" name="STATE">
       <Position>5</Position>
       <DataType>CHAR(2 byte)|0s</DataType>
     </column>
-    <index id="766" parent="695" name="SYS_C001733815">
+    <index id="841" parent="704" name="SYS_C001733815">
       <ObjectId>1306132</ObjectId>
       <NameSurrogate>1</NameSurrogate>
       <CreatedTimestamp>2018-11-10.04:46:17</CreatedTimestamp>
@@ -2524,7 +2962,7 @@ EXAM_DATE</ColNames>
       <ColNames>PUB_ID</ColNames>
       <Unique>1</Unique>
     </index>
-    <key id="767" parent="695" name="SYS_C001733815">
+    <key id="842" parent="704" name="SYS_C001733815">
       <NameSurrogate>1</NameSurrogate>
       <ModifiedTimestamp>2018-11-10.04:46:17</ModifiedTimestamp>
       <ColNames>PUB_ID</ColNames>
@@ -2532,26 +2970,189 @@ EXAM_DATE</ColNames>
       <UnderlyingIndexName>SYS_C001733815</UnderlyingIndexName>
       <Primary>1</Primary>
     </key>
-    <column id="768" parent="696" name="SONUM">
+    <column id="843" parent="705" name="REFUND_ID">
       <Position>1</Position>
       <DataType>NUMBER(*)|0s</DataType>
       <NotNull>1</NotNull>
     </column>
-    <column id="769" parent="696" name="STOR_ID">
+    <column id="844" parent="705" name="RIDER_ID">
+      <Position>2</Position>
+      <DataType>NUMBER(*)|0s</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="845" parent="705" name="EMPLOYEE_ID">
+      <Position>3</Position>
+      <DataType>NUMBER(*)|0s</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="846" parent="705" name="REFUNDDATE">
+      <Position>4</Position>
+      <DataType>DATE|0s</DataType>
+    </column>
+    <column id="847" parent="705" name="REFUNDTIME">
+      <Position>5</Position>
+      <DataType>TIMESTAMP(6)|0s</DataType>
+    </column>
+    <column id="848" parent="705" name="REASON">
+      <Position>6</Position>
+      <DataType>CHAR(255 byte)|0s</DataType>
+    </column>
+    <index id="849" parent="705" name="SYS_C001741539">
+      <ObjectId>1314719</ObjectId>
+      <NameSurrogate>1</NameSurrogate>
+      <CreatedTimestamp>2018-11-13.04:30:32</CreatedTimestamp>
+      <ModifiedTimestamp>2018-11-13.04:30:32</ModifiedTimestamp>
+      <TablespaceName>USERS</TablespaceName>
+      <ColNames>REFUND_ID</ColNames>
+      <Unique>1</Unique>
+    </index>
+    <key id="850" parent="705" name="SYS_C001741539">
+      <NameSurrogate>1</NameSurrogate>
+      <ModifiedTimestamp>2018-11-13.04:30:32</ModifiedTimestamp>
+      <ColNames>REFUND_ID</ColNames>
+      <InitiallyDeferred>1</InitiallyDeferred>
+      <UnderlyingIndexName>SYS_C001741539</UnderlyingIndexName>
+      <Primary>1</Primary>
+    </key>
+    <foreign-key id="851" parent="705" name="SYS_C001741540">
+      <NameSurrogate>1</NameSurrogate>
+      <ModifiedTimestamp>2018-11-13.04:30:32</ModifiedTimestamp>
+      <ColNames>RIDER_ID</ColNames>
+      <RefSchemaName>ORA_F4L0B</RefSchemaName>
+      <RefTableName>RIDER</RefTableName>
+      <RefKeyName>SYS_C001741512</RefKeyName>
+      <OnDelete>restrict</OnDelete>
+    </foreign-key>
+    <foreign-key id="852" parent="705" name="SYS_C001741541">
+      <NameSurrogate>1</NameSurrogate>
+      <ModifiedTimestamp>2018-11-13.04:30:32</ModifiedTimestamp>
+      <ColNames>EMPLOYEE_ID</ColNames>
+      <RefSchemaName>ORA_F4L0B</RefSchemaName>
+      <RefTableName>CUSTOMER_SERVICE_REP</RefTableName>
+      <RefKeyName>SYS_C001741517</RefKeyName>
+      <OnDelete>restrict</OnDelete>
+    </foreign-key>
+    <column id="853" parent="706" name="PARTNO">
+      <Position>1</Position>
+      <DataType>NUMBER(*)|0s</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="854" parent="706" name="PART_NAME">
+      <Position>2</Position>
+      <DataType>CHAR(50 byte)|0s</DataType>
+    </column>
+    <column id="855" parent="706" name="QUANTITY">
+      <Position>3</Position>
+      <DataType>NUMBER(*)|0s</DataType>
+    </column>
+    <index id="856" parent="706" name="SYS_C001741515">
+      <ObjectId>1314703</ObjectId>
+      <NameSurrogate>1</NameSurrogate>
+      <CreatedTimestamp>2018-11-13.04:30:31</CreatedTimestamp>
+      <ModifiedTimestamp>2018-11-13.04:30:31</ModifiedTimestamp>
+      <TablespaceName>USERS</TablespaceName>
+      <ColNames>PARTNO</ColNames>
+      <Unique>1</Unique>
+    </index>
+    <key id="857" parent="706" name="SYS_C001741515">
+      <NameSurrogate>1</NameSurrogate>
+      <ModifiedTimestamp>2018-11-13.04:30:31</ModifiedTimestamp>
+      <ColNames>PARTNO</ColNames>
+      <InitiallyDeferred>1</InitiallyDeferred>
+      <UnderlyingIndexName>SYS_C001741515</UnderlyingIndexName>
+      <Primary>1</Primary>
+    </key>
+    <column id="858" parent="707" name="RIDER_ID">
+      <Position>1</Position>
+      <DataType>NUMBER(*)|0s</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="859" parent="707" name="WALLET_ID">
+      <Position>2</Position>
+      <DataType>NUMBER(*)|0s</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="860" parent="707" name="NAME">
+      <Position>3</Position>
+      <DataType>CHAR(50 byte)|0s</DataType>
+    </column>
+    <column id="861" parent="707" name="PHONE_NUM">
+      <Position>4</Position>
+      <DataType>NUMBER(*)|0s</DataType>
+    </column>
+    <column id="862" parent="707" name="EMAIL">
+      <Position>5</Position>
+      <DataType>CHAR(50 byte)|0s</DataType>
+    </column>
+    <column id="863" parent="707" name="ADDRESS">
+      <Position>6</Position>
+      <DataType>CHAR(100 byte)|0s</DataType>
+    </column>
+    <column id="864" parent="707" name="CREDITCARDNO">
+      <Position>7</Position>
+      <DataType>NUMBER(*)|0s</DataType>
+    </column>
+    <column id="865" parent="707" name="CREDITCARDEXP">
+      <Position>8</Position>
+      <DataType>NUMBER(*)|0s</DataType>
+    </column>
+    <column id="866" parent="707" name="ECOINS">
+      <Position>9</Position>
+      <DataType>NUMBER(*)|0s</DataType>
+    </column>
+    <index id="867" parent="707" name="SYS_C001741512">
+      <ObjectId>1314698</ObjectId>
+      <NameSurrogate>1</NameSurrogate>
+      <CreatedTimestamp>2018-11-13.04:30:31</CreatedTimestamp>
+      <ModifiedTimestamp>2018-11-13.04:30:31</ModifiedTimestamp>
+      <TablespaceName>USERS</TablespaceName>
+      <ColNames>RIDER_ID</ColNames>
+      <Unique>1</Unique>
+    </index>
+    <index id="868" parent="707" name="SYS_C001741513">
+      <ObjectId>1314699</ObjectId>
+      <NameSurrogate>1</NameSurrogate>
+      <CreatedTimestamp>2018-11-13.04:30:31</CreatedTimestamp>
+      <ModifiedTimestamp>2018-11-13.04:30:31</ModifiedTimestamp>
+      <TablespaceName>USERS</TablespaceName>
+      <ColNames>WALLET_ID</ColNames>
+      <Unique>1</Unique>
+    </index>
+    <key id="869" parent="707" name="SYS_C001741512">
+      <NameSurrogate>1</NameSurrogate>
+      <ModifiedTimestamp>2018-11-13.04:30:31</ModifiedTimestamp>
+      <ColNames>RIDER_ID</ColNames>
+      <InitiallyDeferred>1</InitiallyDeferred>
+      <UnderlyingIndexName>SYS_C001741512</UnderlyingIndexName>
+      <Primary>1</Primary>
+    </key>
+    <key id="870" parent="707" name="SYS_C001741513">
+      <NameSurrogate>1</NameSurrogate>
+      <ModifiedTimestamp>2018-11-13.04:30:31</ModifiedTimestamp>
+      <ColNames>WALLET_ID</ColNames>
+      <InitiallyDeferred>1</InitiallyDeferred>
+      <UnderlyingIndexName>SYS_C001741513</UnderlyingIndexName>
+    </key>
+    <column id="871" parent="708" name="SONUM">
+      <Position>1</Position>
+      <DataType>NUMBER(*)|0s</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="872" parent="708" name="STOR_ID">
       <Position>2</Position>
       <DataType>CHAR(4 byte)|0s</DataType>
       <NotNull>1</NotNull>
     </column>
-    <column id="770" parent="696" name="PONUM">
+    <column id="873" parent="708" name="PONUM">
       <Position>3</Position>
       <DataType>VARCHAR2(20 byte)|0s</DataType>
       <NotNull>1</NotNull>
     </column>
-    <column id="771" parent="696" name="SDATE">
+    <column id="874" parent="708" name="SDATE">
       <Position>4</Position>
       <DataType>CHAR(20 byte)|0s</DataType>
     </column>
-    <index id="772" parent="696" name="SYS_C001733839">
+    <index id="875" parent="708" name="SYS_C001733839">
       <ObjectId>1306142</ObjectId>
       <NameSurrogate>1</NameSurrogate>
       <CreatedTimestamp>2018-11-10.04:46:17</CreatedTimestamp>
@@ -2560,7 +3161,7 @@ EXAM_DATE</ColNames>
       <ColNames>SONUM</ColNames>
       <Unique>1</Unique>
     </index>
-    <key id="773" parent="696" name="SYS_C001733839">
+    <key id="876" parent="708" name="SYS_C001733839">
       <NameSurrogate>1</NameSurrogate>
       <ModifiedTimestamp>2018-11-10.04:46:17</ModifiedTimestamp>
       <ColNames>SONUM</ColNames>
@@ -2568,30 +3169,30 @@ EXAM_DATE</ColNames>
       <UnderlyingIndexName>SYS_C001733839</UnderlyingIndexName>
       <Primary>1</Primary>
     </key>
-    <column id="774" parent="697" name="SONUM">
+    <column id="877" parent="709" name="SONUM">
       <Position>1</Position>
       <DataType>NUMBER(*)|0s</DataType>
       <NotNull>1</NotNull>
     </column>
-    <column id="775" parent="697" name="QTY_ORDERED">
+    <column id="878" parent="709" name="QTY_ORDERED">
       <Position>2</Position>
       <DataType>NUMBER(*)|0s</DataType>
       <NotNull>1</NotNull>
     </column>
-    <column id="776" parent="697" name="QTY_SHIPPED">
+    <column id="879" parent="709" name="QTY_SHIPPED">
       <Position>3</Position>
       <DataType>NUMBER(*)|0s</DataType>
     </column>
-    <column id="777" parent="697" name="TITLE_ID">
+    <column id="880" parent="709" name="TITLE_ID">
       <Position>4</Position>
       <DataType>CHAR(8 byte)|0s</DataType>
       <NotNull>1</NotNull>
     </column>
-    <column id="778" parent="697" name="DATE_SHIPPED">
+    <column id="881" parent="709" name="DATE_SHIPPED">
       <Position>5</Position>
       <DataType>CHAR(20 byte)|0s</DataType>
     </column>
-    <index id="779" parent="697" name="SYS_C001733843">
+    <index id="882" parent="709" name="SYS_C001733843">
       <ObjectId>1306144</ObjectId>
       <NameSurrogate>1</NameSurrogate>
       <CreatedTimestamp>2018-11-10.04:46:17</CreatedTimestamp>
@@ -2601,7 +3202,7 @@ EXAM_DATE</ColNames>
 TITLE_ID</ColNames>
       <Unique>1</Unique>
     </index>
-    <key id="780" parent="697" name="SYS_C001733843">
+    <key id="883" parent="709" name="SYS_C001733843">
       <NameSurrogate>1</NameSurrogate>
       <ModifiedTimestamp>2018-11-10.04:46:17</ModifiedTimestamp>
       <ColNames>SONUM
@@ -2610,7 +3211,7 @@ TITLE_ID</ColNames>
       <UnderlyingIndexName>SYS_C001733843</UnderlyingIndexName>
       <Primary>1</Primary>
     </key>
-    <foreign-key id="781" parent="697" name="SYS_C001733844">
+    <foreign-key id="884" parent="709" name="SYS_C001733844">
       <NameSurrogate>1</NameSurrogate>
       <ModifiedTimestamp>2018-11-10.04:46:17</ModifiedTimestamp>
       <ColNames>SONUM</ColNames>
@@ -2619,7 +3220,7 @@ TITLE_ID</ColNames>
       <RefKeyName>SYS_C001733839</RefKeyName>
       <OnDelete>cascade</OnDelete>
     </foreign-key>
-    <foreign-key id="782" parent="697" name="SYS_C001733845">
+    <foreign-key id="885" parent="709" name="SYS_C001733845">
       <NameSurrogate>1</NameSurrogate>
       <ModifiedTimestamp>2018-11-10.04:46:17</ModifiedTimestamp>
       <ColNames>TITLE_ID</ColNames>
@@ -2628,24 +3229,24 @@ TITLE_ID</ColNames>
       <RefKeyName>SYS_C001733819</RefKeyName>
       <OnDelete>cascade</OnDelete>
     </foreign-key>
-    <column id="783" parent="698" name="NID">
+    <column id="886" parent="710" name="NID">
       <Position>1</Position>
       <DataType>NUMBER(*)|0s</DataType>
       <NotNull>1</NotNull>
     </column>
-    <column id="784" parent="698" name="NAME">
+    <column id="887" parent="710" name="NAME">
       <Position>2</Position>
       <DataType>VARCHAR2(30 byte)|0s</DataType>
     </column>
-    <column id="785" parent="698" name="PHONE">
+    <column id="888" parent="710" name="PHONE">
       <Position>3</Position>
       <DataType>NUMBER(*)|0s</DataType>
     </column>
-    <column id="786" parent="698" name="ADDRESS">
+    <column id="889" parent="710" name="ADDRESS">
       <Position>4</Position>
       <DataType>VARCHAR2(100 byte)|0s</DataType>
     </column>
-    <index id="787" parent="698" name="SYS_C001735097">
+    <index id="890" parent="710" name="SYS_C001735097">
       <ObjectId>1307325</ObjectId>
       <NameSurrogate>1</NameSurrogate>
       <CreatedTimestamp>2018-11-11.08:03:35</CreatedTimestamp>
@@ -2654,7 +3255,7 @@ TITLE_ID</ColNames>
       <ColNames>NID</ColNames>
       <Unique>1</Unique>
     </index>
-    <key id="788" parent="698" name="SYS_C001735097">
+    <key id="891" parent="710" name="SYS_C001735097">
       <NameSurrogate>1</NameSurrogate>
       <ModifiedTimestamp>2018-11-11.08:03:35</ModifiedTimestamp>
       <ColNames>NID</ColNames>
@@ -2662,25 +3263,25 @@ TITLE_ID</ColNames>
       <UnderlyingIndexName>SYS_C001735097</UnderlyingIndexName>
       <Primary>1</Primary>
     </key>
-    <column id="789" parent="699" name="AU_ID">
+    <column id="892" parent="711" name="AU_ID">
       <Position>1</Position>
       <DataType>CHAR(11 byte)|0s</DataType>
       <NotNull>1</NotNull>
     </column>
-    <column id="790" parent="699" name="TITLE_ID">
+    <column id="893" parent="711" name="TITLE_ID">
       <Position>2</Position>
       <DataType>CHAR(8 byte)|0s</DataType>
       <NotNull>1</NotNull>
     </column>
-    <column id="791" parent="699" name="AU_ORD">
+    <column id="894" parent="711" name="AU_ORD">
       <Position>3</Position>
       <DataType>NUMBER(5 digit)|0s</DataType>
     </column>
-    <column id="792" parent="699" name="ROYALTYSHARE">
+    <column id="895" parent="711" name="ROYALTYSHARE">
       <Position>4</Position>
       <DataType>FLOAT(*)|0s</DataType>
     </column>
-    <index id="793" parent="699" name="SYS_C001733823">
+    <index id="896" parent="711" name="SYS_C001733823">
       <ObjectId>1306136</ObjectId>
       <NameSurrogate>1</NameSurrogate>
       <CreatedTimestamp>2018-11-10.04:46:17</CreatedTimestamp>
@@ -2690,7 +3291,7 @@ TITLE_ID</ColNames>
 TITLE_ID</ColNames>
       <Unique>1</Unique>
     </index>
-    <key id="794" parent="699" name="SYS_C001733823">
+    <key id="897" parent="711" name="SYS_C001733823">
       <NameSurrogate>1</NameSurrogate>
       <ModifiedTimestamp>2018-11-10.04:46:17</ModifiedTimestamp>
       <ColNames>AU_ID
@@ -2699,7 +3300,7 @@ TITLE_ID</ColNames>
       <UnderlyingIndexName>SYS_C001733823</UnderlyingIndexName>
       <Primary>1</Primary>
     </key>
-    <foreign-key id="795" parent="699" name="SYS_C001733824">
+    <foreign-key id="898" parent="711" name="SYS_C001733824">
       <NameSurrogate>1</NameSurrogate>
       <ModifiedTimestamp>2018-11-10.04:46:17</ModifiedTimestamp>
       <ColNames>AU_ID</ColNames>
@@ -2708,7 +3309,7 @@ TITLE_ID</ColNames>
       <RefKeyName>SYS_C001733813</RefKeyName>
       <OnDelete>cascade</OnDelete>
     </foreign-key>
-    <foreign-key id="796" parent="699" name="SYS_C001733825">
+    <foreign-key id="899" parent="711" name="SYS_C001733825">
       <NameSurrogate>1</NameSurrogate>
       <ModifiedTimestamp>2018-11-10.04:46:17</ModifiedTimestamp>
       <ColNames>TITLE_ID</ColNames>
@@ -2717,21 +3318,21 @@ TITLE_ID</ColNames>
       <RefKeyName>SYS_C001733819</RefKeyName>
       <OnDelete>cascade</OnDelete>
     </foreign-key>
-    <column id="797" parent="700" name="ED_ID">
+    <column id="900" parent="712" name="ED_ID">
       <Position>1</Position>
       <DataType>CHAR(11 byte)|0s</DataType>
       <NotNull>1</NotNull>
     </column>
-    <column id="798" parent="700" name="TITLE_ID">
+    <column id="901" parent="712" name="TITLE_ID">
       <Position>2</Position>
       <DataType>CHAR(8 byte)|0s</DataType>
       <NotNull>1</NotNull>
     </column>
-    <column id="799" parent="700" name="ED_ORD">
+    <column id="902" parent="712" name="ED_ORD">
       <Position>3</Position>
       <DataType>NUMBER(5 digit)|0s</DataType>
     </column>
-    <index id="800" parent="700" name="SYS_C001733833">
+    <index id="903" parent="712" name="SYS_C001733833">
       <ObjectId>1306140</ObjectId>
       <NameSurrogate>1</NameSurrogate>
       <CreatedTimestamp>2018-11-10.04:46:17</CreatedTimestamp>
@@ -2741,7 +3342,7 @@ TITLE_ID</ColNames>
 TITLE_ID</ColNames>
       <Unique>1</Unique>
     </index>
-    <key id="801" parent="700" name="SYS_C001733833">
+    <key id="904" parent="712" name="SYS_C001733833">
       <NameSurrogate>1</NameSurrogate>
       <ModifiedTimestamp>2018-11-10.04:46:17</ModifiedTimestamp>
       <ColNames>ED_ID
@@ -2750,7 +3351,7 @@ TITLE_ID</ColNames>
       <UnderlyingIndexName>SYS_C001733833</UnderlyingIndexName>
       <Primary>1</Primary>
     </key>
-    <foreign-key id="802" parent="700" name="SYS_C001733834">
+    <foreign-key id="905" parent="712" name="SYS_C001733834">
       <NameSurrogate>1</NameSurrogate>
       <ModifiedTimestamp>2018-11-10.04:46:17</ModifiedTimestamp>
       <ColNames>ED_ID</ColNames>
@@ -2759,7 +3360,7 @@ TITLE_ID</ColNames>
       <RefKeyName>SYS_C001733829</RefKeyName>
       <OnDelete>cascade</OnDelete>
     </foreign-key>
-    <foreign-key id="803" parent="700" name="SYS_C001733835">
+    <foreign-key id="906" parent="712" name="SYS_C001733835">
       <NameSurrogate>1</NameSurrogate>
       <ModifiedTimestamp>2018-11-10.04:46:17</ModifiedTimestamp>
       <ColNames>TITLE_ID</ColNames>
@@ -2768,50 +3369,50 @@ TITLE_ID</ColNames>
       <RefKeyName>SYS_C001733819</RefKeyName>
       <OnDelete>cascade</OnDelete>
     </foreign-key>
-    <column id="804" parent="701" name="TITLE_ID">
+    <column id="907" parent="713" name="TITLE_ID">
       <Position>1</Position>
       <DataType>CHAR(8 byte)|0s</DataType>
       <NotNull>1</NotNull>
     </column>
-    <column id="805" parent="701" name="TITLE">
+    <column id="908" parent="713" name="TITLE">
       <Position>2</Position>
       <DataType>VARCHAR2(80 byte)|0s</DataType>
       <NotNull>1</NotNull>
     </column>
-    <column id="806" parent="701" name="TYPE">
+    <column id="909" parent="713" name="TYPE">
       <Position>3</Position>
       <DataType>CHAR(12 byte)|0s</DataType>
     </column>
-    <column id="807" parent="701" name="PUB_ID">
+    <column id="910" parent="713" name="PUB_ID">
       <Position>4</Position>
       <DataType>CHAR(4 byte)|0s</DataType>
     </column>
-    <column id="808" parent="701" name="PRICE">
+    <column id="911" parent="713" name="PRICE">
       <Position>5</Position>
       <DataType>NUMBER(*)|0s</DataType>
     </column>
-    <column id="809" parent="701" name="ADVANCE">
+    <column id="912" parent="713" name="ADVANCE">
       <Position>6</Position>
       <DataType>CHAR(9 byte)|0s</DataType>
     </column>
-    <column id="810" parent="701" name="YTD_SALES">
+    <column id="913" parent="713" name="YTD_SALES">
       <Position>7</Position>
       <DataType>NUMBER(*)|0s</DataType>
     </column>
-    <column id="811" parent="701" name="CONTRACT">
+    <column id="914" parent="713" name="CONTRACT">
       <Position>8</Position>
       <DataType>CHAR(1 byte)|0s</DataType>
       <NotNull>1</NotNull>
     </column>
-    <column id="812" parent="701" name="NOTES">
+    <column id="915" parent="713" name="NOTES">
       <Position>9</Position>
       <DataType>VARCHAR2(230 byte)|0s</DataType>
     </column>
-    <column id="813" parent="701" name="PUBDATE">
+    <column id="916" parent="713" name="PUBDATE">
       <Position>10</Position>
       <DataType>CHAR(20 byte)|0s</DataType>
     </column>
-    <index id="814" parent="701" name="SYS_C001733819">
+    <index id="917" parent="713" name="SYS_C001733819">
       <ObjectId>1306134</ObjectId>
       <NameSurrogate>1</NameSurrogate>
       <CreatedTimestamp>2018-11-10.04:46:17</CreatedTimestamp>
@@ -2820,7 +3421,7 @@ TITLE_ID</ColNames>
       <ColNames>TITLE_ID</ColNames>
       <Unique>1</Unique>
     </index>
-    <key id="815" parent="701" name="SYS_C001733819">
+    <key id="918" parent="713" name="SYS_C001733819">
       <NameSurrogate>1</NameSurrogate>
       <ModifiedTimestamp>2018-11-10.04:46:17</ModifiedTimestamp>
       <ColNames>TITLE_ID</ColNames>
@@ -2828,7 +3429,7 @@ TITLE_ID</ColNames>
       <UnderlyingIndexName>SYS_C001733819</UnderlyingIndexName>
       <Primary>1</Primary>
     </key>
-    <foreign-key id="816" parent="701" name="SYS_C001733820">
+    <foreign-key id="919" parent="713" name="SYS_C001733820">
       <NameSurrogate>1</NameSurrogate>
       <ModifiedTimestamp>2018-11-10.04:46:17</ModifiedTimestamp>
       <ColNames>PUB_ID</ColNames>
@@ -2836,6 +3437,96 @@ TITLE_ID</ColNames>
       <RefTableName>PUBLISHERS</RefTableName>
       <RefKeyName>SYS_C001733815</RefKeyName>
       <OnDelete>cascade</OnDelete>
+    </foreign-key>
+    <column id="920" parent="714" name="TRIP_ID">
+      <Position>1</Position>
+      <DataType>NUMBER(*)|0s</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="921" parent="714" name="RIDER_ID">
+      <Position>2</Position>
+      <DataType>NUMBER(*)|0s</DataType>
+    </column>
+    <column id="922" parent="714" name="BIKE_ID">
+      <Position>3</Position>
+      <DataType>NUMBER(*)|0s</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="923" parent="714" name="END_LOCATION_ID">
+      <Position>4</Position>
+      <DataType>NUMBER(*)|0s</DataType>
+    </column>
+    <column id="924" parent="714" name="START_DATETIME">
+      <Position>5</Position>
+      <DataType>TIMESTAMP(6)|0s</DataType>
+    </column>
+    <column id="925" parent="714" name="END_DATETIME">
+      <Position>6</Position>
+      <DataType>TIMESTAMP(6)|0s</DataType>
+    </column>
+    <column id="926" parent="714" name="TOKENS_DUE">
+      <Position>7</Position>
+      <DataType>NUMBER(*)|0s</DataType>
+    </column>
+    <column id="927" parent="714" name="START_LATITUDE">
+      <Position>8</Position>
+      <DataType>NUMBER(*)|0s</DataType>
+    </column>
+    <column id="928" parent="714" name="START_LONGITUDE">
+      <Position>9</Position>
+      <DataType>NUMBER(*)|0s</DataType>
+    </column>
+    <column id="929" parent="714" name="END_LATITUDE">
+      <Position>10</Position>
+      <DataType>NUMBER(*)|0s</DataType>
+    </column>
+    <column id="930" parent="714" name="END_LONGITUDE">
+      <Position>11</Position>
+      <DataType>NUMBER(*)|0s</DataType>
+    </column>
+    <index id="931" parent="714" name="SYS_C001741533">
+      <ObjectId>1314717</ObjectId>
+      <NameSurrogate>1</NameSurrogate>
+      <CreatedTimestamp>2018-11-13.04:30:32</CreatedTimestamp>
+      <ModifiedTimestamp>2018-11-13.04:30:32</ModifiedTimestamp>
+      <TablespaceName>USERS</TablespaceName>
+      <ColNames>TRIP_ID</ColNames>
+      <Unique>1</Unique>
+    </index>
+    <key id="932" parent="714" name="SYS_C001741533">
+      <NameSurrogate>1</NameSurrogate>
+      <ModifiedTimestamp>2018-11-13.04:30:32</ModifiedTimestamp>
+      <ColNames>TRIP_ID</ColNames>
+      <InitiallyDeferred>1</InitiallyDeferred>
+      <UnderlyingIndexName>SYS_C001741533</UnderlyingIndexName>
+      <Primary>1</Primary>
+    </key>
+    <foreign-key id="933" parent="714" name="SYS_C001741534">
+      <NameSurrogate>1</NameSurrogate>
+      <ModifiedTimestamp>2018-11-13.04:30:32</ModifiedTimestamp>
+      <ColNames>RIDER_ID</ColNames>
+      <RefSchemaName>ORA_F4L0B</RefSchemaName>
+      <RefTableName>RIDER</RefTableName>
+      <RefKeyName>SYS_C001741512</RefKeyName>
+      <OnDelete>restrict</OnDelete>
+    </foreign-key>
+    <foreign-key id="934" parent="714" name="SYS_C001741535">
+      <NameSurrogate>1</NameSurrogate>
+      <ModifiedTimestamp>2018-11-13.04:30:32</ModifiedTimestamp>
+      <ColNames>BIKE_ID</ColNames>
+      <RefSchemaName>ORA_F4L0B</RefSchemaName>
+      <RefTableName>BIKE</RefTableName>
+      <RefKeyName>SYS_C001741514</RefKeyName>
+      <OnDelete>restrict</OnDelete>
+    </foreign-key>
+    <foreign-key id="935" parent="714" name="SYS_C001741536">
+      <NameSurrogate>1</NameSurrogate>
+      <ModifiedTimestamp>2018-11-13.04:30:32</ModifiedTimestamp>
+      <ColNames>END_LOCATION_ID</ColNames>
+      <RefSchemaName>ORA_F4L0B</RefSchemaName>
+      <RefTableName>DESIGNATED_RETURN_AREA</RefTableName>
+      <RefKeyName>SYS_C001741518</RefKeyName>
+      <OnDelete>set-null</OnDelete>
     </foreign-key>
   </database-model>
 </dataSource>

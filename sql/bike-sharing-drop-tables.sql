@@ -1,0 +1,12 @@
+drop table Complaint cascade constraints;
+drop table Refund cascade constraints;
+drop table Replacement_Part cascade constraints;
+drop table Issue_Requires_Part cascade constraints;
+drop table Maintenance_Issue cascade constraints;
+drop table Customer_Service_Rep cascade constraints;
+drop table Maintenance_Technician cascade constraints;
+drop table Designated_Return_Area cascade constraints;
+drop table Trip cascade constraints;
+drop table Rider cascade constraints;
+drop table Bike cascade constraints;
+commit;
