@@ -1,4 +1,12 @@
-
+<!doctype html>
+<html lang="en">
+<head>
+    <title>Bike Sharing</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="../project.js" type="text/javascript" defer></script>
+    <link rel="stylesheet" href="../project.css">
+</head>
 <div id="wrapper">
 
     <nav>
@@ -75,6 +83,8 @@
         </div>
     </div>
 </div>
+</html>
+
 
 <?php
 

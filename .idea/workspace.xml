@@ -228,6 +228,8 @@
     <findStrings>
       <find>oracle-test</find>
       <find>insertsubmit</find>
+      <find>custrep-delete-rider</find>
+      <find>custrep-delete</find>
     </findStrings>
     <replaceStrings>
       <replace>oracle</replace>
