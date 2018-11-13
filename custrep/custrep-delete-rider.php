@@ -58,6 +58,20 @@
                             Delete a rider from the system:
                         </p>
 
+                        <?php
+
+
+                        $sql = "SELECT * FROM RIDER";
+                        $result = mysql_query($sql);
+
+                        echo "<select name='PcID'>";
+                        while ($row = mysql_fetch_array($result)) {
+                            echo "<option value='" . $row['RIDER_ID'] . "'>" . $row['RIDER_ID'] . "</option>";
+                        }
+                        echo "</select>";
+
+                        ?>
+
                         <p>
                             Enter rider ID: <input type="number" name="riderID" size="20">
                         </p>
@@ -105,15 +119,15 @@ if ($db_conn) {
 
     }
 
+
+
     if ($_POST && $success) {
-        //POST-REDIRECT-GET -- See http://en.wikipedia.org/wiki/Post/Redirect/Get
+        // POST-REDIRECT-GET -- See http://en.wikipedia.org/wiki/Post/Redirect/Get
         header("location: custrep-delete-rider.php");
-    } else {
-        echo "Rider " . $_POST . " has been deleted from system";
     }
 
 
-    //Commit to save changes...
+    // Commit to save changes...
     OCILogoff($db_conn);
 } else {
     echo "cannot connect";
