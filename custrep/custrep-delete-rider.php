@@ -106,14 +106,14 @@ if ($db_conn) {
     }
 
 
-    $sql = "SELECT * FROM RIDER";
-    $result = mysql_query($sql);
-
-    echo "<select name='PcID'>";
-    while ($row = mysql_fetch_array($result)) {
-        echo "<option value='" . $row['RIDER_ID'] . "'>" . $row['RIDER_ID'] . "</option>";
-    }
-    echo "</select>";
+//    $sql = "SELECT * FROM RIDER";
+//    $result = mysql_query($sql);
+//
+//    echo "<select name='PcID'>";
+//    while ($row = mysql_fetch_array($result)) {
+//        echo "<option value='" . $row['RIDER_ID'] . "'>" . $row['RIDER_ID'] . "</option>";
+//    }
+//    echo "</select>";
 
 
     if ($_POST && $success) {
