@@ -3,6 +3,7 @@
   <component name="ChangeListManager">
     <list default="true" id="d14db3a0-3642-4000-898e-1aff41d6674d" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/custrep/custrep-delete-rider.php" beforeDir="false" afterPath="$PROJECT_DIR$/custrep/custrep-delete-rider.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/sql/bike-sharing-create-tables.sql" beforeDir="false" afterPath="$PROJECT_DIR$/sql/bike-sharing-create-tables.sql" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
@@ -85,14 +86,14 @@
         <counts>
           <entry key="cell" value="1" />
           <entry key="html" value="193" />
-          <entry key="php" value="983" />
+          <entry key="php" value="1002" />
           <entry key="sql" value="918" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
           <entry key="HTML" value="193" />
-          <entry key="PHP" value="983" />
+          <entry key="PHP" value="1002" />
           <entry key="Scratch" value="919" />
         </counts>
       </usages-collector>
@@ -126,8 +127,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/custrep/custrep-delete-rider.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-291">
-              <caret line="79" column="28" selection-start-line="79" selection-start-column="28" selection-end-line="79" selection-end-column="28" />
+            <state relative-caret-position="292">
+              <caret line="92" column="15" lean-forward="true" selection-start-line="92" selection-start-column="15" selection-end-line="92" selection-end-column="15" />
             </state>
           </provider>
         </entry>
@@ -240,8 +241,8 @@
         <option value="$APPLICATION_CONFIG_DIR$/consoles/db/d5c75ad2-11de-47af-9a8b-b8d473cb8c5f/console_3.sql" />
         <option value="$APPLICATION_CONFIG_DIR$/consoles/db/d5c75ad2-11de-47af-9a8b-b8d473cb8c5f/console_2.sql" />
         <option value="$APPLICATION_CONFIG_DIR$/consoles/db/d5c75ad2-11de-47af-9a8b-b8d473cb8c5f/console.sql" />
-        <option value="$PROJECT_DIR$/custrep/custrep-delete-rider.php" />
         <option value="$APPLICATION_CONFIG_DIR$/consoles/db/d5c75ad2-11de-47af-9a8b-b8d473cb8c5f/console_1.sql" />
+        <option value="$PROJECT_DIR$/custrep/custrep-delete-rider.php" />
       </list>
     </option>
   </component>
@@ -323,7 +324,7 @@
       <workItem from="1541986722819" duration="136000" />
       <workItem from="1541992611536" duration="8751000" />
       <workItem from="1542140620174" duration="2510000" />
-      <workItem from="1542143484303" duration="7962000" />
+      <workItem from="1542143484303" duration="8206000" />
     </task>
     <task id="LOCAL-00001" summary="Removed names">
       <created>1541973347062</created>
@@ -336,13 +337,12 @@
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="29847000" />
+    <option name="totallyTimeSpent" value="30091000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="0" width="1440" height="900" extended-state="0" />
-    <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.1788269" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.1788269" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
@@ -354,7 +354,7 @@
       <window_info anchor="bottom" id="TODO" order="6" />
       <window_info anchor="bottom" id="Docker" order="7" show_stripe_button="false" />
       <window_info anchor="bottom" id="Version Control" order="8" show_stripe_button="false" />
-      <window_info anchor="bottom" id="Terminal" order="9" sideWeight="0.4985694" visible="true" weight="0.27710843" />
+      <window_info active="true" anchor="bottom" id="Terminal" order="9" sideWeight="0.4985694" visible="true" weight="0.27710843" />
       <window_info anchor="bottom" id="Event Log" order="10" sideWeight="0.50143063" side_tool="true" weight="0.27710843" />
       <window_info anchor="bottom" id="Database Changes" order="11" weight="0.32891566" />
       <window_info anchor="bottom" id="PHP-CGI Server" order="12" weight="0.32968238" />
@@ -725,8 +725,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/custrep/custrep-delete-rider.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-291">
-          <caret line="79" column="28" selection-start-line="79" selection-start-column="28" selection-end-line="79" selection-end-column="28" />
+        <state relative-caret-position="292">
+          <caret line="92" column="15" lean-forward="true" selection-start-line="92" selection-start-column="15" selection-end-line="92" selection-end-column="15" />
         </state>
       </provider>
     </entry>

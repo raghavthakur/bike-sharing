@@ -92,13 +92,6 @@ require '../server.php';
 // Connect Oracle...
 if ($db_conn) {
 
-    $results = executePlainSQL("SELECT RIDER_ID FROM RIDER");
-    echo "<select name='riderID'>";
-    foreach ($results as $row) {
-        echo "<option value='" . $row['RIDER_ID'] . "'>" . $row['RIDER_ID'] . "</option>";
-    }
-    echo "</select>";
-
     if (array_key_exists('deleteRider', $_POST)) {
         // Delete tuple using data from user
         $tuple = array(
