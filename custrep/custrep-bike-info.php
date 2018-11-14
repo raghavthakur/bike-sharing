@@ -1,4 +1,10 @@
-
+<head>
+    <title>Bike Sharing</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="../project.js" type="text/javascript" defer></script>
+    <link rel="stylesheet" href="../project.css">
+</head>
 <div id="wrapper">
 
     <nav>
@@ -86,7 +92,7 @@ function printResult($result)
 
 // Connect Oracle...
 if ($db_conn) {
-
+    echo "HELLO";
     if (array_key_exists('getAllBikeInfo', $_POST)) {
 
         $result = executePlainSQL("SELECT * FROM BIKE");
