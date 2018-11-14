@@ -102,7 +102,7 @@ if ($db_conn) {
         // Drop old table...
         echo "<br> dropping table <br>";
         require "../reset-database.php";
-        //resetSystem();
+        resetSystem();
         //executePlainSQL("Drop table RIDER cascade constraints");
 
         OCICommit($db_conn);
