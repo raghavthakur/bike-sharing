@@ -2,8 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="d14db3a0-3642-4000-898e-1aff41d6674d" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/custrep/custrep-mainpage.html" beforeDir="false" afterPath="$PROJECT_DIR$/custrep/custrep-mainpage.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/custrep/custrep-return-areas.html" beforeDir="false" afterPath="$PROJECT_DIR$/custrep/custrep-return-areas.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/custrep/custrep-return-areas.php" beforeDir="false" afterPath="$PROJECT_DIR$/custrep/custrep-return-areas.php" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
@@ -97,14 +97,14 @@
         <counts>
           <entry key="cell" value="1" />
           <entry key="html" value="198" />
-          <entry key="php" value="1409" />
+          <entry key="php" value="1423" />
           <entry key="sql" value="923" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
           <entry key="HTML" value="198" />
-          <entry key="PHP" value="1409" />
+          <entry key="PHP" value="1423" />
           <entry key="Scratch" value="924" />
         </counts>
       </usages-collector>
@@ -189,8 +189,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/custrep/custrep-return-areas.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="214">
-              <caret line="100" column="67" selection-start-line="100" selection-start-column="67" selection-end-line="100" selection-end-column="67" />
+            <state relative-caret-position="267">
+              <caret line="102" column="17" selection-start-line="102" selection-start-column="17" selection-end-line="102" selection-end-column="17" />
             </state>
           </provider>
         </entry>
@@ -304,7 +304,7 @@
     <property name="DatabaseDriversLRU" value="oracle" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="com.intellij.ide.scratch.LRUPopupBuilder$1/SQL Dialect" value="OracleSqlPlus&#10;Oracle" />
-    <property name="database.console.LAST_STATE" value="true" />
+    <property name="database.console.LAST_STATE" value="false" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="settings.editor.selected.configurable" value="SQL Dialects" />
   </component>
@@ -338,7 +338,7 @@
       <workItem from="1541992611536" duration="8751000" />
       <workItem from="1542140620174" duration="2510000" />
       <workItem from="1542143484303" duration="10935000" />
-      <workItem from="1542157865819" duration="927000" />
+      <workItem from="1542157865819" duration="1001000" />
     </task>
     <task id="LOCAL-00001" summary="Removed names">
       <created>1541973347062</created>
@@ -351,7 +351,7 @@
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="33747000" />
+    <option name="totallyTimeSpent" value="33821000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="0" width="1440" height="900" extended-state="0" />
@@ -369,11 +369,11 @@
       <window_info anchor="bottom" id="TODO" order="6" />
       <window_info anchor="bottom" id="Docker" order="7" show_stripe_button="false" />
       <window_info anchor="bottom" id="Version Control" order="8" show_stripe_button="false" />
-      <window_info anchor="bottom" id="Terminal" order="9" sideWeight="0.4985694" weight="0.27710843" />
+      <window_info active="true" anchor="bottom" id="Terminal" order="9" sideWeight="0.4985694" visible="true" weight="0.27710843" />
       <window_info anchor="bottom" id="Event Log" order="10" sideWeight="0.50143063" side_tool="true" weight="0.27710843" />
       <window_info anchor="bottom" id="Database Changes" order="11" weight="0.32891566" />
       <window_info anchor="bottom" id="PHP-CGI Server" order="12" weight="0.32968238" />
-      <window_info active="true" anchor="bottom" id="Database Console" order="13" visible="true" weight="0.36746988" />
+      <window_info anchor="bottom" id="Database Console" order="13" weight="0.36746988" />
       <window_info anchor="bottom" id="Messages" order="14" weight="0.32968238" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
@@ -510,8 +510,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/custrep/custrep-return-areas.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="214">
-          <caret line="100" column="67" selection-start-line="100" selection-start-column="67" selection-end-line="100" selection-end-column="67" />
+        <state relative-caret-position="267">
+          <caret line="102" column="17" selection-start-line="102" selection-start-column="17" selection-end-line="102" selection-end-column="17" />
         </state>
       </provider>
     </entry>

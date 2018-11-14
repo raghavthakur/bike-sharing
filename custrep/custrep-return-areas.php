@@ -100,6 +100,7 @@ if ($db_conn) {
 
     $result = executePlainSQL("SELECT * FROM DESIGNATED_RETURN_AREA");
     printResult($result);
+    echo "HELLO";
 
     if ($_POST && $success) {
 // POST-REDIRECT-GET -- See http://en.wikipedia.org/wiki/Post/Redirect/Get
