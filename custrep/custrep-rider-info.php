@@ -10,25 +10,24 @@
     <style>
         /* Table */
         table {
-            width:100%;
-        }
-        table, th, td {
+            width: 100%;
             border: 1px solid black;
-            border-collapse: collapse;
         }
-        th, td {
-            padding: 15px;
-            text-align: left;
+
+        th {
+            font-family: Arial, Helvetica, sans-serif;
+            font-size: .7em;
+            background: #666;
+            color: #FFF;
+            padding: 2px 6px;
+            border-collapse: separate;
+            border: 1px solid #000;
         }
-        table#t01 tr:nth-child(even) {
-            background-color: #eee;
-        }
-        table#t01 tr:nth-child(odd) {
-            background-color: #fff;
-        }
-        table#t01 th {
-            background-color: black;
-            color: white;
+
+        td {
+            font-family: Arial, Helvetica, sans-serif;
+            font-size: .7em;
+            border: 1px solid #DDD;
         }
     </style>
 </head>
