@@ -61,13 +61,19 @@
                         </p>
 
                         <p>
-                            Enter an issue ID to resolve the issue:
+                            Enter the issue ID to resolve:
                             <input type="number" name="issueID" size="20">
                         </p>
 
                         <p>
                             Enter the part number, if any, which was used to fix the bike:
                             <input type="number" name="partNo" size="20">
+                        </p>
+
+                        <p>
+                            If you have any notes about the repair, enter them here: <br>
+                            <textarea name="technicianNotes" rows="5"
+                                      cols="40">Use PHP to get the contents of this textarea</textarea>
                         </p>
 
                         <input type="submit" value="Resolve Issue" name="resolveIssue">

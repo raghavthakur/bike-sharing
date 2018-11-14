@@ -62,8 +62,20 @@
                         </p>
 
                         <p>
-                            Enter an complaint ID to resolve the issue:
+                            Enter the complaint ID resolve:
                             <input type="number" name="issueID" size="20">
+                        </p>
+
+                        <p>
+                            If you have any notes about the complaint, enter them here: <br>
+                            <textarea name="agentNotes" rows="5"
+                                      cols="40">Use PHP to get the contents of this textarea</textarea>
+                        </p>
+
+                        <p>
+                            What action is being taken to resolve this complaint? <br>
+                            <textarea name="actionTaken" rows="5"
+                                      cols="40">Use PHP to get the contents of this textarea</textarea>
                         </p>
 
                         <input type="submit" value="Resolve Complaint" name="resolveComplaint">
