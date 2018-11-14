@@ -102,7 +102,7 @@ if ($db_conn) {
         dropTables();
         createTables();
         insertRowsTables();
-        echo "<h1 style='color: #111111'>System has been reset!</h1>";
+        echo "<h1 style='color: black'>System has been reset!</h1>";
         OCICommit($db_conn);
     }
 

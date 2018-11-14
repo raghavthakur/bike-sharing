@@ -106,7 +106,9 @@ if ($db_conn) {
 
     }
     if ($_POST) {
-        echo "<h1 style='color: #111111'>Rider has been removed!</h1>";
+        echo "<h1 style='color: black'>Rider has been removed!</h1>";
+    } else {
+        echo "<h1 style='color: red'>Error!</h1>";
     }
 
     // Commit to save changes...
