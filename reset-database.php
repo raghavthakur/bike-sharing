@@ -8,8 +8,6 @@
 
 require "server.php";
 
-function resetSystem()
-{
     echo "<br>Dropping tables...</br>";
 
 //    executePlainSQL("drop table Complaint cascade constraints");
@@ -484,4 +482,3 @@ function resetSystem()
 //
 // executePlainSQL("INSERT INTO Trip
 //VALUES(7, 1011, 205, null, '2018-11-12 16:00:09', null, null, 49.265445, -123.250038, null, null)");
-}
