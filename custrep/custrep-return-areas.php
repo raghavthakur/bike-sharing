@@ -110,10 +110,10 @@ require "../server.php";
 function printResult($result)
 {
     echo "<table>";
-    echo "<tr><th>LOCATION_ID</th><th>LATITUDE</th><th>LOGITUDE</th><th>RADIUS</th></tr>";
+    echo "<tr><th>LOCATION_ID</th><th>LATITUDE</th><th>LONGITUDE</th><th>RADIUS</th></tr>";
 
     while ($row = OCI_Fetch_Array($result, OCI_BOTH)) {
-        echo "<tr><td>" . $row["LOCATION_ID"] . "</td><td>" . $row["LATITUDE"] . "</td><td>" . $row["LOGITUDE"] . "</td><td>" . $row["RADIUS"] . "</td></tr>"; //or just use "echo $row[0]"
+        echo "<tr><td>" . $row["LOCATION_ID"] . "</td><td>" . $row["LATITUDE"] . "</td><td>" . $row["LONGITUDE"] . "</td><td>" . $row["RADIUS"] . "</td></tr>"; //or just use "echo $row[0]"
     }
     echo "</table>";
 
