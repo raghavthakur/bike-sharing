@@ -147,6 +147,8 @@ if ($db_conn) {
     }
     if ($_POST && $success) {
         echo "<h1 style='color: black'>Rider has been removed!</h1>";
+        $result = executePlainSQL("SELECT * FROM RIDER");
+        printResult($result);
     } else if (!$success){
         echo "<h1 style='color: red'>Error!</h1>";
     }
