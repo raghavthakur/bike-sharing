@@ -106,6 +106,12 @@ if ($db_conn) {
         OCICommit($db_conn);
     }
 
+    // POST-REDIRECT-GET -- See http://en.wikipedia.org/wiki/Post/Redirect/Get
+    if ($_POST && $success) {
+        header("location: custrep-mainpage.php");
+    }
+
+
     // Commit to save changes...
     OCILogoff($db_conn);
 } else {
