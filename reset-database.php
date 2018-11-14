@@ -20,6 +20,8 @@ executePlainSQL("drop table Complaint cascade constraints");
 //executePlainSQL("drop table Rider cascade constraints");
 //executePlainSQL("drop table Bike cascade constraints");
 
+commit;
+
 //    echo "<br>Creating new tables...<br>";
 //
 //    executePlainSQL("CREATE TABLE Rider(
