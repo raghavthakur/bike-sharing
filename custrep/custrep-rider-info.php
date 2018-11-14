@@ -109,11 +109,11 @@ if ($db_conn) {
         OCICommit($db_conn);
     }
 
-    if ($_POST && $success) {
-        echo "<h1 style='color: black'>Showing all riders!</h1>";
-    } else if (!$success){
-        echo "<h1 style='color: red'>Error!</h1>";
-    }
+//    if ($_POST && $success) {
+//        echo "<h1 style='color: black'>Showing all riders!</h1>";
+//    } else if (!$success){
+//        echo "<h1 style='color: red'>Error!</h1>";
+//    }
 
     // Commit to save changes...
     OCILogoff($db_conn);
