@@ -10,24 +10,25 @@
     <style>
         /* Table */
         table {
-            width: 100%;
+            width:100%;
+        }
+        table, th, td {
             border: 1px solid black;
+            border-collapse: collapse;
         }
-
-        th {
-            font-family: Arial, Helvetica, sans-serif;
-            font-size: .7em;
-            background: #666;
-            color: #FFF;
-            padding: 2px 6px;
-            border-collapse: separate;
-            border: 1px solid #000;
+        th, td {
+            padding: 15px;
+            text-align: left;
         }
-
-        td {
-            font-family: Arial, Helvetica, sans-serif;
-            font-size: .7em;
-            border: 1px solid #DDD;
+        table#t01 tr:nth-child(even) {
+            background-color: #eee;
+        }
+        table#t01 tr:nth-child(odd) {
+            background-color: #fff;
+        }
+        table#t01 th {
+            background-color: black;
+            color: white;
         }
     </style>
 </head>
@@ -114,7 +115,6 @@ require "../server.php";
 // Prints result from select statement
 function printResult($result)
 {
-    echo "<br>Got data from table Bike:<br>";
     echo "<table>";
     echo "<tr><th>RIDER_ID</th><th>WALLED_ID</th><th>NAME</th><th>PHONE_NUM</th><th>EMAIL</th><th>ADDRESS</th></tr>";
 
