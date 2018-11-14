@@ -81,8 +81,8 @@
         </div>
     </div>
 </div>
-</html>
 
+</html>
 <?php
 
 require "../server.php";
@@ -91,7 +91,7 @@ require "../server.php";
 function printResult($result)
 {
     echo "<br>Got data from table Bike:<br>";
-    echo "<table style='width: 100%' border='1px solid black'>";
+    echo "<table>";
     echo "<tr><th>RIDER_ID</th><th>WALLED_ID</th><th>NAME</th><th>PHONE_NUM</th><th>EMAIL</th><th>ADDRESS</th></tr>";
 
     while ($row = OCI_Fetch_Array($result, OCI_BOTH)) {
