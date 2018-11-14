@@ -94,7 +94,6 @@
 <?php
 
 require "../server.php";
-require "../reset-database.php";
 
 
 // Connect Oracle...
