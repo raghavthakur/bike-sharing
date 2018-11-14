@@ -55,6 +55,13 @@
 
                         <p>
                             Table showing all bikes and their info.
+                            <?php
+                            if ($db_conn) {
+
+                            $result = executePlainSQL("SELECT * FROM BIKE");
+                            printResult($result);
+                            }
+                            ?>
                         </p>
 
                     </form>
@@ -91,8 +98,8 @@ function printResult($result)
 // Connect Oracle...
 if ($db_conn) {
 
-    $result = executePlainSQL("SELECT * FROM BIKE");
-    printResult($result);
+//    $result = executePlainSQL("SELECT * FROM BIKE");
+//    printResult($result);
 
     if ($_POST && $success) {
 // POST-REDIRECT-GET -- See http://en.wikipedia.org/wiki/Post/Redirect/Get
