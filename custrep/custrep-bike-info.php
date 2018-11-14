@@ -97,11 +97,11 @@ if ($db_conn) {
     $result = executePlainSQL("SELECT * FROM BIKE");
     printResult($result);
 
-    // POST-REDIRECT-GET -- See http://en.wikipedia.org/wiki/Post/Redirect/Get
     if ($_POST && $success) {
-        header("location: custrep-bike-info.php");
+        echo "<h1 style='color: black'>Showing all bikes...</h1>";
+    } else if (!$success){
+        echo "<h1 style='color: red'>Error!</h1>";
     }
-
 
     // Commit to save changes...
     OCILogoff($db_conn);

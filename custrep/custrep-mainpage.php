@@ -111,7 +111,7 @@ if ($db_conn) {
         echo "<h1 style='color: red'>Error!</h1>";
     }
 
-    //Commit to save changes...
+    // Commit to save changes...
     OCILogoff($db_conn);
 } else {
     echo "cannot connect";

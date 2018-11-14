@@ -53,7 +53,7 @@
                 <div>
                     <h3>CUSTOMER SERVICE REP. - Rider Info</h3>
 
-                    <form method="POST" action="new-oracle-test.php">
+                    <form method="POST">
 
                         <input type="submit" value="Get All Rider Info" name="getAllRiderInfo">
 
@@ -82,3 +82,44 @@
     </div>
 </div>
 </html>
+
+<?php
+
+require "../server.php";
+
+// Prints result from select statement
+function printResult($result)
+{
+    echo "<br>Got data from table Bike:<br>";
+    echo "<table style='width: 100%' border='1px solid black'>";
+    echo "<tr><th style='border: 1px solid black'>BIKE_ID</th><th style='border: 1px solid black'>DATE_PURCHASED</th><th style='border: 1px solid black'>LATITUDE</th><th style='border: 1px solid black'>LOGITUDE</th></tr><th style='border: 1px solid black'>IS_BROKEN</th>";
+
+    while ($row = OCI_Fetch_Array($result, OCI_BOTH)) {
+        echo "<tr><td>" . $row["BIKE_ID"] . "</td><td>" . $row["DATE_PURCHASED"] . "</td><td>" . $row["LATITUDE"] . "</td><td>" . $row["LOGITUDE"] . "</td><td>" . $row["IS_BROKEN"] . "</td></tr>"; //or just use "echo $row[0]"
+    }
+    echo "</table>";
+
+}
+
+if ($db_conn) {
+
+    if (array_key_exists('getAllRiderInfo', $_POST)) {
+        $result = executePlainSQL("SELECT * FROM RIDER");
+        OCICommit($db_conn);
+    }
+
+    if ($_POST && $success) {
+        echo "<h1 style='color: black'>System has been reset!</h1>";
+    } else if (!$success){
+        echo "<h1 style='color: red'>Error!</h1>";
+    }
+
+    // Commit to save changes...
+    OCILogoff($db_conn);
+} else {
+    echo "cannot connect";
+    $e = OCI_Error(); // For OCILogon errors pass no handle
+    echo htmlentities($e['message']);
+}
+
+?>
