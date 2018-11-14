@@ -101,11 +101,10 @@ if ($db_conn) {
     if (array_key_exists('resetSystem', $_POST)) {
         // Drop old table...
         echo "<br> dropping table <br>";
-        executePlainSQL("Drop table RIDER cascade constraints");
+        include "../reset-database.php";
+        resetSystem();
+        //executePlainSQL("Drop table RIDER cascade constraints");
 
-        // Create new table...
-        echo "<br> creating new table <br>";
-        //executePlainSQL("create table tab1 (nid number, name varchar2(30), primary key (nid))");
         OCICommit($db_conn);
 
     }
