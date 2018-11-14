@@ -79,12 +79,12 @@ require '../server.php';
 
 function printResult($result)
 { //prints results from a select statement
-    echo "<br>Got data from table tab1:<br>";
+    echo "<br>Got data from table Bike:<br>";
     echo "<table>";
-    echo "<tr><th>ID</th><th>Name</th><th>Phone</th><th>Address</th></tr>";
+    echo "<tr><th>BIKE_ID</th><th>DATE_PURCHASED</th><th>LATITUDE</th><th>LOGITUDE</th></tr><th>IS_BROKEN</th>";
 
     while ($row = OCI_Fetch_Array($result, OCI_BOTH)) {
-        echo "<tr><td>" . $row["NID"] . "</td><td>" . $row["NAME"] . "</td><td>" . $row["PHONE"] . "</td><td>" . $row["ADDRESS"] . "</td></tr>"; //or just use "echo $row[0]"
+        echo "<tr><td>" . $row["BIKE_ID"] . "</td><td>" . $row["DATE_PURCHASED"] . "</td><td>" . $row["LATITUDE"] . "</td><td>" . $row["LOGITUDE"] . "</td><td>" . $row["IS_BROKEN"] . "</td></tr>"; //or just use "echo $row[0]"
     }
     echo "</table>";
 
