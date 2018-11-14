@@ -101,8 +101,8 @@ if ($db_conn) {
     if (array_key_exists('resetSystem', $_POST)) {
         // Drop old table...
         echo "<br> dropping table <br>";
-        include "../reset-database.php";
-        resetSystem();
+        require "../reset-database.php";
+        //resetSystem();
         //executePlainSQL("Drop table RIDER cascade constraints");
 
         OCICommit($db_conn);
