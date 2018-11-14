@@ -29,6 +29,9 @@
             font-size: .7em;
             border: 1px solid #DDD;
         }
+        text {
+            color: black;
+        }
     </style>
 </head>
 <div id="wrapper">
