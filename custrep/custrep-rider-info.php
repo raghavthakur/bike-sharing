@@ -92,10 +92,10 @@ function printResult($result)
 {
     echo "<br>Got data from table Bike:<br>";
     echo "<table>";
-    echo "<tr><th>BIKE_ID</th><th>DATE_PURCHASED</th><th>LATITUDE</th><th>LOGITUDE</th><th>IS_BROKEN</th></tr>";
+    echo "<tr><th>RIDER_ID</th><th>WALLED_ID</th><th>NAME</th><th>PHONE_NUM</th><th>EMAIL</th><th>ADDRESS</th></tr>";
 
     while ($row = OCI_Fetch_Array($result, OCI_BOTH)) {
-        echo "<tr><td>" . $row["BIKE_ID"] . "</td><td>" . $row["DATE_PURCHASED"] . "</td><td>" . $row["LATITUDE"] . "</td><td>" . $row["LOGITUDE"] . "</td><td>" . $row["IS_BROKEN"] . "</td></tr>"; //or just use "echo $row[0]"
+        echo "<tr><td>" . $row["RIDER_ID"] . "</td><td>" . $row["WALLET_ID"] . "</td><td>" . $row["NAME"] . "</td><td>" . $row["PHONE_NUM"] . "</td><td>" . $row["EMAIL"] . "</td><td>" . $row["ADDRESS"] . "</td></tr>"; //or just use "echo $row[0]"
     }
     echo "</table>";
 
