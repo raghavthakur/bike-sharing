@@ -133,5 +133,6 @@ if ($db_conn) {
      OCI_RETURN_NULLS - create empty elements for the NULL fields.  
      OCI_RETURN_LOBS - return the value of a LOB of the descriptor.  
      Default mode is OCI_BOTH.  */
+//HG
 ?>
 
