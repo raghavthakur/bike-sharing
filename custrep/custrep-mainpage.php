@@ -100,10 +100,11 @@ require "../server.php";
 // Connect Oracle...
 if ($db_conn) {
     echo nl2br("Connection established!\r\n");
+    include '../reset-database.php';
     if (array_key_exists('resetSystem', $_POST)) {
-        include '../reset-database.php';
         echo "Resetting system...";
         resetSystem();
+        require '../debugger.php';
         OCICommit($db_conn);
     }
 
