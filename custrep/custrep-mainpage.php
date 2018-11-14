@@ -102,6 +102,7 @@ if ($db_conn) {
         dropTables();
         createTables();
         insertRowsTables();
+        echo "<h2>System Reset</h2>";
         OCICommit($db_conn);
     }
 
