@@ -66,7 +66,6 @@
                         <a href="custrep-bike-info.php">Bike Info</a> <br> <br>
                         <a href="custrep-return-areas.php">Return Areas</a> <br> <br>
                         <a href="custrep-maintenance-issues.php">Maintenance Issues</a> <br> <br>
-                        <a href="custrep-complaints.html">Complaints</a>
                     </p>
 
                     <h4>Problems:</h4>
