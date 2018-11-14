@@ -1,4 +1,3 @@
-<!doctype html>
 <html lang="en">
 <head>
     <title>Bike Sharing</title>
@@ -53,7 +52,7 @@
                 <div>
                     <h3>CUSTOMER SERVICE REP. - Return Areas</h3>
 
-                    <form method="POST" action="new-oracle-test.php">
+                    <form method="POST" action="custrep-return-areas.php">
 
                         <input type="submit" value="Get Return Area Info" name="getReturnAreaInfo">
 
@@ -78,3 +77,41 @@
     </div>
 </div>
 </html>
+
+<?php
+
+require "../server.php";
+
+function printResult($result)
+{ //prints results from a select statement
+    echo "<br>Got data from table Bike:<br>";
+    echo "<table>";
+    echo "<tr><th>LOCATION_ID</th><th>LATITUDE</th><th>LOGITUDE</th></tr><th>RADIUS</th>";
+
+    while ($row = OCI_Fetch_Array($result, OCI_BOTH)) {
+        echo "<tr><td>" . $row["LOCATION_ID"] . "</td><td>" . $row["LATITUDE"] . "</td><td>" . $row["LOGITUDE"] . "</td><td>" . $row["RADIUS"] . "</td></tr>"; //or just use "echo $row[0]"
+    }
+    echo "</table>";
+
+}
+
+// Connect Oracle...
+if ($db_conn) {
+
+    $result = executePlainSQL("SELECT * FROM DESIGNATED_RETURN_AREA");
+    printResult($result);
+
+    if ($_POST && $success) {
+// POST-REDIRECT-GET -- See http://en.wikipedia.org/wiki/Post/Redirect/Get
+        header("location: custrep-bike-info.php");
+    }
+
+
+// Commit to save changes...
+    OCILogoff($db_conn);
+} else {
+    echo "cannot connect";
+    $e = OCI_Error(); // For OCILogon errors pass no handle
+    echo htmlentities($e['message']);
+}
+?>
