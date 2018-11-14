@@ -93,21 +93,17 @@ function printResult($result)
 // Connect Oracle...
 if ($db_conn) {
 
-    if (array_key_exists('deleteRider', $_POST)) {
+    if (array_key_exists('allBikeInfo', $_POST)) {
         // Delete tuple using data from user
         $tuple = array(
-            ":bind1" => $_POST['riderID']
         );
         $alltuples = array(
             $tuple
         );
-        executeBoundSQL("DELETE FROM RIDER WHERE RIDER_ID=:bind1", $alltuples);
+        $result = executeBoundSQL("SELECT * FROM BIKE", $alltuples);
         OCICommit($db_conn);
-    }
-
-
-        $result = executePlainSQL("SELECT * FROM BIKE");
         printResult($result);
+    }
 
     if ($_POST && $success) {
 // POST-REDIRECT-GET -- See http://en.wikipedia.org/wiki/Post/Redirect/Get
