@@ -6,7 +6,7 @@
  * Time: 9:18 PM
  */
 
-echo "Running debugger\n";
+echo "Running debugger\r\n";
 error_reporting(-1);
 ini_set('display_errors', 1);
 include 'reset-database.php';
