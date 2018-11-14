@@ -92,13 +92,11 @@ function printResult($result)
 
 // Connect Oracle...
 if ($db_conn) {
-    echo "HELLO";
-    if (array_key_exists('getAllBikeInfo', $_POST)) {
+    //if (array_key_exists('getAllBikeInfo', $_POST)) {
 
         $result = executePlainSQL("SELECT * FROM BIKE");
         printResult($result);
-        echo 'Result';
-    }
+    //}
 
     if ($_POST && $success) {
 // POST-REDIRECT-GET -- See http://en.wikipedia.org/wiki/Post/Redirect/Get
