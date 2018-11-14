@@ -101,8 +101,7 @@ if ($db_conn) {
     if (array_key_exists('resetSystem', $_POST)) {
         // Drop old table...
         echo "<br> dropping table <br>";
-        require "../reset-database.php";
-        resetSystem();
+        include '../reset-database.php';
         //executePlainSQL("Drop table RIDER cascade constraints");
 
         OCICommit($db_conn);
@@ -111,7 +110,7 @@ if ($db_conn) {
 
     if ($_POST && $success) {
         //POST-REDIRECT-GET -- See http://en.wikipedia.org/wiki/Post/Redirect/Get
-        header("location: oracle-test.php");
+        header("location: custrep-mainpage.php");
     } else {
         echo nl2br("POST Fail! \r\n");
     }

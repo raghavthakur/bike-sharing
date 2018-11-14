@@ -8,8 +8,6 @@
 
 require "server.php";
 
-function resetSystem()
-{
     executePlainSQL("drop table Complaint cascade constraints");
 //executePlainSQL("drop table Refund cascade constraints");
 //executePlainSQL("drop table Replacement_Part cascade constraints");
@@ -22,8 +20,6 @@ function resetSystem()
 //executePlainSQL("drop table Rider cascade constraints");
 //executePlainSQL("drop table Bike cascade constraints");
 
-    commit;
-}
 
 //    echo "<br>Creating new tables...<br>";
 //
