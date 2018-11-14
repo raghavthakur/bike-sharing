@@ -28,8 +28,6 @@
             font-family: Arial, Helvetica, sans-serif;
             font-size: .7em;
             border: 1px solid #DDD;
-        }
-        text {
             color: black;
         }
     </style>
