@@ -102,14 +102,6 @@ if ($db_conn) {
         // Drop old table...
         dropTables();
         OCICommit($db_conn);
-
-    }
-
-    if ($_POST && $success) {
-        //POST-REDIRECT-GET -- See http://en.wikipedia.org/wiki/Post/Redirect/Get
-        header("location: custrep-mainpage.php");
-    } else {
-        echo nl2br("POST Fail! \r\n");
     }
 
     //Commit to save changes...
