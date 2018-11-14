@@ -104,7 +104,8 @@ if ($db_conn) {
         executeBoundSQL("DELETE FROM RIDER WHERE RIDER_ID=:bind1", $alltuples);
         OCICommit($db_conn);
 
-    }
+    } else
+        echo "<h1 style='color: black'>Hello</h1>";
     if ($_POST && $success) {
         echo "<h1 style='color: black'>Rider has been removed!</h1>";
     } else if (!$success){
