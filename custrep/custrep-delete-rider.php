@@ -52,7 +52,7 @@
                 <div>
                     <h3>CUSTOMER SERVICE REP. - Delete a Rider</h3>
 
-                    <form method="POST" action="custrep-delete-rider.php">
+                    <form method="POST">
 
                         <p>
                             Delete a rider from the system:
@@ -102,15 +102,10 @@ if ($db_conn) {
             $tuple
         );
         executeBoundSQL("DELETE FROM RIDER WHERE RIDER_ID=:bind1", $alltuples);
+        echo "<h1 style='color: #111111'>Rider has been removed!</h1>";
         OCICommit($db_conn);
 
     }
-
-    // POST-REDIRECT-GET -- See http://en.wikipedia.org/wiki/Post/Redirect/Get
-    if ($_POST && $success) {
-        header("location: custrep-delete-rider.php");
-    }
-
 
     // Commit to save changes...
     OCILogoff($db_conn);
