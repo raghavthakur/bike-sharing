@@ -53,8 +53,6 @@
 
                     <form method="POST" action="custrep-bike-info.php">
 
-                        <input type="submit" value="Get All Bike Info" name="allBikeInfo">
-
                         <p>
                             Table showing all bikes and their info.
                         </p>
@@ -93,17 +91,8 @@ function printResult($result)
 // Connect Oracle...
 if ($db_conn) {
 
-    if (array_key_exists('allBikeInfo', $_POST)) {
-        // Delete tuple using data from user
-        $tuple = array(
-        );
-        $alltuples = array(
-            $tuple
-        );
-        $result = executeBoundSQL("SELECT * FROM BIKE", $alltuples);
-        OCICommit($db_conn);
-        printResult($result);
-    }
+    $result = executePlainSQL("SELECT * FROM BIKE");
+    printResult($result);
 
     if ($_POST && $success) {
 // POST-REDIRECT-GET -- See http://en.wikipedia.org/wiki/Post/Redirect/Get
