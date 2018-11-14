@@ -1,3 +1,4 @@
+<html lang="en">
 <head>
     <title>Bike Sharing</title>
     <meta charset="utf-8">
@@ -70,6 +71,7 @@
         </div>
     </div>
 </div>
+</html>
 
 <?php
 

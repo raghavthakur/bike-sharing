@@ -105,13 +105,13 @@ if ($db_conn) {
 
     }
 
+    // POST-REDIRECT-GET -- See http://en.wikipedia.org/wiki/Post/Redirect/Get
     if ($_POST && $success) {
-// POST-REDIRECT-GET -- See http://en.wikipedia.org/wiki/Post/Redirect/Get
         header("location: custrep-delete-rider.php");
     }
 
 
-// Commit to save changes...
+    // Commit to save changes...
     OCILogoff($db_conn);
 } else {
     echo "cannot connect";

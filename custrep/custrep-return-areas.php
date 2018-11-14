@@ -103,6 +103,7 @@ if ($db_conn) {
     printResult($result);
     echo "Result";
 
+    // Commit to save changes...
     OCILogoff($db_conn);
 } else {
     echo "cannot connect";
