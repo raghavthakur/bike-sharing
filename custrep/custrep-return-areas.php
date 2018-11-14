@@ -5,6 +5,30 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <script src="../project.js" type="text/javascript" defer></script>
     <link rel="stylesheet" href="../project.css">
+    <style>
+        /* Table */
+        table {
+            width: 100%;
+            border: 1px solid black;
+        }
+
+        th {
+            font-family: Arial, Helvetica, sans-serif;
+            font-size: .7em;
+            background: #666;
+            color: #FFF;
+            padding: 2px 6px;
+            border-collapse: separate;
+            border: 1px solid #000;
+        }
+
+        td {
+            font-family: Arial, Helvetica, sans-serif;
+            font-size: .7em;
+            border: 1px solid #DDD;
+            color: black;
+        }
+    </style>
 </head>
 <div id="wrapper">
 
@@ -52,7 +76,7 @@
                 <div>
                     <h3>CUSTOMER SERVICE REP. - Return Areas</h3>
 
-                    <form method="POST" action="custrep-return-areas.php">
+                    <form method="POST">
 
                         <input type="submit" value="Get Return Area Info" name="getReturnAreaInfo">
 
@@ -85,7 +109,6 @@ require "../server.php";
 // Prints result from select statement
 function printResult($result)
 {
-    echo "<br>Got data from table Bike:<br>";
     echo "<table>";
     echo "<tr><th>LOCATION_ID</th><th>LATITUDE</th><th>LOGITUDE</th><th>RADIUS</th></tr>";
 
@@ -99,9 +122,11 @@ function printResult($result)
 // Connect to Oracle Database
 if ($db_conn) {
 
-    $result = executePlainSQL("SELECT * FROM DESIGNATED_RETURN_AREA");
-    printResult($result);
-    echo "Result";
+    if (array_key_exists('getReturnAreaInfo', $_POST)) {
+        $result = executePlainSQL("SELECT * FROM DESIGNATED_RETURN_AREA");
+        printResult($result);
+        OCICommit($db_conn);
+    }
 
     // Commit to save changes...
     OCILogoff($db_conn);
@@ -110,4 +135,5 @@ if ($db_conn) {
     $e = OCI_Error();
     echo htmlentities($e['message']);
 }
+
 ?>
