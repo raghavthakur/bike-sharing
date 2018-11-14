@@ -50,47 +50,33 @@
         <div id="shadowbox">
             <main>
                 <div>
-                    <h3>RIDER - Update Credit Card on File</h3>
+                    <h3>RIDER - End Ride</h3>
 
                     <form method="POST" action="new-oracle-test.php">
 
                         <p>
-                            Update Your Credit Card Info:
+                            Logging in as...
+                            <input type="number" name="rider_ID" size="20">
+                            (enter a rider_ID)
                         </p>
 
-                        <p>
-                            Credit Card Number:
-                            <input type="number" name="ccNumber" size="20">
-                        </p>
+                        <p>Where will you be ending your ride? Please choose a return area below to end your current
+                            ride at that location.</p>
 
                         <p>
-                            Credit Card Expiry:
-                            <select name="ccExpiryMonth" id="ccExpiryMonth">
-                                <option value="01">January</option>
-                                <option value="02">February</option>
-                                <option value="03">March</option>
-                                <option value="04">April</option>
-                                <option value="05">May</option>
-                                <option value="06">June</option>
-                                <option value="07">July</option>
-                                <option value="08">August</option>
-                                <option value="09">September</option>
-                                <option value="10">October</option>
-                                <option value="11">November</option>
-                                <option value="12">December</option>
-                            </select>
-
-                            <select name="ccExpiryYear" id="ccExpiryYear">
-                                <option value="18">2018</option>
-                                <option value="19">2019</option>
-                                <option value="20">2020</option>
-                                <option value="21">2021</option>
-                                <option value="22">2022</option>
-                                <option value="23">2023</option>
+                            <select name="returnAreas">
+                                <option value="put returnArea ID here">Describe the return area here</option>
+                                <option value="put returnArea ID here">Describe the return area here</option>
+                                <option value="put returnArea ID here">Describe the return area here</option>
+                                <option value="put returnArea ID here">Describe the return area here</option>
                             </select>
                         </p>
 
-                        <input type="submit" value="Update Credit Card" name="updateCreditCard">
+                        <input type="submit" value="End Rental" name="endRental">
+
+                        <p>
+                            Display a confirmation message here to say that their ride has been ended.
+                        </p>
 
                     </form>
                 </div>

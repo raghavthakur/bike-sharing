@@ -50,38 +50,54 @@
         <div id="shadowbox">
             <main>
                 <div>
-                    <h3>RIDER - Complaint Submission Form</h3>
+                    <h3>RIDER - Start Ride</h3>
 
                     <form method="POST" action="new-oracle-test.php">
 
                         <p>
-                            <select name="employeeIdAndName">
-                                <option value="put the employee ID here">Show employee name and ID from the DB here
+                            Logging in as...
+                            <input type="number" name="rider_ID" size="20">
+                            (enter a rider_ID)
+                        </p>
+
+                        <p>Select the bike you would like to rent:</p>
+
+                        <p>
+                            <select name="bikeIdsAndLocations">
+                                <option value="put the employee ID here">Show bike ID and latitude/longitude from the DB
+                                    here
                                 </option>
-                                <option value="put the employee ID here">Show employee name and ID from the DB here
+                                <option value="put the employee ID here">Show bike ID and latitude/longitude from the DB
+                                    here
                                 </option>
-                                <option value="put the employee ID here">Show employee name and ID from the DB here
+                                <option value="put the employee ID here">Show bike ID and latitude/longitude from the DB
+                                    here
                                 </option>
-                                <option value="put the employee ID here">Show employee name and ID from the DB here
+                                <option value="put the employee ID here">Show bike ID and latitude/longitude from the DB
+                                    here
                                 </option>
                             </select>
                         </p>
 
+                        <input type="submit" value="Start Rental" name="startRental">
+
+
                         <p>
-                            <textarea name="description" rows="5"
-                                      cols="40">Use PHP to get the contents of this textarea</textarea>
+                            Note that a rider shouldn't be allowed to rent a bike if they currently have an active bike
+                            rental. They must return the other bike first. We should show an error message if they try
+                            to do this. <br> <br>
+                            IMPORTANT: In our formal spec document, under Deliverable 11, we said that we would create
+                            a VIEW for Riders for the Bike table. Riders are only allowed to see bike_ID, latitude,
+                            and longitude. The VIEW would prevent them from seeing other things. On the other hand,
+                            since it is not possible for a Rider to access that information using our input boxes above,
+                            the VIEW is not really necessary, but I guess we have to do it because of the project
+                            requirements.
                         </p>
 
                         <p>
-                            <input type="radio" name="urgency" value="Low">Low
-                            <input type="radio" name="urgency" value="Moderate">Moderate
-                            <input type="radio" name="urgency" value="High">High
+                            Display a confirmation message here to indicate that the ride has started - or display an
+                            error message otherwise.
                         </p>
-
-                        <input type="submit" value="Submit Complaint" name="submitcomplaint">
-
-                        <p>Display a confirmation message containing the "complaintID" and the current date/time
-                            here.</p>
 
                     </form>
                 </div>

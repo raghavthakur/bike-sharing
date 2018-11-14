@@ -50,16 +50,21 @@
         <div id="shadowbox">
             <main>
                 <div>
-                    <h3>RIDER - Load Tokens into Wallet</h3>
+                    <h3>RIDER - Personal Information</h3>
 
                     <form method="POST" action="new-oracle-test.php">
 
                         <p>
-                            Enter number of tokens to purchase ($0.50/token):
-                            <input type="number" name="tokensToPurchase" size="20">
+                            Logging in as...
+                            <input type="number" name="rider_ID" size="20">
+                            (enter a rider_ID)
                         </p>
 
-                        <input type="submit" value="Complete Purchase" name="purchaseTokens">
+                        <input type="submit" value="Display Personal Info" name="getPersonalInfo">
+
+                        <p>
+                            A table showing the rider's personal information here.
+                        </p>
 
                     </form>
                 </div>

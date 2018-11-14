@@ -50,35 +50,47 @@
         <div id="shadowbox">
             <main>
                 <div>
-                    <h3>RIDER - Update Your Personal Information</h3>
+                    <h3>RIDER - Complaint Submission Form</h3>
 
                     <form method="POST" action="new-oracle-test.php">
 
                         <p>
-                            Complete the form to update your personal information:
+                            Logging in as...
+                            <input type="number" name="rider_ID" size="20">
+                            (enter a rider_ID)
                         </p>
 
                         <p>
-                            Name:
-                            <input type="text" name="riderName" size="20">
+                            This complaint is about the following employee:
+                            <select name="employeeIdAndName">
+                                <option value="put the employee ID here">Show employee name and ID from the DB here
+                                </option>
+                                <option value="put the employee ID here">Show employee name and ID from the DB here
+                                </option>
+                                <option value="put the employee ID here">Show employee name and ID from the DB here
+                                </option>
+                                <option value="put the employee ID here">Show employee name and ID from the DB here
+                                </option>
+                            </select>
                         </p>
 
                         <p>
-                            Phone Number:
-                            <input type="tel" name="riderPhoneNumber" size="20">
+                            Enter your complaint here: <br>
+                            <textarea name="description" rows="5"
+                                      cols="40">Use PHP to get the contents of this textarea</textarea>
                         </p>
 
                         <p>
-                            Email:
-                            <input type="email" name="riderEmail" size="20">
+                            What is the priority level of this complaint?
+                            <input type="radio" name="urgency" value="Low">Low
+                            <input type="radio" name="urgency" value="Moderate">Moderate
+                            <input type="radio" name="urgency" value="High">High
                         </p>
 
-                        <p>
-                            Address:
-                            <input type="text" name="riderAddress" size="20">
-                        </p>
+                        <input type="submit" value="Submit Complaint" name="submitcomplaint">
 
-                        <input type="submit" value="Update Personal Info" name="updateInfo">
+                        <p>Display a confirmation message containing the "complaintID" and the current date/time
+                            here.</p>
 
                     </form>
                 </div>

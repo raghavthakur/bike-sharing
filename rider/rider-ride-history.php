@@ -50,23 +50,22 @@
         <div id="shadowbox">
             <main>
                 <div>
-                    <h3>RIDER - Update Password</h3>
+                    <h3>RIDER - Ride History</h3>
 
                     <form method="POST" action="new-oracle-test.php">
 
-                        <p>Change your password here:</p>
-
                         <p>
-                            Old Password:
-                            <input type="password" name="oldPassword" size="20">
+                            Logging in as...
+                            <input type="number" name="rider_ID" size="20">
+                            (enter a rider_ID)
                         </p>
 
-                        <p>
-                            New Password:
-                            <input type="password" name="newPassword" size="20">
-                        </p>
+                        <p>Information about your previous rides:</p>
 
-                        <input type="submit" value="Update Password" name="updatePassword">
+                        <p>
+                            A table which displays information about all of the rider's previous rides. If they have an
+                            active rental at the moment, we should probably not include it in these results.
+                        </p>
 
                     </form>
                 </div>

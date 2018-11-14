@@ -50,42 +50,55 @@
         <div id="shadowbox">
             <main>
                 <div>
-                    <h3>RIDER MAIN PAGE</h3>
+                    <h3>RIDER - Update Credit Card on File</h3>
 
-                    <h4>Rides:</h4>
-                    <p>
-                        <a href="rider-current-ride.php">Current Ride</a> <br> <br>
-                        <a href="rider-start-ride.php">Start Ride</a> <br> <br>
-                        <a href="rider-end-ride.php">End Ride</a> <br> <br>
-                        <a href="rider-ride-history.php">Your Ride History</a>
-                    </p>
+                    <form method="POST" action="new-oracle-test.php">
 
-                    <hr>
-                    <h4>Problems:</h4>
+                        <p>
+                            Logging in as...
+                            <input type="number" name="rider_ID" size="20">
+                            (enter a rider_ID)
+                        </p>
 
-                    <p>
-                        <a href="rider-maintenance-issue-submission.php">Submit a Maintenance Issue</a> <br> <br>
-                        <a href="rider-complaint-submission.php">Submit a Complaint About an Employee</a>
-                    </p>
+                        <p>
+                            Update Your Credit Card Info:
+                        </p>
 
-                    <hr>
-                    <h4>Wallet:</h4>
+                        <p>
+                            Credit Card Number:
+                            <input type="number" name="ccNumber" size="20">
+                        </p>
 
-                    <p>
-                        <a href="rider-wallet-balance.php">Wallet Balance</a> <br> <br>
-                        <a href="rider-wallet-load.php">Load Tokens Into Wallet</a> <br> <br>
-                        <a href="rider-wallet-cc-info.php">Credit Card on File</a> <br> <br>
-                        <a href="rider-wallet-cc-update.php">Update Credit Card Info</a> <br> <br>
-                    </p>
+                        <p>
+                            Credit Card Expiry:
+                            <select name="ccExpiryMonth" id="ccExpiryMonth">
+                                <option value="01">January</option>
+                                <option value="02">February</option>
+                                <option value="03">March</option>
+                                <option value="04">April</option>
+                                <option value="05">May</option>
+                                <option value="06">June</option>
+                                <option value="07">July</option>
+                                <option value="08">August</option>
+                                <option value="09">September</option>
+                                <option value="10">October</option>
+                                <option value="11">November</option>
+                                <option value="12">December</option>
+                            </select>
 
-                    <hr>
-                    <h4>Account:</h4>
+                            <select name="ccExpiryYear" id="ccExpiryYear">
+                                <option value="18">2018</option>
+                                <option value="19">2019</option>
+                                <option value="20">2020</option>
+                                <option value="21">2021</option>
+                                <option value="22">2022</option>
+                                <option value="23">2023</option>
+                            </select>
+                        </p>
 
-                    <p>
-                        <a href="rider-personal-info.php">Your Personal Information</a> <br> <br>
-                        <a href="rider-update-personal-info.php">Update Personal Information</a> <br> <br>
-                        <a href="rider-update-password.php">Update Password</a>
-                    </p>
+                        <input type="submit" value="Update Credit Card" name="updateCreditCard">
+
+                    </form>
                 </div>
             </main>
 

@@ -14,8 +14,8 @@
             <a href="javascript:void(0)" id="closebutton" onclick="closeNav()">&times;</a>
             <a href="../index.html">Home</a>
             <a href="../login.html">Login</a>
-            <a id="rider" class="active" href="rider-mainpage.html">&gt; Rider</a>
-            <a id="customerservice" href="../custrep/custrep-mainpage.html">&gt; Customer Serv. Rep.</a>
+            <a id="rider" href="../rider/rider-mainpage.html">&gt; Rider</a>
+            <a id="customerservice" class="active" href="custrep-mainpage.html">&gt; Customer Serv. Rep.</a>
             <a id="maintenance" href="../technician/technician-mainpage.html">&gt; Maintenance Tech.</a>
             <a href="../about.html">About</a>
             <a href="../faq.html">FAQ</a>
@@ -26,8 +26,9 @@
         <ul id="desktopnavigation">
             <li><span class="dot"></span><a href="../index.html">Home</a></li>
             <li><span class="dot"></span><a href="../login.html">Login</a></li>
-            <li class="submenu active"><span>&gt; </span><a class="active" href="rider-mainpage.html">Rider</a></li>
-            <li class="submenu"><span>&gt; </span><a href="../custrep/custrep-mainpage.html">Customer Service</a></li>
+            <li class="submenu"><span>&gt; </span><a href="../rider/rider-mainpage.html">Rider</a></li>
+            <li class="submenu active"><span>&gt; </span><a class="active" href="custrep-mainpage.html">Customer
+                Service</a></li>
             <li class="submenu"><span>&gt; </span><a href="../technician/technician-mainpage.html">Maintenance Tech.</a>
             </li>
             <li><span class="dot"></span><a href="../about.html">About</a></li>
@@ -50,15 +51,33 @@
         <div id="shadowbox">
             <main>
                 <div>
-                    <h3>RIDER - Ride History</h3>
+                    <h3>CUSTOMER SERVICE REP. - View Complaints</h3>
 
                     <form method="POST" action="new-oracle-test.php">
 
-                        <p>Information about your previous rides:</p>
+                        <p>
+                            Enter rider ID (optional): <input type="number" name="riderID" size="20">
+                        </p>
 
                         <p>
-                            A table which displays information about all of the rider's previous rides. If they have an
-                            active rental at the moment, we should probably NOT include it in these results.
+                            Enter employee ID (optional): <input type="number" name="employeeID" size="20">
+                        </p>
+
+                        <p>
+                            Sort by:
+                            <select name="sortBy">
+                                <option value="status" selected="selected">Status (Resolved/Unresolved)</option>
+                                <option value="employeeID">Employee ID</option>
+                                <option value="riderID">Rider ID</option>
+                                <option value="date">Date</option>
+                            </select>
+                        </p>
+
+                        <input type="submit" value="View Complaints" name="viewComplaints">
+
+                        <p>
+                            Display a table here according to the above input. Make sure to include columns for
+                            riderName and employeeName so that we have to join 3 tables.
                         </p>
 
                     </form>

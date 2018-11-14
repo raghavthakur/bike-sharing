@@ -14,9 +14,9 @@
             <a href="javascript:void(0)" id="closebutton" onclick="closeNav()">&times;</a>
             <a href="../index.html">Home</a>
             <a href="../login.html">Login</a>
-            <a id="rider" class="active" href="rider-mainpage.html">&gt; Rider</a>
+            <a id="rider" href="../rider/rider-mainpage.html">&gt; Rider</a>
             <a id="customerservice" href="../custrep/custrep-mainpage.html">&gt; Customer Serv. Rep.</a>
-            <a id="maintenance" href="../technician/technician-mainpage.html">&gt; Maintenance Tech.</a>
+            <a id="maintenance" class="active" href="technician-mainpage.html">&gt; Maintenance Tech.</a>
             <a href="../about.html">About</a>
             <a href="../faq.html">FAQ</a>
             <a href="../ourbikes.html">Our Bikes</a>
@@ -26,10 +26,10 @@
         <ul id="desktopnavigation">
             <li><span class="dot"></span><a href="../index.html">Home</a></li>
             <li><span class="dot"></span><a href="../login.html">Login</a></li>
-            <li class="submenu active"><span>&gt; </span><a class="active" href="rider-mainpage.html">Rider</a></li>
+            <li class="submenu"><span>&gt; </span><a href="../rider/rider-mainpage.html">Rider</a></li>
             <li class="submenu"><span>&gt; </span><a href="../custrep/custrep-mainpage.html">Customer Service</a></li>
-            <li class="submenu"><span>&gt; </span><a href="../technician/technician-mainpage.html">Maintenance Tech.</a>
-            </li>
+            <li class="submenu active"><span>&gt; </span><a class="active" href="technician-mainpage.html">Maintenance
+                Tech.</a></li>
             <li><span class="dot"></span><a href="../about.html">About</a></li>
             <li><span class="dot"></span><a href="../faq.html">FAQ</a></li>
             <li><span class="dot"></span><a href="../ourbikes.html">Our Bikes</a></li>
@@ -50,14 +50,30 @@
         <div id="shadowbox">
             <main>
                 <div>
-                    <h3>RIDER - Credit Card Info</h3>
+                    <h3>MAINTENANCE TECHNICIAN - Resolve a Maintenance Issue</h3>
 
                     <form method="POST" action="new-oracle-test.php">
 
-                        <input type="submit" value="Get Credit Card On File" name="getCreditCardOnFile">
+                        <p>
+                            Logging in as...
+                            <input type="number" name="technician_ID" size="20">
+                            (enter a technician_ID)
+                        </p>
 
                         <p>
-                            Credit Card on File: [e.g. **** **** **** 4002]
+                            Enter an issue ID to resolve the issue:
+                            <input type="number" name="issueID" size="20">
+                        </p>
+
+                        <p>
+                            Enter the part number, if any, which was used to fix the bike:
+                            <input type="number" name="partNo" size="20">
+                        </p>
+
+                        <input type="submit" value="Resolve Issue" name="resolveIssue">
+
+                        <p>
+                            Display a confirmation message here.
                         </p>
 
                     </form>

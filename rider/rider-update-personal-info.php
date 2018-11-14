@@ -14,9 +14,9 @@
             <a href="javascript:void(0)" id="closebutton" onclick="closeNav()">&times;</a>
             <a href="../index.html">Home</a>
             <a href="../login.html">Login</a>
-            <a id="rider" href="../rider/rider-mainpage.html">&gt; Rider</a>
+            <a id="rider" class="active" href="rider-mainpage.html">&gt; Rider</a>
             <a id="customerservice" href="../custrep/custrep-mainpage.html">&gt; Customer Serv. Rep.</a>
-            <a id="maintenance" class="active" href="technician-mainpage.html">&gt; Maintenance Tech.</a>
+            <a id="maintenance" href="../technician/technician-mainpage.html">&gt; Maintenance Tech.</a>
             <a href="../about.html">About</a>
             <a href="../faq.html">FAQ</a>
             <a href="../ourbikes.html">Our Bikes</a>
@@ -26,10 +26,10 @@
         <ul id="desktopnavigation">
             <li><span class="dot"></span><a href="../index.html">Home</a></li>
             <li><span class="dot"></span><a href="../login.html">Login</a></li>
-            <li class="submenu"><span>&gt; </span><a href="../rider/rider-mainpage.html">Rider</a></li>
+            <li class="submenu active"><span>&gt; </span><a class="active" href="rider-mainpage.html">Rider</a></li>
             <li class="submenu"><span>&gt; </span><a href="../custrep/custrep-mainpage.html">Customer Service</a></li>
-            <li class="submenu active"><span>&gt; </span><a class="active" href="technician-mainpage.html">Maintenance
-                Tech.</a></li>
+            <li class="submenu"><span>&gt; </span><a href="../technician/technician-mainpage.html">Maintenance Tech.</a>
+            </li>
             <li><span class="dot"></span><a href="../about.html">About</a></li>
             <li><span class="dot"></span><a href="../faq.html">FAQ</a></li>
             <li><span class="dot"></span><a href="../ourbikes.html">Our Bikes</a></li>
@@ -50,22 +50,41 @@
         <div id="shadowbox">
             <main>
                 <div>
-                    <h3>MAINTENANCE TECHNICIAN - Resolve a Maintenance Issue</h3>
+                    <h3>RIDER - Update Your Personal Information</h3>
 
                     <form method="POST" action="new-oracle-test.php">
 
                         <p>
-                            Enter an issue ID to resolve the issue:
-                            <input type="number" name="issueID" size="20">
+                            Logging in as...
+                            <input type="number" name="rider_ID" size="20">
+                            (enter a rider_ID)
                         </p>
-
-                        <input type="submit" value="Resolve Issue" name="resolveIssue">
 
                         <p>
-                            Display a confirmation message here (and possibly reload the table above).
-                            The technician should be able to resolve an issue even if the issue is not
-                            currently being displayed in the table above.
+                            Complete the form to update your personal information:
                         </p>
+
+                        <p>
+                            Name:
+                            <input type="text" name="riderName" size="20">
+                        </p>
+
+                        <p>
+                            Phone Number:
+                            <input type="tel" name="riderPhoneNumber" size="20">
+                        </p>
+
+                        <p>
+                            Email:
+                            <input type="email" name="riderEmail" size="20">
+                        </p>
+
+                        <p>
+                            Address:
+                            <input type="text" name="riderAddress" size="20">
+                        </p>
+
+                        <input type="submit" value="Update Personal Info" name="updateInfo">
 
                     </form>
                 </div>

@@ -14,8 +14,8 @@
             <a href="javascript:void(0)" id="closebutton" onclick="closeNav()">&times;</a>
             <a href="../index.html">Home</a>
             <a href="../login.html">Login</a>
-            <a id="rider" class="active" href="rider-mainpage.html">&gt; Rider</a>
-            <a id="customerservice" href="../custrep/custrep-mainpage.html">&gt; Customer Serv. Rep.</a>
+            <a id="rider" href="../rider/rider-mainpage.html">&gt; Rider</a>
+            <a id="customerservice" class="active" href="custrep-mainpage.html">&gt; Customer Serv. Rep.</a>
             <a id="maintenance" href="../technician/technician-mainpage.html">&gt; Maintenance Tech.</a>
             <a href="../about.html">About</a>
             <a href="../faq.html">FAQ</a>
@@ -26,8 +26,9 @@
         <ul id="desktopnavigation">
             <li><span class="dot"></span><a href="../index.html">Home</a></li>
             <li><span class="dot"></span><a href="../login.html">Login</a></li>
-            <li class="submenu active"><span>&gt; </span><a class="active" href="rider-mainpage.html">Rider</a></li>
-            <li class="submenu"><span>&gt; </span><a href="../custrep/custrep-mainpage.html">Customer Service</a></li>
+            <li class="submenu"><span>&gt; </span><a href="../rider/rider-mainpage.html">Rider</a></li>
+            <li class="submenu active"><span>&gt; </span><a class="active" href="custrep-mainpage.html">Customer
+                Service</a></li>
             <li class="submenu"><span>&gt; </span><a href="../technician/technician-mainpage.html">Maintenance Tech.</a>
             </li>
             <li><span class="dot"></span><a href="../about.html">About</a></li>
@@ -50,24 +51,25 @@
         <div id="shadowbox">
             <main>
                 <div>
-                    <h3>RIDER - Maintenance Issue Submission Form</h3>
+                    <h3>CUSTOMER SERVICE REP. - Resolve Complaint</h3>
 
                     <form method="POST" action="new-oracle-test.php">
 
                         <p>
-                            Bike ID:
-                            <input type="number" name="bikeID" size="20">
+                            Logging in as...
+                            <input type="number" name="cust_rep_ID" size="20">
+                            (enter a customer_rep_ID)
                         </p>
 
                         <p>
-                            <textarea name="description" rows="5"
-                                      cols="40">Use PHP to get the contents of this textarea</textarea>
+                            Enter an complaint ID to resolve the issue:
+                            <input type="number" name="issueID" size="20">
                         </p>
 
-                        <input type="submit" value="Submit Issue" name="submitIssue">
+                        <input type="submit" value="Resolve Complaint" name="resolveComplaint">
 
                         <p>
-                            Display a confirmation message containing the "issueID" and the current date/time here.
+                            Display a confirmation message here.
                         </p>
 
                     </form>

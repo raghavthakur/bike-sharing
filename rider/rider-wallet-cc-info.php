@@ -50,20 +50,20 @@
         <div id="shadowbox">
             <main>
                 <div>
-                    <h3>RIDER - Current (Active) Ride</h3>
+                    <h3>RIDER - Credit Card Info</h3>
 
                     <form method="POST" action="new-oracle-test.php">
 
                         <p>
-                            If you have an active bike rental, you can get information about your current rental here.
+                            Logging in as...
+                            <input type="number" name="rider_ID" size="20">
+                            (enter a rider_ID)
                         </p>
 
-                        <input type="submit" value="Get Info About Current Rental" name="getCurrentRentalInfo">
+                        <input type="submit" value="Get Credit Card On File" name="getCreditCardOnFile">
 
                         <p>
-                            A table which displays information about the rider's current active rental. There should
-                            also be a "Total Cost" column. If they don't have a current active rental, a message
-                            should be displayed to tell them that they don't have an active rental.
+                            Credit Card on File: [e.g. **** **** **** 4002]
                         </p>
 
                     </form>

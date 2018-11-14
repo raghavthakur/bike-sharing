@@ -50,27 +50,29 @@
         <div id="shadowbox">
             <main>
                 <div>
-                    <h3>RIDER - End Ride</h3>
+                    <h3>RIDER - Update Password</h3>
 
                     <form method="POST" action="new-oracle-test.php">
 
-                        <p>Where will you be ending your ride? Please choose a return area below to end your current
-                            ride at that location.</p>
-
                         <p>
-                            <select name="returnAreas">
-                                <option value="put returnArea ID here">Describe the return area here</option>
-                                <option value="put returnArea ID here">Describe the return area here</option>
-                                <option value="put returnArea ID here">Describe the return area here</option>
-                                <option value="put returnArea ID here">Describe the return area here</option>
-                            </select>
+                            Logging in as...
+                            <input type="number" name="rider_ID" size="20">
+                            (enter a rider_ID)
                         </p>
 
-                        <input type="submit" value="End Rental" name="endRental">
+                        <p>Change your password here:</p>
 
                         <p>
-                            Display a confirmation message here to say that their ride has been ended.
+                            Old Password:
+                            <input type="password" name="oldPassword" size="20">
                         </p>
+
+                        <p>
+                            New Password:
+                            <input type="password" name="newPassword" size="20">
+                        </p>
+
+                        <input type="submit" value="Update Password" name="updatePassword">
 
                     </form>
                 </div>

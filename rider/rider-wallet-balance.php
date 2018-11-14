@@ -50,14 +50,20 @@
         <div id="shadowbox">
             <main>
                 <div>
-                    <h3>RIDER - Personal Information</h3>
+                    <h3>RIDER - Wallet Balance</h3>
 
                     <form method="POST" action="new-oracle-test.php">
 
-                        <input type="submit" value="Display Personal Info" name="getPersonalInfo">
+                        <p>
+                            Logging in as...
+                            <input type="number" name="rider_ID" size="20">
+                            (enter a rider_ID)
+                        </p>
+
+                        <input type="submit" value="Get Wallet Balance" name="getWalletBalance">
 
                         <p>
-                            A table showing the rider's personal information here.
+                            Current token total displayed here...
                         </p>
 
                     </form>
