@@ -82,11 +82,12 @@
 
 require "../server.php";
 
+// Prints result from select statement
 function printResult($result)
-{ //prints results from a select statement
+{
     echo "<br>Got data from table Bike:<br>";
     echo "<table>";
-    echo "<tr><th>LOCATION_ID</th><th>LATITUDE</th><th>LOGITUDE</th></tr><th>RADIUS</th>";
+    echo "<tr><th>LOCATION_ID</th><th>LATITUDE</th><th>LOGITUDE</th><th>RADIUS</th></tr>";
 
     while ($row = OCI_Fetch_Array($result, OCI_BOTH)) {
         echo "<tr><td>" . $row["LOCATION_ID"] . "</td><td>" . $row["LATITUDE"] . "</td><td>" . $row["LOGITUDE"] . "</td><td>" . $row["RADIUS"] . "</td></tr>"; //or just use "echo $row[0]"
@@ -95,24 +96,18 @@ function printResult($result)
 
 }
 
-// Connect Oracle...
+// Connect to Oracle Database
 if ($db_conn) {
 
     $result = executePlainSQL("SELECT * FROM DESIGNATED_RETURN_AREA");
     printResult($result);
     echo "Result";
 
-    if ($_POST && $success) {
-// POST-REDIRECT-GET -- See http://en.wikipedia.org/wiki/Post/Redirect/Get
-        header("location: custrep-bike-info.php");
-    }
-
-
-// Commit to save changes...
+    // Commit to save changes...
     OCILogoff($db_conn);
 } else {
     echo "cannot connect";
-    $e = OCI_Error(); // For OCILogon errors pass no handle
+    $e = OCI_Error();
     echo htmlentities($e['message']);
 }
 ?>
