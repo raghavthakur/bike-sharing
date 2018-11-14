@@ -101,9 +101,9 @@ require "../server.php";
 if ($db_conn) {
     echo nl2br("Connection established!\r\n");
     if (array_key_exists('resetSystem', $_POST)) {
-        //include '../debugger.php';
+        include '../reset-database.php';
         echo "Resetting system...";
-        //resetSystem();
+        resetSystem();
         OCICommit($db_conn);
     }
 
