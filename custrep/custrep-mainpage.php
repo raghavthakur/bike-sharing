@@ -82,7 +82,7 @@
                     Copyright &copy; 2018 Bike Sharing <br>
                     <a href="mailto:email@domain.com">email@domain.com</a>
                 </p>
-                <form method="POST" action="custrep-mainpage.php">
+                <form method="POST">
                     <input type="submit" value="Reset System" name="resetSystem">
                 </form>
             </footer>
