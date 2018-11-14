@@ -90,7 +90,7 @@ function printResult($result)
 
 }
 
-// Connect Oracle...
+// Connect Oracle....
 if ($db_conn) {
 
     $result = executePlainSQL("SELECT * FROM BIKE");
