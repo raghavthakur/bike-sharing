@@ -94,8 +94,7 @@
 <?php
 
 require "../server.php";
-include "https://www.ugrad.cs.ubc.ca/~f4l0b/reset-database.php";
-include "reset-database.php";
+include "../reset-database.php";
 
 if ($db_conn) {
 
