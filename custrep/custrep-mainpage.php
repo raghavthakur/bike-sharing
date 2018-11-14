@@ -96,25 +96,28 @@
 require "../server.php";
 //include "../reset-database.php";
 
-
-// Connect Oracle...
 if ($db_conn) {
-    echo nl2br("Connection established!\r\n");
-    include '../reset-database.php';
+
     if (array_key_exists('resetSystem', $_POST)) {
-        echo "Resetting system...";
-        resetSystem();
-        require '../debugger.php';
+        // Drop old table...
+        echo "<br> dropping table <br>";
+        executePlainSQL("Drop table RIDER cascade constraints");
+
+        // Create new table...
+        echo "<br> creating new table <br>";
+        //executePlainSQL("create table tab1 (nid number, name varchar2(30), primary key (nid))");
         OCICommit($db_conn);
+
     }
 
-    // POST-REDIRECT-GET -- See http://en.wikipedia.org/wiki/Post/Redirect/Get
     if ($_POST && $success) {
-        header("location: custrep-mainpage.php");
+        //POST-REDIRECT-GET -- See http://en.wikipedia.org/wiki/Post/Redirect/Get
+        header("location: oracle-test.php");
+    } else {
+        echo nl2br("POST Fail! \r\n");
     }
 
-
-    // Commit to save changes...
+    //Commit to save changes...
     OCILogoff($db_conn);
 } else {
     echo "cannot connect";
