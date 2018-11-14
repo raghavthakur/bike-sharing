@@ -53,7 +53,7 @@
 
                     <form method="POST" action="custrep-bike-info.php">
 
-                        <input type="submit" value="Get All Bike Info" name="pepoles">
+                        <input type="submit" value="Get All Bike Info" name="allBikeInfo">
 
                         <p>
                             Table showing all bikes and their info.
@@ -105,11 +105,9 @@ if ($db_conn) {
         OCICommit($db_conn);
     }
 
-    if (array_key_exists('pepoles', $_POST)) {
 
         $result = executePlainSQL("SELECT * FROM BIKE");
         printResult($result);
-    }
 
     if ($_POST && $success) {
 // POST-REDIRECT-GET -- See http://en.wikipedia.org/wiki/Post/Redirect/Get
