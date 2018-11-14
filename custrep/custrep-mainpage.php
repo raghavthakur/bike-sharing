@@ -14,7 +14,7 @@
             <a href="../index.html">Home</a>
             <a href="../login.html">Login</a>
             <a id="rider" href="../rider/rider-mainpage.html">&gt; Rider</a>
-            <a id="customerservice" class="active" href="custrep-mainpage.php">&gt; Customer Serv. Rep.</a>
+            <a id="customerservice" class="active" href="custrep-mainpage.php">> Customer Serv. Rep.</a>
             <a id="maintenance" href="../technician/technician-mainpage.html">&gt; Maintenance Tech.</a>
             <a href="../about.html">About</a>
             <a href="../faq.html">FAQ</a>
@@ -90,25 +90,25 @@
 </html>
 
 <?php
-
-require "../server.php";
-require "../reset-database.php";
-
-
-// Connect Oracle...
-if ($db_conn) {
-
-    if (array_key_exists('resetSystem', $_POST)) {
-        resetSystem();
-        OCICommit($db_conn);
-    }
-
-    // Commit to save changes...
-    OCILogoff($db_conn);
-} else {
-    echo "cannot connect";
-    $e = OCI_Error(); // For OCILogon errors pass no handle
-    echo htmlentities($e['message']);
-}
-?>
+//
+//require "../server.php";
+//require "../reset-database.php";
+//
+//
+//// Connect Oracle...
+//if ($db_conn) {
+//
+//    if (array_key_exists('resetSystem', $_POST)) {
+//        resetSystem();
+//        OCICommit($db_conn);
+//    }
+//
+//    // Commit to save changes...
+//    OCILogoff($db_conn);
+//} else {
+//    echo "cannot connect";
+//    $e = OCI_Error(); // For OCILogon errors pass no handle
+//    echo htmlentities($e['message']);
+//}
+//?>
 
