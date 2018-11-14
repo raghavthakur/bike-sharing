@@ -102,8 +102,13 @@ if ($db_conn) {
         dropTables();
         createTables();
         insertRowsTables();
-        echo "<h1 style='color: black'>System has been reset!</h1>";
         OCICommit($db_conn);
+    }
+
+    if ($_POST && $success) {
+        echo "<h1 style='color: black'>System has been reset!</h1>";
+    } else if (!$success){
+        echo "<h1 style='color: red'>Error!</h1>";
     }
 
     //Commit to save changes...
