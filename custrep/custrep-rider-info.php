@@ -105,6 +105,7 @@ if ($db_conn) {
 
     if (array_key_exists('getAllRiderInfo', $_POST)) {
         $result = executePlainSQL("SELECT * FROM RIDER");
+        printResult($result);
         OCICommit($db_conn);
     }
 
