@@ -98,11 +98,11 @@ require "../server.php";
 if ($db_conn) {
 
     if (array_key_exists('resetSystem', $_POST)) {
-        // Drop old table...
+        echo "<h1 style='position: center'>Resetting system...</h1>";
         dropTables();
         createTables();
         insertRowsTables();
-        echo "<h1 style='alignment: center'>System has been reset!</h1>";
+        echo "<h1 style='position: center'>System has been reset!</h1>";
         OCICommit($db_conn);
     }
 
