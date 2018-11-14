@@ -93,7 +93,7 @@
 
 <?php
 
-require "../server.php";
+include "../server.php";
 //include "../reset-database.php";
 
 if ($db_conn) {
