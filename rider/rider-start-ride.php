@@ -54,6 +54,12 @@
 
                     <form method="POST" action="new-oracle-test.php">
 
+                        <p>
+                            Logging in as...
+                            <input type="number" name="rider_ID" size="20">
+                            (enter a rider_ID)
+                        </p>
+
                         <p>Select the bike you would like to rent:</p>
 
                         <p>

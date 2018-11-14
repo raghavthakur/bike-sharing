@@ -50,14 +50,32 @@
         <div id="shadowbox">
             <main>
                 <div>
-                    <h3>RIDER - Wallet Balance</h3>
+                    <h3>RIDER - End Ride</h3>
 
                     <form method="POST" action="new-oracle-test.php">
 
-                        <input type="submit" value="Get Wallet Balance" name="getWalletBalance">
+                        <p>
+                            Logging in as...
+                            <input type="number" name="rider_ID" size="20">
+                            (enter a rider_ID)
+                        </p>
+
+                        <p>Where will you be ending your ride? Please choose a return area below to end your current
+                            ride at that location.</p>
 
                         <p>
-                            Current token total displayed here...
+                            <select name="returnAreas">
+                                <option value="put returnArea ID here">Describe the return area here</option>
+                                <option value="put returnArea ID here">Describe the return area here</option>
+                                <option value="put returnArea ID here">Describe the return area here</option>
+                                <option value="put returnArea ID here">Describe the return area here</option>
+                            </select>
+                        </p>
+
+                        <input type="submit" value="End Rental" name="endRental">
+
+                        <p>
+                            Display a confirmation message here to say that their ride has been ended.
                         </p>
 
                     </form>

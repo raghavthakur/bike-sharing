@@ -50,21 +50,47 @@
         <div id="shadowbox">
             <main>
                 <div>
-                    <h3>RIDER - Current (Active) Ride</h3>
+                    <h3>RIDER - Complaint Submission Form</h3>
 
                     <form method="POST" action="new-oracle-test.php">
 
                         <p>
-                            If you have an active bike rental, you can get information about your current rental here.
+                            Logging in as...
+                            <input type="number" name="rider_ID" size="20">
+                            (enter a rider_ID)
                         </p>
-
-                        <input type="submit" value="Get Info About Current Rental" name="getCurrentRentalInfo">
 
                         <p>
-                            A table which displays information about the rider's current active rental. There should
-                            also be a "Total Cost" column. If they don't have a current active rental, a message
-                            should be displayed to tell them that they don't have an active rental.
+                            This complaint is about the following employee:
+                            <select name="employeeIdAndName">
+                                <option value="put the employee ID here">Show employee name and ID from the DB here
+                                </option>
+                                <option value="put the employee ID here">Show employee name and ID from the DB here
+                                </option>
+                                <option value="put the employee ID here">Show employee name and ID from the DB here
+                                </option>
+                                <option value="put the employee ID here">Show employee name and ID from the DB here
+                                </option>
+                            </select>
                         </p>
+
+                        <p>
+                            Enter your complaint here: <br>
+                            <textarea name="description" rows="5"
+                                      cols="40">Use PHP to get the contents of this textarea</textarea>
+                        </p>
+
+                        <p>
+                            What is the priority level of this complaint?
+                            <input type="radio" name="urgency" value="Low">Low
+                            <input type="radio" name="urgency" value="Moderate">Moderate
+                            <input type="radio" name="urgency" value="High">High
+                        </p>
+
+                        <input type="submit" value="Submit Complaint" name="submitcomplaint">
+
+                        <p>Display a confirmation message containing the "complaintID" and the current date/time
+                            here.</p>
 
                     </form>
                 </div>

@@ -54,11 +54,17 @@
 
                     <form method="POST" action="new-oracle-test.php">
 
+                        <p>
+                            Logging in as...
+                            <input type="number" name="rider_ID" size="20">
+                            (enter a rider_ID)
+                        </p>
+
                         <p>Information about your previous rides:</p>
 
                         <p>
                             A table which displays information about all of the rider's previous rides. If they have an
-                            active rental at the moment, we should probably NOT include it in these results.
+                            active rental at the moment, we should probably not include it in these results.
                         </p>
 
                     </form>

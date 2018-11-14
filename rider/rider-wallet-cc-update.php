@@ -50,15 +50,53 @@
         <div id="shadowbox">
             <main>
                 <div>
-                    <h3>RIDER - Personal Information</h3>
+                    <h3>RIDER - Update Credit Card on File</h3>
 
                     <form method="POST" action="new-oracle-test.php">
 
-                        <input type="submit" value="Display Personal Info" name="getPersonalInfo">
+                        <p>
+                            Logging in as...
+                            <input type="number" name="rider_ID" size="20">
+                            (enter a rider_ID)
+                        </p>
 
                         <p>
-                            A table showing the rider's personal information here.
+                            Update Your Credit Card Info:
                         </p>
+
+                        <p>
+                            Credit Card Number:
+                            <input type="number" name="ccNumber" size="20">
+                        </p>
+
+                        <p>
+                            Credit Card Expiry:
+                            <select name="ccExpiryMonth" id="ccExpiryMonth">
+                                <option value="01">January</option>
+                                <option value="02">February</option>
+                                <option value="03">March</option>
+                                <option value="04">April</option>
+                                <option value="05">May</option>
+                                <option value="06">June</option>
+                                <option value="07">July</option>
+                                <option value="08">August</option>
+                                <option value="09">September</option>
+                                <option value="10">October</option>
+                                <option value="11">November</option>
+                                <option value="12">December</option>
+                            </select>
+
+                            <select name="ccExpiryYear" id="ccExpiryYear">
+                                <option value="18">2018</option>
+                                <option value="19">2019</option>
+                                <option value="20">2020</option>
+                                <option value="21">2021</option>
+                                <option value="22">2022</option>
+                                <option value="23">2023</option>
+                            </select>
+                        </p>
+
+                        <input type="submit" value="Update Credit Card" name="updateCreditCard">
 
                     </form>
                 </div>

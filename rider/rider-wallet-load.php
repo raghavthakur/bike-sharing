@@ -50,38 +50,22 @@
         <div id="shadowbox">
             <main>
                 <div>
-                    <h3>RIDER - Complaint Submission Form</h3>
+                    <h3>RIDER - Load Tokens into Wallet</h3>
 
                     <form method="POST" action="new-oracle-test.php">
 
                         <p>
-                            <select name="employeeIdAndName">
-                                <option value="put the employee ID here">Show employee name and ID from the DB here
-                                </option>
-                                <option value="put the employee ID here">Show employee name and ID from the DB here
-                                </option>
-                                <option value="put the employee ID here">Show employee name and ID from the DB here
-                                </option>
-                                <option value="put the employee ID here">Show employee name and ID from the DB here
-                                </option>
-                            </select>
+                            Logging in as...
+                            <input type="number" name="rider_ID" size="20">
+                            (enter a rider_ID)
                         </p>
 
                         <p>
-                            <textarea name="description" rows="5"
-                                      cols="40">Use PHP to get the contents of this textarea</textarea>
+                            Enter number of tokens to purchase ($0.50/token):
+                            <input type="number" name="tokensToPurchase" size="20">
                         </p>
 
-                        <p>
-                            <input type="radio" name="urgency" value="Low">Low
-                            <input type="radio" name="urgency" value="Moderate">Moderate
-                            <input type="radio" name="urgency" value="High">High
-                        </p>
-
-                        <input type="submit" value="Submit Complaint" name="submitcomplaint">
-
-                        <p>Display a confirmation message containing the "complaintID" and the current date/time
-                            here.</p>
+                        <input type="submit" value="Complete Purchase" name="purchaseTokens">
 
                     </form>
                 </div>

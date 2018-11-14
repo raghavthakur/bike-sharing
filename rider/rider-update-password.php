@@ -50,42 +50,31 @@
         <div id="shadowbox">
             <main>
                 <div>
-                    <h3>RIDER MAIN PAGE</h3>
+                    <h3>RIDER - Update Password</h3>
 
-                    <h4>Rides:</h4>
-                    <p>
-                        <a href="rider-current-ride.php">Current Ride</a> <br> <br>
-                        <a href="rider-start-ride.php">Start Ride</a> <br> <br>
-                        <a href="rider-end-ride.php">End Ride</a> <br> <br>
-                        <a href="rider-ride-history.php">Your Ride History</a>
-                    </p>
+                    <form method="POST" action="new-oracle-test.php">
 
-                    <hr>
-                    <h4>Problems:</h4>
+                        <p>
+                            Logging in as...
+                            <input type="number" name="rider_ID" size="20">
+                            (enter a rider_ID)
+                        </p>
 
-                    <p>
-                        <a href="rider-maintenance-issue-submission.php">Submit a Maintenance Issue</a> <br> <br>
-                        <a href="rider-complaint-submission.php">Submit a Complaint About an Employee</a>
-                    </p>
+                        <p>Change your password here:</p>
 
-                    <hr>
-                    <h4>Wallet:</h4>
+                        <p>
+                            Old Password:
+                            <input type="password" name="oldPassword" size="20">
+                        </p>
 
-                    <p>
-                        <a href="rider-wallet-balance.php">Wallet Balance</a> <br> <br>
-                        <a href="rider-wallet-load.php">Load Tokens Into Wallet</a> <br> <br>
-                        <a href="rider-wallet-cc-info.php">Credit Card on File</a> <br> <br>
-                        <a href="rider-wallet-cc-update.php">Update Credit Card Info</a> <br> <br>
-                    </p>
+                        <p>
+                            New Password:
+                            <input type="password" name="newPassword" size="20">
+                        </p>
 
-                    <hr>
-                    <h4>Account:</h4>
+                        <input type="submit" value="Update Password" name="updatePassword">
 
-                    <p>
-                        <a href="rider-personal-info.php">Your Personal Information</a> <br> <br>
-                        <a href="rider-update-personal-info.php">Update Personal Information</a> <br> <br>
-                        <a href="rider-update-password.php">Update Password</a>
-                    </p>
+                    </form>
                 </div>
             </main>
 

@@ -14,8 +14,8 @@
             <a href="javascript:void(0)" id="closebutton" onclick="closeNav()">&times;</a>
             <a href="../index.html">Home</a>
             <a href="../login.html">Login</a>
-            <a id="rider" class="active" href="rider-mainpage.html">&gt; Rider</a>
-            <a id="customerservice" href="../custrep/custrep-mainpage.php">&gt; Customer Serv. Rep.</a>
+            <a id="rider" href="../rider/rider-mainpage.html">&gt; Rider</a>
+            <a id="customerservice" class="active" href="custrep-mainpage.html">&gt; Customer Serv. Rep.</a>
             <a id="maintenance" href="../technician/technician-mainpage.html">&gt; Maintenance Tech.</a>
             <a href="../about.html">About</a>
             <a href="../faq.html">FAQ</a>
@@ -26,8 +26,9 @@
         <ul id="desktopnavigation">
             <li><span class="dot"></span><a href="../index.html">Home</a></li>
             <li><span class="dot"></span><a href="../login.html">Login</a></li>
-            <li class="submenu active"><span>&gt; </span><a class="active" href="rider-mainpage.html">Rider</a></li>
-            <li class="submenu"><span>&gt; </span><a href="../custrep/custrep-mainpage.php">Customer Service</a></li>
+            <li class="submenu"><span>&gt; </span><a href="../rider/rider-mainpage.html">Rider</a></li>
+            <li class="submenu active"><span>&gt; </span><a class="active" href="custrep-mainpage.html">Customer
+                Service</a></li>
             <li class="submenu"><span>&gt; </span><a href="../technician/technician-mainpage.html">Maintenance Tech.</a>
             </li>
             <li><span class="dot"></span><a href="../about.html">About</a></li>
@@ -50,47 +51,38 @@
         <div id="shadowbox">
             <main>
                 <div>
-                    <h3>RIDER - Update Credit Card on File</h3>
+                    <h3>CUSTOMER SERVICE REP. - Resolve Complaint</h3>
 
                     <form method="POST" action="new-oracle-test.php">
 
                         <p>
-                            Update Your Credit Card Info:
+                            Logging in as...
+                            <input type="number" name="cust_rep_ID" size="20">
+                            (enter a customer_rep_ID)
                         </p>
 
                         <p>
-                            Credit Card Number:
-                            <input type="number" name="ccNumber" size="20">
+                            Enter the complaint ID resolve:
+                            <input type="number" name="issueID" size="20">
                         </p>
 
                         <p>
-                            Credit Card Expiry:
-                            <select name="ccExpiryMonth" id="ccExpiryMonth">
-                                <option value="01">January</option>
-                                <option value="02">February</option>
-                                <option value="03">March</option>
-                                <option value="04">April</option>
-                                <option value="05">May</option>
-                                <option value="06">June</option>
-                                <option value="07">July</option>
-                                <option value="08">August</option>
-                                <option value="09">September</option>
-                                <option value="10">October</option>
-                                <option value="11">November</option>
-                                <option value="12">December</option>
-                            </select>
-
-                            <select name="ccExpiryYear" id="ccExpiryYear">
-                                <option value="18">2018</option>
-                                <option value="19">2019</option>
-                                <option value="20">2020</option>
-                                <option value="21">2021</option>
-                                <option value="22">2022</option>
-                                <option value="23">2023</option>
-                            </select>
+                            If you have any notes about the complaint, enter them here: <br>
+                            <textarea name="agentNotes" rows="5"
+                                      cols="40">Use PHP to get the contents of this textarea</textarea>
                         </p>
 
-                        <input type="submit" value="Update Credit Card" name="updateCreditCard">
+                        <p>
+                            What action is being taken to resolve this complaint? <br>
+                            <textarea name="actionTaken" rows="5"
+                                      cols="40">Use PHP to get the contents of this textarea</textarea>
+                        </p>
+
+                        <input type="submit" value="Resolve Complaint" name="resolveComplaint">
+
+                        <p>
+                            Display a confirmation message here.
+                        </p>
 
                     </form>
                 </div>

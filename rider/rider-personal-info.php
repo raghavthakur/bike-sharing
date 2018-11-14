@@ -50,23 +50,21 @@
         <div id="shadowbox">
             <main>
                 <div>
-                    <h3>RIDER - Update Password</h3>
+                    <h3>RIDER - Personal Information</h3>
 
                     <form method="POST" action="new-oracle-test.php">
 
-                        <p>Change your password here:</p>
-
                         <p>
-                            Old Password:
-                            <input type="password" name="oldPassword" size="20">
+                            Logging in as...
+                            <input type="number" name="rider_ID" size="20">
+                            (enter a rider_ID)
                         </p>
 
-                        <p>
-                            New Password:
-                            <input type="password" name="newPassword" size="20">
-                        </p>
+                        <input type="submit" value="Display Personal Info" name="getPersonalInfo">
 
-                        <input type="submit" value="Update Password" name="updatePassword">
+                        <p>
+                            A table showing the rider's personal information here.
+                        </p>
 
                     </form>
                 </div>
