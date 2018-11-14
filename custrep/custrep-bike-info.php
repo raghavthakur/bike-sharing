@@ -53,7 +53,7 @@
 
                     <form method="POST" action="custrep-bike-info.php">
 
-                        <input type="submit" value="Get All Bike Info" name="getAllBikeInfo">
+                        <input type="submit" value="Get All Bike Info" name="pepoles">
 
                         <p>
                             Table showing all bikes and their info.
@@ -105,7 +105,7 @@ if ($db_conn) {
         OCICommit($db_conn);
     }
 
-    if (array_key_exists('getAllBikeInfo', $_POST)) {
+    if (array_key_exists('pepoles', $_POST)) {
 
         $result = executePlainSQL("SELECT * FROM BIKE");
         printResult($result);
