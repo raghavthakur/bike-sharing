@@ -6,7 +6,7 @@
  * Time: 7:37 PM
  */
 
-require "./server.php";
+require "../server.php";
 
 function resetSystem()
 {

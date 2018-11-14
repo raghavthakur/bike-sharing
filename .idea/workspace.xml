@@ -2,6 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="d14db3a0-3642-4000-898e-1aff41d6674d" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/debugger.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/custrep/custrep-mainpage.php" beforeDir="false" afterPath="$PROJECT_DIR$/custrep/custrep-mainpage.php" afterDir="false" />
     </list>
@@ -56,7 +57,7 @@
           <entry key="RIDER" value="1" />
           <entry key="html" value="9" />
           <entry key="js" value="1" />
-          <entry key="php" value="15" />
+          <entry key="php" value="16" />
           <entry key="sql" value="4" />
         </counts>
       </usages-collector>
@@ -65,7 +66,7 @@
           <entry key="Database Element" value="3" />
           <entry key="HTML" value="9" />
           <entry key="JavaScript" value="1" />
-          <entry key="PHP" value="14" />
+          <entry key="PHP" value="15" />
           <entry key="PLAIN_TEXT" value="1" />
           <entry key="Scratch" value="4" />
         </counts>
@@ -73,7 +74,7 @@
       <usages-collector id="statistics.file.extensions.edit">
         <counts>
           <entry key="html" value="24" />
-          <entry key="php" value="1832" />
+          <entry key="php" value="1933" />
           <entry key="sql" value="46" />
           <entry key="txt" value="13" />
         </counts>
@@ -81,7 +82,7 @@
       <usages-collector id="statistics.file.types.edit">
         <counts>
           <entry key="HTML" value="26" />
-          <entry key="PHP" value="1830" />
+          <entry key="PHP" value="1931" />
           <entry key="PLAIN_TEXT" value="13" />
           <entry key="Scratch" value="46" />
         </counts>
@@ -161,8 +162,17 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/custrep/custrep-mainpage.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="408">
-              <caret line="96" column="8" selection-start-line="96" selection-start-column="8" selection-end-line="96" selection-end-column="8" />
+            <state relative-caret-position="340">
+              <caret line="101" column="4" lean-forward="true" selection-start-line="101" selection-start-column="4" selection-end-line="101" selection-end-column="4" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/debugger.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="51">
+              <caret line="8" column="24" selection-start-line="8" selection-start-column="24" selection-end-line="8" selection-end-column="24" />
             </state>
           </provider>
         </entry>
@@ -225,6 +235,7 @@
         <option value="$PROJECT_DIR$/main.php" />
         <option value="$PROJECT_DIR$/custrep/custrep-maintenance-issues.php" />
         <option value="$PROJECT_DIR$/index.html" />
+        <option value="$PROJECT_DIR$/debugger.php" />
         <option value="$PROJECT_DIR$/custrep/custrep-mainpage.php" />
       </list>
     </option>
@@ -317,11 +328,10 @@
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="43021000" />
+    <option name="totallyTimeSpent" value="43397000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="1208" y="40" width="1359" height="1047" extended-state="0" />
-    <editor active="true" />
     <layout>
       <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.22709776" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
@@ -358,7 +368,6 @@
     <option name="LAST_COMMIT_MESSAGE" value="Removed names" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="das://d5c75ad2-11de-47af-9a8b-b8d473cb8c5f/schema/ORA_F4L0B/table/RIDER/index/SYS_C001741512" />
     <entry file="das://d5c75ad2-11de-47af-9a8b-b8d473cb8c5f/schema/ORA_F4L0B/table/TRIP" />
     <entry file="das://d5c75ad2-11de-47af-9a8b-b8d473cb8c5f/schema/ORA_F4L0B/table/MAINTENANCE_ISSUE" />
     <entry file="file://$PROJECT_DIR$/rider/rider-start-ride.html">
@@ -634,10 +643,17 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/debugger.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="51">
+          <caret line="8" column="24" selection-start-line="8" selection-start-column="24" selection-end-line="8" selection-end-column="24" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/custrep/custrep-mainpage.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="408">
-          <caret line="96" column="8" selection-start-line="96" selection-start-column="8" selection-end-line="96" selection-end-column="8" />
+        <state relative-caret-position="340">
+          <caret line="101" column="4" lean-forward="true" selection-start-line="101" selection-start-column="4" selection-end-line="101" selection-end-column="4" />
         </state>
       </provider>
     </entry>
