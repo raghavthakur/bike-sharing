@@ -90,25 +90,25 @@
 </html>
 
 <?php
-//
-//require "../server.php";
-//require "../reset-database.php";
-//
-//
-//// Connect Oracle...
-//if ($db_conn) {
-//
-//    if (array_key_exists('resetSystem', $_POST)) {
-//        resetSystem();
-//        OCICommit($db_conn);
-//    }
-//
-//    // Commit to save changes...
-//    OCILogoff($db_conn);
-//} else {
-//    echo "cannot connect";
-//    $e = OCI_Error(); // For OCILogon errors pass no handle
-//    echo htmlentities($e['message']);
-//}
-//?>
+
+require "../server.php";
+require "../reset-database.php";
+
+
+// Connect Oracle...
+if ($db_conn) {
+
+    if (array_key_exists('resetSystem', $_POST)) {
+        resetSystem();
+        OCICommit($db_conn);
+    }
+
+    // Commit to save changes...
+    OCILogoff($db_conn);
+} else {
+    echo "cannot connect";
+    $e = OCI_Error(); // For OCILogon errors pass no handle
+    echo htmlentities($e['message']);
+}
+?>
 
