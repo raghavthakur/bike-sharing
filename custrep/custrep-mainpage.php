@@ -99,7 +99,7 @@ require "../server.php";
 
 // Connect Oracle...
 if ($db_conn) {
-    echo "Connection established!";
+    //echo "Connection established!";
     if (array_key_exists('resetSystem', $_POST)) {
         echo "Resetting system...";
         //resetSystem();
