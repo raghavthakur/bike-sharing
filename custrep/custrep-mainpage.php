@@ -94,12 +94,13 @@
 <?php
 
 require "../server.php";
-//require "../reset-database.php";
+//include "../reset-database.php";
 
 
 // Connect Oracle...
 if ($db_conn) {
-    //echo "Connection established!";
+    echo "Connection established!";
+    include '../debugger.php';
     if (array_key_exists('resetSystem', $_POST)) {
         echo "Resetting system...";
         //resetSystem();
