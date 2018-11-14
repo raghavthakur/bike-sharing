@@ -101,7 +101,7 @@ if ($db_conn) {
     if (array_key_exists('resetSystem', $_POST)) {
         // Drop old table...
         echo "<br> dropping table <br>";
-        //include '../debugger.php';
+        include '../debugger.php';
         executePlainSQL("Drop table COMPLAINT cascade constraints");
 
         OCICommit($db_conn);
