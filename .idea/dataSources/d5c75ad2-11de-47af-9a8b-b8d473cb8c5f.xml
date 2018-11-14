@@ -6,7 +6,9 @@
     </root>
     <schema id="2" parent="1" name="ORA_F4L0B">
       <ObjectId>4956</ObjectId>
-      <IntrospectionTimestamp>2018-11-13.14:28:18</IntrospectionTimestamp>
+      <IntrospectionTimestamp>2018-11-13.14:30:35</IntrospectionTimestamp>
+      <CreatedTimestamp>2018-11-13.14:30:30</CreatedTimestamp>
+      <ModifiedTimestamp>2018-11-13.14:30:30</ModifiedTimestamp>
       <Current>1</Current>
       <Visible>1</Visible>
     </schema>
@@ -2071,5 +2073,690 @@
     <schema id="689" parent="1" name="ORA_C6Q0B">
       <ObjectId>5122</ObjectId>
     </schema>
+    <table id="690" parent="2" name="BIKE">
+      <ObjectId>1318712</ObjectId>
+      <CreatedTimestamp>2018-11-13.14:30:30</CreatedTimestamp>
+      <ModifiedTimestamp>2018-11-13.14:30:30</ModifiedTimestamp>
+      <TemporaryPreserve>1</TemporaryPreserve>
+    </table>
+    <table id="691" parent="2" name="COMPLAINT">
+      <ObjectId>1318726</ObjectId>
+      <CreatedTimestamp>2018-11-13.14:30:30</CreatedTimestamp>
+      <ModifiedTimestamp>2018-11-13.14:30:30</ModifiedTimestamp>
+      <TemporaryPreserve>1</TemporaryPreserve>
+    </table>
+    <table id="692" parent="2" name="CUSTOMER_SERVICE_REP">
+      <ObjectId>1318718</ObjectId>
+      <CreatedTimestamp>2018-11-13.14:30:30</CreatedTimestamp>
+      <ModifiedTimestamp>2018-11-13.14:30:30</ModifiedTimestamp>
+      <TemporaryPreserve>1</TemporaryPreserve>
+    </table>
+    <table id="693" parent="2" name="DESIGNATED_RETURN_AREA">
+      <ObjectId>1318720</ObjectId>
+      <CreatedTimestamp>2018-11-13.14:30:30</CreatedTimestamp>
+      <ModifiedTimestamp>2018-11-13.14:30:30</ModifiedTimestamp>
+      <TemporaryPreserve>1</TemporaryPreserve>
+    </table>
+    <table id="694" parent="2" name="ISSUE_REQUIRES_PART">
+      <ObjectId>1318724</ObjectId>
+      <CreatedTimestamp>2018-11-13.14:30:30</CreatedTimestamp>
+      <ModifiedTimestamp>2018-11-13.14:30:30</ModifiedTimestamp>
+      <TemporaryPreserve>1</TemporaryPreserve>
+    </table>
+    <table id="695" parent="2" name="MAINTENANCE_ISSUE">
+      <ObjectId>1318722</ObjectId>
+      <CreatedTimestamp>2018-11-13.14:30:30</CreatedTimestamp>
+      <ModifiedTimestamp>2018-11-13.14:30:30</ModifiedTimestamp>
+      <TemporaryPreserve>1</TemporaryPreserve>
+    </table>
+    <table id="696" parent="2" name="MAINTENANCE_TECHNICIAN">
+      <ObjectId>1318716</ObjectId>
+      <CreatedTimestamp>2018-11-13.14:30:30</CreatedTimestamp>
+      <ModifiedTimestamp>2018-11-13.14:30:30</ModifiedTimestamp>
+      <TemporaryPreserve>1</TemporaryPreserve>
+    </table>
+    <table id="697" parent="2" name="REFUND">
+      <ObjectId>1318730</ObjectId>
+      <CreatedTimestamp>2018-11-13.14:30:30</CreatedTimestamp>
+      <ModifiedTimestamp>2018-11-13.14:30:30</ModifiedTimestamp>
+      <TemporaryPreserve>1</TemporaryPreserve>
+    </table>
+    <table id="698" parent="2" name="REPLACEMENT_PART">
+      <ObjectId>1318714</ObjectId>
+      <CreatedTimestamp>2018-11-13.14:30:30</CreatedTimestamp>
+      <ModifiedTimestamp>2018-11-13.14:30:30</ModifiedTimestamp>
+      <TemporaryPreserve>1</TemporaryPreserve>
+    </table>
+    <table id="699" parent="2" name="RIDER">
+      <ObjectId>1318709</ObjectId>
+      <CreatedTimestamp>2018-11-13.14:30:30</CreatedTimestamp>
+      <ModifiedTimestamp>2018-11-13.14:30:30</ModifiedTimestamp>
+      <TemporaryPreserve>1</TemporaryPreserve>
+    </table>
+    <table id="700" parent="2" name="TRIP">
+      <ObjectId>1318728</ObjectId>
+      <CreatedTimestamp>2018-11-13.14:30:30</CreatedTimestamp>
+      <ModifiedTimestamp>2018-11-13.14:30:30</ModifiedTimestamp>
+      <TemporaryPreserve>1</TemporaryPreserve>
+    </table>
+    <column id="701" parent="690" name="BIKE_ID">
+      <Position>1</Position>
+      <DataType>NUMBER(*)|0s</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="702" parent="690" name="DATE_PURCHASED">
+      <Position>2</Position>
+      <DataType>DATE|0s</DataType>
+    </column>
+    <column id="703" parent="690" name="LATITUDE">
+      <Position>3</Position>
+      <DataType>NUMBER(*)|0s</DataType>
+    </column>
+    <column id="704" parent="690" name="LONGITUDE">
+      <Position>4</Position>
+      <DataType>NUMBER(*)|0s</DataType>
+    </column>
+    <column id="705" parent="690" name="IS_BROKEN">
+      <Position>5</Position>
+      <DataType>CHAR(1 byte)|0s</DataType>
+    </column>
+    <index id="706" parent="690" name="SYS_C001746710">
+      <ObjectId>1318713</ObjectId>
+      <NameSurrogate>1</NameSurrogate>
+      <CreatedTimestamp>2018-11-13.14:30:30</CreatedTimestamp>
+      <ModifiedTimestamp>2018-11-13.14:30:30</ModifiedTimestamp>
+      <TablespaceName>USERS</TablespaceName>
+      <ColNames>BIKE_ID</ColNames>
+      <Unique>1</Unique>
+    </index>
+    <key id="707" parent="690" name="SYS_C001746710">
+      <NameSurrogate>1</NameSurrogate>
+      <ModifiedTimestamp>2018-11-13.14:30:30</ModifiedTimestamp>
+      <ColNames>BIKE_ID</ColNames>
+      <InitiallyDeferred>1</InitiallyDeferred>
+      <UnderlyingIndexName>SYS_C001746710</UnderlyingIndexName>
+      <Primary>1</Primary>
+    </key>
+    <column id="708" parent="691" name="COMPLAINT_ID">
+      <Position>1</Position>
+      <DataType>NUMBER(*)|0s</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="709" parent="691" name="RIDER_ID">
+      <Position>2</Position>
+      <DataType>NUMBER(*)|0s</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="710" parent="691" name="CUSTOMER_REP_ID">
+      <Position>3</Position>
+      <DataType>NUMBER(*)|0s</DataType>
+    </column>
+    <column id="711" parent="691" name="CUST_DESCRIPTION">
+      <Position>4</Position>
+      <DataType>CHAR(255 byte)|0s</DataType>
+    </column>
+    <column id="712" parent="691" name="AGENT_NOTES">
+      <Position>5</Position>
+      <DataType>CHAR(255 byte)|0s</DataType>
+    </column>
+    <column id="713" parent="691" name="URGENCY_LEVEL">
+      <Position>6</Position>
+      <DataType>CHAR(50 byte)|0s</DataType>
+    </column>
+    <column id="714" parent="691" name="COMPLAINTDATETIME">
+      <Position>7</Position>
+      <DataType>TIMESTAMP(6)|0s</DataType>
+    </column>
+    <column id="715" parent="691" name="ACTION_TAKEN">
+      <Position>8</Position>
+      <DataType>CHAR(255 byte)|0s</DataType>
+    </column>
+    <column id="716" parent="691" name="IS_RESOLVED">
+      <Position>9</Position>
+      <DataType>CHAR(1 byte)|0s</DataType>
+    </column>
+    <index id="717" parent="691" name="SYS_C001746725">
+      <ObjectId>1318727</ObjectId>
+      <NameSurrogate>1</NameSurrogate>
+      <CreatedTimestamp>2018-11-13.14:30:30</CreatedTimestamp>
+      <ModifiedTimestamp>2018-11-13.14:30:30</ModifiedTimestamp>
+      <TablespaceName>USERS</TablespaceName>
+      <ColNames>COMPLAINT_ID</ColNames>
+      <Unique>1</Unique>
+    </index>
+    <key id="718" parent="691" name="SYS_C001746725">
+      <NameSurrogate>1</NameSurrogate>
+      <ModifiedTimestamp>2018-11-13.14:30:30</ModifiedTimestamp>
+      <ColNames>COMPLAINT_ID</ColNames>
+      <InitiallyDeferred>1</InitiallyDeferred>
+      <UnderlyingIndexName>SYS_C001746725</UnderlyingIndexName>
+      <Primary>1</Primary>
+    </key>
+    <foreign-key id="719" parent="691" name="SYS_C001746726">
+      <NameSurrogate>1</NameSurrogate>
+      <ModifiedTimestamp>2018-11-13.14:30:30</ModifiedTimestamp>
+      <ColNames>RIDER_ID</ColNames>
+      <RefSchemaName>ORA_F4L0B</RefSchemaName>
+      <RefTableName>RIDER</RefTableName>
+      <RefKeyName>SYS_C001746708</RefKeyName>
+      <OnDelete>cascade</OnDelete>
+    </foreign-key>
+    <foreign-key id="720" parent="691" name="SYS_C001746727">
+      <NameSurrogate>1</NameSurrogate>
+      <ModifiedTimestamp>2018-11-13.14:30:30</ModifiedTimestamp>
+      <ColNames>CUSTOMER_REP_ID</ColNames>
+      <RefSchemaName>ORA_F4L0B</RefSchemaName>
+      <RefTableName>CUSTOMER_SERVICE_REP</RefTableName>
+      <RefKeyName>SYS_C001746713</RefKeyName>
+      <OnDelete>restrict</OnDelete>
+    </foreign-key>
+    <column id="721" parent="692" name="EMPLOYEE_ID">
+      <Position>1</Position>
+      <DataType>NUMBER(*)|0s</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="722" parent="692" name="NAME">
+      <Position>2</Position>
+      <DataType>CHAR(50 byte)|0s</DataType>
+    </column>
+    <column id="723" parent="692" name="PHONE_NUM">
+      <Position>3</Position>
+      <DataType>NUMBER(*)|0s</DataType>
+    </column>
+    <column id="724" parent="692" name="EMAIL">
+      <Position>4</Position>
+      <DataType>CHAR(50 byte)|0s</DataType>
+    </column>
+    <column id="725" parent="692" name="ADDRESS">
+      <Position>5</Position>
+      <DataType>CHAR(100 byte)|0s</DataType>
+    </column>
+    <column id="726" parent="692" name="ALIAS_NAME">
+      <Position>6</Position>
+      <DataType>CHAR(50 byte)|0s</DataType>
+    </column>
+    <index id="727" parent="692" name="SYS_C001746713">
+      <ObjectId>1318719</ObjectId>
+      <NameSurrogate>1</NameSurrogate>
+      <CreatedTimestamp>2018-11-13.14:30:30</CreatedTimestamp>
+      <ModifiedTimestamp>2018-11-13.14:30:30</ModifiedTimestamp>
+      <TablespaceName>USERS</TablespaceName>
+      <ColNames>EMPLOYEE_ID</ColNames>
+      <Unique>1</Unique>
+    </index>
+    <key id="728" parent="692" name="SYS_C001746713">
+      <NameSurrogate>1</NameSurrogate>
+      <ModifiedTimestamp>2018-11-13.14:30:30</ModifiedTimestamp>
+      <ColNames>EMPLOYEE_ID</ColNames>
+      <InitiallyDeferred>1</InitiallyDeferred>
+      <UnderlyingIndexName>SYS_C001746713</UnderlyingIndexName>
+      <Primary>1</Primary>
+    </key>
+    <column id="729" parent="693" name="LOCATION_ID">
+      <Position>1</Position>
+      <DataType>NUMBER(*)|0s</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="730" parent="693" name="LATITUDE">
+      <Position>2</Position>
+      <DataType>NUMBER(*)|0s</DataType>
+    </column>
+    <column id="731" parent="693" name="LONGITUDE">
+      <Position>3</Position>
+      <DataType>NUMBER(*)|0s</DataType>
+    </column>
+    <column id="732" parent="693" name="RADIUS">
+      <Position>4</Position>
+      <DataType>NUMBER(*)|0s</DataType>
+    </column>
+    <index id="733" parent="693" name="SYS_C001746714">
+      <ObjectId>1318721</ObjectId>
+      <NameSurrogate>1</NameSurrogate>
+      <CreatedTimestamp>2018-11-13.14:30:30</CreatedTimestamp>
+      <ModifiedTimestamp>2018-11-13.14:30:30</ModifiedTimestamp>
+      <TablespaceName>USERS</TablespaceName>
+      <ColNames>LOCATION_ID</ColNames>
+      <Unique>1</Unique>
+    </index>
+    <key id="734" parent="693" name="SYS_C001746714">
+      <NameSurrogate>1</NameSurrogate>
+      <ModifiedTimestamp>2018-11-13.14:30:30</ModifiedTimestamp>
+      <ColNames>LOCATION_ID</ColNames>
+      <InitiallyDeferred>1</InitiallyDeferred>
+      <UnderlyingIndexName>SYS_C001746714</UnderlyingIndexName>
+      <Primary>1</Primary>
+    </key>
+    <column id="735" parent="694" name="PARTNO">
+      <Position>1</Position>
+      <DataType>NUMBER(*)|0s</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="736" parent="694" name="ISSUEDATETIME">
+      <Position>2</Position>
+      <DataType>TIMESTAMP(6)|0s</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="737" parent="694" name="BIKE_ID">
+      <Position>3</Position>
+      <DataType>NUMBER(*)|0s</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <index id="738" parent="694" name="SYS_C001746721">
+      <ObjectId>1318725</ObjectId>
+      <NameSurrogate>1</NameSurrogate>
+      <CreatedTimestamp>2018-11-13.14:30:30</CreatedTimestamp>
+      <ModifiedTimestamp>2018-11-13.14:30:30</ModifiedTimestamp>
+      <TablespaceName>USERS</TablespaceName>
+      <ColNames>PARTNO
+ISSUEDATETIME
+BIKE_ID</ColNames>
+      <Unique>1</Unique>
+    </index>
+    <key id="739" parent="694" name="SYS_C001746721">
+      <NameSurrogate>1</NameSurrogate>
+      <ModifiedTimestamp>2018-11-13.14:30:30</ModifiedTimestamp>
+      <ColNames>PARTNO
+ISSUEDATETIME
+BIKE_ID</ColNames>
+      <InitiallyDeferred>1</InitiallyDeferred>
+      <UnderlyingIndexName>SYS_C001746721</UnderlyingIndexName>
+      <Primary>1</Primary>
+    </key>
+    <foreign-key id="740" parent="694" name="SYS_C001746722">
+      <NameSurrogate>1</NameSurrogate>
+      <ModifiedTimestamp>2018-11-13.14:30:30</ModifiedTimestamp>
+      <ColNames>PARTNO</ColNames>
+      <RefSchemaName>ORA_F4L0B</RefSchemaName>
+      <RefTableName>REPLACEMENT_PART</RefTableName>
+      <RefKeyName>SYS_C001746711</RefKeyName>
+      <OnDelete>restrict</OnDelete>
+    </foreign-key>
+    <foreign-key id="741" parent="694" name="SYS_C001746723">
+      <NameSurrogate>1</NameSurrogate>
+      <ModifiedTimestamp>2018-11-13.14:30:30</ModifiedTimestamp>
+      <ColNames>ISSUEDATETIME
+BIKE_ID</ColNames>
+      <RefSchemaName>ORA_F4L0B</RefSchemaName>
+      <RefTableName>MAINTENANCE_ISSUE</RefTableName>
+      <RefKeyName>SYS_C001746717</RefKeyName>
+      <OnDelete>cascade</OnDelete>
+    </foreign-key>
+    <column id="742" parent="695" name="ISSUEDATETIME">
+      <Position>1</Position>
+      <DataType>TIMESTAMP(6)|0s</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="743" parent="695" name="ISSUE_DESCRIPTION">
+      <Position>2</Position>
+      <DataType>CHAR(255 byte)|0s</DataType>
+    </column>
+    <column id="744" parent="695" name="TECHNICAN_NOTES">
+      <Position>3</Position>
+      <DataType>CHAR(255 byte)|0s</DataType>
+    </column>
+    <column id="745" parent="695" name="RESOLVED_DATE">
+      <Position>4</Position>
+      <DataType>DATE|0s</DataType>
+    </column>
+    <column id="746" parent="695" name="BIKE_ID">
+      <Position>5</Position>
+      <DataType>NUMBER(*)|0s</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="747" parent="695" name="RIDER_ID">
+      <Position>6</Position>
+      <DataType>NUMBER(*)|0s</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="748" parent="695" name="TECHNICIAN_ID">
+      <Position>7</Position>
+      <DataType>NUMBER(*)|0s</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <index id="749" parent="695" name="SYS_C001746717">
+      <ObjectId>1318723</ObjectId>
+      <NameSurrogate>1</NameSurrogate>
+      <CreatedTimestamp>2018-11-13.14:30:30</CreatedTimestamp>
+      <ModifiedTimestamp>2018-11-13.14:30:30</ModifiedTimestamp>
+      <TablespaceName>USERS</TablespaceName>
+      <ColNames>ISSUEDATETIME
+BIKE_ID</ColNames>
+      <Unique>1</Unique>
+    </index>
+    <key id="750" parent="695" name="SYS_C001746717">
+      <NameSurrogate>1</NameSurrogate>
+      <ModifiedTimestamp>2018-11-13.14:30:30</ModifiedTimestamp>
+      <ColNames>ISSUEDATETIME
+BIKE_ID</ColNames>
+      <InitiallyDeferred>1</InitiallyDeferred>
+      <UnderlyingIndexName>SYS_C001746717</UnderlyingIndexName>
+      <Primary>1</Primary>
+    </key>
+    <foreign-key id="751" parent="695" name="SYS_C001746718">
+      <NameSurrogate>1</NameSurrogate>
+      <ModifiedTimestamp>2018-11-13.14:30:30</ModifiedTimestamp>
+      <ColNames>BIKE_ID</ColNames>
+      <RefSchemaName>ORA_F4L0B</RefSchemaName>
+      <RefTableName>BIKE</RefTableName>
+      <RefKeyName>SYS_C001746710</RefKeyName>
+      <OnDelete>cascade</OnDelete>
+    </foreign-key>
+    <foreign-key id="752" parent="695" name="SYS_C001746719">
+      <NameSurrogate>1</NameSurrogate>
+      <ModifiedTimestamp>2018-11-13.14:30:30</ModifiedTimestamp>
+      <ColNames>RIDER_ID</ColNames>
+      <RefSchemaName>ORA_F4L0B</RefSchemaName>
+      <RefTableName>RIDER</RefTableName>
+      <RefKeyName>SYS_C001746708</RefKeyName>
+      <OnDelete>cascade</OnDelete>
+    </foreign-key>
+    <foreign-key id="753" parent="695" name="SYS_C001746720">
+      <NameSurrogate>1</NameSurrogate>
+      <ModifiedTimestamp>2018-11-13.14:30:30</ModifiedTimestamp>
+      <ColNames>TECHNICIAN_ID</ColNames>
+      <RefSchemaName>ORA_F4L0B</RefSchemaName>
+      <RefTableName>MAINTENANCE_TECHNICIAN</RefTableName>
+      <RefKeyName>SYS_C001746712</RefKeyName>
+      <OnDelete>restrict</OnDelete>
+    </foreign-key>
+    <column id="754" parent="696" name="EMPLOYEE_ID">
+      <Position>1</Position>
+      <DataType>NUMBER(*)|0s</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="755" parent="696" name="NAME">
+      <Position>2</Position>
+      <DataType>CHAR(50 byte)|0s</DataType>
+    </column>
+    <column id="756" parent="696" name="PHONE_NUM">
+      <Position>3</Position>
+      <DataType>NUMBER(*)|0s</DataType>
+    </column>
+    <column id="757" parent="696" name="EMAIL">
+      <Position>4</Position>
+      <DataType>CHAR(50 byte)|0s</DataType>
+    </column>
+    <column id="758" parent="696" name="ADDRESS">
+      <Position>5</Position>
+      <DataType>CHAR(100 byte)|0s</DataType>
+    </column>
+    <column id="759" parent="696" name="DRIVERS_LICENSE_NUM">
+      <Position>6</Position>
+      <DataType>NUMBER(*)|0s</DataType>
+    </column>
+    <column id="760" parent="696" name="LICENSE_EXPIRY_DATE">
+      <Position>7</Position>
+      <DataType>DATE|0s</DataType>
+    </column>
+    <index id="761" parent="696" name="SYS_C001746712">
+      <ObjectId>1318717</ObjectId>
+      <NameSurrogate>1</NameSurrogate>
+      <CreatedTimestamp>2018-11-13.14:30:30</CreatedTimestamp>
+      <ModifiedTimestamp>2018-11-13.14:30:30</ModifiedTimestamp>
+      <TablespaceName>USERS</TablespaceName>
+      <ColNames>EMPLOYEE_ID</ColNames>
+      <Unique>1</Unique>
+    </index>
+    <key id="762" parent="696" name="SYS_C001746712">
+      <NameSurrogate>1</NameSurrogate>
+      <ModifiedTimestamp>2018-11-13.14:30:30</ModifiedTimestamp>
+      <ColNames>EMPLOYEE_ID</ColNames>
+      <InitiallyDeferred>1</InitiallyDeferred>
+      <UnderlyingIndexName>SYS_C001746712</UnderlyingIndexName>
+      <Primary>1</Primary>
+    </key>
+    <column id="763" parent="697" name="REFUND_ID">
+      <Position>1</Position>
+      <DataType>NUMBER(*)|0s</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="764" parent="697" name="RIDER_ID">
+      <Position>2</Position>
+      <DataType>NUMBER(*)|0s</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="765" parent="697" name="EMPLOYEE_ID">
+      <Position>3</Position>
+      <DataType>NUMBER(*)|0s</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="766" parent="697" name="REFUNDDATE">
+      <Position>4</Position>
+      <DataType>DATE|0s</DataType>
+    </column>
+    <column id="767" parent="697" name="REFUNDTIME">
+      <Position>5</Position>
+      <DataType>TIMESTAMP(6)|0s</DataType>
+    </column>
+    <column id="768" parent="697" name="REASON">
+      <Position>6</Position>
+      <DataType>CHAR(255 byte)|0s</DataType>
+    </column>
+    <index id="769" parent="697" name="SYS_C001746735">
+      <ObjectId>1318731</ObjectId>
+      <NameSurrogate>1</NameSurrogate>
+      <CreatedTimestamp>2018-11-13.14:30:30</CreatedTimestamp>
+      <ModifiedTimestamp>2018-11-13.14:30:30</ModifiedTimestamp>
+      <TablespaceName>USERS</TablespaceName>
+      <ColNames>REFUND_ID</ColNames>
+      <Unique>1</Unique>
+    </index>
+    <key id="770" parent="697" name="SYS_C001746735">
+      <NameSurrogate>1</NameSurrogate>
+      <ModifiedTimestamp>2018-11-13.14:30:30</ModifiedTimestamp>
+      <ColNames>REFUND_ID</ColNames>
+      <InitiallyDeferred>1</InitiallyDeferred>
+      <UnderlyingIndexName>SYS_C001746735</UnderlyingIndexName>
+      <Primary>1</Primary>
+    </key>
+    <foreign-key id="771" parent="697" name="SYS_C001746736">
+      <NameSurrogate>1</NameSurrogate>
+      <ModifiedTimestamp>2018-11-13.14:30:30</ModifiedTimestamp>
+      <ColNames>RIDER_ID</ColNames>
+      <RefSchemaName>ORA_F4L0B</RefSchemaName>
+      <RefTableName>RIDER</RefTableName>
+      <RefKeyName>SYS_C001746708</RefKeyName>
+      <OnDelete>cascade</OnDelete>
+    </foreign-key>
+    <foreign-key id="772" parent="697" name="SYS_C001746737">
+      <NameSurrogate>1</NameSurrogate>
+      <ModifiedTimestamp>2018-11-13.14:30:30</ModifiedTimestamp>
+      <ColNames>EMPLOYEE_ID</ColNames>
+      <RefSchemaName>ORA_F4L0B</RefSchemaName>
+      <RefTableName>CUSTOMER_SERVICE_REP</RefTableName>
+      <RefKeyName>SYS_C001746713</RefKeyName>
+      <OnDelete>restrict</OnDelete>
+    </foreign-key>
+    <column id="773" parent="698" name="PARTNO">
+      <Position>1</Position>
+      <DataType>NUMBER(*)|0s</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="774" parent="698" name="PART_NAME">
+      <Position>2</Position>
+      <DataType>CHAR(50 byte)|0s</DataType>
+    </column>
+    <column id="775" parent="698" name="QUANTITY">
+      <Position>3</Position>
+      <DataType>NUMBER(*)|0s</DataType>
+    </column>
+    <index id="776" parent="698" name="SYS_C001746711">
+      <ObjectId>1318715</ObjectId>
+      <NameSurrogate>1</NameSurrogate>
+      <CreatedTimestamp>2018-11-13.14:30:30</CreatedTimestamp>
+      <ModifiedTimestamp>2018-11-13.14:30:30</ModifiedTimestamp>
+      <TablespaceName>USERS</TablespaceName>
+      <ColNames>PARTNO</ColNames>
+      <Unique>1</Unique>
+    </index>
+    <key id="777" parent="698" name="SYS_C001746711">
+      <NameSurrogate>1</NameSurrogate>
+      <ModifiedTimestamp>2018-11-13.14:30:30</ModifiedTimestamp>
+      <ColNames>PARTNO</ColNames>
+      <InitiallyDeferred>1</InitiallyDeferred>
+      <UnderlyingIndexName>SYS_C001746711</UnderlyingIndexName>
+      <Primary>1</Primary>
+    </key>
+    <column id="778" parent="699" name="RIDER_ID">
+      <Position>1</Position>
+      <DataType>NUMBER(*)|0s</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="779" parent="699" name="WALLET_ID">
+      <Position>2</Position>
+      <DataType>NUMBER(*)|0s</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="780" parent="699" name="NAME">
+      <Position>3</Position>
+      <DataType>CHAR(50 byte)|0s</DataType>
+    </column>
+    <column id="781" parent="699" name="PHONE_NUM">
+      <Position>4</Position>
+      <DataType>NUMBER(*)|0s</DataType>
+    </column>
+    <column id="782" parent="699" name="EMAIL">
+      <Position>5</Position>
+      <DataType>CHAR(50 byte)|0s</DataType>
+    </column>
+    <column id="783" parent="699" name="ADDRESS">
+      <Position>6</Position>
+      <DataType>CHAR(100 byte)|0s</DataType>
+    </column>
+    <column id="784" parent="699" name="CREDITCARDNO">
+      <Position>7</Position>
+      <DataType>NUMBER(*)|0s</DataType>
+    </column>
+    <column id="785" parent="699" name="CREDITCARDEXP">
+      <Position>8</Position>
+      <DataType>NUMBER(*)|0s</DataType>
+    </column>
+    <column id="786" parent="699" name="ECOINS">
+      <Position>9</Position>
+      <DataType>NUMBER(*)|0s</DataType>
+    </column>
+    <index id="787" parent="699" name="SYS_C001746708">
+      <ObjectId>1318710</ObjectId>
+      <NameSurrogate>1</NameSurrogate>
+      <CreatedTimestamp>2018-11-13.14:30:30</CreatedTimestamp>
+      <ModifiedTimestamp>2018-11-13.14:30:30</ModifiedTimestamp>
+      <TablespaceName>USERS</TablespaceName>
+      <ColNames>RIDER_ID</ColNames>
+      <Unique>1</Unique>
+    </index>
+    <index id="788" parent="699" name="SYS_C001746709">
+      <ObjectId>1318711</ObjectId>
+      <NameSurrogate>1</NameSurrogate>
+      <CreatedTimestamp>2018-11-13.14:30:30</CreatedTimestamp>
+      <ModifiedTimestamp>2018-11-13.14:30:30</ModifiedTimestamp>
+      <TablespaceName>USERS</TablespaceName>
+      <ColNames>WALLET_ID</ColNames>
+      <Unique>1</Unique>
+    </index>
+    <key id="789" parent="699" name="SYS_C001746708">
+      <NameSurrogate>1</NameSurrogate>
+      <ModifiedTimestamp>2018-11-13.14:30:30</ModifiedTimestamp>
+      <ColNames>RIDER_ID</ColNames>
+      <InitiallyDeferred>1</InitiallyDeferred>
+      <UnderlyingIndexName>SYS_C001746708</UnderlyingIndexName>
+      <Primary>1</Primary>
+    </key>
+    <key id="790" parent="699" name="SYS_C001746709">
+      <NameSurrogate>1</NameSurrogate>
+      <ModifiedTimestamp>2018-11-13.14:30:30</ModifiedTimestamp>
+      <ColNames>WALLET_ID</ColNames>
+      <InitiallyDeferred>1</InitiallyDeferred>
+      <UnderlyingIndexName>SYS_C001746709</UnderlyingIndexName>
+    </key>
+    <column id="791" parent="700" name="TRIP_ID">
+      <Position>1</Position>
+      <DataType>NUMBER(*)|0s</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="792" parent="700" name="RIDER_ID">
+      <Position>2</Position>
+      <DataType>NUMBER(*)|0s</DataType>
+    </column>
+    <column id="793" parent="700" name="BIKE_ID">
+      <Position>3</Position>
+      <DataType>NUMBER(*)|0s</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="794" parent="700" name="END_LOCATION_ID">
+      <Position>4</Position>
+      <DataType>NUMBER(*)|0s</DataType>
+    </column>
+    <column id="795" parent="700" name="START_DATETIME">
+      <Position>5</Position>
+      <DataType>TIMESTAMP(6)|0s</DataType>
+    </column>
+    <column id="796" parent="700" name="END_DATETIME">
+      <Position>6</Position>
+      <DataType>TIMESTAMP(6)|0s</DataType>
+    </column>
+    <column id="797" parent="700" name="TOKENS_DUE">
+      <Position>7</Position>
+      <DataType>NUMBER(*)|0s</DataType>
+    </column>
+    <column id="798" parent="700" name="START_LATITUDE">
+      <Position>8</Position>
+      <DataType>NUMBER(*)|0s</DataType>
+    </column>
+    <column id="799" parent="700" name="START_LONGITUDE">
+      <Position>9</Position>
+      <DataType>NUMBER(*)|0s</DataType>
+    </column>
+    <column id="800" parent="700" name="END_LATITUDE">
+      <Position>10</Position>
+      <DataType>NUMBER(*)|0s</DataType>
+    </column>
+    <column id="801" parent="700" name="END_LONGITUDE">
+      <Position>11</Position>
+      <DataType>NUMBER(*)|0s</DataType>
+    </column>
+    <index id="802" parent="700" name="SYS_C001746729">
+      <ObjectId>1318729</ObjectId>
+      <NameSurrogate>1</NameSurrogate>
+      <CreatedTimestamp>2018-11-13.14:30:30</CreatedTimestamp>
+      <ModifiedTimestamp>2018-11-13.14:30:30</ModifiedTimestamp>
+      <TablespaceName>USERS</TablespaceName>
+      <ColNames>TRIP_ID</ColNames>
+      <Unique>1</Unique>
+    </index>
+    <key id="803" parent="700" name="SYS_C001746729">
+      <NameSurrogate>1</NameSurrogate>
+      <ModifiedTimestamp>2018-11-13.14:30:30</ModifiedTimestamp>
+      <ColNames>TRIP_ID</ColNames>
+      <InitiallyDeferred>1</InitiallyDeferred>
+      <UnderlyingIndexName>SYS_C001746729</UnderlyingIndexName>
+      <Primary>1</Primary>
+    </key>
+    <foreign-key id="804" parent="700" name="SYS_C001746730">
+      <NameSurrogate>1</NameSurrogate>
+      <ModifiedTimestamp>2018-11-13.14:30:30</ModifiedTimestamp>
+      <ColNames>RIDER_ID</ColNames>
+      <RefSchemaName>ORA_F4L0B</RefSchemaName>
+      <RefTableName>RIDER</RefTableName>
+      <RefKeyName>SYS_C001746708</RefKeyName>
+      <OnDelete>cascade</OnDelete>
+    </foreign-key>
+    <foreign-key id="805" parent="700" name="SYS_C001746731">
+      <NameSurrogate>1</NameSurrogate>
+      <ModifiedTimestamp>2018-11-13.14:30:30</ModifiedTimestamp>
+      <ColNames>BIKE_ID</ColNames>
+      <RefSchemaName>ORA_F4L0B</RefSchemaName>
+      <RefTableName>BIKE</RefTableName>
+      <RefKeyName>SYS_C001746710</RefKeyName>
+      <OnDelete>restrict</OnDelete>
+    </foreign-key>
+    <foreign-key id="806" parent="700" name="SYS_C001746732">
+      <NameSurrogate>1</NameSurrogate>
+      <ModifiedTimestamp>2018-11-13.14:30:30</ModifiedTimestamp>
+      <ColNames>END_LOCATION_ID</ColNames>
+      <RefSchemaName>ORA_F4L0B</RefSchemaName>
+      <RefTableName>DESIGNATED_RETURN_AREA</RefTableName>
+      <RefKeyName>SYS_C001746714</RefKeyName>
+      <OnDelete>set-null</OnDelete>
+    </foreign-key>
   </database-model>
 </dataSource>
