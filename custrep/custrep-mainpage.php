@@ -27,7 +27,7 @@
             <li><span class="dot"></span><a href="../login.html">Login</a></li>
             <li class="submenu"><span>&gt; </span><a href="../rider/rider-mainpage.html">Rider</a></li>
             <li class="submenu active"><span>&gt; </span><a class="active" href="custrep-mainpage.php">Customer
-                Service</a></li>
+                    Service</a></li>
             <li class="submenu"><span>&gt; </span><a href="../technician/technician-mainpage.html">Maintenance Tech.</a>
             </li>
             <li><span class="dot"></span><a href="../about.html">About</a></li>
@@ -81,8 +81,10 @@
                 <p>
                     Copyright &copy; 2018 Bike Sharing <br>
                     <a href="mailto:email@domain.com">email@domain.com</a>
-                    <input type="submit" value="Reset System" name="resetSystem">
                 </p>
+                <form method="POST">
+                    <input type="submit" value="Reset System" name="resetSystem">
+                </form>
             </footer>
         </div>
     </div>
@@ -92,23 +94,24 @@
 <?php
 
 require "../server.php";
-require "../reset-database.php";
 
-
-// Connect Oracle...
 if ($db_conn) {
 
     if (array_key_exists('resetSystem', $_POST)) {
-        resetSystem();
+        dropTables();
+        createTables();
+        insertRowsTables();
+        echo "<h1 style='color: #111111'>System has been reset!</h1>";
         OCICommit($db_conn);
     }
 
-    // Commit to save changes...
+    //Commit to save changes...
     OCILogoff($db_conn);
 } else {
     echo "cannot connect";
     $e = OCI_Error(); // For OCILogon errors pass no handle
     echo htmlentities($e['message']);
 }
+
 ?>
 

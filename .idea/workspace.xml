@@ -1,7 +1,16 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
+<<<<<<< HEAD
     <list default="true" id="d14db3a0-3642-4000-898e-1aff41d6674d" name="Default Changelist" comment="" />
+=======
+    <list default="true" id="d14db3a0-3642-4000-898e-1aff41d6674d" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/ResetDatabase.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/custrep/custrep-mainpage.php" beforeDir="false" afterPath="$PROJECT_DIR$/custrep/custrep-mainpage.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/debugger.php" beforeDir="false" afterPath="$PROJECT_DIR$/debugger.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/reset-database.php" beforeDir="false" />
+    </list>
+>>>>>>> 1297a7c2dc34ddb32f8824e71f5a2ad819e9ebcb
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
     <ignored path="$PROJECT_DIR$/tmp/" />
@@ -39,47 +48,55 @@
     <session id="-1287341841">
       <usages-collector id="statistics.lifecycle.project">
         <counts>
-          <entry key="project.closed" value="3" />
+          <entry key="project.closed" value="4" />
           <entry key="project.open.time.2" value="1" />
           <entry key="project.open.time.3" value="1" />
           <entry key="project.open.time.6" value="1" />
           <entry key="project.open.time.7" value="1" />
-          <entry key="project.opened" value="4" />
+          <entry key="project.open.time.8" value="1" />
+          <entry key="project.opened" value="5" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.open">
         <counts>
+          <entry key="BIKE" value="1" />
           <entry key="MAINTENANCE_ISSUE" value="2" />
+          <entry key="RIDER" value="2" />
           <entry key="html" value="9" />
           <entry key="js" value="1" />
-          <entry key="php" value="12" />
-          <entry key="sql" value="4" />
+          <entry key="php" value="22" />
+          <entry key="sql" value="7" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.open">
         <counts>
-          <entry key="Database Element" value="2" />
+          <entry key="Database Element" value="5" />
           <entry key="HTML" value="9" />
           <entry key="JavaScript" value="1" />
-          <entry key="PHP" value="11" />
+          <entry key="PHP" value="21" />
           <entry key="PLAIN_TEXT" value="1" />
-          <entry key="Scratch" value="4" />
+          <entry key="Scratch" value="7" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.edit">
         <counts>
           <entry key="html" value="24" />
-          <entry key="php" value="1721" />
-          <entry key="sql" value="46" />
+          <entry key="php" value="2478" />
+          <entry key="sql" value="86" />
           <entry key="txt" value="13" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
           <entry key="HTML" value="26" />
-          <entry key="PHP" value="1719" />
+          <entry key="PHP" value="2476" />
           <entry key="PLAIN_TEXT" value="13" />
-          <entry key="Scratch" value="46" />
+          <entry key="Scratch" value="86" />
+        </counts>
+      </usages-collector>
+      <usages-collector id="statistics.php.new.class">
+        <counts>
+          <entry key="PHP Class.type" value="1" />
         </counts>
       </usages-collector>
     </session>
@@ -136,6 +153,7 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
+<<<<<<< HEAD
       <file pinned="false" current-in-tab="false">
         <entry file="file://$APPLICATION_CONFIG_DIR$/consoles/db/d5c75ad2-11de-47af-9a8b-b8d473cb8c5f/console_1.sql">
           <provider selected="true" editor-type-id="text-editor">
@@ -159,12 +177,26 @@
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="154">
               <caret line="57" selection-start-line="57" selection-end-line="57" />
+=======
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/custrep/custrep-mainpage.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="251">
+              <caret line="96" column="8" selection-start-line="96" selection-start-column="8" selection-end-line="96" selection-end-column="8" />
+              <folding>
+                <element signature="n#style#0;n#h1#0;n#!!top" expanded="true" />
+              </folding>
+>>>>>>> 1297a7c2dc34ddb32f8824e71f5a2ad819e9ebcb
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
+<<<<<<< HEAD
         <entry file="das://d5c75ad2-11de-47af-9a8b-b8d473cb8c5f/schema/ORA_F4L0B/table/DESIGNATED_RETURN_AREA">
+=======
+        <entry file="das://d5c75ad2-11de-47af-9a8b-b8d473cb8c5f/schema/ORA_F4L0B/table/BIKE">
+>>>>>>> 1297a7c2dc34ddb32f8824e71f5a2ad819e9ebcb
           <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
             <state>
               <filtering enabled="true" />
@@ -173,15 +205,23 @@
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
+<<<<<<< HEAD
         <entry file="file://$PROJECT_DIR$/main.php">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="1335">
               <caret line="89" column="4" selection-start-line="89" selection-start-column="4" selection-end-line="89" selection-end-column="4" />
+=======
+        <entry file="file://$PROJECT_DIR$/ResetDatabase.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="102">
+              <caret line="11" selection-start-line="11" selection-end-line="11" />
+>>>>>>> 1297a7c2dc34ddb32f8824e71f5a2ad819e9ebcb
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
+<<<<<<< HEAD
         <entry file="file://$APPLICATION_CONFIG_DIR$/consoles/db/d5c75ad2-11de-47af-9a8b-b8d473cb8c5f/console_3.sql">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="15">
@@ -197,6 +237,10 @@
               <caret column="36" selection-start-column="36" selection-end-column="36" />
             </state>
           </provider>
+=======
+        <entry file="file://$APPLICATION_CONFIG_DIR$/consoles/db/d5c75ad2-11de-47af-9a8b-b8d473cb8c5f/console.sql">
+          <provider selected="true" editor-type-id="text-editor" />
+>>>>>>> 1297a7c2dc34ddb32f8824e71f5a2ad819e9ebcb
         </entry>
       </file>
     </leaf>
@@ -213,8 +257,11 @@
       <find>insertsubmit</find>
       <find>commit;</find>
       <find>INSERT</find>
-      <find>);</find>
       <find>.html</find>
+      <find>);</find>
+      <find>executePlain</find>
+      <find>post</find>
+      <find>executePlainSQL</find>
     </findStrings>
     <replaceStrings>
       <replace>oracle</replace>
@@ -236,19 +283,29 @@
         <option value="$PROJECT_DIR$/server.php" />
         <option value="$PROJECT_DIR$/custrep/custrep-delete-rider.html" />
         <option value="$APPLICATION_CONFIG_DIR$/consoles/db/d5c75ad2-11de-47af-9a8b-b8d473cb8c5f/console_3.sql" />
+<<<<<<< HEAD
         <option value="$APPLICATION_CONFIG_DIR$/consoles/db/d5c75ad2-11de-47af-9a8b-b8d473cb8c5f/console.sql" />
+=======
+        <option value="$APPLICATION_CONFIG_DIR$/consoles/db/d5c75ad2-11de-47af-9a8b-b8d473cb8c5f/console_2.sql" />
+>>>>>>> 1297a7c2dc34ddb32f8824e71f5a2ad819e9ebcb
         <option value="$PROJECT_DIR$/custrep/custrep-mainpage.html" />
         <option value="$PROJECT_DIR$/custrep/custrep-bike-info.html" />
         <option value="$APPLICATION_CONFIG_DIR$/consoles/db/d5c75ad2-11de-47af-9a8b-b8d473cb8c5f/console_1.sql" />
         <option value="$PROJECT_DIR$/custrep/custrep-return-areas.php" />
-        <option value="$PROJECT_DIR$/custrep/custrep-delete-rider.php" />
         <option value="$PROJECT_DIR$/custrep/custrep-bike-info.php" />
-        <option value="$PROJECT_DIR$/reset-database.php" />
         <option value="$PROJECT_DIR$/main.php" />
         <option value="$PROJECT_DIR$/custrep/custrep-maintenance-issues.php" />
-        <option value="$PROJECT_DIR$/custrep/custrep-mainpage.php" />
         <option value="$PROJECT_DIR$/index.html" />
+<<<<<<< HEAD
         <option value="$APPLICATION_CONFIG_DIR$/consoles/db/d5c75ad2-11de-47af-9a8b-b8d473cb8c5f/console_2.sql" />
+=======
+        <option value="$PROJECT_DIR$/custrep/custrep-delete-rider.php" />
+        <option value="$APPLICATION_CONFIG_DIR$/consoles/db/d5c75ad2-11de-47af-9a8b-b8d473cb8c5f/console.sql" />
+        <option value="$PROJECT_DIR$/reset-database.php" />
+        <option value="$PROJECT_DIR$/debugger.php" />
+        <option value="$PROJECT_DIR$/ResetDatabase.php" />
+        <option value="$PROJECT_DIR$/custrep/custrep-mainpage.php" />
+>>>>>>> 1297a7c2dc34ddb32f8824e71f5a2ad819e9ebcb
       </list>
     </option>
   </component>
@@ -328,6 +385,7 @@
       <workItem from="1542140620174" duration="2510000" />
       <workItem from="1542143484303" duration="10935000" />
       <workItem from="1542157865819" duration="1001000" />
+      <workItem from="1542176857649" duration="844000" />
     </task>
     <task id="LOCAL-00001" summary="Removed names">
       <created>1541973347062</created>
@@ -340,16 +398,26 @@
     <servers />
   </component>
   <component name="TimeTrackingManager">
+<<<<<<< HEAD
     <option name="totallyTimeSpent" value="40402000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="0" width="1440" height="900" extended-state="0" />
     <layout>
       <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.18097281" />
+=======
+    <option name="totallyTimeSpent" value="47871000" />
+  </component>
+  <component name="ToolWindowManager">
+    <frame x="1208" y="40" width="1359" height="1047" extended-state="0" />
+    <editor active="true" />
+    <layout>
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.23017706" />
+>>>>>>> 1297a7c2dc34ddb32f8824e71f5a2ad819e9ebcb
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
-      <window_info anchor="bottom" id="Find" order="1" />
+      <window_info anchor="bottom" id="Find" order="1" weight="0.32968238" />
       <window_info anchor="bottom" id="Run" order="2" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
@@ -357,16 +425,21 @@
       <window_info anchor="bottom" id="TODO" order="6" />
       <window_info anchor="bottom" id="Docker" order="7" show_stripe_button="false" />
       <window_info anchor="bottom" id="Version Control" order="8" show_stripe_button="false" />
+<<<<<<< HEAD
       <window_info active="true" anchor="bottom" id="Terminal" order="9" sideWeight="0.4985694" visible="true" weight="0.27710843" />
       <window_info anchor="bottom" id="Event Log" order="10" sideWeight="0.50143063" side_tool="true" weight="0.27710843" />
+=======
+      <window_info anchor="bottom" id="Terminal" order="9" sideWeight="0.4985694" weight="0.20700985" />
+      <window_info anchor="bottom" id="Event Log" order="10" sideWeight="0.5011547" side_tool="true" weight="0.36692223" />
+>>>>>>> 1297a7c2dc34ddb32f8824e71f5a2ad819e9ebcb
       <window_info anchor="bottom" id="Database Changes" order="11" weight="0.32891566" />
       <window_info anchor="bottom" id="PHP-CGI Server" order="12" weight="0.32968238" />
-      <window_info anchor="bottom" id="Database Console" order="13" weight="0.36746988" />
+      <window_info anchor="bottom" id="Database Console" order="13" sideWeight="0.49884528" weight="0.36692223" />
       <window_info anchor="bottom" id="Messages" order="14" weight="0.32968238" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
-      <window_info anchor="right" id="Database" order="3" weight="0.17843632" />
+      <window_info anchor="right" id="Database" order="3" visible="true" weight="0.1778291" />
     </layout>
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -380,6 +453,7 @@
     <option name="LAST_COMMIT_MESSAGE" value="Removed names" />
   </component>
   <component name="editorHistoryManager">
+<<<<<<< HEAD
     <entry file="das://d5c75ad2-11de-47af-9a8b-b8d473cb8c5f/schema/ORA_F4L0B/table/RIDER/index/SYS_C001741512" />
     <entry file="das://d5c75ad2-11de-47af-9a8b-b8d473cb8c5f/schema/ORA_F4L0B/table/TRIP" />
     <entry file="file://$PROJECT_DIR$/rider/rider-start-ride.html" />
@@ -433,18 +507,19 @@
           <caret line="57" selection-start-line="57" selection-end-line="57" />
         </state>
       </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/server.php">
+=======
+    <entry file="file://$PROJECT_DIR$/custrep/custrep-complaints.html" />
+    <entry file="file://$APPLICATION_CONFIG_DIR$/consoles/db/d5c75ad2-11de-47af-9a8b-b8d473cb8c5f/console_3.sql" />
+    <entry file="das://d5c75ad2-11de-47af-9a8b-b8d473cb8c5f/schema/ORA_F4L0B/table/DESIGNATED_RETURN_AREA" />
+    <entry file="file://$PROJECT_DIR$/ourbikes.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="34">
-          <caret line="2" selection-start-line="2" selection-end-line="2" />
-        </state>
+        <state relative-caret-position="-548" />
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/reset-database.php">
+    <entry file="file://$PROJECT_DIR$/custrep/custrep-return-areas.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="85">
-          <caret line="10" column="22" selection-start-line="10" selection-start-column="22" selection-end-line="10" selection-end-column="22" />
+        <state relative-caret-position="339">
+          <caret line="96" column="1" lean-forward="true" selection-start-line="96" selection-start-column="1" selection-end-line="96" selection-end-column="1" />
         </state>
       </provider>
     </entry>
@@ -455,13 +530,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/custrep/custrep-complaint-resolve.php">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
     <entry file="file://$PROJECT_DIR$/custrep/custrep-bike-info.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="222">
-          <caret line="80" column="29" selection-start-line="80" selection-start-column="29" selection-end-line="80" selection-end-column="29" />
+        <state relative-caret-position="170">
+          <caret line="79" selection-start-line="79" selection-end-line="91" selection-end-column="1" />
         </state>
       </provider>
     </entry>
@@ -475,20 +547,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$APPLICATION_CONFIG_DIR$/consoles/db/d5c75ad2-11de-47af-9a8b-b8d473cb8c5f/console.sql">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="34">
-          <caret line="2" column="2" selection-start-line="2" selection-start-column="2" selection-end-line="2" selection-end-column="2" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/custrep/custrep-mainpage.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="221">
-          <caret line="31" column="17" lean-forward="true" selection-start-line="31" selection-start-column="17" selection-end-line="31" selection-end-column="17" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/login.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="492">
@@ -496,10 +554,14 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/custrep/custrep-complaint-resolve.php">
+      <provider selected="true" editor-type-id="text-editor" />
+>>>>>>> 1297a7c2dc34ddb32f8824e71f5a2ad819e9ebcb
+    </entry>
     <entry file="file://$PROJECT_DIR$/main.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1335">
-          <caret line="89" column="4" selection-start-line="89" selection-start-column="4" selection-end-line="89" selection-end-column="4" />
+        <state relative-caret-position="1291">
+          <caret line="102" lean-forward="true" selection-start-line="102" selection-end-line="102" />
         </state>
       </provider>
     </entry>
@@ -507,6 +569,80 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="370">
           <caret line="67" column="107" selection-start-line="67" selection-start-column="107" selection-end-line="67" selection-end-column="107" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/server.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="34">
+          <caret line="2" selection-start-line="2" selection-end-line="70" selection-end-column="1" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/custrep/custrep-delete-rider.php">
+      <provider selected="true" editor-type-id="text-editor">
+<<<<<<< HEAD
+        <state relative-caret-position="222">
+          <caret line="80" column="29" selection-start-line="80" selection-start-column="29" selection-end-line="80" selection-end-column="29" />
+=======
+        <state relative-caret-position="716">
+          <caret line="95" column="10" selection-start-line="95" selection-start-column="10" selection-end-line="95" selection-end-column="10" />
+>>>>>>> 1297a7c2dc34ddb32f8824e71f5a2ad819e9ebcb
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$APPLICATION_CONFIG_DIR$/consoles/db/d5c75ad2-11de-47af-9a8b-b8d473cb8c5f/console.sql">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="das://d5c75ad2-11de-47af-9a8b-b8d473cb8c5f/schema/ORA_F4L0B/table/RIDER">
+      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
+        <state>
+          <filtering enabled="true" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/reset-database.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="448">
+          <caret line="458" column="51" lean-forward="true" selection-start-line="458" selection-start-column="51" selection-end-line="458" selection-end-column="51" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/debugger.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="102">
+          <caret line="11" column="29" selection-start-line="11" selection-start-column="29" selection-end-line="11" selection-end-column="29" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/ResetDatabase.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="102">
+          <caret line="11" selection-start-line="11" selection-end-line="11" />
+        </state>
+      </provider>
+    </entry>
+<<<<<<< HEAD
+    <entry file="file://$PROJECT_DIR$/main.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1335">
+          <caret line="89" column="4" selection-start-line="89" selection-start-column="4" selection-end-line="89" selection-end-column="4" />
+=======
+    <entry file="das://d5c75ad2-11de-47af-9a8b-b8d473cb8c5f/schema/ORA_F4L0B/table/BIKE">
+      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
+        <state>
+          <filtering enabled="true" />
+>>>>>>> 1297a7c2dc34ddb32f8824e71f5a2ad819e9ebcb
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/custrep/custrep-mainpage.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="251">
+          <caret line="96" column="8" selection-start-line="96" selection-start-column="8" selection-end-line="96" selection-end-column="8" />
+          <folding>
+            <element signature="n#style#0;n#h1#0;n#!!top" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
