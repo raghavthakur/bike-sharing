@@ -26,6 +26,7 @@
             font-family: Arial, Helvetica, sans-serif;
             font-size: .7em;
             border: 1px solid #DDD;
+            color: black;
         }
     </style>
 </head>
@@ -105,7 +106,7 @@ function printResult($result)
 {
     echo "<br>Got data from table Bike:<br>";
     echo "<table>";
-    echo "<tr><th>BIKE_ID</th><th>DATE_PURCHASED</th><th>LATITUDE</th><th>LOGITUDE</th></tr><th>IS_BROKEN</th>";
+    echo "<tr><th>BIKE_ID</th><th>DATE_PURCHASED</th><th>LATITUDE</th><th>LOGITUDE</th><th>IS_BROKEN</th></tr>";
 
     while ($row = OCI_Fetch_Array($result, OCI_BOTH)) {
         echo "<tr><td>" . $row["BIKE_ID"] . "</td><td>" . $row["DATE_PURCHASED"] . "</td><td>" . $row["LATITUDE"] . "</td><td>" . $row["LOGITUDE"] . "</td><td>" . $row["IS_BROKEN"] . "</td></tr>"; //or just use "echo $row[0]"
@@ -120,11 +121,11 @@ if ($db_conn) {
     $result = executePlainSQL("SELECT * FROM BIKE");
     printResult($result);
 
-    if ($_POST && $success) {
-        echo "<h1 style='color: black'>Showing all bikes...</h1>";
-    } else if (!$success) {
-        echo "<h1 style='color: red'>Error!</h1>";
-    }
+//    if ($_POST && $success) {
+//        echo "<h1 style='color: black'>Showing all bikes...</h1>";
+//    } else if (!$success) {
+//        echo "<h1 style='color: red'>Error!</h1>";
+//    }
 
     // Commit to save changes...
     OCILogoff($db_conn);
