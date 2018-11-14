@@ -102,9 +102,11 @@ if ($db_conn) {
             $tuple
         );
         executeBoundSQL("DELETE FROM RIDER WHERE RIDER_ID=:bind1", $alltuples);
-        echo "<h1 style='color: #111111'>Rider has been removed!</h1>";
         OCICommit($db_conn);
 
+    }
+    if ($_POST) {
+        echo "<h1 style='color: #111111'>Rider has been removed!</h1>";
     }
 
     // Commit to save changes...
