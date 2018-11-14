@@ -102,7 +102,7 @@ if ($db_conn) {
         // Drop old table...
         echo "<br> dropping table <br>";
         include '../debugger.php';
-        executePlainSQL("Drop table RIDER cascade constraints");
+        executePlainSQL("Drop table COMPLAINT cascade constraints");
 
         OCICommit($db_conn);
 
