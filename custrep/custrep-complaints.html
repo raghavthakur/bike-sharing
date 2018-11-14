@@ -15,7 +15,7 @@
             <a href="../index.html">Home</a>
             <a href="../login.html">Login</a>
             <a id="rider" href="../rider/rider-mainpage.html">&gt; Rider</a>
-            <a id="customerservice" class="active" href="custrep-mainpage.html">&gt; Customer Serv. Rep.</a>
+            <a id="customerservice" class="active" href="custrep-mainpage.php">&gt; Customer Serv. Rep.</a>
             <a id="maintenance" href="../technician/technician-mainpage.html">&gt; Maintenance Tech.</a>
             <a href="../about.html">About</a>
             <a href="../faq.html">FAQ</a>
@@ -27,7 +27,7 @@
             <li><span class="dot"></span><a href="../index.html">Home</a></li>
             <li><span class="dot"></span><a href="../login.html">Login</a></li>
             <li class="submenu"><span>&gt; </span><a href="../rider/rider-mainpage.html">Rider</a></li>
-            <li class="submenu active"><span>&gt; </span><a class="active" href="custrep-mainpage.html">Customer
+            <li class="submenu active"><span>&gt; </span><a class="active" href="custrep-mainpage.php">Customer
                 Service</a></li>
             <li class="submenu"><span>&gt; </span><a href="../technician/technician-mainpage.html">Maintenance Tech.</a>
             </li>

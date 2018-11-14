@@ -1,4 +1,3 @@
-<!doctype html>
 <html lang="en">
 <head>
     <title>Bike Sharing</title>
@@ -15,7 +14,7 @@
             <a href="../index.html">Home</a>
             <a href="../login.html">Login</a>
             <a id="rider" href="../rider/rider-mainpage.html">&gt; Rider</a>
-            <a id="customerservice" class="active" href="custrep-mainpage.html">&gt; Customer Serv. Rep.</a>
+            <a id="customerservice" class="active" href="custrep-mainpage.php">&gt; Customer Serv. Rep.</a>
             <a id="maintenance" href="../technician/technician-mainpage.html">&gt; Maintenance Tech.</a>
             <a href="../about.html">About</a>
             <a href="../faq.html">FAQ</a>
@@ -27,7 +26,7 @@
             <li><span class="dot"></span><a href="../index.html">Home</a></li>
             <li><span class="dot"></span><a href="../login.html">Login</a></li>
             <li class="submenu"><span>&gt; </span><a href="../rider/rider-mainpage.html">Rider</a></li>
-            <li class="submenu active"><span>&gt; </span><a class="active" href="custrep-mainpage.html">Customer
+            <li class="submenu active"><span>&gt; </span><a class="active" href="custrep-mainpage.php">Customer
                 Service</a></li>
             <li class="submenu"><span>&gt; </span><a href="../technician/technician-mainpage.html">Maintenance Tech.</a>
             </li>
@@ -51,17 +50,38 @@
         <div id="shadowbox">
             <main>
                 <div>
-                    <h3>CUSTOMER SERVICE REP. MAIN PAGE</h3>
+                    <h3>CUSTOMER SERVICE REP. - Maintenance Issues</h3>
 
-                    <p>
-                        <a href="custrep-rider-info.html">Rider Info</a> <br> <br>
-                        <a href="custrep-delete-rider.php">Delete a Rider</a> <br> <br>
-                        <a href="custrep-rider-password-reset.html">Rider Password Reset</a> <br> <br>
-                        <a href="custrep-bike-info.php">Bike Info</a> <br> <br>
-                        <a href="custrep-return-areas.php">Return Areas</a> <br> <br>
-                        <a href="custrep-maintenance-issues.html">Maintenance Issues</a> <br> <br>
-                        <a href="custrep-complaints.html">Complaints</a>
-                    </p>
+                    <form method="POST" action="custrep-maintenance-issues.php">
+
+                        <p>
+                            Enter rider ID (optional): <input type="number" name="riderID" size="20">
+                        </p>
+
+                        <p>
+                            Enter bike ID (optional): <input type="number" name="bikeID" size="20">
+                        </p>
+
+                        <p>
+                            Sort by:
+                            <select name="sortBy">
+                                <option value="status" selected="selected">Status (Resolved/Unresolved)</option>
+                                <option value="riderID">Rider ID</option>
+                                <option value="bikeID">Bike ID</option>
+                                <option value="date">Date</option>
+                            </select>
+                        </p>
+
+                        <input type="submit" value="View Maintenance Issues" name="viewIssues">
+
+                        <p>
+                            Display a table here according to the above input. Make sure to include columns for
+                            riderName, riderPhoneNum, bikeLatitude, and bikeLongitude so that we have to join 3 tables.
+                            Could optionally also show the name of the maintenance technician who resolved the issue
+                            (which would be blank if not resolved yet)
+                        </p>
+
+                    </form>
                 </div>
             </main>
 

@@ -14,7 +14,7 @@
             <a href="../index.html">Home</a>
             <a href="../login.html">Login</a>
             <a id="rider" href="../rider/rider-mainpage.html">&gt; Rider</a>
-            <a id="customerservice" class="active" href="custrep-mainpage.html">&gt; Customer Serv. Rep.</a>
+            <a id="customerservice" class="active" href="custrep-mainpage.php">&gt; Customer Serv. Rep.</a>
             <a id="maintenance" href="../technician/technician-mainpage.html">&gt; Maintenance Tech.</a>
             <a href="../about.html">About</a>
             <a href="../faq.html">FAQ</a>
@@ -26,7 +26,7 @@
             <li><span class="dot"></span><a href="../index.html">Home</a></li>
             <li><span class="dot"></span><a href="../login.html">Login</a></li>
             <li class="submenu"><span>&gt; </span><a href="../rider/rider-mainpage.html">Rider</a></li>
-            <li class="submenu active"><span>&gt; </span><a class="active" href="custrep-mainpage.html">Customer
+            <li class="submenu active"><span>&gt; </span><a class="active" href="custrep-mainpage.php">Customer
                     Service</a></li>
             <li class="submenu"><span>&gt; </span><a href="../technician/technician-mainpage.html">Maintenance Tech.</a>
             </li>
@@ -77,8 +77,9 @@
 
 require '../server.php';
 
+// Prints result from select statement
 function printResult($result)
-{ //prints results from a select statement
+{
     echo "<br>Got data from table Bike:<br>";
     echo "<table>";
     echo "<tr><th>BIKE_ID</th><th>DATE_PURCHASED</th><th>LATITUDE</th><th>LOGITUDE</th></tr><th>IS_BROKEN</th>";
@@ -96,13 +97,13 @@ if ($db_conn) {
     $result = executePlainSQL("SELECT * FROM BIKE");
     printResult($result);
 
+    // POST-REDIRECT-GET -- See http://en.wikipedia.org/wiki/Post/Redirect/Get
     if ($_POST && $success) {
-// POST-REDIRECT-GET -- See http://en.wikipedia.org/wiki/Post/Redirect/Get
         header("location: custrep-bike-info.php");
     }
 
 
-// Commit to save changes...
+    // Commit to save changes...
     OCILogoff($db_conn);
 } else {
     echo "cannot connect";
