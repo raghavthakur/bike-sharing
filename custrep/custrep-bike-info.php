@@ -97,6 +97,7 @@ if ($db_conn) {
 
         $result = executePlainSQL("SELECT * FROM BIKE");
         printResult($result);
+        echo 'Result';
     }
 
     if ($_POST && $success) {
