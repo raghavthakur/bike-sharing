@@ -97,7 +97,7 @@ require "../reset-database.php";
 
 // Connect Oracle...
 if ($db_conn) {
-
+    echo "Connection established!";
     if (array_key_exists('resetSystem', $_POST)) {
         resetSystem();
         OCICommit($db_conn);
