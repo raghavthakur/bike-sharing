@@ -94,6 +94,7 @@
 <?php
 
 require "../server.php";
+//require "../reset-database.php";
 
 
 // Connect Oracle...
@@ -101,7 +102,7 @@ if ($db_conn) {
     echo "Connection established!";
     if (array_key_exists('resetSystem', $_POST)) {
         echo "Resetting system...";
-        resetSystem();
+        //resetSystem();
         OCICommit($db_conn);
     }
 

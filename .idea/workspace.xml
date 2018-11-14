@@ -1,9 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="d14db3a0-3642-4000-898e-1aff41d6674d" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/custrep/custrep-mainpage.php" beforeDir="false" afterPath="$PROJECT_DIR$/custrep/custrep-mainpage.php" afterDir="false" />
-    </list>
+    <list default="true" id="d14db3a0-3642-4000-898e-1aff41d6674d" name="Default Changelist" comment="" />
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
     <ignored path="$PROJECT_DIR$/tmp/" />
@@ -151,8 +149,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/custrep/custrep-delete-rider.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="340">
-              <caret line="107" column="4" selection-start-line="107" selection-start-column="4" selection-end-line="119" selection-end-column="1" />
+            <state relative-caret-position="374">
+              <caret line="103" column="28" lean-forward="true" selection-start-line="103" selection-start-column="28" selection-end-line="103" selection-end-column="28" />
             </state>
           </provider>
         </entry>
@@ -160,8 +158,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/custrep/custrep-mainpage.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="370">
-              <caret line="111" column="5" lean-forward="true" selection-start-line="111" selection-start-column="5" selection-end-line="111" selection-end-column="5" />
+            <state relative-caret-position="187">
+              <caret line="95" column="24" lean-forward="true" selection-start-line="95" selection-start-column="24" selection-end-line="95" selection-end-column="24" />
             </state>
           </provider>
         </entry>
@@ -307,10 +305,11 @@
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="42036000" />
+    <option name="totallyTimeSpent" value="42270000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="1208" y="40" width="1359" height="1047" extended-state="0" />
+    <editor active="true" />
     <layout>
       <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.22709776" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
@@ -602,17 +601,31 @@
         </state>
       </provider>
     </entry>
+    <entry file="das://d5c75ad2-11de-47af-9a8b-b8d473cb8c5f/schema/ORA_F4L0B/table/RIDER">
+      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
+        <state>
+          <filtering enabled="true" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="das://d5c75ad2-11de-47af-9a8b-b8d473cb8c5f/schema/ORA_F4L0B/table/RIDER">
+      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
+        <state>
+          <filtering enabled="true" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/custrep/custrep-delete-rider.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="340">
-          <caret line="107" column="4" selection-start-line="107" selection-start-column="4" selection-end-line="119" selection-end-column="1" />
+        <state relative-caret-position="374">
+          <caret line="103" column="28" lean-forward="true" selection-start-line="103" selection-start-column="28" selection-end-line="103" selection-end-column="28" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/custrep/custrep-mainpage.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="370">
-          <caret line="111" column="5" lean-forward="true" selection-start-line="111" selection-start-column="5" selection-end-line="111" selection-end-column="5" />
+        <state relative-caret-position="187">
+          <caret line="95" column="24" lean-forward="true" selection-start-line="95" selection-start-column="24" selection-end-line="95" selection-end-column="24" />
         </state>
       </provider>
     </entry>
