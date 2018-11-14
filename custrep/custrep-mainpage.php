@@ -100,9 +100,7 @@ if ($db_conn) {
 
     if (array_key_exists('resetSystem', $_POST)) {
         // Drop old table...
-        echo "<br> dropping table <br>";
-        executePlainSQL("Drop table COMPLAINT cascade constraints");
-        include '../debugger.php';
+        dropTables();
         OCICommit($db_conn);
 
     }
@@ -121,5 +119,20 @@ if ($db_conn) {
     $e = OCI_Error(); // For OCILogon errors pass no handle
     echo htmlentities($e['message']);
 }
+
+function dropTables() {
+    executePlainSQL("drop table Complaint cascade constraints");
+    executePlainSQL("drop table Refund cascade constraints");
+    executePlainSQL("drop table Replacement_Part cascade constraints");
+    executePlainSQL("drop table Issue_Requires_Part cascade constraints");
+    executePlainSQL("drop table Maintenance_Issue cascade constraints");
+    executePlainSQL("drop table Customer_Service_Rep cascade constraints");
+    executePlainSQL("drop table Maintenance_Technician cascade constraints");
+    executePlainSQL("drop table Designated_Return_Area cascade constraints");
+    executePlainSQL("drop table Trip cascade constraints");
+    executePlainSQL("drop table Rider cascade constraints");
+    executePlainSQL("drop table Bike cascade constraints");
+}
+
 ?>
 

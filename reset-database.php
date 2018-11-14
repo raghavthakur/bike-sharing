@@ -8,17 +8,17 @@
 
 require "server.php";
 
-    executePlainSQL("drop table Complaint cascade constraints");
-//executePlainSQL("drop table Refund cascade constraints");
-//executePlainSQL("drop table Replacement_Part cascade constraints");
-//executePlainSQL("drop table Issue_Requires_Part cascade constraints");
-//executePlainSQL("drop table Maintenance_Issue cascade constraints");
-//executePlainSQL("drop table Customer_Service_Rep cascade constraints");
-//executePlainSQL("drop table Maintenance_Technician cascade constraints");
-//executePlainSQL("drop table Designated_Return_Area cascade constraints");
-//executePlainSQL("drop table Trip cascade constraints");
-//executePlainSQL("drop table Rider cascade constraints");
-//executePlainSQL("drop table Bike cascade constraints");
+executePlainSQL("drop table Complaint cascade constraints");
+executePlainSQL("drop table Refund cascade constraints");
+executePlainSQL("drop table Replacement_Part cascade constraints");
+executePlainSQL("drop table Issue_Requires_Part cascade constraints");
+executePlainSQL("drop table Maintenance_Issue cascade constraints");
+executePlainSQL("drop table Customer_Service_Rep cascade constraints");
+executePlainSQL("drop table Maintenance_Technician cascade constraints");
+executePlainSQL("drop table Designated_Return_Area cascade constraints");
+executePlainSQL("drop table Trip cascade constraints");
+executePlainSQL("drop table Rider cascade constraints");
+executePlainSQL("drop table Bike cascade constraints");
 
 
 //    echo "<br>Creating new tables...<br>";
