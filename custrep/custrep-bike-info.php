@@ -76,11 +76,14 @@
                 <div>
                     <h3>CUSTOMER SERVICE REP. - Bike Info</h3>
 
-                    <form method="POST" action="custrep-bike-info.php">
+                    <form method="POST">
+
+                        <input type="submit" value="Get All Bike Info" name="getAllBikeInfo">
 
                         <p>
                             Table showing all bikes and their info.
                         </p>
+
 
                     </form>
                 </div>
@@ -104,12 +107,11 @@ require '../server.php';
 // Prints result from select statement
 function printResult($result)
 {
-    echo "<br>Got data from table Bike:<br>";
     echo "<table>";
-    echo "<tr><th>BIKE_ID</th><th>DATE_PURCHASED</th><th>LATITUDE</th><th>LOGITUDE</th><th>IS_BROKEN</th></tr>";
+    echo "<tr><th>BIKE_ID</th><th>DATE_PURCHASED</th><th>LATITUDE</th><th>LONGITUDE</th><th>IS_BROKEN</th></tr>";
 
     while ($row = OCI_Fetch_Array($result, OCI_BOTH)) {
-        echo "<tr><td>" . $row["BIKE_ID"] . "</td><td>" . $row["DATE_PURCHASED"] . "</td><td>" . $row["LATITUDE"] . "</td><td>" . $row["LOGITUDE"] . "</td><td>" . $row["IS_BROKEN"] . "</td></tr>"; //or just use "echo $row[0]"
+        echo "<tr><td>" . $row["BIKE_ID"] . "</td><td>" . $row["DATE_PURCHASED"] . "</td><td>" . $row["LATITUDE"] . "</td><td>" . $row["LONGITUDE"] . "</td><td>" . $row["IS_BROKEN"] . "</td></tr>"; //or just use "echo $row[0]"
     }
     echo "</table>";
 
@@ -118,8 +120,11 @@ function printResult($result)
 // Connect Oracle....
 if ($db_conn) {
 
-    $result = executePlainSQL("SELECT * FROM BIKE");
-    printResult($result);
+    if (array_key_exists('getAllBikeInfo', $_POST)) {
+        $result = executePlainSQL("SELECT * FROM BIKE");
+        printResult($result);
+        OCICommit($db_conn);
+    }
 
 //    if ($_POST && $success) {
 //        echo "<h1 style='color: black'>Showing all bikes...</h1>";
