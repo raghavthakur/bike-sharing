@@ -27,7 +27,7 @@
             <li><span class="dot"></span><a href="../login.html">Login</a></li>
             <li class="submenu"><span>&gt; </span><a href="../rider/rider-mainpage.html">Rider</a></li>
             <li class="submenu active"><span>&gt; </span><a class="active" href="custrep-mainpage.php">Customer
-                Service</a></li>
+                    Service</a></li>
             <li class="submenu"><span>&gt; </span><a href="../technician/technician-mainpage.html">Maintenance Tech.</a>
             </li>
             <li><span class="dot"></span><a href="../about.html">About</a></li>
@@ -81,8 +81,10 @@
                 <p>
                     Copyright &copy; 2018 Bike Sharing <br>
                     <a href="mailto:email@domain.com">email@domain.com</a>
-                    <input type="submit" value="Reset System" name="resetSystem">
                 </p>
+                <form method="POST" action="custrep-mainpage.php">
+                    <input type="submit" value="Reset System" name="resetSystem">
+                </form>
             </footer>
         </div>
     </div>
@@ -99,6 +101,7 @@ require "../reset-database.php";
 if ($db_conn) {
     echo "Connection established!";
     if (array_key_exists('resetSystem', $_POST)) {
+        echo "Resetting system...";
         resetSystem();
         OCICommit($db_conn);
     }
