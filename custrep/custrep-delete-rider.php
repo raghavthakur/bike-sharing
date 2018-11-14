@@ -105,7 +105,7 @@ if ($db_conn) {
         OCICommit($db_conn);
 
     }
-    if ($_POST) {
+    if ($_POST && $success) {
         echo "<h1 style='color: black'>Rider has been removed!</h1>";
     } else {
         echo "<h1 style='color: red'>Error!</h1>";
