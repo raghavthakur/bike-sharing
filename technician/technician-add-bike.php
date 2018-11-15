@@ -53,6 +53,10 @@
                     <h3>MAINTENANCE TECHNICIAN - Add a New Bike</h3>
 
                     <form method="POST" action="new-oracle-test.php">
+                        <p>
+                            Enter bike id:
+                            <input type="number" name="bikeID" size = "10">
+                        </p>
 
                         <p>
                             Enter date purchased:
@@ -67,6 +71,11 @@
                         <p>
                             Enter longitude:
                             <input type="number" name="longitude" size="20">
+                        </p>
+
+                        <p>
+                            Enter bike status:
+                            <input type="text" name="bikeStatus" size="5">
                         </p>
 
                         <input type="submit" value="Add Bike" name="addBike">
@@ -89,3 +98,47 @@
     </div>
 </div>
 </html>
+
+<?php
+
+require '../server.php';
+
+// Connect Oracle...
+if ($db_conn) {
+
+    if (array_key_exists('addBike', $_POST)) {
+        //include '../debugger.php';
+        // Adds tuple using data from user
+        $tuple = array(
+            ":bind1" => $_POST['bikeID'],
+            ":bind2" => $_POST['datePurchased'],
+            ":bind3" => $_POST['latitude'],
+            ":bind4" => $_POST['longitude'],
+            ":bind5" => $_POST['bikeStatus']
+
+        );
+        $alltuples = array(
+            $tuple
+        );
+        executeBoundSQL("INSERT INTO BIKE VALUES (BIKE_ID =:bind1", DATE_PURCHASED = :bind2,
+            LATITUDE = :bind3, LONGITUDE = :bind4, is_BROKEN = :bind5, $alltuples);
+        OCICommit($db_conn);
+
+    } else
+        echo "<h1 style='color: black'>Hello</h1>";
+    if ($_POST && $success) {
+        echo "<h1 style='color: black'>Bike has been added!</h1>";
+    } else if (!$success){
+        echo "<h1 style='color: red'>Error!</h1>";
+    }
+
+    // Commit to save changes...
+    OCILogoff($db_conn);
+} else {
+    echo "cannot connect";
+    $e = OCI_Error(); // For OCILogon errors pass no handle
+    echo htmlentities($e['message']);
+}
+
+?>
+
