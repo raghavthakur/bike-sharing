@@ -18,6 +18,11 @@ CREATE TABLE Bike (
 	is_broken 		CHAR(1),
 	PRIMARY KEY (bike_ID));
 
+CREATE VIEW Rider_Bike(bike_ID, latitude, longitude)
+	AS SELECT bike_ID, latitude, longitude
+	FROM Bike b
+	WHERE b.is_broken = "Y";
+
 CREATE TABLE Replacement_Part(
 	partNo		INTEGER,
 	part_name	CHAR(50),
