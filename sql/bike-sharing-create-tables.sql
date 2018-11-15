@@ -10,6 +10,10 @@ CREATE TABLE Rider(
 	eCoins 			INTEGER,
 	PRIMARY KEY (rider_ID));
 
+CREATE VIEW CustRep_Rider(rider_ID, wallet_ID, name, phone_num, email, address, eCoins)
+	AS SELECT rider_ID, wallet_ID, name, phone_num, email, address, eCoins
+		 FROM Rider r;
+
 CREATE TABLE Bike (
 	bike_ID 		INTEGER,
 	date_purchased 	date,
