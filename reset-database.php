@@ -19,7 +19,7 @@ function dropTables()
     executePlainSQL("drop table Trip cascade constraints");
     executePlainSQL("drop table Rider cascade constraints");
     executePlainSQL("drop table Bike cascade constraints");
-    executePlainSQL("drop view Bike cascade constraints");
+    executePlainSQL("drop view CUSTREP_RIDER");
 
 }
 
