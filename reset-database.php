@@ -19,22 +19,11 @@ function dropTables()
     executePlainSQL("drop table Trip cascade constraints");
     executePlainSQL("drop table Rider cascade constraints");
     executePlainSQL("drop table Bike cascade constraints");
-    executePlainSQL("drop view CUSTREP_RIDER");
-    executePlainSQL("drop view RIDER_BIKE");
 
 }
 
 function createTables()
 {
-    executePlainSQL("CREATE VIEW CustRep_Rider(rider_ID, wallet_ID, name, phone_num, email, address, eCoins)
-	AS SELECT rider_ID, wallet_ID, name, phone_num, email, address, eCoins
-		 FROM Rider r");
-
-    executePlainSQL("CREATE VIEW Rider_Bike(bike_ID, latitude, longitude)
-	AS SELECT bike_ID, latitude, longitude
-	FROM Bike b
-	WHERE b.is_broken = 'Y'");
-
     executePlainSQL("CREATE TABLE Rider(
 	rider_ID 		INTEGER,
 	wallet_ID 		INTEGER NOT NULL UNIQUE,
