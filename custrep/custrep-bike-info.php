@@ -102,35 +102,19 @@
 
 <?php
 
-require '../server.php';
-
-// Prints result from select statement
-function printResult($result)
-{
-    echo "<table>";
-    echo "<tr><th>BIKE_ID</th><th>DATE_PURCHASED</th><th>LATITUDE</th><th>LONGITUDE</th><th>IS_BROKEN</th></tr>";
-
-    while ($row = OCI_Fetch_Array($result, OCI_BOTH)) {
-        echo "<tr><td>" . $row["BIKE_ID"] . "</td><td>" . $row["DATE_PURCHASED"] . "</td><td>" . $row["LATITUDE"] . "</td><td>" . $row["LONGITUDE"] . "</td><td>" . $row["IS_BROKEN"] . "</td></tr>"; //or just use "echo $row[0]"
-    }
-    echo "</table>";
-
-}
+require "../server.php";
+include "../print-table.php";
 
 // Connect Oracle....
 if ($db_conn) {
 
     if (array_key_exists('getAllBikeInfo', $_POST)) {
         $result = executePlainSQL("SELECT * FROM BIKE");
-        printResult($result);
+
+        $riderTable = array("Bike ID", "Date Purchased", "Latitude", "Longitude", "Bike Broken?");
+        printTable($result, $riderTable);
         OCICommit($db_conn);
     }
-
-//    if ($_POST && $success) {
-//        echo "<h1 style='color: black'>Showing all bikes...</h1>";
-//    } else if (!$success) {
-//        echo "<h1 style='color: red'>Error!</h1>";
-//    }
 
     // Commit to save changes...
     OCILogoff($db_conn);
