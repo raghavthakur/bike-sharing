@@ -1,4 +1,3 @@
-<!doctype html>
 <html lang="en">
 <head>
     <title>Bike Sharing</title>
@@ -6,6 +5,30 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <script src="../project.js" type="text/javascript" defer></script>
     <link rel="stylesheet" href="../project.css">
+    <style>
+        /* Table */
+        table {
+            width: 100%;
+            border: 1px solid black;
+        }
+
+        th {
+            font-family: Arial, Helvetica, sans-serif;
+            font-size: .7em;
+            background: #666;
+            color: #FFF;
+            padding: 2px 6px;
+            border-collapse: separate;
+            border: 1px solid #000;
+        }
+
+        td {
+            font-family: Arial, Helvetica, sans-serif;
+            font-size: .7em;
+            border: 1px solid #DDD;
+            color: black;
+        }
+    </style>
 </head>
 <div id="wrapper">
 
@@ -52,7 +75,7 @@
                 <div>
                     <h3>RIDER - Start Ride</h3>
 
-                    <form method="POST" action="new-oracle-test.php">
+                    <form method="POST">
 
                         <p>
                             Logging in as...
@@ -113,3 +136,50 @@
     </div>
 </div>
 </html>
+
+
+<?php
+
+require '../server.php';
+
+// Prints result from select statement
+function printResult($result)
+{
+    echo "<table>";
+    echo "<tr><th>BIKE_ID</th><th>LATITUDE</th><th>LONGITUDE</th></tr>";
+
+    while ($row = OCI_Fetch_Array($result, OCI_BOTH)) {
+        echo "<tr><td>" . $row["BIKE_ID"] . "</td><td>" . $row["LATITUDE"] . "</td><td>" . $row["LONGITUDE"] . "</td></tr>"; //or just use "echo $row[0]"
+    }
+    echo "</table>";
+
+}
+// Connect Oracle...
+if ($db_conn) {
+
+    if (array_key_exists('deleteRider', $_POST)) {
+        //include '../debugger.php';
+        // Delete tuple using data from user
+        $tuple = array(
+            ":bind1" => $_POST['riderID']
+        );
+        $alltuples = array(
+            $tuple
+        );
+        executeBoundSQL("DELETE FROM RIDER WHERE RIDER_ID=:bind1", $alltuples);
+        OCICommit($db_conn);
+
+    } else {
+        $result = executePlainSQL("SELECT * FROM RIDER_BIKE");
+        printResult($result);
+    }
+
+    // Commit to save changes...
+    OCILogoff($db_conn);
+} else {
+    echo "cannot connect";
+    $e = OCI_Error(); // For OCILogon errors pass no handle
+    echo htmlentities($e['message']);
+}
+
+?>

@@ -9,4 +9,6 @@ drop table Designated_Return_Area cascade constraints;
 drop table Trip cascade constraints;
 drop table Rider cascade constraints;
 drop table Bike cascade constraints;
+DROP VIEW RIDER_BIKE;
+DROP VIEW CUSTREP_RIDER;
 commit;

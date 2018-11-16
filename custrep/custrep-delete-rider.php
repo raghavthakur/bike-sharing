@@ -5,6 +5,30 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <script src="../project.js" type="text/javascript" defer></script>
     <link rel="stylesheet" href="../project.css">
+    <style>
+        /* Table */
+        table {
+            width: 100%;
+            border: 1px solid black;
+        }
+
+        th {
+            font-family: Arial, Helvetica, sans-serif;
+            font-size: .7em;
+            background: #666;
+            color: #FFF;
+            padding: 2px 6px;
+            border-collapse: separate;
+            border: 1px solid #000;
+        }
+
+        td {
+            font-family: Arial, Helvetica, sans-serif;
+            font-size: .7em;
+            border: 1px solid #DDD;
+            color: black;
+        }
+    </style>
 </head>
 <div id="wrapper">
 
@@ -89,6 +113,19 @@
 
 require '../server.php';
 
+// Prints result from select statement
+function printResult($result)
+{
+    echo "<table>";
+    echo "<tr><th>RIDER_ID</th><th>WALLED_ID</th><th>NAME</th><th>PHONE_NUM</th><th>EMAIL</th><th>ADDRESS</th></tr>";
+
+    while ($row = OCI_Fetch_Array($result, OCI_BOTH)) {
+        echo "<tr><td>" . $row["RIDER_ID"] . "</td><td>" . $row["WALLET_ID"] . "</td><td>" . $row["NAME"] . "</td><td>" . $row["PHONE_NUM"] . "</td><td>" . $row["EMAIL"] . "</td><td>" . $row["ADDRESS"] . "</td></tr>"; //or just use "echo $row[0]"
+    }
+    echo "</table>";
+
+}
+
 // Connect Oracle...
 if ($db_conn) {
 
@@ -104,10 +141,14 @@ if ($db_conn) {
         executeBoundSQL("DELETE FROM RIDER WHERE RIDER_ID=:bind1", $alltuples);
         OCICommit($db_conn);
 
-    } else
-        echo "<h1 style='color: black'>Yolo</h1>";
+    } else {
+        $result = executePlainSQL("SELECT * FROM RIDER");
+        printResult($result);
+    }
     if ($_POST && $success) {
         echo "<h1 style='color: black'>Rider has been removed!</h1>";
+        $result = executePlainSQL("SELECT * FROM RIDER");
+        printResult($result);
     } else if (!$success){
         echo "<h1 style='color: red'>Error!</h1>";
     }
