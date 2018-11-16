@@ -149,7 +149,6 @@ if ($db_conn) {
         //printResult($result);
         $riderTable = array("Rider_ID", "Wallet_ID", "Rider_Name", "Phone_Number", "Email", "Address", "eCoins");
         printTable($result, $riderTable);
-        include "../debugger.php";
         OCICommit($db_conn);
     }
 
