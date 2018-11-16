@@ -111,41 +111,44 @@
 <?php
 
 require "../server.php";
+include "../table.php";
 
-// Prints result from select statement
-function printResult($result)
-{
-    echo "<table>";
-    echo "<tr>
-<th>rider_ID</th>
-<th>wallet_ID</th>
-<th>name</th>
-<th>phone_num</th>
-<th>email</th>
-<th>address</th>
-<th>eCoins</th>
-</tr>";
-
-    while ($row = OCI_Fetch_Array($result, OCI_BOTH)) {
-        echo "<tr>
-<td>" . $row["RIDER_ID"] . "</td>
-<td>" . $row["WALLET_ID"] . "</td>
-<td>" . $row["NAME"] . "</td>
-<td>" . $row["PHONE_NUM"] . "</td>
-<td>" . $row["EMAIL"] . "</td>
-<td>" . $row["ADDRESS"] . "</td>
-<td>" . $row["ECOINS"] . "</td>
-</tr>"; //or just use "echo $row[0]"
-    }
-    echo "</table>";
-
-}
+//// Prints result from select statement
+//function printResult($result)
+//{
+//    echo "<table>";
+//    echo "<tr>
+//<th>rider_ID</th>
+//<th>wallet_ID</th>
+//<th>name</th>
+//<th>phone_num</th>
+//<th>email</th>
+//<th>address</th>
+//<th>eCoins</th>
+//</tr>";
+//
+//    while ($row = OCI_Fetch_Array($result, OCI_BOTH)) {
+//        echo "<tr>
+//<td>" . $row["RIDER_ID"] . "</td>
+//<td>" . $row["WALLET_ID"] . "</td>
+//<td>" . $row["NAME"] . "</td>
+//<td>" . $row["PHONE_NUM"] . "</td>
+//<td>" . $row["EMAIL"] . "</td>
+//<td>" . $row["ADDRESS"] . "</td>
+//<td>" . $row["ECOINS"] . "</td>
+//</tr>"; //or just use "echo $row[0]"
+//    }
+//    echo "</table>";
+//
+//}
 
 if ($db_conn) {
 
     if (array_key_exists('getAllRiderInfo', $_POST)) {
         $result = executePlainSQL("SELECT * FROM CustRep_Rider");
-        printResult($result);
+        //printResult($result);
+        $riderTable = array("Rider_ID", "Wallet_ID", "Rider_Name", "Phone_Number", "Email", "Address", "eCoins");
+        printTable($result, $riderTable);
         OCICommit($db_conn);
     }
 
