@@ -7,30 +7,30 @@
     <script src="../project.js" type="text/javascript" defer></script>
     <link rel="stylesheet" href="../project.css">
 
-    <style>
-        /* Table */
-        table {
-            width: 100%;
-            border: 1px solid black;
-        }
-
-        th {
-            font-family: Arial, Helvetica, sans-serif;
-            font-size: .7em;
-            background: #666;
-            color: #FFF;
-            padding: 2px 6px;
-            border-collapse: separate;
-            border: 1px solid #000;
-        }
-
-        td {
-            font-family: Arial, Helvetica, sans-serif;
-            font-size: .7em;
-            border: 1px solid #DDD;
-            color: black;
-        }
-    </style>
+<!--    <style>-->
+<!--        /* Table */-->
+<!--        table {-->
+<!--            width: 100%;-->
+<!--            border: 1px solid black;-->
+<!--        }-->
+<!---->
+<!--        th {-->
+<!--            font-family: Arial, Helvetica, sans-serif;-->
+<!--            font-size: .7em;-->
+<!--            background: #666;-->
+<!--            color: #FFF;-->
+<!--            padding: 2px 6px;-->
+<!--            border-collapse: separate;-->
+<!--            border: 1px solid #000;-->
+<!--        }-->
+<!---->
+<!--        td {-->
+<!--            font-family: Arial, Helvetica, sans-serif;-->
+<!--            font-size: .7em;-->
+<!--            border: 1px solid #DDD;-->
+<!--            color: black;-->
+<!--        }-->
+<!--    </style>-->
 </head>
 <div id="wrapper">
 
@@ -113,35 +113,6 @@
 require "../server.php";
 include "../table.php";
 
-//// Prints result from select statement
-//function printResult($result)
-//{
-//    echo "<table>";
-//    echo "<tr>
-//<th>rider_ID</th>
-//<th>wallet_ID</th>
-//<th>name</th>
-//<th>phone_num</th>
-//<th>email</th>
-//<th>address</th>
-//<th>eCoins</th>
-//</tr>";
-//
-//    while ($row = OCI_Fetch_Array($result, OCI_BOTH)) {
-//        echo "<tr>
-//<td>" . $row["RIDER_ID"] . "</td>
-//<td>" . $row["WALLET_ID"] . "</td>
-//<td>" . $row["NAME"] . "</td>
-//<td>" . $row["PHONE_NUM"] . "</td>
-//<td>" . $row["EMAIL"] . "</td>
-//<td>" . $row["ADDRESS"] . "</td>
-//<td>" . $row["ECOINS"] . "</td>
-//</tr>"; //or just use "echo $row[0]"
-//    }
-//    echo "</table>";
-//
-//}
-
 if ($db_conn) {
 
     echo "Connection established";
@@ -154,12 +125,6 @@ if ($db_conn) {
         printTable($result, $riderTable);
         OCICommit($db_conn);
     }
-
-//    if ($_POST && $success) {
-//        echo "<h1 style='color: black'>Showing all riders!</h1>";
-//    } else if (!$success){
-//        echo "<h1 style='color: red'>Error!</h1>";
-//    }
 
     // Commit to save changes...
     OCILogoff($db_conn);
