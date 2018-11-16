@@ -5,30 +5,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <script src="../project.js" type="text/javascript" defer></script>
     <link rel="stylesheet" href="../project.css">
-    <style>
-        /* Table */
-        table {
-            width: 100%;
-            border: 1px solid black;
-        }
-
-        th {
-            font-family: Arial, Helvetica, sans-serif;
-            font-size: .7em;
-            background: #666;
-            color: #FFF;
-            padding: 2px 6px;
-            border-collapse: separate;
-            border: 1px solid #000;
-        }
-
-        td {
-            font-family: Arial, Helvetica, sans-serif;
-            font-size: .7em;
-            border: 1px solid #DDD;
-            color: black;
-        }
-    </style>
 </head>
 <div id="wrapper">
 
@@ -121,32 +97,7 @@
 <?php
 
 require "../server.php";
-
-// Prints result from select statement
-function printResult($result)
-{
-    echo "<table>";
-    echo "<tr>
-<th>complaint_ID</th>
-<th>rider_ID</th>
-<th>rider_name</th>
-<th>customer_rep_ID</th>
-<th>employee_name</th>
-<th>cust_description</th>
-<th>agent_notes</th>
-<th>urgency_level</th>
-<th>complaintDateTime</th>
-<th>action_taken</th>
-<th>is_resolved</th>
-</tr>";
-
-    while ($row = OCI_Fetch_Array($result, OCI_BOTH)) {
-        echo "<tr><td>" . $row["0"] . "</td><td>" . $row["1"] . "</td><td>" . $row["2"] . "</td><td>" . $row["3"] . "</td><td>" . $row["4"] . "</td><td>" . $row["5"] . "</td><td>" . $row["6"] . "</td><td>" . $row["7"] . "</td><td>" . $row["8"] . "</td><td>" . $row["9"] . "</td><td>" . $row["10"] . "</td></tr>"; //or just use "echo $row[0]"
-        //echo "<tr><td>" . $row["complaint_ID"] . "</td><td>" . $row["rider_ID"] . "</td><td>" . $row["rider_name"] . "</td><td>" . $row["customer_rep_ID"] . "</td><td>" . $row["employee_name"] . "</td><td>" . $row["cust_description"] . "</td><td>" . $row["agent_notes"] . "</td><td>" . $row["urgency_level"] . "</td><td>" . $row["complaintDateTime"] . "</td><td>" . $row["action_taken"] . "</td><td>" . $row["is_resolved"] . "</td></tr>"; //or just use "echo $row[0]"
-    }
-    echo "</table>";
-
-}
+include "../print-table.php";
 
 if ($db_conn) {
 
@@ -161,11 +112,12 @@ if ($db_conn) {
 //        $alltuples = array(
 //            $tuple
 //        );
-        $result = executePlainSQL("SELECT complaint_ID, c.rider_ID, r.name, customer_rep_ID, csr.name, cust_description, agent_notes, urgency_level, complaintDateTime, action_taken, is_resolved
+        $result = executePlainSQL("SELECT complaint_ID, c.rider_ID, r.name AS rider_name, customer_rep_ID, csr.name AS custrep_name, cust_description, agent_notes, urgency_level, complaintDateTime, action_taken, is_resolved
         FROM COMPLAINT c, RIDER r, CUSTOMER_SERVICE_REP csr
         WHERE c.RIDER_ID = r.RIDER_ID AND c.CUSTOMER_REP_ID = csr.EMPLOYEE_ID");
 
-        printResult($result);
+        $riderTable = array("Complaint ID", "Rider ID", "Rider Name", "Customer Rep. ID", "Customer Rep. Name", "Complaint Description", "Customer Rep. Notes", "Level of Urgency", "Date(YY-MM-DD)/Time(HH-MM-SS)", "Action Taken", "Resolved?");
+        printTable($result, $riderTable);
         OCICommit($db_conn);
     }
 
