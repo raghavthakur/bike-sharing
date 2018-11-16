@@ -139,7 +139,7 @@ if ($db_conn) {
         echo "<h1 style='color: black'>Rider has been removed!</h1>";
         $result = executePlainSQL("SELECT * FROM CUSTREP_RIDER");
 
-        $riderTable = array("Rider_ID", "Wallet_ID", "Rider_Name", "Phone_Number", "Email", "Address");
+        $riderTable = array("Rider_ID", "Wallet_ID", "Rider_Name", "Phone_Number", "Email", "Address", "eCoins");
         printTable($result, $riderTable);
     } else if (!$success){
         echo "<h1 style='color: red'>Error!</h1>";
