@@ -110,7 +110,6 @@ function printResult($result)
 
 }
 
-
 // Connect Oracle...
 if ($db_conn) {
 
