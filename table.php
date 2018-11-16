@@ -8,7 +8,6 @@
 
 require "server.php";
 
-include "debugger.php";
 
 function printTable($resultFromSQL, $namesOfColumnsArray)
 {
