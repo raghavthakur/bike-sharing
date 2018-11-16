@@ -162,6 +162,7 @@ function printResult($result)
 if ($db_conn) {
 
     if (array_key_exists('viewComplaints', $_POST)) {
+        echo "Hello";
         //Getting the values from user and insert data into the table
         $tuple = array(
             ":bind1" => $_POST['riderID'],
