@@ -147,7 +147,9 @@ if ($db_conn) {
     if (array_key_exists('getAllRiderInfo', $_POST)) {
         $result = executePlainSQL("SELECT * FROM CustRep_Rider");
         //printResult($result);
+        echo "Submit Pressed";
         $riderTable = array("Rider_ID", "Wallet_ID", "Rider_Name", "Phone_Number", "Email", "Address", "eCoins");
+        echo "Before Table";
         printTable($result, $riderTable);
         OCICommit($db_conn);
     }

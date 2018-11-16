@@ -11,6 +11,7 @@ require "server.php";
 
 function printTable($resultFromSQL, $namesOfColumnsArray)
 {
+    echo "In Table";
     echo "<table>";
     echo "<tr>";
     foreach ($namesOfColumnsArray as $name) {
