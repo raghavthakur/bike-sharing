@@ -52,7 +52,7 @@
                 <div>
                     <h3>MAINTENANCE TECHNICIAN - Replacement Parts - View</h3>
 
-                    <form method="POST" action="new-oracle-test.php">
+                    <form method="POST">
 
                         <p>
                             Enter part ID (optional): <input type="number" name="partID" size="20">
@@ -78,3 +78,4 @@
     </div>
 </div>
 </html>
+

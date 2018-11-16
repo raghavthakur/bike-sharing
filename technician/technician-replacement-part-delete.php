@@ -52,7 +52,7 @@
                 <div>
                     <h3>MAINTENANCE TECHNICIAN - Replacement Parts - Delete</h3>
 
-                    <form method="POST" action="new-oracle-test.php">
+                    <form method="POST">
 
                         <h4>Delete an Existing Part:</h4>
 
@@ -83,3 +83,41 @@
     </div>
 </div>
 </html>
+
+<?php
+
+require '../server.php';
+
+// Connect Oracle...
+if ($db_conn) {
+
+    if (array_key_exists('deletePart', $_POST)) {
+        //include '../debugger.php';
+        // Delete tuple using data from user
+        $tuple = array(
+            ":bind1" => $_POST['partIDToDelete']
+        );
+        $alltuples = array(
+            $tuple
+        );
+        executeBoundSQL("DELETE FROM REPLACEMENT_PART WHERE PARTNO=:bind1", $alltuples);
+        OCICommit($db_conn);
+
+    } else
+        echo "<h1 style='color: black'>Yolo</h1>";
+    if ($_POST && $success) {
+        echo "<h1 style='color: black'>Part has been removed!</h1>";
+    } else if (!$success){
+        echo "<h1 style='color: red'>Error!</h1>";
+    }
+
+    // Commit to save changes...
+    OCILogoff($db_conn);
+} else {
+    echo "cannot connect";
+    $e = OCI_Error(); // For OCILogon errors pass no handle
+    echo htmlentities($e['message']);
+}
+
+?>
+

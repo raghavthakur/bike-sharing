@@ -52,7 +52,7 @@
                 <div>
                     <h3>MAINTENANCE TECHNICIAN - Add a New Bike</h3>
 
-                    <form method="POST" action="new-oracle-test.php">
+                    <form method="POST">
                         <p>
                             Enter bike id:
                             <input type="number" name="bikeID" size = "10">
@@ -120,8 +120,8 @@ if ($db_conn) {
         $alltuples = array(
             $tuple
         );
-        executeBoundSQL("INSERT INTO BIKE VALUES (BIKE_ID =:bind1", DATE_PURCHASED = :bind2,
-            LATITUDE = :bind3, LONGITUDE = :bind4, is_BROKEN = :bind5, $alltuples);
+        executeBoundSQL("INSERT INTO BIKE VALUES (BIKE_ID =:bind1, DATE_PURCHASED= :bind2,
+            LATITUDE= :bind3, LONGITUDE = :bind4, is_BROKEN = :bind5)", $alltuples);
         OCICommit($db_conn);
 
     } else

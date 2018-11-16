@@ -52,8 +52,11 @@
                 <div>
                     <h3>MAINTENANCE TECHNICIAN - Replacement Parts - Add</h3>
 
-                    <form method="POST" action="new-oracle-test.php">
-
+                    <form method="POST">
+                        <p>
+                            Enter part number:
+                            <input type="text" name="newPartNo" size="10">
+                        </p>
                         <p>
                             Enter part name:
                             <input type="text" name="newPartName" size="20">
@@ -84,3 +87,44 @@
     </div>
 </div>
 </html>
+
+<?php
+
+require '../server.php';
+
+// Connect Oracle...
+if ($db_conn) {
+
+    if (array_key_exists('addNewPart', $_POST)) {
+        //include '../debugger.php';
+        // Adds tuple using data from user
+        $tuple = array(
+            ":bind1" => $_POST['newPartNo'],
+            ":bind2" => $_POST['newPartName'],
+            ":bind3" => $_POST['initialQuantity']
+
+        );
+        $alltuples = array(
+            $tuple
+        );
+        executeBoundSQL("INSERT INTO REPLACEMENT_PART VALUES (PARTNO =:bind1, PART_NAME = :bind2,
+            QUANTITY = :bind3)", $alltuples);
+        OCICommit($db_conn);
+
+    } else
+        echo "<h1 style='color: black'>Hello</h1>";
+    if ($_POST && $success) {
+        echo "<h1 style='color: black'>New Part has been added!</h1>";
+    } else if (!$success){
+        echo "<h1 style='color: red'>Error!</h1>";
+    }
+
+    // Commit to save changes...
+    OCILogoff($db_conn);
+} else {
+    echo "cannot connect";
+    $e = OCI_Error(); // For OCILogon errors pass no handle
+    echo htmlentities($e['message']);
+}
+
+?>
