@@ -105,26 +105,16 @@
 <?php
 
 require "../server.php";
-
-// Prints result from select statement
-function printResult($result)
-{
-    echo "<table>";
-    echo "<tr><th>LOCATION_ID</th><th>LATITUDE</th><th>LONGITUDE</th><th>RADIUS</th></tr>";
-
-    while ($row = OCI_Fetch_Array($result, OCI_BOTH)) {
-        echo "<tr><td>" . $row["LOCATION_ID"] . "</td><td>" . $row["LATITUDE"] . "</td><td>" . $row["LONGITUDE"] . "</td><td>" . $row["RADIUS"] . "</td></tr>"; //or just use "echo $row[0]"
-    }
-    echo "</table>";
-
-}
+include "../print-table.php";
 
 // Connect to Oracle Database
 if ($db_conn) {
 
     if (array_key_exists('getReturnAreaInfo', $_POST)) {
         $result = executePlainSQL("SELECT * FROM DESIGNATED_RETURN_AREA");
-        printResult($result);
+
+        $riderTable = array("Location ID", "Latitude", "Longitude", "Radius of Area");
+        printTable($result, $riderTable);
         OCICommit($db_conn);
     }
 
