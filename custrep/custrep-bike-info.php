@@ -5,30 +5,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <script src="../project.js" type="text/javascript" defer></script>
     <link rel="stylesheet" href="../project.css">
-    <style>
-        /* Table */
-        table {
-            width: 100%;
-            border: 1px solid black;
-        }
-
-        th {
-            font-family: Arial, Helvetica, sans-serif;
-            font-size: .7em;
-            background: #666;
-            color: #FFF;
-            padding: 2px 6px;
-            border-collapse: separate;
-            border: 1px solid #000;
-        }
-
-        td {
-            font-family: Arial, Helvetica, sans-serif;
-            font-size: .7em;
-            border: 1px solid #DDD;
-            color: black;
-        }
-    </style>
 </head>
 <div id="wrapper">
 
@@ -102,35 +78,19 @@
 
 <?php
 
-require '../server.php';
-
-// Prints result from select statement
-function printResult($result)
-{
-    echo "<table>";
-    echo "<tr><th>BIKE_ID</th><th>DATE_PURCHASED</th><th>LATITUDE</th><th>LONGITUDE</th><th>IS_BROKEN</th></tr>";
-
-    while ($row = OCI_Fetch_Array($result, OCI_BOTH)) {
-        echo "<tr><td>" . $row["BIKE_ID"] . "</td><td>" . $row["DATE_PURCHASED"] . "</td><td>" . $row["LATITUDE"] . "</td><td>" . $row["LONGITUDE"] . "</td><td>" . $row["IS_BROKEN"] . "</td></tr>"; //or just use "echo $row[0]"
-    }
-    echo "</table>";
-
-}
+require "../server.php";
+include "../print-table.php";
 
 // Connect Oracle....
 if ($db_conn) {
 
     if (array_key_exists('getAllBikeInfo', $_POST)) {
         $result = executePlainSQL("SELECT * FROM BIKE");
-        printResult($result);
+
+        $riderTable = array("Bike ID", "Date Purchased", "Latitude", "Longitude", "Bike Broken?");
+        printTable($result, $riderTable);
         OCICommit($db_conn);
     }
-
-//    if ($_POST && $success) {
-//        echo "<h1 style='color: black'>Showing all bikes...</h1>";
-//    } else if (!$success) {
-//        echo "<h1 style='color: red'>Error!</h1>";
-//    }
 
     // Commit to save changes...
     OCILogoff($db_conn);

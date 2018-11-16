@@ -1,4 +1,3 @@
-<!doctype html>
 <html lang="en">
 <head>
     <title>Bike Sharing</title>
@@ -53,7 +52,7 @@
                 <div>
                     <h3>CUSTOMER SERVICE REP. - View Complaints</h3>
 
-                    <form method="POST" action="new-oracle-test.php">
+                    <form method="POST">
 
                         <p>
                             Enter rider ID (optional): <input type="number" name="riderID" size="20">
@@ -65,15 +64,15 @@
 
                         <p>
                             Sort by:
-                            <select name="sortBy">
-                                <option value="status" selected="selected">Status (Resolved/Unresolved)</option>
+                            <select name="groupBy">
+                                <option value="is_resolved" selected="selected">Status (Resolved/Unresolved)</option>
                                 <option value="employeeID">Employee ID</option>
                                 <option value="riderID">Rider ID</option>
-                                <option value="date">Date</option>
+                                <option value="complaintDateTime">Date</option>
                             </select>
                         </p>
 
-                        <input type="submit" value="View Complaints" name="viewComplaints">
+                        <input type="submit" value="View All Complaints" name="viewAllComplaints">
 
                         <p>
                             Display a table here according to the above input. Make sure to include columns for
@@ -94,3 +93,29 @@
     </div>
 </div>
 </html>
+
+<?php
+
+require "../server.php";
+include "../print-table.php";
+
+if ($db_conn) {
+
+    if (array_key_exists('viewAllComplaints', $_POST)) {
+        $result = executePlainSQL("SELECT complaint_ID, c.rider_ID, r.name AS rider_name, customer_rep_ID, csr.name AS custrep_name, cust_description, agent_notes, urgency_level, complaintDateTime, action_taken, is_resolved
+        FROM COMPLAINT c, RIDER r, CUSTOMER_SERVICE_REP csr
+        WHERE c.RIDER_ID = r.RIDER_ID AND c.CUSTOMER_REP_ID = csr.EMPLOYEE_ID");
+
+        $riderTable = array("Complaint ID", "Rider ID", "Rider Name", "Customer Rep. ID", "Customer Rep. Name", "Complaint Description", "Customer Rep. Notes", "Level of Urgency", "Date(YY-MM-DD)/Time(HH-MM-SS)", "Action Taken", "Resolved?");
+        printTable($result, $riderTable);
+    }
+
+    // Commit to save changes...
+    OCILogoff($db_conn);
+} else {
+    echo "cannot connect";
+    $e = OCI_Error(); // For OCILogon errors pass no handle
+    echo htmlentities($e['message']);
+}
+
+?>
