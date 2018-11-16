@@ -143,16 +143,6 @@ function printResult($result)
     while ($row = OCI_Fetch_Array($result, OCI_BOTH)) {
         echo "<tr>
 <td>" . $row["complaint_ID"] . "</td>
-<td>" . $row["rider_ID"] . "</td>
-<td>" . $row["rider_name"] . "</td>
-<td>" . $row["customer_rep_ID"] . "</td>
-<td>" . $row["employee_name"] . "</td>
-<td>" . $row["cust_description"] . "</td>
-<td>" . $row["agent_notes"] . "</td>
-<td>" . $row["urgency_level"] . "</td>
-<td>" . $row["complaintDateTime"] . "</td>
-<td>" . $row["action_taken"] . "</td>
-<td>" . $row["is_resolved"] . "</td>
 </tr>"; //or just use "echo $row[0]"
     }
     echo "</table>";
@@ -163,15 +153,15 @@ if ($db_conn) {
 
     if (array_key_exists('viewComplaints', $_POST)) {
         echo "Hello";
-        //Getting the values from user and insert data into the table
-        $tuple = array(
-            ":bind1" => $_POST['riderID'],
-            ":bind2" => $_POST['employeeID'],
-            ":bind3" => $_POST['groupBy']
-        );
-        $alltuples = array(
-            $tuple
-        );
+//        //Getting the values from user and insert data into the table
+//        $tuple = array(
+//            ":bind1" => $_POST['riderID'],
+//            ":bind2" => $_POST['employeeID'],
+//            ":bind3" => $_POST['groupBy']
+//        );
+//        $alltuples = array(
+//            $tuple
+//        );
         $result = executePlainSQL("SELECT complaint_ID, c.rider_ID, r.name, customer_rep_ID, csr.name, cust_description, agent_notes, urgency_level, complaintDateTime, action_taken, is_resolved
         FROM COMPLAINT c, RIDER r, CUSTOMER_SERVICE_REP csr
         WHERE c.RIDER_ID = r.RIDER_ID AND c.CUSTOMER_REP_ID = csr.EMPLOYEE_ID");
