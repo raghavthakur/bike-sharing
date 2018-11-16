@@ -1,4 +1,3 @@
-<!doctype html>
 <html lang="en">
 <head>
     <title>Bike Sharing</title>
@@ -53,7 +52,7 @@
                 <div>
                     <h3>CUSTOMER SERVICE REP. - View Complaints</h3>
 
-                    <form method="POST" action="new-oracle-test.php">
+                    <form method="POST">
 
                         <p>
                             Enter rider ID (optional): <input type="number" name="riderID" size="20">
@@ -65,11 +64,11 @@
 
                         <p>
                             Sort by:
-                            <select name="sortBy">
-                                <option value="status" selected="selected">Status (Resolved/Unresolved)</option>
+                            <select name="groupBy">
+                                <option value="is_resolved" selected="selected">Status (Resolved/Unresolved)</option>
                                 <option value="employeeID">Employee ID</option>
                                 <option value="riderID">Rider ID</option>
-                                <option value="date">Date</option>
+                                <option value="complaintDateTime">Date</option>
                             </select>
                         </p>
 
@@ -94,3 +93,72 @@
     </div>
 </div>
 </html>
+
+<?php
+
+require "../server.php";
+
+// Prints result from select statement
+function printResult($result)
+{
+    echo "<table>";
+    echo "<tr>
+<th>complaint_ID</th>
+<th>rider_ID</th>
+<th>rider_name</th>
+<th>customer_rep_ID</th>
+<th>employee_name</th>
+<th>cust_description</th>
+<th>agent_notes</th>
+<th>urgency_level</th>
+<th>complaintDateTime</th>
+<th>action_taken</th>
+<th>is_resolved</th>
+</tr>";
+
+    while ($row = OCI_Fetch_Array($result, OCI_BOTH)) {
+        echo "<tr>
+<td>" . $row["complaint_ID"] . "</td>
+<td>" . $row["rider_ID"] . "</td>
+<td>" . $row["name"] . "</td>
+<td>" . $row["customer_rep_ID"] . "</td>
+<td>" . $row["name"] . "</td>
+<td>" . $row["cust_description"] . "</td>
+<td>" . $row["agent_notes"] . "</td>
+<td>" . $row["urgency_level"] . "</td>
+<td>" . $row["complaintDateTime"] . "</td>
+<td>" . $row["action_taken"] . "</td>
+<td>" . $row["is_resolved"] . "</td>
+</tr>"; //or just use "echo $row[0]"
+    }
+    echo "</table>";
+
+}
+
+if ($db_conn) {
+
+    if (array_key_exists('viewComplaints', $_POST)) {
+        //Getting the values from user and insert data into the table
+        $tuple = array(
+            ":bind1" => $_POST['riderID'],
+            ":bind2" => $_POST['employeeID'],
+            ":bind3" => $_POST['groupBy']
+        );
+        $alltuples = array(
+            $tuple
+        );
+        executeBoundSQL("SELECT complaint_ID, rider_ID, r.name, customer_rep_ID, csr.name, cust_description, agent_notes, urgency_level, complaintDateTime, action_taken, is_resolved
+        FROM COMPLAINT c, RIDER r, CUSTOMER_SERVICE_REP csr
+        WHERE c.RIDER_ID = r.RIDER_ID AND c.CUSTOMER_REP_ID = csr.EMPLOYEE_ID", $tuple);
+        OCICommit($db_conn);
+    }
+
+    // Commit to save changes...
+    OCILogoff($db_conn);
+} else {
+    echo "cannot connect";
+    $e = OCI_Error(); // For OCILogon errors pass no handle
+    echo htmlentities($e['message']);
+}
+
+?>
