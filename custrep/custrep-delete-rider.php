@@ -112,7 +112,7 @@
 <?php
 
 require "../server.php";
-include "../table.php";
+include "../print-table.php";
 
 // Connect Oracle...
 if ($db_conn) {

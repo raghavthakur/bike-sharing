@@ -111,7 +111,7 @@
 <?php
 
 require "../server.php";
-include "../table.php";
+include "../print-table.php";
 
 if ($db_conn) {
 

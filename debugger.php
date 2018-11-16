@@ -13,4 +13,4 @@ ini_set('display_errors', 1);
 //include 'custrep/custrep-mainpage.php';
 //include 'custrep/custrep-delete-rider.php';
 //include 'custrep/custrep-rider-info.php';
-//include 'table.php';
+//include 'print-table.php';
