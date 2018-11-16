@@ -26,8 +26,7 @@
             <li><span class="dot"></span><a href="../index.html">Home</a></li>
             <li><span class="dot"></span><a href="../login.html">Login</a></li>
             <li class="submenu"><span>&gt; </span><a href="../rider/rider-mainpage.html">Rider</a></li>
-            <li class="submenu active"><span>&gt; </span><a class="active" href="custrep-mainpage.php">Customer
-                Service</a></li>
+            <li class="submenu active"><span>&gt; </span><a class="active" href="custrep-mainpage.php">Customer Service</a></li>
             <li class="submenu"><span>&gt; </span><a href="../technician/technician-mainpage.html">Maintenance Tech.</a>
             </li>
             <li><span class="dot"></span><a href="../about.html">About</a></li>
