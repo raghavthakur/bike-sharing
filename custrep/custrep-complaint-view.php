@@ -172,9 +172,11 @@ if ($db_conn) {
         $alltuples = array(
             $tuple
         );
-        executeBoundSQL("SELECT complaint_ID, c.rider_ID, r.name, customer_rep_ID, csr.name, cust_description, agent_notes, urgency_level, complaintDateTime, action_taken, is_resolved
+        $result = executePlainSQL("SELECT complaint_ID, c.rider_ID, r.name, customer_rep_ID, csr.name, cust_description, agent_notes, urgency_level, complaintDateTime, action_taken, is_resolved
         FROM COMPLAINT c, RIDER r, CUSTOMER_SERVICE_REP csr
         WHERE c.RIDER_ID = r.RIDER_ID AND c.CUSTOMER_REP_ID = csr.EMPLOYEE_ID", $alltuples);
+
+        printResult($result);
         OCICommit($db_conn);
     }
 
