@@ -143,6 +143,16 @@ function printResult($result)
     while ($row = OCI_Fetch_Array($result, OCI_BOTH)) {
         echo "<tr>
 <td>" . $row["complaint_ID"] . "</td>
+<td>" . $row["rider_ID"] . "</td>
+<td>" . $row["rider_name"] . "</td>
+<td>" . $row["customer_rep_ID"] . "</td>
+<td>" . $row["employee_name"] . "</td>
+<td>" . $row["cust_description"] . "</td>
+<td>" . $row["agent_notes"] . "</td>
+<td>" . $row["urgency_level"] . "</td>
+<td>" . $row["complaintDateTime"] . "</td>
+<td>" . $row["action_taken"] . "</td>
+<td>" . $row["is_resolved"] . "</td>
 </tr>"; //or just use "echo $row[0]"
     }
     echo "</table>";
