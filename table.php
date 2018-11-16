@@ -6,8 +6,6 @@
  * Time: 9:49 PM
  */
 
-require "server.php";
-
 
 function printTable($resultFromSQL, $namesOfColumnsArray)
 {
