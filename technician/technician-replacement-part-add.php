@@ -96,10 +96,10 @@ require '../server.php';
 function printResult($result)
 {
     echo "<table>";
-    echo "<tr><th>PART_NO</th><th>PART_NAME</th><th>QUANTITY</th></tr>";
+    echo "<tr><th>PARTNO</th><th>PART_NAME</th><th>QUANTITY</th></tr>";
 
     while ($row = OCI_Fetch_Array($result, OCI_BOTH)) {
-        echo "<tr><td>" . $row["PART_NO"] . "</td><td>" . $row["PART_NAME"] . "</td><td>" . $row["QUANTITY"] . "</td></tr>"; //or just use "echo $row[0]"
+        echo "<tr><td>" . $row["PARTNO"] . "</td><td>" . $row["PART_NAME"] . "</td><td>" . $row["QUANTITY"] . "</td></tr>"; //or just use "echo $row[0]"
     }
     echo "</table>";
 

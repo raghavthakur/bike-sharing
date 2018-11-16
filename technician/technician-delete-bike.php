@@ -84,6 +84,19 @@
 
 require '../server.php';
 
+// Prints result from select statement
+function printResult($result)
+{
+    echo "<table>";
+    echo "<tr><th>BIKE_ID</th><th>DATE_PURCHASED</th><th>LATITUDE</th><th>LONGITUDE</th><th>IS_BROKEN</th></tr>";
+
+    while ($row = OCI_Fetch_Array($result, OCI_BOTH)) {
+        echo "<tr><td>" . $row["BIKE_ID"] . "</td><td>" . $row["DATE_PURCHASED"] . "</td><td>" . $row["LATITUDE"] . "</td><td>" . $row["LONGITUDE"] . "</td><td>" . $row["IS_BROKEN"] . "</td></tr>"; //or just use "echo $row[0]"
+    }
+    echo "</table>";
+
+}
+
 // Connect Oracle...
 if ($db_conn) {
 
@@ -97,10 +110,13 @@ if ($db_conn) {
             $tuple
         );
         executeBoundSQL("DELETE FROM BIKE WHERE BIKE_ID=:bind1", $alltuples);
+        printResult($result);
         OCICommit($db_conn);
 
-    } else
-        echo "<h1 style='color: black'>Yolo</h1>";
+    } else {
+        $result = executePlainSQL("SELECT * FROM BIKE");
+        printResult($result);
+    }
     if ($_POST && $success) {
         echo "<h1 style='color: black'>Bike has been removed!</h1>";
     } else if (!$success){
