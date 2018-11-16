@@ -52,7 +52,7 @@
                 <div>
                     <h3>MAINTENANCE TECHNICIAN - Replacement Parts - Update</h3>
 
-                    <form method="POST" action="new-oracle-test.php">
+                    <form method="POST">
 
                         <h4>Update Existing Part:</h4>
 
@@ -92,3 +92,60 @@
     </div>
 </div>
 </html>
+
+<?php
+
+require '../server.php';
+
+// Prints result from select statement
+function printResult($result)
+{
+    echo "<table>";
+    echo "<tr><th>PART_NO</th><th>PART_NAME</th><th>QUANTITY</th></tr>";
+
+    while ($row = OCI_Fetch_Array($result, OCI_BOTH)) {
+        echo "<tr><td>" . $row["PART_NO"] . "</td><td>" . $row["PART_NAME"] . "</td><td>" . $row["QUANTITY"] . "</td></tr>"; //or just use "echo $row[0]"
+    }
+    echo "</table>";
+
+}
+
+
+// Connect Oracle...
+if ($db_conn) {
+
+    if (array_key_exists('updateExistingPart', $_POST)) {
+        //include '../debugger.php';
+        // Updates tuple using data from user
+        $tuple = array(
+            ":bind1" => $_POST['partIDToUpdate'],
+            ":bind2" => $_POST['newPartName'],
+            ":bind3" => $_POST['newQuantity']
+
+        );
+        $alltuples = array(
+            $tuple
+        );
+        executeBoundSQL("UPDATE REPLACEMENT_PART SET QUANTITY = :bind3 WHERE PARTNO = :bind1", $alltuples);
+        printResult($result);
+        OCICommit($db_conn);
+
+    } else {
+        $result = executePlainSQL("SELECT * FROM REPLACEMENT_PART");
+        printResult($result);
+    }
+    if ($_POST && $success) {
+        echo "<h1 style='color: black'>Part has been updated!</h1>";
+    } else if (!$success){
+        echo "<h1 style='color: red'>Error!</h1>";
+    }
+
+    // Commit to save changes...
+    OCILogoff($db_conn);
+} else {
+    echo "cannot connect";
+    $e = OCI_Error(); // For OCILogon errors pass no handle
+    echo htmlentities($e['message']);
+}
+
+?>

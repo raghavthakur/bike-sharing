@@ -52,7 +52,7 @@
                 <div>
                     <h3>MAINTENANCE TECHNICIAN - Replacement Parts - Increment/Decrement Quantity</h3>
 
-                    <form method="POST" action="new-oracle-test.php">
+                    <form method="POST">
 
                         <h4>Increment/Decrement Quantity:</h4>
 

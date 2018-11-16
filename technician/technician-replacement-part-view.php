@@ -79,3 +79,46 @@
 </div>
 </html>
 
+
+<?php
+
+require '../server.php';
+
+// Prints result from select statement
+function printResult($result)
+{
+    echo "<table>";
+    echo "<tr><th>PART_NO</th><th>PART_NAME</th><th>QUANTITY</th></tr>";
+
+    while ($row = OCI_Fetch_Array($result, OCI_BOTH)) {
+        echo "<tr><td>" . $row["PART_NO"] . "</td><td>" . $row["PART_NAME"] . "</td><td>" . $row["QUANTITY"] . "</td></tr>"; //or just use "echo $row[0]"
+    }
+    echo "</table>";
+
+}
+
+// Connect Oracle....
+if ($db_conn) {
+
+    if (array_key_exists('viewParts', $_POST)) {
+        $result = executePlainSQL("SELECT * FROM REPLACEMENT_PART");
+        printResult($result);
+        OCICommit($db_conn);
+    }
+
+//    if ($_POST && $success) {
+//        echo "<h1 style='color: black'>Showing all parts...</h1>";
+//    } else if (!$success) {
+//        echo "<h1 style='color: red'>Error!</h1>";
+//    }
+
+    // Commit to save changes...
+    OCILogoff($db_conn);
+} else {
+    echo "cannot connect";
+    $e = OCI_Error(); // For OCILogon errors pass no handle
+    echo htmlentities($e['message']);
+}
+
+?>
+
