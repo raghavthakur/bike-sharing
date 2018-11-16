@@ -21,7 +21,7 @@ function printTable($resultFromSQL, $namesOfColumnsArray)
     while($row = OCI_Fetch_Array($resultFromSQL, OCI_BOTH)) {
         echo "<tr>";
         $string = "";
-        for ($i = 0; $i < sizeof($row); $i++) {
+        for ($i = 0; $i < sizeof($namesOfColumnsArray); $i++) {
             $string .= "<td>" . $row["$i"] . "</td>";
         }
         echo $string;
