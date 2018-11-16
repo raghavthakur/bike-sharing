@@ -111,7 +111,7 @@
 <?php
 
 require "../server.php";
-require "../table.php";
+include "../table.php";
 
 //// Prints result from select statement
 //function printResult($result)
