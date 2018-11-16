@@ -5,30 +5,30 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <script src="../project.js" type="text/javascript" defer></script>
     <link rel="stylesheet" href="../project.css">
-    <style>
-        /* Table */
-        table {
-            width: 100%;
-            border: 1px solid black;
-        }
-
-        th {
-            font-family: Arial, Helvetica, sans-serif;
-            font-size: .7em;
-            background: #666;
-            color: #FFF;
-            padding: 2px 6px;
-            border-collapse: separate;
-            border: 1px solid #000;
-        }
-
-        td {
-            font-family: Arial, Helvetica, sans-serif;
-            font-size: .7em;
-            border: 1px solid #DDD;
-            color: black;
-        }
-    </style>
+<!--    <style>-->
+<!--        /* Table */-->
+<!--        table {-->
+<!--            width: 100%;-->
+<!--            border: 1px solid black;-->
+<!--        }-->
+<!---->
+<!--        th {-->
+<!--            font-family: Arial, Helvetica, sans-serif;-->
+<!--            font-size: .7em;-->
+<!--            background: #666;-->
+<!--            color: #FFF;-->
+<!--            padding: 2px 6px;-->
+<!--            border-collapse: separate;-->
+<!--            border: 1px solid #000;-->
+<!--        }-->
+<!---->
+<!--        td {-->
+<!--            font-family: Arial, Helvetica, sans-serif;-->
+<!--            font-size: .7em;-->
+<!--            border: 1px solid #DDD;-->
+<!--            color: black;-->
+<!--        }-->
+<!--    </style>-->
 </head>
 <div id="wrapper">
 
@@ -144,9 +144,9 @@ function printResult($result)
         echo "<tr>
 <td>" . $row["complaint_ID"] . "</td>
 <td>" . $row["rider_ID"] . "</td>
-<td>" . $row["name"] . "</td>
+<td>" . $row["rider_name"] . "</td>
 <td>" . $row["customer_rep_ID"] . "</td>
-<td>" . $row["name"] . "</td>
+<td>" . $row["employee_name"] . "</td>
 <td>" . $row["cust_description"] . "</td>
 <td>" . $row["agent_notes"] . "</td>
 <td>" . $row["urgency_level"] . "</td>
