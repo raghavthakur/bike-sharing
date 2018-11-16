@@ -144,6 +144,7 @@ include "../table.php";
 
 if ($db_conn) {
 
+    echo "Connection established";
     if (array_key_exists('getAllRiderInfo', $_POST)) {
         $result = executePlainSQL("SELECT * FROM CustRep_Rider");
         //printResult($result);
