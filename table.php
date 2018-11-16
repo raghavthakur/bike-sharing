@@ -5,6 +5,7 @@
  * Date: 2018-11-15
  * Time: 9:49 PM
  */
+
 require "server.php";
 
 function printTable($resultFromSQL, $namesOfColumnsArray)

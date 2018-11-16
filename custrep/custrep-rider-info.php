@@ -148,6 +148,7 @@ if ($db_conn) {
         $result = executePlainSQL("SELECT * FROM CustRep_Rider");
         //printResult($result);
         $riderTable = array("Rider_ID", "Wallet_ID", "Rider_Name", "Phone_Number", "Email", "Address", "eCoins");
+        include "../debugger.php";
         printTable($result, $riderTable);
         OCICommit($db_conn);
     }
