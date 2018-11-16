@@ -72,7 +72,7 @@
                             </select>
                         </p>
 
-                        <input type="submit" value="View Complaints" name="viewComplaints">
+                        <input type="submit" value="View All Complaints" name="viewAllComplaints">
 
                         <p>
                             Display a table here according to the above input. Make sure to include columns for
@@ -101,24 +101,13 @@ include "../print-table.php";
 
 if ($db_conn) {
 
-    if (array_key_exists('viewComplaints', $_POST)) {
-        echo "Hello";
-//        //Getting the values from user and insert data into the table
-//        $tuple = array(
-//            ":bind1" => $_POST['riderID'],
-//            ":bind2" => $_POST['employeeID'],
-//            ":bind3" => $_POST['groupBy']
-//        );
-//        $alltuples = array(
-//            $tuple
-//        );
+    if (array_key_exists('viewAllComplaints', $_POST)) {
         $result = executePlainSQL("SELECT complaint_ID, c.rider_ID, r.name AS rider_name, customer_rep_ID, csr.name AS custrep_name, cust_description, agent_notes, urgency_level, complaintDateTime, action_taken, is_resolved
         FROM COMPLAINT c, RIDER r, CUSTOMER_SERVICE_REP csr
         WHERE c.RIDER_ID = r.RIDER_ID AND c.CUSTOMER_REP_ID = csr.EMPLOYEE_ID");
 
         $riderTable = array("Complaint ID", "Rider ID", "Rider Name", "Customer Rep. ID", "Customer Rep. Name", "Complaint Description", "Customer Rep. Notes", "Level of Urgency", "Date(YY-MM-DD)/Time(HH-MM-SS)", "Action Taken", "Resolved?");
         printTable($result, $riderTable);
-        OCICommit($db_conn);
     }
 
     // Commit to save changes...
