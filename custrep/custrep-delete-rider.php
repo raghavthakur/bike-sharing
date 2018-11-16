@@ -111,20 +111,8 @@
 
 <?php
 
-require '../server.php';
-
-// Prints result from select statement
-function printResult($result)
-{
-    echo "<table>";
-    echo "<tr><th>RIDER_ID</th><th>WALLED_ID</th><th>NAME</th><th>PHONE_NUM</th><th>EMAIL</th><th>ADDRESS</th></tr>";
-
-    while ($row = OCI_Fetch_Array($result, OCI_BOTH)) {
-        echo "<tr><td>" . $row["RIDER_ID"] . "</td><td>" . $row["WALLET_ID"] . "</td><td>" . $row["NAME"] . "</td><td>" . $row["PHONE_NUM"] . "</td><td>" . $row["EMAIL"] . "</td><td>" . $row["ADDRESS"] . "</td></tr>"; //or just use "echo $row[0]"
-    }
-    echo "</table>";
-
-}
+require "../server.php";
+include "../table.php";
 
 // Connect Oracle...
 if ($db_conn) {
@@ -143,12 +131,16 @@ if ($db_conn) {
 
     } else {
         $result = executePlainSQL("SELECT * FROM RIDER");
-        printResult($result);
+
+        $riderTable = array("Rider_ID", "Wallet_ID", "Rider_Name", "Phone_Number", "Email", "Address", "eCoins");
+        printTable($result, $riderTable);
     }
     if ($_POST && $success) {
         echo "<h1 style='color: black'>Rider has been removed!</h1>";
         $result = executePlainSQL("SELECT * FROM RIDER");
-        printResult($result);
+
+        $riderTable = array("Rider_ID", "Wallet_ID", "Rider_Name", "Phone_Number", "Email", "Address");
+        printTable($result, $riderTable);
     } else if (!$success){
         echo "<h1 style='color: red'>Error!</h1>";
     }
