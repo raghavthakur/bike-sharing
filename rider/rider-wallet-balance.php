@@ -80,3 +80,48 @@
     </div>
 </div>
 </html>
+
+<?php
+
+require '../server.php';
+include "../print-table.php";
+
+// Connect Oracle...
+if ($db_conn) {
+
+    if (array_key_exists('getCreditCardOnFile', $_POST)) {
+        //include '../debugger.php';
+        // Delete tuple using data from user
+        $tuple = array(
+            ":bind1" => $_POST['riderID']
+        );
+        $alltuples = array(
+            $tuple
+        );
+        executeBoundSQL("SELECT NAME, ECOINS FROM RIDER WHERE RIDER_ID=:bind1", $alltuples);
+        OCICommit($db_conn);
+
+    } else {
+        $result = executePlainSQL("SELECT NAME, ECOINS FROM RIDER WHERE RIDER_ID=:bind1");
+
+        $riderTable = array("Name of Rider", "eCoins");
+        printTable($result, $riderTable);
+    }
+    if ($_POST && $success) {
+        echo "<h1 style='color: black'>Rider's eCoin balance</h1>";
+        $result = executePlainSQL("SELECT NAME, ECOINS FROM RIDER WHERE RIDER_ID=:bind1");
+
+        $riderTable = array("Name of Rider", "eCoins");
+        printTable($result, $riderTable);
+    } else if (!$success){
+        echo "<h1 style='color: red'>Error!</h1>";
+    }
+    // Commit to save changes...
+    OCILogoff($db_conn);
+} else {
+    echo "cannot connect";
+    $e = OCI_Error(); // For OCILogon errors pass no handle
+    echo htmlentities($e['message']);
+}
+
+?>

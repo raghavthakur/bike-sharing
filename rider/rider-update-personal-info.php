@@ -100,3 +100,57 @@
     </div>
 </div>
 </html>
+
+
+<?php
+
+require '../server.php';
+include "../print-table.php";
+
+
+// Connect Oracle...
+if ($db_conn) {
+
+    if (array_key_exists('updateInfo', $_POST)) {
+        //include '../debugger.php';
+        // Updates tuple using data from user
+        $tuple = array(
+            ":bind1" => $_POST['rider_ID'],
+            ":bind2" => $_POST['riderName'],
+            ":bind3" => $_POST['riderPhoneNumber'],
+            ":bind4" => $_POST['riderEmail'],
+            ":bind5" => $_POST['riderAddress']
+
+        );
+        $alltuples = array(
+            $tuple
+        );
+        executeBoundSQL("UPDATE RIDER SET NAME= :bind2, PHONE_NUM=:bind3, EMAIL=:bind4, ADDRESS=:bind5 WHERE RIDER_ID= :bind1", $alltuples);
+        printResult($result);
+        OCICommit($db_conn);
+
+    } else {
+        $result = executePlainSQL("SELECT NAME, PHONE_NUM, EMAIL, ADDRESS FROM RIDER WHERE RIDER_ID=:bind1");
+
+        $riderTable = array("Name of Rider", "Phone Number", "Email", "Address");
+        printTable($result, $riderTable);
+    }
+    if ($_POST && $success) {
+        echo "<h1 style='color: black'>Rider's personal has been updated</h1>";
+        $result = executePlainSQL("SELECT NAME, PHONE_NUM, EMAIL, ADDRESS FROM RIDER WHERE RIDER_ID=:bind1");
+
+        $riderTable = array("Name of Rider", "Phone Number", "Email", "Address");
+        printTable($result, $riderTable);
+    } else if (!$success){
+        echo "<h1 style='color: red'>Error!</h1>";
+    }
+
+    // Commit to save changes...
+    OCILogoff($db_conn);
+} else {
+    echo "cannot connect";
+    $e = OCI_Error(); // For OCILogon errors pass no handle
+    echo htmlentities($e['message']);
+}
+
+?>

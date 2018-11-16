@@ -81,3 +81,52 @@
     </div>
 </div>
 </html>
+
+
+<?php
+
+require '../server.php';
+include "../print-table.php";
+
+// Connect Oracle...
+if ($db_conn) {
+
+    if (array_key_exists('purchaseTokens', $_POST)) {
+        //include '../debugger.php';
+        // Updates tuple using data from user
+        $tuple = array(
+            ":bind1" => $_POST['rider_ID'],
+            ":bind2" => $_POST['tokensToPurchase']
+
+        );
+        $alltuples = array(
+            $tuple
+        );
+        executeBoundSQL("UPDATE RIDER SET ECOINS= :bind2 WHERE RIDER_ID= :bind1", $alltuples);
+        printResult($result);
+        OCICommit($db_conn);
+
+    } else {
+        $result = executePlainSQL("SELECT NAME, ECOINS FROM RIDER WHERE RIDER_ID=:bind1");
+
+        $riderTable = array("Name of Rider", "eCoins");
+        printTable($result, $riderTable);
+    }
+    if ($_POST && $success) {
+        echo "<h1 style='color: black'>Rider's eCoins have been loaded</h1>";
+        $result = executePlainSQL("SELECT NAME, ECOINS FROM RIDER WHERE RIDER_ID=:bind1");
+
+        $riderTable = array("Name of Rider", "eCoins");
+        printTable($result, $riderTable);
+    } else if (!$success){
+        echo "<h1 style='color: red'>Error!</h1>";
+    }
+    // Commit to save changes...
+    OCILogoff($db_conn);
+} else {
+    echo "cannot connect";
+    $e = OCI_Error(); // For OCILogon errors pass no handle
+    echo htmlentities($e['message']);
+}
+
+?>

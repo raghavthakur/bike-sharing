@@ -56,7 +56,7 @@
 
                         <p>
                             Logging in as...
-                            <input type="number" name="rider_ID" size="20">
+                            <input type="number" name="riderID" size="20">
                             (enter a rider_ID)
                         </p>
 
@@ -80,3 +80,48 @@
     </div>
 </div>
 </html>
+
+<?php
+
+require '../server.php';
+include "../print-table.php";
+
+// Connect Oracle...
+if ($db_conn) {
+
+    if (array_key_exists('deleteRider', $_POST)) {
+        //include '../debugger.php';
+        // Delete tuple using data from user
+        $tuple = array(
+            ":bind1" => $_POST['riderID']
+        );
+        $alltuples = array(
+            $tuple
+        );
+        executeBoundSQL("SELECT NAME, EMAIL, PHONE_NUM, ADDRESS FROM RIDER WHERE RIDER_ID=:bind1", $alltuples);
+        OCICommit($db_conn);
+
+    } else {
+        $result = executePlainSQL("SELECT NAME, EMAIL, PHONE_NUM, ADDRESS FROM RIDER WHERE RIDER_ID=:bind1");
+
+        $riderTable = array("Name of Rider", "Email", "Phone Number", "Address");
+        printTable($result, $riderTable);
+    }
+    if ($_POST && $success) {
+        echo "<h1 style='color: black'>Rider's personal information</h1>";
+        $result = executePlainSQL("SELECT NAME, EMAIL, PHONE_NUM, ADDRESS FROM RIDER WHERE RIDER_ID=:bind1");
+
+        $riderTable = array("Name of Rider", "Email", "Phone Number", "Address");
+        printTable($result, $riderTable);
+    } else if (!$success){
+        echo "<h1 style='color: red'>Error!</h1>";
+    }
+    // Commit to save changes...
+    OCILogoff($db_conn);
+} else {
+    echo "cannot connect";
+    $e = OCI_Error(); // For OCILogon errors pass no handle
+    echo htmlentities($e['message']);
+}
+
+?>

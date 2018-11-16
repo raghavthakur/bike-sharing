@@ -112,3 +112,54 @@
     </div>
 </div>
 </html>
+
+<?php
+
+require '../server.php';
+include "../print-table.php";
+
+
+// Connect Oracle...
+if ($db_conn) {
+
+    if (array_key_exists('updateCreditCard', $_POST)) {
+        //include '../debugger.php';
+        // Updates tuple using data from user
+        $tuple = array(
+            ":bind1" => $_POST['rider_ID'],
+            ":bind2" => $_POST['ccNumber'],
+            ":bind3" => $_POST['ccExpiryMonth+ccExpiryYear']
+
+        );
+        $alltuples = array(
+            $tuple
+        );
+        executeBoundSQL("UPDATE RIDER SET CREDITCARDNO= :bind2, CREDITCARDEXP=:bind3 WHERE RIDER_ID= :bind1", $alltuples);
+        printResult($result);
+        OCICommit($db_conn);
+
+    } else {
+        $result = executePlainSQL("SELECT NAME, CREDITCARDNO, CREDITCARDEXP FROM RIDER WHERE RIDER_ID=:bind1");
+
+        $riderTable = array("Name of Rider", "Credit Card Number", "Credit Card Expiry");
+        printTable($result, $riderTable);
+    }
+    if ($_POST && $success) {
+        echo "<h1 style='color: black'>Rider's credit card information has been updated</h1>";
+        $result = executePlainSQL("SELECT NAME, CREDITCARDNO, CREDITCARDEXP FROM RIDER WHERE RIDER_ID=:bind1");
+
+        $riderTable = array("Name of Rider", "Credit Card Number", "Credit Card Expiry");
+        printTable($result, $riderTable);
+    } else if (!$success){
+        echo "<h1 style='color: red'>Error!</h1>";
+    }
+
+    // Commit to save changes...
+    OCILogoff($db_conn);
+} else {
+    echo "cannot connect";
+    $e = OCI_Error(); // For OCILogon errors pass no handle
+    echo htmlentities($e['message']);
+}
+
+?>
