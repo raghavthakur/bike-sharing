@@ -7,30 +7,30 @@
     <script src="../project.js" type="text/javascript" defer></script>
     <link rel="stylesheet" href="../project.css">
 
-<!--    <style>-->
-<!--        /* Table */-->
-<!--        table {-->
-<!--            width: 100%;-->
-<!--            border: 1px solid black;-->
-<!--        }-->
-<!---->
-<!--        th {-->
-<!--            font-family: Arial, Helvetica, sans-serif;-->
-<!--            font-size: .7em;-->
-<!--            background: #666;-->
-<!--            color: #FFF;-->
-<!--            padding: 2px 6px;-->
-<!--            border-collapse: separate;-->
-<!--            border: 1px solid #000;-->
-<!--        }-->
-<!---->
-<!--        td {-->
-<!--            font-family: Arial, Helvetica, sans-serif;-->
-<!--            font-size: .7em;-->
-<!--            border: 1px solid #DDD;-->
-<!--            color: black;-->
-<!--        }-->
-<!--    </style>-->
+    <style>
+        /* Table */
+        table {
+            width: 100%;
+            border: 1px solid black;
+        }
+
+        th {
+            font-family: Arial, Helvetica, sans-serif;
+            font-size: .7em;
+            background: #666;
+            color: #FFF;
+            padding: 2px 6px;
+            border-collapse: separate;
+            border: 1px solid #000;
+        }
+
+        td {
+            font-family: Arial, Helvetica, sans-serif;
+            font-size: .7em;
+            border: 1px solid #DDD;
+            color: black;
+        }
+    </style>
 </head>
 <div id="wrapper">
 
@@ -119,9 +119,7 @@ if ($db_conn) {
     if (array_key_exists('getAllRiderInfo', $_POST)) {
         $result = executePlainSQL("SELECT * FROM CustRep_Rider");
         //printResult($result);
-        echo "Submit Pressed";
         $riderTable = array("Rider_ID", "Wallet_ID", "Rider_Name", "Phone_Number", "Email", "Address", "eCoins");
-        echo "Before Table";
         printTable($result, $riderTable);
         OCICommit($db_conn);
     }
