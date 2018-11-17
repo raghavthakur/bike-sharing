@@ -123,7 +123,7 @@ if ($db_conn) {
         OCICommit($db_conn);
 
         // group bikes by their id in descending order
-        $result = executePlainSQL("SELECT * FROM BIKE GROUP BY BIKE_ID, DATE_PURCHASED ORDER BY BIKE_ID");
+        $result = executePlainSQL("SELECT * FROM BIKE ORDER BY BIKE_ID DESC");
 
         $riderTable = array("Bike ID", "Date Purchased", "Latitude", "Longitude", "Bike Broken?");
         printTable($result, $riderTable);
@@ -131,7 +131,7 @@ if ($db_conn) {
     // show bike table before clicking addBike
     else {
         // group bikes by their id in descending order
-        $result = executePlainSQL("SELECT * FROM BIKE GROUP BY BIKE_ID, DATE_PURCHASED ORDER BY BIKE_ID");
+        $result = executePlainSQL("SELECT * FROM BIKE ORDER BY BIKE_ID DESC");
 
         $riderTable = array("Bike ID", "Date Purchased", "Latitude", "Longitude", "Bike Broken?");
         printTable($result, $riderTable);
