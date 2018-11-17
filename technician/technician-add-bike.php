@@ -73,7 +73,7 @@
                         </p>
 
                         <p>
-                            Enter bike broken status:<br>
+                            Enter bike status:<br>
                             <input type="radio" name="bikeStatus" value="Y">Broken<br>
                             <input type="radio" name="bikeStatus" value="N">Not Broken<br>
                         </p>
