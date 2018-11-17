@@ -1,4 +1,3 @@
-<!doctype html>
 <html lang="en">
 <head>
     <title>Bike Sharing</title>
@@ -29,7 +28,7 @@
             <li class="submenu"><span>&gt; </span><a href="../rider/rider-mainpage.html">Rider</a></li>
             <li class="submenu"><span>&gt; </span><a href="../custrep/custrep-mainpage.php">Customer Service</a></li>
             <li class="submenu active"><span>&gt; </span><a class="active" href="technician-mainpage.html">Maintenance
-                Tech.</a></li>
+                    Tech.</a></li>
             <li><span class="dot"></span><a href="../about.html">About</a></li>
             <li><span class="dot"></span><a href="../faq.html">FAQ</a></li>
             <li><span class="dot"></span><a href="../ourbikes.html">Our Bikes</a></li>
@@ -55,7 +54,7 @@
                     <form method="POST">
                         <p>
                             Enter bike id:
-                            <input type="number" name="bikeID" size = "10">
+                            <input type="number" name="bikeID" size="10">
                         </p>
 
                         <p>
@@ -101,20 +100,8 @@
 
 <?php
 
-require '../server.php';
-
-// Prints result from select statement
-function printResult($result)
-{
-    echo "<table>";
-    echo "<tr><th>BIKE_ID</th><th>DATE_PURCHASED</th><th>LATITUDE</th><th>LONGITUDE</th><th>IS_BROKEN</th></tr>";
-
-    while ($row = OCI_Fetch_Array($result, OCI_BOTH)) {
-        echo "<tr><td>" . $row["BIKE_ID"] . "</td><td>" . $row["DATE_PURCHASED"] . "</td><td>" . $row["LATITUDE"] . "</td><td>" . $row["LONGITUDE"] . "</td><td>" . $row["IS_BROKEN"] . "</td></tr>"; //or just use "echo $row[0]"
-    }
-    echo "</table>";
-
-}
+require "../server.php";
+include "../print-table.php";
 
 // Connect Oracle...
 if ($db_conn) {
@@ -135,16 +122,18 @@ if ($db_conn) {
         );
         executeBoundSQL("INSERT INTO BIKE VALUES (BIKE_ID =:bind1, DATE_PURCHASED= :bind2,
             LATITUDE= :bind3, LONGITUDE = :bind4, is_BROKEN = :bind5)", $alltuples);
-        printResult($result);
+
         OCICommit($db_conn);
 
-    } else {
         $result = executePlainSQL("SELECT * FROM BIKE");
-        printResult($result);
+
+        $riderTable = array("Bike ID", "Date Purchased", "Latitude", "Longitude", "Bike Broken?");
+        printTable($result, $riderTable);
     }
+
     if ($_POST && $success) {
         echo "<h1 style='color: black'>Bike has been added!</h1>";
-    } else if (!$success){
+    } else if (!$success) {
         echo "<h1 style='color: red'>Error!</h1>";
     }
 
