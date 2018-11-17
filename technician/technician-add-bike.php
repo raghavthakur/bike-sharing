@@ -72,10 +72,7 @@
                             <input type="number" name="longitude" size="20">
                         </p>
 
-                        <p>
-                            Enter bike status:
-                            <input type="text" name="bikeStatus" size="5">
-                        </p>
+                        <p>Since adding new bike, bike status is not broken</p>
 
                         <input type="submit" value="Add Bike" name="addBike">
 
@@ -111,14 +108,13 @@ if ($db_conn) {
             ":bind1" => $_POST['bikeID'],
             ":bind2" => $_POST['datePurchased'],
             ":bind3" => $_POST['latitude'],
-            ":bind4" => $_POST['longitude'],
-            ":bind5" => $_POST['bikeStatus']
+            ":bind4" => $_POST['longitude']
 
         );
         $alltuples = array(
             $tuple
         );
-        executeBoundSQL("INSERT INTO BIKE VALUES (:bind1, :bind2, :bind3, :bind4, :bind5)", $alltuples);
+        executeBoundSQL("INSERT INTO BIKE VALUES (:bind1, :bind2, :bind3, :bind4, 'N')", $alltuples);
 
         OCICommit($db_conn);
 
