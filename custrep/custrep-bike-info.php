@@ -87,8 +87,8 @@ if ($db_conn) {
     if (array_key_exists('getAllBikeInfo', $_POST)) {
         $result = executePlainSQL("SELECT * FROM BIKE");
 
-        $riderTable = array("Bike ID", "Date Purchased", "Latitude", "Longitude", "Bike Broken?");
-        printTable($result, $riderTable);
+        $columnNames = array("Bike ID", "Date Purchased", "Latitude", "Longitude", "Bike Broken?");
+        printTable($result, $columnNames);
         OCICommit($db_conn);
     }
 

@@ -88,8 +88,8 @@ if ($db_conn) {
     if (array_key_exists('getReturnAreaInfo', $_POST)) {
         $result = executePlainSQL("SELECT * FROM DESIGNATED_RETURN_AREA");
 
-        $riderTable = array("Location ID", "Latitude", "Longitude", "Radius of Area");
-        printTable($result, $riderTable);
+        $columnNames = array("Location ID", "Latitude", "Longitude", "Radius of Area");
+        printTable($result, $columnNames);
         OCICommit($db_conn);
     }
 

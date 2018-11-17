@@ -124,16 +124,16 @@ if ($db_conn) {
         // order bike table by bike purchase date to see newest bikes first
         $result = executePlainSQL("SELECT * FROM BIKE ORDER BY DATE_PURCHASED DESC");
 
-        $riderTable = array("Bike ID", "Date Purchased", "Latitude", "Longitude", "Bike Broken?");
-        printTable($result, $riderTable);
+        $columnNames = array("Bike ID", "Date Purchased", "Latitude", "Longitude", "Bike Broken?");
+        printTable($result, $columnNames);
     }
     // show bike table before clicking addBike
     else {
         // order bike table by bike purchase date to see newest bikes first
         $result = executePlainSQL("SELECT * FROM BIKE ORDER BY DATE_PURCHASED DESC");
 
-        $riderTable = array("Bike ID", "Date Purchased", "Latitude", "Longitude", "Bike Broken?");
-        printTable($result, $riderTable);
+        $columnNames = array("Bike ID", "Date Purchased", "Latitude", "Longitude", "Bike Broken?");
+        printTable($result, $columnNames);
     }
 
     if ($_POST && $success) {

@@ -28,7 +28,7 @@
             <li class="submenu"><span>&gt; </span><a href="../rider/rider-mainpage.html">Rider</a></li>
             <li class="submenu"><span>&gt; </span><a href="../custrep/custrep-mainpage.php">Customer Service</a></li>
             <li class="submenu active"><span>&gt; </span><a class="active" href="technician-mainpage.html">Maintenance
-                Tech.</a></li>
+                    Tech.</a></li>
             <li><span class="dot"></span><a href="../about.html">About</a></li>
             <li><span class="dot"></span><a href="../faq.html">FAQ</a></li>
             <li><span class="dot"></span><a href="../ourbikes.html">Our Bikes</a></li>
@@ -87,16 +87,16 @@ include "../print-table.php";
 // Connect Oracle....
 if ($db_conn) {
 
-        // order bike table by bike status for technicians to attend to
-        $result = executePlainSQL("SELECT B.BIKE_ID, DATE_PURCHASED, LATITUDE, LONGITUDE, IS_BROKEN, COUNT(MI.RIDER_ID) AS NUMBER_OF_ISSUES
+    // order bike table by bike status for technicians to attend to
+    $result = executePlainSQL("SELECT B.BIKE_ID, DATE_PURCHASED, LATITUDE, LONGITUDE, IS_BROKEN, COUNT(MI.RIDER_ID) AS NUMBER_OF_ISSUES
                                           FROM MAINTENANCE_ISSUE MI
                                           RIGHT JOIN BIKE B ON MI.BIKE_ID = B.BIKE_ID
                                           GROUP BY B.BIKE_ID, DATE_PURCHASED, LATITUDE, LONGITUDE, IS_BROKEN
                                           ORDER BY IS_BROKEN DESC");
 
-        $riderTable = array("Bike ID", "Date Purchased", "Latitude", "Longitude", "Bike Broken?", "Number of Issues");
-        printTable($result, $riderTable);
-        OCICommit($db_conn);
+    $columnNames = array("Bike ID", "Date Purchased", "Latitude", "Longitude", "Bike Broken?", "Number of Issues");
+    printTable($result, $columnNames);
+    OCICommit($db_conn);
 
     // Commit to save changes...
     OCILogoff($db_conn);
