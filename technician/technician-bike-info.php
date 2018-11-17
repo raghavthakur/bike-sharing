@@ -1,4 +1,3 @@
-<!doctype html>
 <html lang="en">
 <head>
     <title>Bike Sharing</title>
@@ -52,9 +51,7 @@
                 <div>
                     <h3>MAINTENANCE TECHNICIAN - Bike Info</h3>
 
-                    <form method="POST" action="new-oracle-test.php">
-
-                        <input type="submit" value="Add Bike" name="addBike">
+                    <form method="POST">
 
                         <p>
                             Table showing all bikes and their info. We should have a column for the "number of unique
@@ -79,3 +76,26 @@
     </div>
 </div>
 </html>
+
+<?php
+
+require "../server.php";
+include "../print-table.php";
+
+// Connect Oracle....
+if ($db_conn) {
+
+
+        $result = executePlainSQL("SELECT * FROM BIKE");
+
+        $riderTable = array("Bike ID", "Date Purchased", "Latitude", "Longitude", "Bike Broken?");
+        printTable($result, $riderTable);
+        OCICommit($db_conn);
+
+    // Commit to save changes...
+    OCILogoff($db_conn);
+} else {
+    echo "cannot connect";
+    $e = OCI_Error(); // For OCILogon errors pass no handle
+    echo htmlentities($e['message']);
+}
