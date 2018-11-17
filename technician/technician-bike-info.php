@@ -86,9 +86,13 @@ include "../print-table.php";
 if ($db_conn) {
 
         // order bike table by bike status for technicians to attend to
-        $result = executePlainSQL("SELECT * FROM BIKE ORDER BY IS_BROKEN DESC");
+        $result = executePlainSQL("SELECT B.BIKE_ID, DATE_PURCHASED, LATITUDE, LONGITUDE, IS_BROKEN, COUNT(MI.RIDER_ID) AS NUMBER_OF_ISSUES
+                                          FROM MAINTENANCE_ISSUE MI
+                                          RIGHT JOIN BIKE B ON MI.BIKE_ID = B.BIKE_ID
+                                          GROUP BY B.BIKE_ID, DATE_PURCHASED, LATITUDE, LONGITUDE, IS_BROKEN
+                                          ORDER BY IS_BROKEN DESC");
 
-        $riderTable = array("Bike ID", "Date Purchased", "Latitude", "Longitude", "Bike Broken?");
+        $riderTable = array("Bike ID", "Date Purchased", "Latitude", "Longitude", "Bike Broken?", "Number of Issues");
         printTable($result, $riderTable);
         OCICommit($db_conn);
 
