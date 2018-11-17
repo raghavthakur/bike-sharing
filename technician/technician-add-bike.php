@@ -107,8 +107,6 @@ include "../print-table.php";
 if ($db_conn) {
 
     if (array_key_exists('addBike', $_POST)) {
-        //include '../debugger.php';
-        // Adds tuple using data from user
         $tuple = array(
             ":bind1" => $_POST['bikeID'],
             ":bind2" => $_POST['datePurchased'],
@@ -120,8 +118,7 @@ if ($db_conn) {
         $alltuples = array(
             $tuple
         );
-        executeBoundSQL("INSERT INTO BIKE VALUES (BIKE_ID =:bind1, DATE_PURCHASED= :bind2,
-            LATITUDE= :bind3, LONGITUDE = :bind4, is_BROKEN = :bind5)", $alltuples);
+        executeBoundSQL("INSERT INTO BIKE VALUES (:bind1, :bind2, :bind3, :bind4, :bind5)", $alltuples);
 
         OCICommit($db_conn);
 
