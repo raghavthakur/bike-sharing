@@ -85,8 +85,8 @@ include "../print-table.php";
 // Connect Oracle....
 if ($db_conn) {
 
-
-        $result = executePlainSQL("SELECT * FROM BIKE");
+        // order bike table by bike status for technicians to attend to
+        $result = executePlainSQL("SELECT * FROM BIKE ORDER BY IS_BROKEN");
 
         $riderTable = array("Bike ID", "Date Purchased", "Latitude", "Longitude", "Bike Broken?");
         printTable($result, $riderTable);

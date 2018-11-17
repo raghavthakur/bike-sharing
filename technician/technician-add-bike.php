@@ -123,6 +123,7 @@ if ($db_conn) {
 
         OCICommit($db_conn);
 
+        // order bike table by bike purchase date to see newest bikes first
         $result = executePlainSQL("SELECT * FROM BIKE ORDER BY DATE_PURCHASED DESC");
 
         $riderTable = array("Bike ID", "Date Purchased", "Latitude", "Longitude", "Bike Broken?");
@@ -130,6 +131,7 @@ if ($db_conn) {
     }
     // show bike table before clicking addBike
     else {
+        // order bike table by bike purchase date to see newest bikes first
         $result = executePlainSQL("SELECT * FROM BIKE ORDER BY DATE_PURCHASED DESC");
 
         $riderTable = array("Bike ID", "Date Purchased", "Latitude", "Longitude", "Bike Broken?");
