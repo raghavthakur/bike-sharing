@@ -94,7 +94,7 @@ if ($db_conn) {
                                           GROUP BY B.BIKE_ID, DATE_PURCHASED, LATITUDE, LONGITUDE, IS_BROKEN
                                           ORDER BY IS_BROKEN DESC");
 
-        $riderTable = array("Bike ID", "Date Purchased", "Latitude", "Longitude", "Bike Broken?", "Number of Maintenance Issues");
+        $riderTable = array("Bike ID", "Date Purchased", "Latitude", "Longitude", "Bike Broken?", "Number of Issues");
         printTable($result, $riderTable);
         OCICommit($db_conn);
 
