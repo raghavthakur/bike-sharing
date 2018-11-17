@@ -80,9 +80,7 @@
 
                         <input type="submit" value="Add Bike" name="addBike">
 
-                        <p>
-                            Display confirmation message showing bikeID of the new bike.
-                        </p>
+                        <p>Table ordered by date purchased.</p>
 
                     </form>
                 </div>

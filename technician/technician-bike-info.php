@@ -62,6 +62,8 @@
                             as a replacement GROUP BY query.
                         </p>
 
+                        <p>Table ordered by bike status.</p>
+
                     </form>
                 </div>
             </main>
