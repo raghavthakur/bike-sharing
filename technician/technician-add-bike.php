@@ -122,7 +122,8 @@ if ($db_conn) {
 
         OCICommit($db_conn);
 
-        $result = executePlainSQL("SELECT * FROM BIKE");
+        // group bikes by their id in descending order
+        $result = executePlainSQL("SELECT * FROM BIKE ORDER BY BIKE_ID DESC");
 
         $riderTable = array("Bike ID", "Date Purchased", "Latitude", "Longitude", "Bike Broken?");
         printTable($result, $riderTable);
