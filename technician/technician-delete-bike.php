@@ -97,7 +97,7 @@ if ($db_conn) {
         $alltuples = array(
             $tuple
         );
-        executeBoundSQL("DELETE FROM BIKE WHERE bind1", $alltuples);
+        executeBoundSQL("DELETE FROM BIKE WHERE :bind1", $alltuples);
 
 
         OCICommit($db_conn);
