@@ -108,7 +108,7 @@ CREATE TABLE Trip(
 	end_longitude 		NUMBER,
 	PRIMARY KEY (trip_ID),
 	FOREIGN KEY (rider_ID) REFERENCES Rider(rider_ID) ON DELETE CASCADE,
-	FOREIGN KEY (bike_ID) REFERENCES Bike(bike_ID),
+	FOREIGN KEY (bike_ID) REFERENCES Bike(bike_ID) ON DELETE CASCADE,
 	FOREIGN KEY (end_location_ID) REFERENCES Designated_Return_Area(location_ID) ON DELETE SET NULL);
 
 CREATE TABLE Refund(
