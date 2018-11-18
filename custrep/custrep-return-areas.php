@@ -89,7 +89,8 @@ if ($db_conn) {
         $result = executePlainSQL("SELECT LOCATION_ID, LATITUDE, LONGITUDE, RADIUS, COUNT(T.END_LOCATION_ID) AS NUM_RIDES_ENDED
                                           FROM DESIGNATED_RETURN_AREA DRA LEFT JOIN TRIP T
                                             ON DRA.LOCATION_ID = T.END_LOCATION_ID
-                                          GROUP BY LOCATION_ID, LATITUDE, LONGITUDE, RADIUS");
+                                          GROUP BY LOCATION_ID, LATITUDE, LONGITUDE, RADIUS
+                                          ORDER BY LOCATION_ID");
 
         $columnNames = array("Location ID", "Latitude", "Longitude", "Radius of Area", "Number of Rides That Ended Here (Bikes Returned)");
         printTable($result, $columnNames);
