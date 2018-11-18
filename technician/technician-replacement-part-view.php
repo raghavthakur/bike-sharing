@@ -92,13 +92,13 @@ if ($db_conn) {
         $result = executePlainSQL("SELECT * FROM REPLACEMENT_PART");
 
         OCICommit($db_conn);
-        $result = executePlainSQL("SELECT * FROM REPLACEMENT_PART ORDER BY PART_NO DESC");
+        $result = executePlainSQL("SELECT * FROM REPLACEMENT_PART ORDER BY PARTNO DESC");
 
         $columnNames = array("Part No", "Part Name", "Quantity");
         printTable($result, $columnNames);
     }
     else {
-        $result = executePlainSQL("SELECT * FROM REPLACEMENT_PART ORDER BY PART_NAME DESC");
+        $result = executePlainSQL("SELECT * FROM REPLACEMENT_PART ORDER BY PARTNO DESC");
 
         $columnNames = array("Part No", "Part Name", "Quantity");
         printTable($result, $columnNames);
