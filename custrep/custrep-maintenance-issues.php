@@ -108,8 +108,7 @@ if ($db_conn) {
 
             $tuple = array(
                 ":bind1" => $_POST['riderID'],
-                ":bind2" => $_POST['bikeID'],
-                ":bind3" => $_POST['sortBy']
+                ":bind2" => $_POST['bikeID']
             );
             $alltuples = array(
                 $tuple
