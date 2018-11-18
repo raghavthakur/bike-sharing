@@ -116,7 +116,7 @@ if ($db_conn) {
 
         $result = executePlainSQL("SELECT * FROM MAINTENANCE_ISSUE");
 
-        $columnNames = array("Date and Time", "Description", "Technician Notes", "Resolved Date", "Bike ID", "Rider ID", "Technician Notes");
+        $columnNames = array("Date and Time", "Description", "Technician Notes", "Resolved Date", "Bike ID", "Rider ID", "Technician ID");
         printTable($result, $columnNames);
 
     } else if (!$success) {
