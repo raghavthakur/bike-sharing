@@ -68,6 +68,7 @@ function executeBoundSQL($cmdstr, $list)
 
 }
 
+// use this function when result is needed to print table of select statement with where clause(s)
 function executeResultBoundSQL($cmdstr, $list)
 {
     /* Sometimes the same statement will be executed for several times ... only
