@@ -65,10 +65,10 @@
                         <p>
                             Sort by:
                             <select name="sortBy">
-                                <option value="status" selected="selected">Status (Resolved/Unresolved)</option>
-                                <option value="riderID">Rider ID</option>
-                                <option value="bikeID">Bike ID</option>
-                                <option value="date">Date</option>
+                                <option value="RESOLVED_DATE" selected="selected">Resolved Data</option>
+                                <option value="RIDER_ID">Rider ID</option>
+                                <option value="BIKE_ID">Bike ID</option>
+                                <option value="ISSUEDATETIME">Date and Time</option>
                             </select>
                         </p>
 
@@ -118,19 +118,23 @@ if ($db_conn) {
         if ($_POST['riderID'] != "" && $_POST['bikeID'] == "") {
             $result = executeResultBoundSQL("SELECT MI.ISSUEDATETIME,R.RIDER_ID, R.NAME, R.PHONE_NUM, B.BIKE_ID, B.LATITUDE, B.LONGITUDE, MI.ISSUE_DESCRIPTION, MI.TECHNICIAN_NOTES, MI.RESOLVED_DATE, MI.TECHNICIAN_ID, MT.NAME
                                                     FROM MAINTENANCE_ISSUE MI, RIDER R , BIKE B, MAINTENANCE_TECHNICIAN MT
-                                                    WHERE MI.BIKE_ID = B.BIKE_ID AND MI.RIDER_ID = R.RIDER_ID AND MI.TECHNICIAN_ID = MT.EMPLOYEE_ID AND R.RIDER_ID = :bind1", $alltuples);
+                                                    WHERE MI.BIKE_ID = B.BIKE_ID AND MI.RIDER_ID = R.RIDER_ID AND MI.TECHNICIAN_ID = MT.EMPLOYEE_ID AND R.RIDER_ID = :bind1
+                                                    ORDER BY :bind3", $alltuples);
         } else if ($_POST['riderID'] == "" && $_POST['bikeID'] != "") {
             $result = executeResultBoundSQL("SELECT MI.ISSUEDATETIME,R.RIDER_ID, R.NAME, R.PHONE_NUM, B.BIKE_ID, B.LATITUDE, B.LONGITUDE, MI.ISSUE_DESCRIPTION, MI.TECHNICIAN_NOTES, MI.RESOLVED_DATE, MI.TECHNICIAN_ID, MT.NAME
                                                     FROM MAINTENANCE_ISSUE MI, RIDER R , BIKE B, MAINTENANCE_TECHNICIAN MT
-                                                    WHERE MI.BIKE_ID = B.BIKE_ID AND MI.RIDER_ID = R.RIDER_ID AND MI.TECHNICIAN_ID = MT.EMPLOYEE_ID AND B.BIKE_ID = :bind2", $alltuples);
+                                                    WHERE MI.BIKE_ID = B.BIKE_ID AND MI.RIDER_ID = R.RIDER_ID AND MI.TECHNICIAN_ID = MT.EMPLOYEE_ID AND B.BIKE_ID = :bind2
+                                                    ORDER BY :bind3", $alltuples);
         } else if ($_POST['riderID'] != "" && $_POST['bikeID'] != "") {
             $result = executeResultBoundSQL("SELECT MI.ISSUEDATETIME,R.RIDER_ID, R.NAME, R.PHONE_NUM, B.BIKE_ID, B.LATITUDE, B.LONGITUDE, MI.ISSUE_DESCRIPTION, MI.TECHNICIAN_NOTES, MI.RESOLVED_DATE, MI.TECHNICIAN_ID, MT.NAME
                                                     FROM MAINTENANCE_ISSUE MI, RIDER R , BIKE B, MAINTENANCE_TECHNICIAN MT
-                                                    WHERE MI.BIKE_ID = B.BIKE_ID AND MI.RIDER_ID = R.RIDER_ID AND MI.TECHNICIAN_ID = MT.EMPLOYEE_ID AND R.RIDER_ID = :bind1 AND B.BIKE_ID = :bind2", $alltuples);
+                                                    WHERE MI.BIKE_ID = B.BIKE_ID AND MI.RIDER_ID = R.RIDER_ID AND MI.TECHNICIAN_ID = MT.EMPLOYEE_ID AND R.RIDER_ID = :bind1 AND B.BIKE_ID = :bind2
+                                                    ORDER BY :bind3", $alltuples);
         } else {
             $result = executePlainSQL("SELECT MI.ISSUEDATETIME,R.RIDER_ID, R.NAME, R.PHONE_NUM, B.BIKE_ID, B.LATITUDE, B.LONGITUDE, MI.ISSUE_DESCRIPTION, MI.TECHNICIAN_NOTES, MI.RESOLVED_DATE, MI.TECHNICIAN_ID, MT.NAME
                                               FROM MAINTENANCE_ISSUE MI, RIDER R , BIKE B, MAINTENANCE_TECHNICIAN MT
-                                              WHERE MI.BIKE_ID = B.BIKE_ID AND MI.RIDER_ID = R.RIDER_ID AND MI.TECHNICIAN_ID = MT.EMPLOYEE_ID");
+                                              WHERE MI.BIKE_ID = B.BIKE_ID AND MI.RIDER_ID = R.RIDER_ID AND MI.TECHNICIAN_ID = MT.EMPLOYEE_ID
+                                              ORDER BY :bind3");
             }
 
             $columnNames = array("Date and Time", "Rider ID", "Rider Name", "Phone Number", "Bike ID", "Latitude", "Longitude", "Issue Description", "Technician Notes", "Resolved Date", "Technician ID", "Technician Name");
