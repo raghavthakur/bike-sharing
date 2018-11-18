@@ -134,19 +134,19 @@ if ($db_conn) {
         $alltuples = array(
             $tuple
         );
-        executeBoundSQL("UPDATE RIDER SET CREDITCARDNO= :bind2, CREDITCARDEXP=:bind3 WHERE RIDER_ID= :bind1", $alltuples);
+        executeBoundSQL("UPDATE RIDER SET CREDITCARDNO= :bind2, CREDITCARDEXP=:bind3 WHERE RIDER_ID = :bind1", $alltuples);
         printResult($result);
         OCICommit($db_conn);
 
     } else {
-        $result = executePlainSQL("SELECT NAME, CREDITCARDNO, CREDITCARDEXP FROM RIDER WHERE RIDER_ID=:bind1");
+        $result = executePlainSQL("SELECT NAME, CREDITCARDNO, CREDITCARDEXP FROM RIDER WHERE RIDER_ID = :bind1");
 
         $riderTable = array("Name of Rider", "Credit Card Number", "Credit Card Expiry");
         printTable($result, $riderTable);
     }
     if ($_POST && $success) {
         echo "<h1 style='color: black'>Rider's credit card information has been updated</h1>";
-        $result = executePlainSQL("SELECT NAME, CREDITCARDNO, CREDITCARDEXP FROM RIDER WHERE RIDER_ID=:bind1");
+        $result = executePlainSQL("SELECT NAME, CREDITCARDNO, CREDITCARDEXP FROM RIDER WHERE RIDER_ID = :bind1");
 
         $riderTable = array("Name of Rider", "Credit Card Number", "Credit Card Expiry");
         printTable($result, $riderTable);
