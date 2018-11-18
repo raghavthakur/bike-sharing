@@ -67,7 +67,7 @@
                             <select name="sortBy">
                                 <option value="C.IS_RESOLVED">Resolved?</option>
                                 <option value="R.RIDER_ID">Rider ID</option>
-                                <option value="B.CUSTOMER_REP_ID">Customer Rep ID</option>
+                                <option value="C.CUSTOMER_REP_ID">Customer Rep ID</option>
                                 <option value="C.COMPLAINTDATETIME">Date and Time</option>
                             </select>
                         </p>
