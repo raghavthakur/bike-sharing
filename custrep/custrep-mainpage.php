@@ -57,7 +57,7 @@
                     <p>
                         <a href="custrep-rider-info.php">Rider Info</a> <br> <br>
                         <a href="custrep-delete-rider.php">Delete a Rider</a> <br> <br>
-                        <a href="custrep-rider-password-reset.php">Rider Password Reset (Delete this?)</a> <br> <br>
+                        <br> <br>
                     </p>
 
                     <h4>Bikes and Areas:</h4>
