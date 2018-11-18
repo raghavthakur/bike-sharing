@@ -62,7 +62,7 @@ CREATE TABLE Designated_Return_Area (
 CREATE TABLE Maintenance_Issue(
 	issueDateTime		timestamp,
 	issue_description	Char(255),
-	technican_notes		CHAR(255),
+	technician_notes		CHAR(255),
 	resolved_date		date,
 	bike_ID				INTEGER,
 	rider_ID			INTEGER NOT NULL,

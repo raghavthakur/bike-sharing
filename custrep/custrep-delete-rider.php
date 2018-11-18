@@ -93,8 +93,6 @@ include "../print-table.php";
 if ($db_conn) {
 
     if (array_key_exists('deleteRider', $_POST)) {
-        //include '../debugger.php';
-        // Delete tuple using data from user
         $tuple = array(
             ":bind1" => $_POST['riderID']
         );

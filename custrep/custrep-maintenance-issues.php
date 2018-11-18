@@ -27,7 +27,7 @@
             <li><span class="dot"></span><a href="../login.html">Login</a></li>
             <li class="submenu"><span>&gt; </span><a href="../rider/rider-mainpage.html">Rider</a></li>
             <li class="submenu active"><span>&gt; </span><a class="active" href="custrep-mainpage.php">Customer
-                Service</a></li>
+                    Service</a></li>
             <li class="submenu"><span>&gt; </span><a href="../technician/technician-mainpage.html">Maintenance Tech.</a>
             </li>
             <li><span class="dot"></span><a href="../about.html">About</a></li>
@@ -95,3 +95,40 @@
     </div>
 </div>
 </html>
+
+<?php
+
+require "../server.php";
+include "../print-table.php";
+
+// Connect Oracle...
+if ($db_conn) {
+
+    if (array_key_exists('viewIssues', $_POST)) {
+//        $tuple = array(
+//            ":bind1" => $_POST['riderID']
+//        );
+//        $alltuples = array(
+//            $tuple
+//        );
+//        executeBoundSQL("DELETE FROM CUSTREP_RIDER WHERE RIDER_ID=:bind1", $alltuples);
+//        OCICommit($db_conn);
+
+        $result = executePlainSQL("SELECT * FROM MAINTENANCE_ISSUE");
+
+        $columnNames = array("Date and Time", "Description", "Technician Notes", "Resolved Date", "Bike ID", "Rider ID", "Technician Notes");
+        printTable($result, $columnNames);
+
+    } else if (!$success) {
+        echo "<h1 style='color: red'>Error!</h1>";
+    }
+
+    // Commit to save changes...
+    OCILogoff($db_conn);
+} else {
+    echo "cannot connect";
+    $e = OCI_Error(); // For OCILogon errors pass no handle
+    echo htmlentities($e['message']);
+}
+
+?>
