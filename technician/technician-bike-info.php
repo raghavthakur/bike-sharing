@@ -1,4 +1,3 @@
-<!doctype html>
 <html lang="en">
 <head>
     <title>Bike Sharing</title>
@@ -29,7 +28,7 @@
             <li class="submenu"><span>&gt; </span><a href="../rider/rider-mainpage.html">Rider</a></li>
             <li class="submenu"><span>&gt; </span><a href="../custrep/custrep-mainpage.php">Customer Service</a></li>
             <li class="submenu active"><span>&gt; </span><a class="active" href="technician-mainpage.html">Maintenance
-                Tech.</a></li>
+                    Tech.</a></li>
             <li><span class="dot"></span><a href="../about.html">About</a></li>
             <li><span class="dot"></span><a href="../faq.html">FAQ</a></li>
             <li><span class="dot"></span><a href="../ourbikes.html">Our Bikes</a></li>
@@ -52,9 +51,7 @@
                 <div>
                     <h3>MAINTENANCE TECHNICIAN - Bike Info</h3>
 
-                    <form method="POST" action="new-oracle-test.php">
-
-                        <input type="submit" value="Add Bike" name="addBike">
+                    <form method="POST">
 
                         <p>
                             Table showing all bikes and their info. We should have a column for the "number of unique
@@ -64,6 +61,8 @@
                             Doesn't make sense in the current website design. So the query for this page should serve
                             as a replacement GROUP BY query.
                         </p>
+
+                        <p>Table ordered by bike status.</p>
 
                     </form>
                 </div>
@@ -79,3 +78,30 @@
     </div>
 </div>
 </html>
+
+<?php
+
+require "../server.php";
+include "../print-table.php";
+
+// Connect Oracle....
+if ($db_conn) {
+
+    // order bike table by bike status for technicians to attend to
+    $result = executePlainSQL("SELECT B.BIKE_ID, DATE_PURCHASED, LATITUDE, LONGITUDE, IS_BROKEN, COUNT(MI.RIDER_ID) AS NUMBER_OF_ISSUES
+                                          FROM MAINTENANCE_ISSUE MI
+                                          RIGHT JOIN BIKE B ON MI.BIKE_ID = B.BIKE_ID
+                                          GROUP BY B.BIKE_ID, DATE_PURCHASED, LATITUDE, LONGITUDE, IS_BROKEN
+                                          ORDER BY IS_BROKEN DESC");
+
+    $columnNames = array("Bike ID", "Date Purchased", "Latitude", "Longitude", "Bike Broken?", "Number of Issues");
+    printTable($result, $columnNames);
+    OCICommit($db_conn);
+
+    // Commit to save changes...
+    OCILogoff($db_conn);
+} else {
+    echo "cannot connect";
+    $e = OCI_Error(); // For OCILogon errors pass no handle
+    echo htmlentities($e['message']);
+}

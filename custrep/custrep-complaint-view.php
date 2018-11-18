@@ -106,8 +106,8 @@ if ($db_conn) {
         FROM COMPLAINT c, RIDER r, CUSTOMER_SERVICE_REP csr
         WHERE c.RIDER_ID = r.RIDER_ID AND c.CUSTOMER_REP_ID = csr.EMPLOYEE_ID");
 
-        $riderTable = array("Complaint ID", "Rider ID", "Rider Name", "Customer Rep. ID", "Customer Rep. Name", "Complaint Description", "Customer Rep. Notes", "Level of Urgency", "Date(YY-MM-DD)/Time(HH-MM-SS)", "Action Taken", "Resolved?");
-        printTable($result, $riderTable);
+        $columnNames = array("Complaint ID", "Rider ID", "Rider Name", "Customer Rep. ID", "Customer Rep. Name", "Complaint Description", "Customer Rep. Notes", "Level of Urgency", "Date(YY-MM-DD)/Time(HH-MM-SS)", "Action Taken", "Resolved?");
+        printTable($result, $columnNames);
     }
 
     // Commit to save changes...
