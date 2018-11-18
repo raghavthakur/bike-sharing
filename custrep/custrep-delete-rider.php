@@ -105,14 +105,14 @@ if ($db_conn) {
     } else {
         $result = executePlainSQL("SELECT * FROM CUSTREP_RIDER_VIEW");
 
-        $columnNames = array("Rider ID", "Wallet ID", "Name of Rider", "Phone Number", "Email", "Address", "Available eCoins");
+        $columnNames = array("Rider ID", "Wallet ID", "Name of Rider", "Phone Number", "Email", "Address", "Available eCoins", "Number Maintenance Issues", "Number of Complaints");
         printTable($result, $columnNames);
     }
     if ($_POST && $success) {
         echo "<h1 style='color: black'>Rider has been removed!</h1>";
         $result = executePlainSQL("SELECT * FROM CUSTREP_RIDER_VIEW");
 
-        $columnNames = array("Rider ID", "Wallet ID", "Name of Rider", "Phone Number", "Email", "Address", "Available eCoins");
+        $columnNames = array("Rider ID", "Wallet ID", "Name of Rider", "Phone Number", "Email", "Address", "Available eCoins", "Number Maintenance Issues", "Number of Complaints");
         printTable($result, $columnNames);
     } else if (!$success) {
         echo "<h1 style='color: red'>Error!</h1>";
