@@ -118,17 +118,17 @@ if ($db_conn) {
             $result = executeResultBoundSQL("SELECT MI.ISSUEDATETIME,R.RIDER_ID, R.NAME, R.PHONE_NUM, B.BIKE_ID, B.LATITUDE, B.LONGITUDE, MI.ISSUE_DESCRIPTION, MI.TECHNICIAN_NOTES, MI.RESOLVED_DATE, MI.TECHNICIAN_ID, MT.NAME
                                                     FROM MAINTENANCE_ISSUE MI, RIDER R , BIKE B, MAINTENANCE_TECHNICIAN MT
                                                     WHERE MI.BIKE_ID = B.BIKE_ID AND MI.RIDER_ID = R.RIDER_ID AND MI.TECHNICIAN_ID = MT.EMPLOYEE_ID AND R.RIDER_ID = :bind1
-                                                    ORDER BY :bind3", $alltuples);
+                                                    ORDER BY " . $_POST['sortBy'], $alltuples);
         } else if ($_POST['riderID'] == "" && $_POST['bikeID'] != "") {
             $result = executeResultBoundSQL("SELECT MI.ISSUEDATETIME,R.RIDER_ID, R.NAME, R.PHONE_NUM, B.BIKE_ID, B.LATITUDE, B.LONGITUDE, MI.ISSUE_DESCRIPTION, MI.TECHNICIAN_NOTES, MI.RESOLVED_DATE, MI.TECHNICIAN_ID, MT.NAME
                                                     FROM MAINTENANCE_ISSUE MI, RIDER R , BIKE B, MAINTENANCE_TECHNICIAN MT
                                                     WHERE MI.BIKE_ID = B.BIKE_ID AND MI.RIDER_ID = R.RIDER_ID AND MI.TECHNICIAN_ID = MT.EMPLOYEE_ID AND B.BIKE_ID = :bind2
-                                                    ORDER BY :bind3", $alltuples);
+                                                    ORDER BY " . $_POST['sortBy'], $alltuples);
         } else if ($_POST['riderID'] != "" && $_POST['bikeID'] != "") {
             $result = executeResultBoundSQL("SELECT MI.ISSUEDATETIME,R.RIDER_ID, R.NAME, R.PHONE_NUM, B.BIKE_ID, B.LATITUDE, B.LONGITUDE, MI.ISSUE_DESCRIPTION, MI.TECHNICIAN_NOTES, MI.RESOLVED_DATE, MI.TECHNICIAN_ID, MT.NAME
                                                     FROM MAINTENANCE_ISSUE MI, RIDER R , BIKE B, MAINTENANCE_TECHNICIAN MT
                                                     WHERE MI.BIKE_ID = B.BIKE_ID AND MI.RIDER_ID = R.RIDER_ID AND MI.TECHNICIAN_ID = MT.EMPLOYEE_ID AND R.RIDER_ID = :bind1 AND B.BIKE_ID = :bind2
-                                                    ORDER BY :bind3", $alltuples);
+                                                    ORDER BY " . $_POST['sortBy'], $alltuples);
         } else {
             $result = executePlainSQL("SELECT MI.ISSUEDATETIME,R.RIDER_ID, R.NAME, R.PHONE_NUM, B.BIKE_ID, B.LATITUDE, B.LONGITUDE, MI.ISSUE_DESCRIPTION, MI.TECHNICIAN_NOTES, MI.RESOLVED_DATE, MI.TECHNICIAN_ID, MT.NAME
                                               FROM MAINTENANCE_ISSUE MI, RIDER R , BIKE B, MAINTENANCE_TECHNICIAN MT
@@ -138,7 +138,9 @@ if ($db_conn) {
 
             $columnNames = array("Date and Time", "Rider ID", "Rider Name", "Phone Number", "Bike ID", "Latitude", "Longitude", "Issue Description", "Technician Notes", "Resolved Date", "Technician ID", "Technician Name");
             printTable($result, $columnNames);
-        }
+        } else if (!$success) {
+        echo "<h1 style='color: red'>Error!</h1>";
+    }
 
     // Commit to save changes...
     OCILogoff($db_conn);

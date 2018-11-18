@@ -114,7 +114,7 @@ if ($db_conn) {
 
         $columnNames = array("Rider ID", "Wallet ID", "Name of Rider", "Phone Number", "Email", "Address", "Available eCoins");
         printTable($result, $columnNames);
-    } else if (!$success){
+    } else if (!$success) {
         echo "<h1 style='color: red'>Error!</h1>";
     }
 
