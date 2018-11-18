@@ -90,20 +90,7 @@
 <?php
 
 require '../server.php';
-
-// Prints result from select statement
-function printResult($result)
-{
-    echo "<table>";
-    echo "<tr><th>PARTNO</th><th>PART_NAME</th><th>QUANTITY</th></tr>";
-
-    while ($row = OCI_Fetch_Array($result, OCI_BOTH)) {
-        echo "<tr><td>" . $row["PARTNO"] . "</td><td>" . $row["PART_NAME"] . "</td><td>" . $row["QUANTITY"] . "</td></tr>"; //or just use "echo $row[0]"
-    }
-    echo "</table>";
-
-}
-
+include "../print-table.php";
 
 // Connect Oracle...
 if ($db_conn) {
@@ -120,14 +107,19 @@ if ($db_conn) {
         $alltuples = array(
             $tuple
         );
-        executeBoundSQL("INSERT INTO REPLACEMENT_PART VALUES (PARTNO =:bind1, PART_NAME = :bind2,
-            QUANTITY = :bind3)", $alltuples);
-        printResult($result);
+        executeBoundSQL("INSERT INTO REPLACEMENT_PART VALUES (:bind1, :bind2, :bind3)", $alltuples);
         OCICommit($db_conn);
 
+        $result = executePlainSQL("SELECT * FROM REPLACEMENT_PART ORDER BY PART_NO DESC");
+
+        $columnNames = array("Part No", "Part Name", "Quantity");
+        printTable($result, $columnNames);
+
     } else {
-        $result = executePlainSQL("SELECT * FROM REPLACEMENT_PART");
-        printResult($result);
+        $result = executePlainSQL("SELECT * FROM REPLACEMENT_PART ORDER BY PART_NO DESC");
+
+        $columnNames = array("Part No", "Part Name", "Quantity");
+        printTable($result, $columnNames);
     }
     if ($_POST && $success) {
         echo "<h1 style='color: black'>New Part has been added!</h1>";
