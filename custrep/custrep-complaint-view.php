@@ -59,16 +59,16 @@
                         </p>
 
                         <p>
-                            Enter employee ID (optional): <input type="number" name="employeeID" size="20">
+                            Enter employee ID (optional): <input type="number" name="custrepID" size="20">
                         </p>
 
                         <p>
                             Sort by:
-                            <select name="groupBy">
-                                <option value="is_resolved" selected="selected">Status (Resolved/Unresolved)</option>
-                                <option value="employeeID">Employee ID</option>
-                                <option value="riderID">Rider ID</option>
-                                <option value="complaintDateTime">Date</option>
+                            <select name="sortBy">
+                                <option value="C.IS_RESOLVED" selected="selected">Resolved Data</option>
+                                <option value="R.RIDER_ID">Rider ID</option>
+                                <option value="B.CUSTOMER_REP_ID">Customer Rep ID</option>
+                                <option value="C.COMPLAINTDATETIME">Date and Time</option>
                             </select>
                         </p>
 
@@ -102,9 +102,36 @@ include "../print-table.php";
 if ($db_conn) {
 
     if (array_key_exists('viewAllComplaints', $_POST)) {
-        $result = executePlainSQL("SELECT complaint_ID, c.rider_ID, r.name AS rider_name, customer_rep_ID, csr.name AS custrep_name, cust_description, agent_notes, urgency_level, complaintDateTime, action_taken, is_resolved
-        FROM COMPLAINT c, RIDER r, CUSTOMER_SERVICE_REP csr
-        WHERE c.RIDER_ID = r.RIDER_ID AND c.CUSTOMER_REP_ID = csr.EMPLOYEE_ID");
+
+        $tuple = array(
+            ":bind1" => $_POST['riderID'],
+            ":bind2" => $_POST['custrepID']
+        );
+        $alltuples = array(
+            $tuple
+        );
+
+        if ($_POST['riderID'] != "" && $_POST['custrepID'] == "") {
+            $result = executeResultBoundSQL("SELECT C.COMPLAINT_ID, C.RIDER_ID, R.NAME, C.CUSTOMER_REP_ID, CSR.NAME, C.CUST_DESCRIPTION, C.AGENT_NOTES, C.URGENCY_LEVEL, C.COMPLAINTDATETIME, C.ACTION_TAKEN, C.IS_RESOLVED
+                                                    FROM COMPLAINT C, RIDER R, CUSTOMER_SERVICE_REP CSR
+                                                    WHERE C.RIDER_ID = R.RIDER_ID AND C.CUSTOMER_REP_ID = CSR.EMPLOYEE_ID AND R.RIDER_ID = :bind1
+                                                    ORDER BY " . $_POST['sortBy'], $alltuples);
+        } else if ($_POST['riderID'] == "" && $_POST['custrepID'] != "") {
+            $result = executeResultBoundSQL("SELECT C.COMPLAINT_ID, C.RIDER_ID, R.NAME, C.CUSTOMER_REP_ID, CSR.NAME, C.CUST_DESCRIPTION, C.AGENT_NOTES, C.URGENCY_LEVEL, C.COMPLAINTDATETIME, C.ACTION_TAKEN, C.IS_RESOLVED
+                                                    FROM COMPLAINT C, RIDER R, CUSTOMER_SERVICE_REP CSR
+                                                    WHERE C.RIDER_ID = R.RIDER_ID AND C.CUSTOMER_REP_ID = CSR.EMPLOYEE_ID AND C.CUSTOMER_REP_ID = :bind2
+                                                    ORDER BY " . $_POST['sortBy'], $alltuples);
+        } else if ($_POST['riderID'] != "" && $_POST['custrepID'] != "") {
+            $result = executeResultBoundSQL("SELECT C.COMPLAINT_ID, C.RIDER_ID, R.NAME, C.CUSTOMER_REP_ID, CSR.NAME, C.CUST_DESCRIPTION, C.AGENT_NOTES, C.URGENCY_LEVEL, C.COMPLAINTDATETIME, C.ACTION_TAKEN, C.IS_RESOLVED
+                                                    FROM COMPLAINT C, RIDER R, CUSTOMER_SERVICE_REP CSR
+                                                    WHERE C.RIDER_ID = R.RIDER_ID AND C.CUSTOMER_REP_ID = CSR.EMPLOYEE_ID AND R.RIDER_ID = :bind1 AND C.CUSTOMER_REP_ID = :bind2
+                                                    ORDER BY " . $_POST['sortBy'], $alltuples);
+        } else {
+            $result = executePlainSQL("SELECT C.COMPLAINT_ID, C.RIDER_ID, R.NAME, C.CUSTOMER_REP_ID, CSR.NAME, C.CUST_DESCRIPTION, C.AGENT_NOTES, C.URGENCY_LEVEL, C.COMPLAINTDATETIME, C.ACTION_TAKEN, C.IS_RESOLVED
+                                                    FROM COMPLAINT C, RIDER R, CUSTOMER_SERVICE_REP CSR
+                                                    WHERE C.RIDER_ID = R.RIDER_ID AND C.CUSTOMER_REP_ID = CSR.EMPLOYEE_ID
+                                                    ORDER BY " . $_POST['sortBy']);
+        }
 
         $columnNames = array("Complaint ID", "Rider ID", "Rider Name", "Customer Rep. ID", "Customer Rep. Name", "Complaint Description", "Customer Rep. Notes", "Level of Urgency", "Date(YY-MM-DD)/Time(HH-MM-SS)", "Action Taken", "Resolved?");
         printTable($result, $columnNames);
