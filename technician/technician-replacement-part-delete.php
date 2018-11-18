@@ -117,13 +117,13 @@ if ($db_conn) {
         executeBoundSQL("DELETE FROM REPLACEMENT_PART WHERE PARTNO = :bind1", $alltuples);
         OCICommit($db_conn);
 
-        $result = executePlainSQL("SELECT * FROM REPLACEMENT_PART ORDER BY PARTNO DESC");
+        $result = executePlainSQL("SELECT * FROM REPLACEMENT_PART ORDER BY PARTNO");
 
         $columnNames = array("Part No", "Part Name", "Quantity");
         printTable($result, $columnNames);
 
     } else {
-        $result = executePlainSQL("SELECT * FROM REPLACEMENT_PART ORDER BY PARTNO DESC");
+        $result = executePlainSQL("SELECT * FROM REPLACEMENT_PART ORDER BY PARTNO");
 
         $columnNames = array("Part No", "Part Name", "Quantity");
         printTable($result, $columnNames);
