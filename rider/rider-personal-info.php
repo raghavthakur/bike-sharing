@@ -98,18 +98,18 @@ if ($db_conn) {
         $alltuples = array(
             $tuple
         );
-        executeBoundSQL("SELECT NAME, EMAIL, PHONE_NUM, ADDRESS FROM RIDER WHERE RIDER_ID=:bind1", $alltuples);
+        executeBoundSQL("SELECT NAME, EMAIL, PHONE_NUM, ADDRESS FROM RIDER WHERE RIDER_ID = :bind1", $alltuples);
         OCICommit($db_conn);
 
     } else {
-        $result = executePlainSQL("SELECT NAME, EMAIL, PHONE_NUM, ADDRESS FROM RIDER WHERE RIDER_ID=:bind1");
+        $result = executePlainSQL("SELECT NAME, EMAIL, PHONE_NUM, ADDRESS FROM RIDER WHERE RIDER_ID = :bind1");
 
         $riderTable = array("Name of Rider", "Email", "Phone Number", "Address");
         printTable($result, $riderTable);
     }
     if ($_POST && $success) {
         echo "<h1 style='color: black'>Rider's personal information</h1>";
-        $result = executePlainSQL("SELECT NAME, EMAIL, PHONE_NUM, ADDRESS FROM RIDER WHERE RIDER_ID=:bind1");
+        $result = executePlainSQL("SELECT NAME, EMAIL, PHONE_NUM, ADDRESS FROM RIDER WHERE RIDER_ID = :bind1");
 
         $riderTable = array("Name of Rider", "Email", "Phone Number", "Address");
         printTable($result, $riderTable);
