@@ -101,6 +101,8 @@ if ($db_conn) {
         dropTables();
         createTables();
         insertRowsTables();
+
+        // commit to database
         OCICommit($db_conn);
     }
 

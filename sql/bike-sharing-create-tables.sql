@@ -10,10 +10,6 @@ CREATE TABLE Rider(
 	eCoins 			INTEGER,
 	PRIMARY KEY (rider_ID));
 
-CREATE VIEW CustRep_Rider(rider_ID, wallet_ID, name, phone_num, email, address, eCoins)
-	AS SELECT rider_ID, wallet_ID, name, phone_num, email, address, eCoins
-		 FROM Rider r;
-
 CREATE TABLE Bike (
 	bike_ID 		INTEGER,
 	date_purchased 	date,
@@ -21,11 +17,6 @@ CREATE TABLE Bike (
 	longitude 		NUMBER,
 	is_broken 		CHAR(1),
 	PRIMARY KEY (bike_ID));
-
-CREATE VIEW Rider_Bike(bike_ID, latitude, longitude)
-	AS SELECT bike_ID, latitude, longitude
-	FROM Bike b
-	WHERE b.is_broken = 'Y';
 
 CREATE TABLE Replacement_Part(
 	partNo		INTEGER,

@@ -99,18 +99,18 @@ if ($db_conn) {
         $alltuples = array(
             $tuple
         );
-        executeBoundSQL("DELETE FROM CUSTREP_RIDER WHERE RIDER_ID=:bind1", $alltuples);
+        executeBoundSQL("DELETE FROM CUSTREP_RIDER_VIEW WHERE RIDER_ID=:bind1", $alltuples);
         OCICommit($db_conn);
 
     } else {
-        $result = executePlainSQL("SELECT * FROM CUSTREP_RIDER");
+        $result = executePlainSQL("SELECT * FROM CUSTREP_RIDER_VIEW");
 
         $columnNames = array("Rider ID", "Wallet ID", "Name of Rider", "Phone Number", "Email", "Address", "Available eCoins");
         printTable($result, $columnNames);
     }
     if ($_POST && $success) {
         echo "<h1 style='color: black'>Rider has been removed!</h1>";
-        $result = executePlainSQL("SELECT * FROM CUSTREP_RIDER");
+        $result = executePlainSQL("SELECT * FROM CUSTREP_RIDER_VIEW");
 
         $columnNames = array("Rider ID", "Wallet ID", "Name of Rider", "Phone Number", "Email", "Address", "Available eCoins");
         printTable($result, $columnNames);
