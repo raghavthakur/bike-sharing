@@ -85,7 +85,7 @@ include "../print-table.php";
 if ($db_conn) {
 
     if (array_key_exists('getAllBikeInfo', $_POST)) {
-        $result = executePlainSQL("SELECT * FROM BIKE");
+        $result = executePlainSQL("SELECT * FROM BIKE ORDER BY BIKE_ID");
 
         $columnNames = array("Bike ID", "Date Purchased", "Latitude", "Longitude", "Bike Broken?");
         printTable($result, $columnNames);
