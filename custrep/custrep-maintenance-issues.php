@@ -65,10 +65,10 @@
                         <p>
                             Sort by:
                             <select name="sortBy">
-                                <option value="RESOLVED_DATE" selected="selected">Resolved Data</option>
-                                <option value="RIDER_ID">Rider ID</option>
-                                <option value="BIKE_ID">Bike ID</option>
-                                <option value="ISSUEDATETIME">Date and Time</option>
+                                <option value="MI.RESOLVED_DATE" selected="selected">Resolved Data</option>
+                                <option value="R.RIDER_ID">Rider ID</option>
+                                <option value="B.BIKE_ID">Bike ID</option>
+                                <option value="MI.ISSUEDATETIME">Date and Time</option>
                             </select>
                         </p>
 
