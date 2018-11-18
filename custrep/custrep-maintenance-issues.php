@@ -114,9 +114,11 @@ if ($db_conn) {
 //        executeBoundSQL("DELETE FROM CUSTREP_RIDER WHERE RIDER_ID=:bind1", $alltuples);
 //        OCICommit($db_conn);
 
-        $result = executePlainSQL("SELECT * FROM MAINTENANCE_ISSUE");
+        $result = executePlainSQL("SELECT MI.ISSUEDATETIME,R.RIDER_ID, R.NAME, R.PHONE_NUM, B.BIKE_ID, B.LATITUDE, B.LONGITUDE, MI.ISSUE_DESCRIPTION, MI.TECHNICAN_NOTES, MI.RESOLVED_DATE, MI.TECHNICIAN_ID, MT.NAME
+                                          FROM MAINTENANCE_ISSUE MI, RIDER R , BIKE B, MAINTENANCE_TECHNICIAN MT
+                                          WHERE MI.BIKE_ID = B.BIKE_ID AND MI.RIDER_ID = R.RIDER_ID AND MI.TECHNICIAN_ID = MT.EMPLOYEE_ID");
 
-        $columnNames = array("Date and Time", "Description", "Technician Notes", "Resolved Date", "Bike ID", "Rider ID", "Technician ID");
+        $columnNames = array("Date and Time", "Rider ID", "Rider Name", "Rider Phone Number", "Bike ID", "Latitude", "Longitude", "Description", "Technician Notes", "Resolved Date", "Technician ID", "Technician Name");
         printTable($result, $columnNames);
 
     } else if (!$success) {
