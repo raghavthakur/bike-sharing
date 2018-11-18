@@ -125,19 +125,19 @@ if ($db_conn) {
         $alltuples = array(
             $tuple
         );
-        executeBoundSQL("UPDATE RIDER SET NAME= :bind2, PHONE_NUM=:bind3, EMAIL=:bind4, ADDRESS=:bind5 WHERE RIDER_ID= :bind1", $alltuples);
+        executeBoundSQL("UPDATE RIDER SET NAME = :bind2, PHONE_NUM = :bind3, EMAIL = :bind4, ADDRESS = :bind5 WHERE RIDER_ID = :bind1", $alltuples);
         printResult($result);
         OCICommit($db_conn);
 
     } else {
-        $result = executePlainSQL("SELECT NAME, PHONE_NUM, EMAIL, ADDRESS FROM RIDER WHERE RIDER_ID=:bind1");
+        $result = executePlainSQL("SELECT NAME, PHONE_NUM, EMAIL, ADDRESS FROM RIDER WHERE RIDER_ID = :bind1");
 
         $riderTable = array("Name of Rider", "Phone Number", "Email", "Address");
         printTable($result, $riderTable);
     }
     if ($_POST && $success) {
         echo "<h1 style='color: black'>Rider's personal has been updated</h1>";
-        $result = executePlainSQL("SELECT NAME, PHONE_NUM, EMAIL, ADDRESS FROM RIDER WHERE RIDER_ID=:bind1");
+        $result = executePlainSQL("SELECT NAME, PHONE_NUM, EMAIL, ADDRESS FROM RIDER WHERE RIDER_ID = :bind1");
 
         $riderTable = array("Name of Rider", "Phone Number", "Email", "Address");
         printTable($result, $riderTable);

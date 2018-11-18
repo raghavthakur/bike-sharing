@@ -94,7 +94,7 @@ function createTables()
 	issueDateTime	timestamp,
 	bike_ID			INTEGER,
 	PRIMARY KEY (partNo, issueDateTime, bike_ID),
-	FOREIGN KEY (partNo) REFERENCES Replacement_Part(partNo),
+	FOREIGN KEY (partNo) REFERENCES Replacement_Part(partNo) ON DELETE CASCADE,
 	FOREIGN KEY (issueDateTime, bike_ID) REFERENCES Maintenance_Issue(issueDateTime, bike_ID) ON DELETE CASCADE)");
 
     executePlainSQL("CREATE TABLE Complaint(

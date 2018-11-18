@@ -117,6 +117,7 @@ if ($db_conn) {
         $alltuples = array(
             $tuple
         );
+
         executeBoundSQL("INSERT INTO BIKE VALUES (:bind1, :bind2, :bind3, :bind4, :bind5)", $alltuples);
 
         OCICommit($db_conn);

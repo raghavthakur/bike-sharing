@@ -87,6 +87,7 @@
 <?php
 
 require '../server.php';
+include "../print-table.php";
 
 // Prints result from select statement
 function printResult($result)
@@ -113,12 +114,19 @@ if ($db_conn) {
         $alltuples = array(
             $tuple
         );
-        executeBoundSQL("DELETE FROM REPLACEMENT_PART WHERE PARTNO=:bind1", $alltuples);
+        executeBoundSQL("DELETE FROM REPLACEMENT_PART WHERE PARTNO = :bind1", $alltuples);
         OCICommit($db_conn);
 
+        $result = executePlainSQL("SELECT * FROM REPLACEMENT_PART ORDER BY PARTNO");
+
+        $columnNames = array("Part No", "Part Name", "Quantity");
+        printTable($result, $columnNames);
+
     } else {
-        $result = executePlainSQL("SELECT * FROM REPLACEMENT_PART");
-        printResult($result);
+        $result = executePlainSQL("SELECT * FROM REPLACEMENT_PART ORDER BY PARTNO");
+
+        $columnNames = array("Part No", "Part Name", "Quantity");
+        printTable($result, $columnNames);
     }
     if ($_POST && $success) {
         echo "<h1 style='color: black'>Part has been removed!</h1>";
