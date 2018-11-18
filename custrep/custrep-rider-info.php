@@ -92,7 +92,7 @@ if ($db_conn) {
 
     echo "Connection established";
     if (array_key_exists('getAllRiderInfo', $_POST)) {
-        $result = executePlainSQL("SELECT * FROM CUSTREP_RIDER_VIEW");
+        $result = executePlainSQL("SELECT * FROM CUSTREP_RIDER_VIEW ORDER BY RIDER_ID");
 
         $columnNames = array("Rider ID", "Wallet ID", "Name of Rider", "Phone Number", "Email", "Address", "Available eCoins", "Number Maintenance Issues", "Number of Complaints");
         printTable($result, $columnNames);
