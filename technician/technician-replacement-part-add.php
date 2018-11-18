@@ -110,13 +110,13 @@ if ($db_conn) {
         executeBoundSQL("INSERT INTO REPLACEMENT_PART VALUES (:bind1, :bind2, :bind3)", $alltuples);
         OCICommit($db_conn);
 
-        $result = executePlainSQL("SELECT * FROM REPLACEMENT_PART ORDER BY PART_NO DESC");
+        $result = executePlainSQL("SELECT * FROM REPLACEMENT_PART ORDER BY PARTNO DESC");
 
         $columnNames = array("Part No", "Part Name", "Quantity");
         printTable($result, $columnNames);
 
     } else {
-        $result = executePlainSQL("SELECT * FROM REPLACEMENT_PART ORDER BY PART_NO DESC");
+        $result = executePlainSQL("SELECT * FROM REPLACEMENT_PART ORDER BY PARTNO DESC");
 
         $columnNames = array("Part No", "Part Name", "Quantity");
         printTable($result, $columnNames);
