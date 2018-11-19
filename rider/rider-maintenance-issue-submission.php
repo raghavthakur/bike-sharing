@@ -112,8 +112,12 @@ if ($db_conn) {
             $tuple
         );
 
+        $maxID3 = executePlainSQL("SELECT MAX(TECHNICIAN_ID) AS MAX FROM MAINTENANCE_ISSUE");
+        $row3 = OCI_Fetch_Array($maxID3, OCI_BOTH);
+        $tech = $row3["MAX"] + 1;
+
         if ($_POST['rider_ID'] != "" && $_POST['bikeID'] != "" && $_POST['description'] != "") {
-            executeBoundSQL("INSERT INTO MAINTENANCE_ISSUE VALUES ('$date', :bind3, NULL, NULL, :bind1, :bind2, '00000011')", $alltuples);
+            executeBoundSQL("INSERT INTO MAINTENANCE_ISSUE VALUES ('$date', :bind3, NULL, NULL, :bind1, :bind2, $tech)", $alltuples);
 
             OCICommit($db_conn);
 
