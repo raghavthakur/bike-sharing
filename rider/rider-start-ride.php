@@ -103,26 +103,27 @@ include "../print-table.php";
 
 if ($db_conn) {
 
-//    if (array_key_exists('startRental', $_POST)) {
-//
-//        $tuple = array(
-//            ":bind1" => $_POST['rider_ID']
-//        );
-//        $alltuples = array(
-//            $tuple
-//        );
-//
-//        if ($_POST['cust_rep_ID'] != "" && $_POST['complaint_ID'] != "") {
-//            executeBoundSQL("UPDATE COMPLAINT SET IS_RESOLVED = 'Y', AGENT_NOTES = :bind3, ACTION_TAKEN = :bind4 WHERE CUSTOMER_REP_ID = :bind1 AND COMPLAINT_ID = :bind2", $alltuples);
-//            OCICommit($db_conn);
-//
-//            echo "<h1 style='color: black'>The Complaint ID: " . $_POST['complaint_ID'] . " has been resolved!</h1>";
-//        } else {
-//            echo "<h1 style='color: red'>Error! Enter Customer Rep ID and Complaint ID.</h1>";
-//        }
-//    }
+    if (array_key_exists('startRental', $_POST)) {
+
+        $tuple = array(
+            ":bind1" => $_POST['rider_ID']
+        );
+        $alltuples = array(
+            $tuple
+        );
+
+        if ($_POST['rider_ID'] != "") {
+            executeBoundSQL("UPDATE COMPLAINT SET IS_RESOLVED = 'Y', AGENT_NOTES = :bind3, ACTION_TAKEN = :bind4 WHERE CUSTOMER_REP_ID = :bind1 AND COMPLAINT_ID = :bind2", $alltuples);
+            OCICommit($db_conn);
+
+            echo "<h1 style='color: black'>The Complaint ID: " . $_POST['complaint_ID'] . " has been resolved!</h1>";
+        } else {
+            echo "<h1 style='color: red'>Error! Enter Customer Rep ID and Complaint ID.</h1>";
+        }
+    }
 
     $result = executePlainSQL("SELECT * FROM AVAILABLE_BIKES_FOR_RENT");
+    $riders = executePlainSQL("SELECT R RIDER_ID FROM RIDER R");
 
     echo "<h1 style='color: black'>Available bikes for rent.</h1>";
     $columnNames = array("Bike ID", "Latitude", "Longitude");
