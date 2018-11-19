@@ -60,7 +60,7 @@
                         </p>
 
                         <p>
-                            Enter the issue ID to resolve:
+                            Enter the issue date time (YY-MM-DD HH:MM:SS.000000) to resolve:
                             <input type="number" name="issueID" size="20">
                         </p>
 
@@ -114,7 +114,8 @@ if ($db_conn) {
         );
 
         if ($_POST['technician_ID'] != "" && $_POST['issueID'] != "") {
-            executeBoundSQL("UPDATE MAINTENANCE_ISSUE SET RESOLVED_DATE = '$date', TECHNICIAN_NOTES = :bind4, WHERE TECHNICIAN_ID = :bind1", $alltuples);
+            executeBoundSQL("UPDATE MAINTENANCE_ISSUE SET RESOLVED_DATE = '$date', TECHNICIAN_NOTES = :bind4 WHERE TECHNICIAN_ID = :bind1 AND ISSUEDATETIME = :bind2", $alltuples);
+            executeBoundSQL("UPDATE REPLACEMENT_PART SET QUANTITY = QUANTITY - 1 WHERE PARTNO = :bind3", $alltuples);
             OCICommit($db_conn);
 
             echo "<h1 style='color: black'>The Complaint ID: " . $_POST['issueID'] . " has been resolved!</h1>";
@@ -123,10 +124,10 @@ if ($db_conn) {
         }
     }
 
-    $result = executePlainSQL("SELECT MI.RIDER_ID, R.NAME, R.PHONE_NUM, B.BIKE_ID, B.LATITUDE, B.LONGITUDE, MI.ISSUEDATETIME, MI.ISSUE_DESCRIPTION, MI.TECHNICIAN_ID, MT.NAME, MI.TECHNICIAN_NOTES, MI.RESOLVED_DATE
-                                                    FROM BIKE B, RIDER R, MAINTENANCE_ISSUE MI, MAINTENANCE_TECHNICIAN MT
+    $result = executePlainSQL("SELECT MI.RIDER_ID, R.NAME, R.PHONE_NUM, B.BIKE_ID, B.LATITUDE, B.LONGITUDE, MI.ISSUEDATETIME, MI.ISSUE_DESCRIPTION, MI.TECHNICIAN_ID, MT.NAME, MI.TECHNICIAN_NOTES, MI.RESOLVED_DATE, RP.PARTNO, RP.PART_NAME, RP.QUANTITY
+                                                    FROM BIKE B, RIDER R, MAINTENANCE_ISSUE MI, MAINTENANCE_TECHNICIAN MT, REPLACEMENT_PART RP
                                                     WHERE MI.TECHNICIAN_ID = MT.EMPLOYEE_ID AND MI.BIKE_ID = B.BIKE_ID AND MI.RIDER_ID = R.RIDER_ID");
-    $columnNames = array("Rider ID", "Rider Name", "Phone Number", "Bike ID", "Latitude", "Longitude", "Issue Date(YY-MM-DD)/Time(HH-MM-SS)", "Issue Description", "Technician ID", "Technician Name", "Technician Notes", "Resolved Date");
+    $columnNames = array("Rider ID", "Rider Name", "Phone Number", "Bike ID", "Latitude", "Longitude", "Issue Date(YY-MM-DD)/Time(HH-MM-SS)", "Issue Description", "Technician ID", "Technician Name", "Technician Notes", "Resolved Date", "Part No.", "Part Name", "Quantity");
     printTable($result, $columnNames);
 
     // Commit to save changes...
