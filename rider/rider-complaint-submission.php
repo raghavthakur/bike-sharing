@@ -73,9 +73,9 @@
 
                         <p>
                             What is the priority level of this complaint?
-                            <input type="radio" name="urgency" value="Low" checked>Low
-                            <input type="radio" name="urgency" value="Moderate">Moderate
-                            <input type="radio" name="urgency" value="High">High
+                            <input type="radio" name="urgency" value="LOW" checked>Low
+                            <input type="radio" name="urgency" value="MEDIUM">Medium
+                            <input type="radio" name="urgency" value="HIGH">High
                         </p>
 
                         <input type="submit" value="Submit Complaint" name="submitComplaint">
@@ -121,11 +121,11 @@ if ($db_conn) {
 
         if ($_POST['rider_ID'] != "" && $_POST['cust_rep_ID'] != "" && $_POST['description'] != "") {
 
-            $maxID = executePlainSQL("SELECT MAX(EMPLOYEE_ID) AS MAX FROM CUSTOMER_SERVICE_REP");
+            $maxID = executePlainSQL("SELECT MAX(COMPLAINT_ID) AS MAX FROM COMPLAINT");
             $row = OCI_Fetch_Array($maxID, OCI_BOTH);
             $nextNum = $row["MAX"] + 1;
 
-            executeBoundSQL("INSERT INTO COMPLAINT VALUES ('$nextNum', :bind1, :bind2, :bind3, null, :bind4, '$date', NULL, 'N')", $alltuples);
+            executeBoundSQL("INSERT INTO COMPLAINT VALUES ($nextNum, :bind1, :bind2, :bind3, null, :bind4, '$date', NULL, 'N')", $alltuples);
 
             OCICommit($db_conn);
 
