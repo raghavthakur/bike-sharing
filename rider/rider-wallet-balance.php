@@ -103,17 +103,19 @@ if ($db_conn) {
 
     }
     else {
-        $result = executePlainSQL("SELECT NAME, ECOINS FROM RIDER");
+        $result = executePlainSQL("SELECT RIDER_ID, NAME, ECOINS FROM RIDER");
 
-        $riderTable = array("Name of Rider", "eCoins balance");
+        $riderTable = array("Name of Rider", "eCoins");
         printTable($result, $riderTable);
-
+    }
     if ($_POST && $success) {
-        echo "<h1 style='color: black'>Rider's personal information</h1>";
-        $result = executePlainSQL("SELECT NAME, ECOINS FROM RIDER WHERE RIDER_ID = :bind1");
+        echo "<h1 style='color: black'>Rider's eCoins balance</h1>";
+        $result = executePlainSQL("SELECT RIDER_ID, NAME, ECOINS FROM RIDER WHERE RIDER_ID=:bind1");
 
-        $riderTable = array("Name of Rider", "eCoins balance");
+        $riderTable = array("Rider ID", "Name of Rider", "eCoins");
         printTable($result, $riderTable);
+    } else if (!$success){
+        echo "<h1 style='color: red'>Error!</h1>";
     }
     // Commit to save changes...
     OCILogoff($db_conn);
