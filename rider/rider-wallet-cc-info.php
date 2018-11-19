@@ -99,16 +99,16 @@ if ($db_conn) {
             $tuple
         );
         $result = executeResultBoundSQL("SELECT RIDER_ID, NAME, CREDITCARDNO FROM RIDER WHERE RIDER_ID = :bind1", $alltuples);
-        $riderTable = array("Rider ID", "Name of Rider", "Credit Card Number");
-        printTable($result, $riderTable);
+        $columntable = array("Rider ID", "Name of Rider", "Credit Card Number");
+        printTable($result, $columntable);
         OCICommit($db_conn);
 
     }
     else {
-        $result = executePlainSQL("SELECT RIDER_ID, NAME, CREDITCARDNO FROM RIDER");
+        $default = executePlainSQL("SELECT RIDER_ID, NAME, CREDITCARDNO FROM RIDER");
 
         $riderTable = array("Rider ID", "Name of Rider", "Credit Card Number");
-        printTable($result, $riderTable);
+        printTable($default, $riderTable);
     }
 
     // Commit to save changes...
