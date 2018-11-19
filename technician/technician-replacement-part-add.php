@@ -27,7 +27,7 @@
             <li class="submenu"><span>&gt; </span><a href="../rider/rider-mainpage.html">Rider</a></li>
             <li class="submenu"><span>&gt; </span><a href="../custrep/custrep-mainpage.php">Customer Service</a></li>
             <li class="submenu active"><span>&gt; </span><a class="active" href="technician-mainpage.html">Maintenance
-                Tech.</a></li>
+                    Tech.</a></li>
             <li><span class="dot"></span><a href="../about.html">About</a></li>
             <li><span class="dot"></span><a href="../faq.html">FAQ</a></li>
             <li><span class="dot"></span><a href="../ourbikes.html">Our Bikes</a></li>
@@ -111,15 +111,15 @@ if ($db_conn) {
         } else {
             echo "<h1 style='color: red'>Error! Please enter in all fields.</h1>";
         }
+    }
+    $result = executePlainSQL("SELECT * FROM REPLACEMENT_PART ORDER BY PARTNO");
 
-        $result = executePlainSQL("SELECT * FROM REPLACEMENT_PART ORDER BY PARTNO");
-
-        $columnNames = array("Part No", "Part Name", "Quantity");
-        printTable($result, $columnNames);
+    $columnNames = array("Part No", "Part Name", "Quantity");
+    printTable($result, $columnNames);
 
     if ($_POST && $success) {
         echo "<h1 style='color: black'>New Part has been added!</h1>";
-    } else if (!$success){
+    } else if (!$success) {
         echo "<h1 style='color: red'>Error!</h1>";
     }
 
