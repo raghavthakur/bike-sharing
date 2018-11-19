@@ -109,8 +109,8 @@ if ($db_conn) {
         printTable($result, $riderTable);
     }
 
-    $riderTable = array("Rider ID", "Name of Rider", "eCoins");
-    printTable($result, $riderTable);
+    $ColumnName = array("Rider ID", "Name of Rider", "eCoins");
+    printTable($result, $ColumnName);
 
     // Commit to save changes...
     OCILogoff($db_conn);
