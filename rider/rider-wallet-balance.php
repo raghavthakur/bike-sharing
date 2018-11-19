@@ -103,10 +103,10 @@ if ($db_conn) {
 
     }
     else {
-        $result = executePlainSQL("SELECT RIDER_ID FROM RIDER");
+        $defaulttable = executePlainSQL("SELECT RIDER_ID FROM RIDER");
 
         $riderTable = array("Rider ID");
-        printTable($result, $riderTable);
+        printTable($defaulttable, $riderTable);
     }
 
     $ColumnName = array("Rider ID", "Name of Rider", "eCoins");
