@@ -105,7 +105,7 @@ include "../print-table.php";
 
 if ($db_conn) {
 
-    if (array_key_exists('viewAllComplaints', $_POST)) {
+    if (array_key_exists('resolveComplaint', $_POST)) {
 
         $tuple = array(
             ":bind1" => $_POST['cust_rep_ID'],
