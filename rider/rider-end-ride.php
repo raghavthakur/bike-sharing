@@ -131,12 +131,12 @@ if ($db_conn) {
         $columnNames = array("Date", "Bike ID", "Rider ID", "Issue Description");
         printTable($result, $columnNames);
     }
-    // show bike table before clicking addBike
-    else {
-        // order bike table by bike purchase date to see newest bikes first
-        $result = executePlainSQL("SELECT ISSUEDATETIME, BIKE_ID, RIDER_ID, ISSUE_DESCRIPTION FROM MAINTENANCE_ISSUE ORDER BY ISSUEDATETIME DESC");
 
-        $columnNames = array("Date", "Bike ID", "Rider ID", "Issue Description");
+    else {
+
+        $result = executePlainSQL("SELECT T.TRIP_ID, T.RIDER_ID FROM TRIP T WHERE NOT ((T.START_DATETIME IS NOT NULL AND END_DATETIME IS NOT NULL) OR START_DATETIME IS NULL"));
+
+        $columnNames = array("Active Trip ID", "Rider ID");
         printTable($result, $columnNames);
     }
 
