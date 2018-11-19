@@ -98,7 +98,7 @@ require "../server.php";
 include "../print-table.php";
 
 $datetime = new DateTime();
-$date = date('Y-M-D', strtotime($date));
+$date = date('%y-%m-%d', strtotime($date));
 echo $date;
 
 
