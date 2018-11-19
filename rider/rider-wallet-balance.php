@@ -89,7 +89,7 @@ include "../print-table.php";
 // Connect Oracle...
 if ($db_conn) {
 
-    if (array_key_exists('getCreditCardOnFile', $_POST)) {
+    if (array_key_exists('getWalletBalance', $_POST)) {
         //include '../debugger.php';
         // Delete tuple using data from user
         $tuple = array(
@@ -103,10 +103,10 @@ if ($db_conn) {
 
     }
     else {
-        $result = executePlainSQL("SELECT RIDER_ID FROM RIDER");
+        $defaulttable = executePlainSQL("SELECT RIDER_ID FROM RIDER");
 
         $riderTable = array("Rider ID");
-        printTable($result, $riderTable);
+        printTable($defaulttable, $riderTable);
     }
 
     $ColumnName = array("Rider ID", "Name of Rider", "eCoins");
