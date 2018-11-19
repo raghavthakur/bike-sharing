@@ -98,8 +98,11 @@ if ($db_conn) {
         $alltuples = array(
             $tuple
         );
-        $result = executeResultBoundSQL("SELECT NAME, ECOINS FROM RIDER WHERE RIDER_ID = :bind1", $alltuples);
+        $result = executeResultBoundSQL("SELECT RIDER_ID, NAME, ECOINS FROM RIDER WHERE RIDER_ID = :bind1", $alltuples);
         OCICommit($db_conn);
+
+        $ColumnName = array("Rider ID", "Name of Rider", "eCoins");
+        printTable($result, $ColumnName);
 
     }
     else {
@@ -108,9 +111,6 @@ if ($db_conn) {
         $riderTable = array("Rider ID");
         printTable($defaulttable, $riderTable);
     }
-
-    $ColumnName = array("Rider ID", "Name of Rider", "eCoins");
-    printTable($result, $ColumnName);
 
     // Commit to save changes...
     OCILogoff($db_conn);
