@@ -130,7 +130,6 @@ if ($db_conn) {
             $row2 = OCI_Fetch_Array($maxID2, OCI_BOTH);
             $startLon = $row2["MAX"] + 1;
 
-//
             executeBoundSQL("INSERT INTO TRIP VALUES ($nextNum, :bind1, :bind2, NULL, '$date', NULL, NULL, $startLat, $startLon, NULL, NULL)", $alltuples);
             OCICommit($db_conn);
 
@@ -138,9 +137,9 @@ if ($db_conn) {
 
             $tripNames = array("Trip ID", "Rider ID", "Bike ID", "End Location ID", "Start Date Time", "End Date Time", "Tokens Due", "Start Latitude", "Start Longitude", "End Latitude", "End Longitude");
             printTable($trip, $tripNames);
-            echo "<h1 style='color: black'>The Rider ID: " . $_POST['rider_ID'] . " has rented Bike ID: ". $_POST['rider_ID'] . " resolved!</h1>";
+            echo "<h1 style='color: black'>The Rider ID: " . $_POST['rider_ID'] . " has rented Bike ID: ". $_POST['bike_ID'] . " !</h1>";
         } else {
-            echo "<h1 style='color: red'>Error! Enter Customer Rep ID and Complaint ID.</h1>";
+            echo "<h1 style='color: red'>Error! Enter Rider ID and Bike ID.</h1>";
         }
     }
 

@@ -135,6 +135,20 @@ if ($db_conn) {
         printTable($result, $columnNames);
     }
 
+    $riders = executePlainSQL("SELECT RIDER_ID FROM TRIP");
+
+    $ridersNames = array("Rider ID");
+
+    echo "<h1 style='color: black'>Showing all riders below.</h1>";
+    printTable($riders, $ridersNames);
+
+    $bikes = executePlainSQL("SELECT BIKE_ID FROM BIKE");
+
+    $bikesNames = array("Bike ID");
+
+    echo "<h1 style='color: black'>Showing all bikes below.</h1>";
+    printTable($bikes, $bikesNames);
+
     if (!$success) {
         echo "<h1 style='color: red'>Error!</h1>";
     }
