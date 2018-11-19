@@ -54,27 +54,12 @@
                     <form method="POST">
 
                         <p>
-                            Logging in as...
-                            <input type="number" name="rider_ID" size="20">
+                            Ending ride...
+                            <input type="number" name="trip_ID" size="20">
                             (enter a rider_ID)
                         </p>
 
-                        <p>Where will you be ending your ride? Please choose a return area below to end your current
-                            ride at that location.</p>
-
-                        <p>
-                            <select name="returnAreas">
-                                <option value="00000001">Location 1</option>
-                                <option value="00000002">Location 2</option>
-                                <option value="00000003">Location 3</option>
-                                <option value="00000004">Location 4</option>
-                                <option value="00000005">Location 5</option>
-                                <option value="00000006">Location 6</option>
-                                <option value="00000007">Location 7</option>
-                                <option value="00000008">Location 8</option>
-                                <option value="00000009">Location 9</option>
-                            </select>
-                        </p>
+                        <p>Thanks for riding with us!</p>
 
                         <input type="submit" value="End Rental" name="endRental">
 
@@ -109,16 +94,15 @@ if ($db_conn) {
 
     if (array_key_exists('endRental', $_POST)) {
         $tuple = array(
-            ":bind1" => $_POST['rider_ID'],
-            ":bind2" => $_POST['returnAreas']
+            ":bind1" => $_POST['trip_ID']
 
         );
         $alltuples = array(
             $tuple
         );
 
-        if ($_POST['rider_ID'] != "" && $_POST['returnAreas'] != "") {
-            executeBoundSQL("UPDATE TRIP SET END_LOCATION_ID = :bind2 WHERE ", $alltuples);
+        if ($_POST['trip_ID'] != "") {
+            executeBoundSQL("UPDATE TRIP SET END_LOCATION_ID = 00000001, END_LATITUDE = 49.272614, END_LONGITUDE = -123.245232, END_DATETIME = $date WHERE TRIP_ID = :bind1", $alltuples);
 
             OCICommit($db_conn);
 
@@ -126,9 +110,11 @@ if ($db_conn) {
             echo "<h1 style='color: red'>Please fill in all fields!</h1>";
         }
 
-        $result = executePlainSQL("SELECT ISSUEDATETIME, BIKE_ID, RIDER_ID, ISSUE_DESCRIPTION FROM MAINTENANCE_ISSUE ORDER BY ISSUEDATETIME DESC");
+        $result = executePlainSQL("SELECT * FROM TRIP ORDER BY TRIP_ID");
 
-        $columnNames = array("Date", "Bike ID", "Rider ID", "Issue Description");
+        $columnNames = array("Trip ID", "Rider ID", "Bike ID", "End Location ID", "Start Time",
+            "End Time", "Tokens Due", "Start Latitude", "Start Longitude", "End Latitude",
+            "End Longitude");
         printTable($result, $columnNames);
     }
 
