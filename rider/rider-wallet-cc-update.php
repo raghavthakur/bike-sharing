@@ -128,7 +128,7 @@ if ($db_conn) {
         $tuple = array(
             ":bind1" => $_POST['rider_ID'],
             ":bind2" => $_POST['ccNumber'],
-            ":bind3" => $_POST['ccExpiryMonth+ccExpiryYear']
+            ":bind3" => $_POST['ccExpiryMonth.ccExpiryYear']
 
         );
         $alltuples = array(
