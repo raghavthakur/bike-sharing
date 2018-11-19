@@ -107,7 +107,7 @@ if ($db_conn) {
         OCICommit($db_conn);
 
     } else {
-        $result = executePlainSQL("SELECT NAME, ECOINS FROM RIDER WHERE RIDER_ID=:bind1");
+        $result = executePlainSQL("SELECT NAME, ECOINS FROM RIDER");
 
         $riderTable = array("Name of Rider", "eCoins");
         printTable($result, $riderTable);

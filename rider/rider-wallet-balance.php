@@ -114,7 +114,7 @@ if ($db_conn) {
 
         $riderTable = array("Name of Rider", "eCoins balance");
         printTable($result, $riderTable);
-
+    }
     // Commit to save changes...
     OCILogoff($db_conn);
 } else {
