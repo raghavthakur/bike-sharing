@@ -103,6 +103,7 @@ if ($db_conn) {
 
         if ($_POST['partID'] != "") {
             executeBoundSQL("UPDATE REPLACEMENT_PART SET QUANTITY = QUANTITY + 1 WHERE PARTNO = :bind1", $alltuples);
+            OCICommit($db_conn);
         } else {
             echo "<h1 style='color: red'>Error! Enter Part ID.</h1>";
         }
@@ -119,6 +120,7 @@ if ($db_conn) {
 
         if ($_POST['partID'] != "") {
             executeBoundSQL("UPDATE REPLACEMENT_PART SET QUANTITY = QUANTITY - 1 WHERE PARTNO = :bind1", $alltuples);
+            OCICommit($db_conn);
         } else {
             echo "<h1 style='color: red'>Error! Enter Part ID.</h1>";
         }
