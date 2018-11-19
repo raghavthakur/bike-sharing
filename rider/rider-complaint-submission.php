@@ -73,9 +73,9 @@
 
                         <p>
                             What is the priority level of this complaint?
-                            <input type="radio" name="urgency" value="Low" checked>Low
-                            <input type="radio" name="urgency" value="Moderate">Moderate
-                            <input type="radio" name="urgency" value="High">High
+                            <input type="radio" name="urgency" value="LOW" checked>Low
+                            <input type="radio" name="urgency" value="MEDIUM">Medium
+                            <input type="radio" name="urgency" value="HIGH">High
                         </p>
 
                         <input type="submit" value="Submit Complaint" name="submitComplaint">
