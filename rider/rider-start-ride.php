@@ -60,6 +60,7 @@
                         </p>
 
                         <p>Select the bike you would like to rent:</p>
+                        <input type="number" name="bike_ID" size="20">
 
                         <input type="submit" value="Start Rental" name="startRental">
 
@@ -101,28 +102,43 @@
 require "../server.php";
 include "../print-table.php";
 
+$date = date("Y-m-d h:i:s");
+
 if ($db_conn) {
 
-//    if (array_key_exists('startRental', $_POST)) {
-//
-//        $tuple = array(
-//            ":bind1" => $_POST['rider_ID']
-//        );
-//        $alltuples = array(
-//            $tuple
-//        );
-//
-//        if ($_POST['cust_rep_ID'] != "" && $_POST['complaint_ID'] != "") {
-//            executeBoundSQL("UPDATE COMPLAINT SET IS_RESOLVED = 'Y', AGENT_NOTES = :bind3, ACTION_TAKEN = :bind4 WHERE CUSTOMER_REP_ID = :bind1 AND COMPLAINT_ID = :bind2", $alltuples);
-//            OCICommit($db_conn);
-//
-//            echo "<h1 style='color: black'>The Complaint ID: " . $_POST['complaint_ID'] . " has been resolved!</h1>";
-//        } else {
-//            echo "<h1 style='color: red'>Error! Enter Customer Rep ID and Complaint ID.</h1>";
-//        }
-//    }
+    if (array_key_exists('startRental', $_POST)) {
+
+        $tuple = array(
+            ":bind1" => $_POST['rider_ID'],
+            ":bind2" => $_POST['bike_ID']
+        );
+        $alltuples = array(
+            $tuple
+        );
+
+        if ($_POST['rider_ID'] != "") {
+            executeBoundSQL("INSERT INTO TRIP VALUES (TRIP_ID, :bind1, :bind2, NULL, $date, NULL, NULL, 49.254523, -123.243173, NULL, NULL)", $alltuples);
+            OCICommit($db_conn);
+
+
+            echo "<h1 style='color: black'>The Rider ID: " . $_POST['rider_ID'] . " has rented Bike ID: ". $_POST['rider_ID'] . " resolved!</h1>";
+        } else {
+            echo "<h1 style='color: red'>Error! Enter Customer Rep ID and Complaint ID.</h1>";
+        }
+    }
 
     $result = executePlainSQL("SELECT * FROM AVAILABLE_BIKES_FOR_RENT");
+
+    // all riders that are not currently on a trip
+    $riders = executePlainSQL("SELECT R.RIDER_ID
+                                      FROM RIDER R
+                                      WHERE R.RIDER_ID NOT IN (SELECT T.RIDER_ID
+                                      FROM TRIP T
+                                      WHERE NOT ((T.START_DATETIME IS NOT NULL AND END_DATETIME IS NOT NULL) OR START_DATETIME IS NULL))");
+
+    echo "<h1 style='color: black'>Riders not on trip</h1>";
+    $ridersNames = array("Rider ID");
+    printTable($riders, $ridersNames);
 
     echo "<h1 style='color: black'>Available bikes for rent.</h1>";
     $columnNames = array("Bike ID", "Latitude", "Longitude");
