@@ -106,7 +106,7 @@ if ($db_conn) {
 
         OCICommit($db_conn);
         echo "<h1 style='color: black'>Rider's eCoins have been loaded</h1>";
-        $result = executePlainSQL("SELECT RIDER_ID, NAME, ECOINS FROM RIDER WHERE RIDER_ID=:bind1");
+        $result = executePlainSQL("SELECT RIDER_ID, NAME, ECOINS FROM RIDER");
 
         $riderTable = array("Rider ID", "Name of Rider", "eCoins");
         printTable($result, $riderTable);
