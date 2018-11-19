@@ -130,7 +130,7 @@ if ($db_conn) {
             $row2 = OCI_Fetch_Array($maxID2, OCI_BOTH);
             $startLon = $row2["MAX"] + 1;
 
-
+//
             executeBoundSQL("INSERT INTO TRIP VALUES ($nextNum, :bind1, :bind2, NULL, '$date', NULL, NULL, $startLat, $startLon, NULL, NULL)", $alltuples);
             OCICommit($db_conn);
 
