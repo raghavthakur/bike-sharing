@@ -45,8 +45,8 @@ function createTables()
 
     executePlainSQL("CREATE TABLE Replacement_Part(
 	partNo		INTEGER,
-	part_name	CHAR(50),
-	quantity 	INTEGER,
+	part_name	CHAR(50) NOT NULL,
+	quantity 	INTEGER NOT NULL,
 	PRIMARY KEY (partNo))");
 
     executePlainSQL("CREATE TABLE Maintenance_Technician(

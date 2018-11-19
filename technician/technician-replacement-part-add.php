@@ -1,4 +1,3 @@
-<html lang="en">
 <head>
     <title>Bike Sharing</title>
     <meta charset="utf-8">
@@ -63,7 +62,7 @@
 
                         <p>
                             Enter quantity:
-                            <input type="number" name="initialQuantity" size="20">
+                            <input type="number" name="quantity" size="20">
                         </p>
 
                         <input type="submit" value="Add New Part" name="addNewPart">
@@ -96,31 +95,28 @@ include "../print-table.php";
 if ($db_conn) {
 
     if (array_key_exists('addNewPart', $_POST)) {
-        //include '../debugger.php';
-        // Adds tuple using data from user
         $tuple = array(
             ":bind1" => $_POST['newPartNo'],
             ":bind2" => $_POST['newPartName'],
-            ":bind3" => $_POST['initialQuantity']
+            ":bind3" => $_POST['quantity']
 
         );
         $alltuples = array(
             $tuple
         );
-        executeBoundSQL("INSERT INTO REPLACEMENT_PART VALUES (:bind1, :bind2, :bind3)", $alltuples);
-        OCICommit($db_conn);
+
+        if ($_POST['newPartNo'] != "" && $_POST['newPartName'] != "" && $_POST['quantity'] != "") {
+            executeBoundSQL("INSERT INTO REPLACEMENT_PART VALUES (:bind1, :bind2, :bind3)", $alltuples);
+            OCICommit($db_conn);
+        } else {
+            echo "<h1 style='color: red'>Error! Please enter in all fields.</h1>";
+        }
 
         $result = executePlainSQL("SELECT * FROM REPLACEMENT_PART ORDER BY PARTNO");
 
         $columnNames = array("Part No", "Part Name", "Quantity");
         printTable($result, $columnNames);
 
-    } else {
-        $result = executePlainSQL("SELECT * FROM REPLACEMENT_PART ORDER BY PARTNO");
-
-        $columnNames = array("Part No", "Part Name", "Quantity");
-        printTable($result, $columnNames);
-    }
     if ($_POST && $success) {
         echo "<h1 style='color: black'>New Part has been added!</h1>";
     } else if (!$success){

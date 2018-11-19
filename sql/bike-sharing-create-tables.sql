@@ -20,8 +20,8 @@ CREATE TABLE Bike (
 
 CREATE TABLE Replacement_Part(
 	partNo		INTEGER,
-	part_name	CHAR(50),
-	quantity 	INTEGER,
+	part_name	CHAR(50) NOT NULL,
+	quantity 	INTEGER NOT NULL,
 	PRIMARY KEY (partNo));
 
 CREATE TABLE Maintenance_Technician(
