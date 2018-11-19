@@ -123,7 +123,7 @@ if ($db_conn) {
 
             $maxID = executePlainSQL("SELECT MAX(EMPLOYEE_ID) FROM CUSTOMER_SERVICE_REP");
 
-            executeBoundSQL("INSERT INTO COMPLAINT VALUES ('$maxID' + 1, :bind1, :bind2, :bind3, null, :bind4, '$date', NULL, 'N')", $alltuples);
+            executeBoundSQL("INSERT INTO COMPLAINT VALUES ($maxID + 1, :bind1, :bind2, :bind3, null, :bind4, '$date', NULL, 'N')", $alltuples);
 
             OCICommit($db_conn);
 
