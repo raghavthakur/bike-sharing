@@ -117,7 +117,7 @@ if ($db_conn) {
         $tech = $row3["MAX"] + 1;
 
         if ($_POST['rider_ID'] != "" && $_POST['bikeID'] != "" && $_POST['description'] != "") {
-            executeBoundSQL("INSERT INTO MAINTENANCE_ISSUE VALUES ('$date', :bind3, NULL, NULL, :bind1, :bind2, $tech)", $alltuples);
+            executeBoundSQL("INSERT INTO MAINTENANCE_ISSUE VALUES ('$date', :bind3, NULL, NULL, :bind2, :bind1, $tech)", $alltuples);
 
             OCICommit($db_conn);
 
