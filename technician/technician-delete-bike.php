@@ -97,13 +97,15 @@ if ($db_conn) {
         $alltuples = array(
             $tuple
         );
-        executeBoundSQL("DELETE FROM BIKE WHERE BIKE_ID = :bind1", $alltuples);
-
-
-        OCICommit($db_conn);
+        if ($_POST['bikeID'] != "") {
+            executeBoundSQL("DELETE FROM BIKE WHERE BIKE_ID = :bind1", $alltuples);
+            OCICommit($db_conn);
+            echo "<h1 style='color: black'>Bike ID: " . $_POST['bikeID'] . " has been removed!</h1>";
+        } else {
+            echo "<h1 style='color: red'>Please enter Bike ID</h1>";
+        }
 
     }
-
 
     $result = executePlainSQL("SELECT * FROM BIKE");
 
@@ -111,9 +113,7 @@ if ($db_conn) {
     printTable($result, $columnNames);
 
 
-    if ($_POST && $success) {
-        echo "<h1 style='color: black'>Bike has been removed!</h1>";
-    } else if (!$success){
+    if (!$success){
         echo "<h1 style='color: red'>Error!</h1>";
     }
 
