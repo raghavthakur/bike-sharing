@@ -61,7 +61,7 @@
 
                         <p>
                             Enter the issue date time (YY-MM-DD HH:MM:SS.000000) to resolve:
-                            <input type="number" name="issueID" size="20">
+                            <input type="text" name="issueID" size="20">
                         </p>
 
                         <p>
