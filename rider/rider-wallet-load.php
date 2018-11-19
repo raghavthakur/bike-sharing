@@ -109,7 +109,7 @@ if ($db_conn) {
     } else {
         $result = executePlainSQL("SELECT RIDER_ID, NAME, ECOINS FROM RIDER");
 
-        $riderTable = array("Name of Rider", "eCoins");
+        $riderTable = array("Rider ID", "Name of Rider", "eCoins");
         printTable($result, $riderTable);
     }
     if ($_POST && $success) {
