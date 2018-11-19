@@ -1,4 +1,3 @@
-<!doctype html>
 <html lang="en">
 <head>
     <title>Bike Sharing</title>
@@ -111,6 +110,7 @@ if ($db_conn) {
         $riderTable = array("Rider ID");
         printTable($defaulttable, $riderTable);
     }
+
 
     // Commit to save changes...
     OCILogoff($db_conn);
