@@ -140,9 +140,9 @@ if ($db_conn) {
 
     }
     else {
-        $result = executePlainSQL("SELECT RIDER_ID, NAME, CREDITCARDNO FROM RIDER");
+        $result = executePlainSQL("SELECT RIDER_ID, NAME, CREDITCARDNO, CREDITCARDEXP FROM RIDER");
 
-        $riderTable = array("Rider ID", "Name of Rider", "Credit Card Number");
+        $riderTable = array("Rider ID", "Name of Rider", "Credit Card Number", "Credit Card Expiry");
         printTable($result, $riderTable);
     }
     if ($_POST && $success) {
