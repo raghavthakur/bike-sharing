@@ -86,7 +86,6 @@
 
 require "../server.php";
 include "../print-table.php";
-include "../debugger.php";
 
 $date = date("y-m-d h:i:s");
 
@@ -103,7 +102,7 @@ if ($db_conn) {
         );
 
         if ($_POST['trip_ID'] != "") {
-            executeBoundSQL("UPDATE TRIP SET END_LOCATION_ID = 00000001, END_LATITUDE = 49.272614, END_LONGITUDE = -123.245232, END_DATETIME = $date WHERE TRIP_ID = :bind1", $alltuples);
+            executeBoundSQL("UPDATE TRIP SET END_LOCATION_ID = 00000001, END_LATITUDE = 49.272614, END_LONGITUDE = -123.245232, END_DATETIME = '$date' WHERE TRIP_ID = :bind1", $alltuples);
 
             OCICommit($db_conn);
 
