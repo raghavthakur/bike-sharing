@@ -118,10 +118,8 @@ if ($db_conn) {
         );
 
         if ($_POST['cust_rep_ID'] != "" && $_POST['complaint_ID'] != "" && $_POST['agentNotes'] != "" && $_POST['actionTaken'] != "") {
-            $result = executeResultBoundSQL("SELECT C.COMPLAINT_ID, C.RIDER_ID, R.NAME, C.CUSTOMER_REP_ID, CSR.NAME, C.CUST_DESCRIPTION, C.AGENT_NOTES, C.URGENCY_LEVEL, C.COMPLAINTDATETIME, C.ACTION_TAKEN, C.IS_RESOLVED
-                                                    FROM COMPLAINT C, RIDER R, CUSTOMER_SERVICE_REP CSR
-                                                    WHERE C.RIDER_ID = R.RIDER_ID AND C.CUSTOMER_REP_ID = CSR.EMPLOYEE_ID AND R.RIDER_ID = :bind1
-                                                    ORDER BY " . $_POST['sortBy'], $alltuples);
+            executeBoundSQL("UPDATE COMPLAINT SET AGENT_NOTES = :bind3, ACTION_TAKEN = :bind4 WHERE CUSTOMER_REP_ID = :bind1 AND COMPLAINT_ID = :bind2", $alltuples);
+            OCICommit($db_conn);
         } else {
             echo "<h1 style='color: red'>Error! All fields must be filled.</h1>";
         }
