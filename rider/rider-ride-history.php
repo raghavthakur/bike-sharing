@@ -111,6 +111,7 @@ if ($db_conn) {
 
     $ridersNames = array("Rider ID");
 
+    echo "<h1 style='color: black'>Showing all riders.</h1>";
     printTable($riders, $ridersNames);
 
     // Commit to save changes...
