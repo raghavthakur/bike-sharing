@@ -142,7 +142,7 @@ if ($db_conn) {
     echo "<h1 style='color: black'>Showing all riders below.</h1>";
     printTable($riders, $ridersNames);
 
-    $bikes = executePlainSQL("SELECT BIKE_ID FROM BIKE");
+    $bikes = executePlainSQL("SELECT BIKE_ID FROM TRIP");
 
     $bikesNames = array("Bike ID");
 
