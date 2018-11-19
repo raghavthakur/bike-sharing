@@ -124,6 +124,7 @@ if ($db_conn) {
 
     $result = executePlainSQL("SELECT * FROM AVAILABLE_BIKES_FOR_RENT");
 
+    echo "<h1 style='color: black'>Available bikes for rent.</h1>";
     $columnNames = array("Bike ID", "Latitude", "Longitude");
     printTable($result, $columnNames);
 
