@@ -108,6 +108,8 @@ if ($db_conn) {
         if ($_POST['newPartNo'] != "" && $_POST['newPartName'] != "" && $_POST['quantity'] != "") {
             executeBoundSQL("INSERT INTO REPLACEMENT_PART VALUES (:bind1, :bind2, :bind3)", $alltuples);
             OCICommit($db_conn);
+
+            echo "<h1 style='color: black'>New Part has been added!</h1>";
         } else {
             echo "<h1 style='color: red'>Error! Please enter in all fields.</h1>";
         }
@@ -117,9 +119,7 @@ if ($db_conn) {
     $columnNames = array("Part No", "Part Name", "Quantity");
     printTable($result, $columnNames);
 
-    if ($_POST && $success) {
-        echo "<h1 style='color: black'>New Part has been added!</h1>";
-    } else if (!$success) {
+    if (!$success) {
         echo "<h1 style='color: red'>Error!</h1>";
     }
 
