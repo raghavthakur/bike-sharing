@@ -121,9 +121,11 @@ if ($db_conn) {
 
         if ($_POST['rider_ID'] != "" && $_POST['cust_rep_ID'] != "" && $_POST['description'] != "") {
 
-            $maxID = executePlainSQL("SELECT MAX(EMPLOYEE_ID) FROM CUSTOMER_SERVICE_REP");
+            $maxID = executePlainSQL("SELECT MAX(EMPLOYEE_ID) AS MAX FROM CUSTOMER_SERVICE_REP");
+            $row = OCI_Fetch_Array($maxID, OCI_BOTH);
+            $nextNum = $row["MAX"] + 1;
 
-            executeBoundSQL("INSERT INTO COMPLAINT VALUES ($maxID + 1, :bind1, :bind2, :bind3, null, :bind4, '$date', NULL, 'N')", $alltuples);
+            executeBoundSQL("INSERT INTO COMPLAINT VALUES ('$nextNum', :bind1, :bind2, :bind3, null, :bind4, '$date', NULL, 'N')", $alltuples);
 
             OCICommit($db_conn);
 
@@ -131,7 +133,7 @@ if ($db_conn) {
             echo "<h1 style='color: red'>Please fill in all fields!</h1>";
         }
 
-        $result = executePlainSQL("SELECT COMPLAINT_ID, RIDER_ID, CUSTOMER_REP_ID, CUST_DESCRIPTION, URGENCY_LEVEL, COMPLAINTDATETIME FROM COMPLAINT WHERE RIDER_ID = :bind1");
+        $result = executePlainSQL("SELECT COMPLAINT_ID, RIDER_ID, CUSTOMER_REP_ID, CUST_DESCRIPTION, URGENCY_LEVEL, COMPLAINTDATETIME FROM COMPLAINT");
 
         $columnNames = array("Complaint ID", "Rider ID", "Customer Rep ID", "Description", "Urgency", "Date and Time");
         printTable($result, $columnNames);

@@ -51,7 +51,7 @@
                 <div>
                     <h3>RIDER - End Ride</h3>
 
-                    <form method="POST" action="new-oracle-test.php">
+                    <form method="POST">
 
                         <p>
                             Logging in as...
@@ -64,10 +64,15 @@
 
                         <p>
                             <select name="returnAreas">
-                                <option value="put returnArea ID here">Describe the return area here</option>
-                                <option value="put returnArea ID here">Describe the return area here</option>
-                                <option value="put returnArea ID here">Describe the return area here</option>
-                                <option value="put returnArea ID here">Describe the return area here</option>
+                                <option value="00000001">Location 1</option>
+                                <option value="00000002">Location 2</option>
+                                <option value="00000003">Location 3</option>
+                                <option value="00000004">Location 4</option>
+                                <option value="00000005">Location 5</option>
+                                <option value="00000006">Location 6</option>
+                                <option value="00000007">Location 7</option>
+                                <option value="00000008">Location 8</option>
+                                <option value="00000009">Location 9</option>
                             </select>
                         </p>
 
@@ -91,3 +96,60 @@
     </div>
 </div>
 </html>
+
+<?php
+
+require "../server.php";
+include "../print-table.php";
+
+$date = date("y-m-d h:i:s");
+
+// Connect Oracle...
+if ($db_conn) {
+
+    if (array_key_exists('endRental', $_POST)) {
+        $tuple = array(
+            ":bind1" => $_POST['rider_ID'],
+            ":bind2" => $_POST['returnAreas']
+
+        );
+        $alltuples = array(
+            $tuple
+        );
+
+        if ($_POST['rider_ID'] != "" && $_POST['returnAreas'] != "") {
+            executeBoundSQL("UPDATE TRIP SET END_LOCATION_ID = :bind2 WHERE ", $alltuples);
+
+            OCICommit($db_conn);
+
+        } else {
+            echo "<h1 style='color: red'>Please fill in all fields!</h1>";
+        }
+
+        $result = executePlainSQL("SELECT ISSUEDATETIME, BIKE_ID, RIDER_ID, ISSUE_DESCRIPTION FROM MAINTENANCE_ISSUE ORDER BY ISSUEDATETIME DESC");
+
+        $columnNames = array("Date", "Bike ID", "Rider ID", "Issue Description");
+        printTable($result, $columnNames);
+    }
+
+    else {
+
+        $result = executePlainSQL("SELECT T.TRIP_ID, T.RIDER_ID FROM TRIP T WHERE NOT ((T.START_DATETIME IS NOT NULL AND END_DATETIME IS NOT NULL) OR START_DATETIME IS NULL"));
+
+        $columnNames = array("Active Trip ID", "Rider ID");
+        printTable($result, $columnNames);
+    }
+
+    if (!$success) {
+        echo "<h1 style='color: red'>Error!</h1>";
+    }
+
+    // Commit to save changes...
+    OCILogoff($db_conn);
+} else {
+    echo "cannot connect";
+    $e = OCI_Error(); // For OCILogon errors pass no handle
+    echo htmlentities($e['message']);
+}
+
+?>
