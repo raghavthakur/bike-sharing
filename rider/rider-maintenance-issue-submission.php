@@ -135,7 +135,7 @@ if ($db_conn) {
         printTable($result, $columnNames);
     }
 
-    $riders = executePlainSQL("SELECT RIDER_ID FROM RIDER");
+    $riders = executePlainSQL("SELECT RIDER_ID FROM TRIP");
 
     $ridersNames = array("Rider ID");
 
