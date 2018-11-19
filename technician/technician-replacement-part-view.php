@@ -1,4 +1,3 @@
-<!doctype html>
 <html lang="en">
 <head>
     <title>Bike Sharing</title>
@@ -89,18 +88,22 @@ include "../print-table.php";
 if ($db_conn) {
 
     if (array_key_exists('viewParts', $_POST)) {
-        $result = executePlainSQL("SELECT * FROM REPLACEMENT_PART");
 
-        OCICommit($db_conn);
-        $result = executePlainSQL("SELECT * FROM REPLACEMENT_PART ORDER BY PARTNO");
+        $tuple = array(
+            ":bind1" => $_POST['partID']
+        );
+        $alltuples = array(
+            $tuple
+        );
+        $result = executeResultBoundSQL("SELECT * FROM REPLACEMENT_PART WHERE PARTNO = :bind1", $alltuples);
 
-        $columnNames = array("Part No", "Part Name", "Quantity");
+        $columnNames = array("Part ID", "Part Name", "Quantity");
         printTable($result, $columnNames);
     }
     else {
         $result = executePlainSQL("SELECT * FROM REPLACEMENT_PART ORDER BY PARTNO");
 
-        $columnNames = array("Part No", "Part Name", "Quantity");
+        $columnNames = array("Part ID", "Part Name", "Quantity");
         printTable($result, $columnNames);
     }
     if ($_POST && $success) {
