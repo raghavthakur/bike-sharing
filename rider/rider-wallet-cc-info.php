@@ -103,7 +103,7 @@ if ($db_conn) {
 
     }
     else {
-        $result = executePlainSQL("SELECT * NAME, CREDITCARDNO FROM RIDER");
+        $result = executePlainSQL("SELECT NAME, CREDITCARDNO FROM RIDER");
 
         $riderTable = array("Name of Rider", "Credit Card Number");
         printTable($result, $riderTable);

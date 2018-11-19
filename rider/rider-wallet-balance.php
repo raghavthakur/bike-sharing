@@ -103,7 +103,7 @@ if ($db_conn) {
 
     }
     else {
-        $result = executePlainSQL("SELECT * NAME, ECOINS FROM RIDER");
+        $result = executePlainSQL("SELECT NAME, ECOINS FROM RIDER");
 
         $riderTable = array("Name of Rider", "eCoins balance");
         printTable($result, $riderTable);
