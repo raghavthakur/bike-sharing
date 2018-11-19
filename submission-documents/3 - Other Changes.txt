@@ -1,0 +1,2 @@
+In our "Project Design Deliverable", we wrote that some tables would have "date" field(s) and "time" field(s). After learning more about data types within the database, we decided to represent a date and a time within one "timestamp" data type. This can be seen in several of our tables as part of this final submission.
+

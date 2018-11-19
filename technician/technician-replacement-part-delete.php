@@ -62,12 +62,6 @@
 
                         <input type="submit" value="Delete Part" name="deletePart">
 
-                        <p>
-                            Display confirmation message that [partID]-[partName] has been deleted. If the partID that
-                            they entered does not exist in the DB, then an error message should be displayed here
-                            instead.
-                        </p>
-
                     </form>
                 </div>
             </main>

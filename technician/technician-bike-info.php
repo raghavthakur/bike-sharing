@@ -53,16 +53,7 @@
 
                     <form method="POST">
 
-                        <p>
-                            Table showing all bikes and their info. We should have a column for the "number of unique
-                            riders who submitted issues for this bike". Will have to GROUP BY bike_id and then count
-                            the unique rider IDs. This is to satisfy our GROUP BY requirements of the project. In our
-                            formal spec document, under Deliverable 7, the third query we described is not very good.
-                            Doesn't make sense in the current website design. So the query for this page should serve
-                            as a replacement GROUP BY query.
-                        </p>
-
-                        <p>Table ordered by bike status.</p>
+                        <p>The bike information table below is ordered by bike status (Bike Broken?).</p>
 
                     </form>
                 </div>

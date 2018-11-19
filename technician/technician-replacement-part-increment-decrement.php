@@ -64,10 +64,6 @@
                         <input type="submit" value="Increment Quantity" name="incrementQuantity">
                         <input type="submit" value="Decrement Quantity" name="decrementQuantity">
 
-                        <p>
-                            Display the partID, partName, and quantity after increment/decrement.
-                        </p>
-
                     </form>
                 </div>
             </main>

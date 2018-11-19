@@ -80,7 +80,7 @@
 
                         <input type="submit" value="Add Bike" name="addBike">
 
-                        <p>Table ordered by date purchased.</p>
+                        <p>The output table below will be ordered by date purchased.</p>
 
                     </form>
                 </div>

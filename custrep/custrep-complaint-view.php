@@ -75,11 +75,6 @@
 
                         <input type="submit" value="View All Complaints" name="viewAllComplaints">
 
-                        <p>
-                            Display a table here according to the above input. Make sure to include columns for
-                            riderName and employeeName so that we have to join 3 tables.
-                        </p>
-
                     </form>
                 </div>
             </main>

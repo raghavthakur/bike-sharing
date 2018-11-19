@@ -67,10 +67,6 @@
 
                         <input type="submit" value="Add New Part" name="addNewPart">
 
-                        <p>
-                            Display the partID, partName, and quantity after creation in DB.
-                        </p>
-
                     </form>
                 </div>
             </main>
