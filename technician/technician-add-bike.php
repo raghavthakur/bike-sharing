@@ -124,7 +124,7 @@ if ($db_conn) {
             OCICommit($db_conn);
             echo "<h1 style='color: black'>Bike ID: " . $_POST['bikeID'] . " has been added!</h1>";
         } else {
-            echo "<h1 style='red: black'>Please fill in all fields!</h1>";
+            echo "<h1 style='color: red'>Please fill in all fields!</h1>";
         }
 
         // order bike table by bike purchase date to see newest bikes first
