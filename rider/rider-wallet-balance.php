@@ -97,20 +97,17 @@ if ($db_conn) {
         $alltuples = array(
             $tuple
         );
-        $result = executeResultBoundSQL("SELECT RIDER_ID, NAME, ECOINS FROM RIDER WHERE RIDER_ID = :bind1", $alltuples);
-        OCICommit($db_conn);
+
+        if ($_POST['rider_ID'] != "") {
+            $result = executeResultBoundSQL("SELECT RIDER_ID, NAME, ECOINS FROM RIDER WHERE RIDER_ID = :bind1", $alltuples);
+        } else {
+            $result = executePlainSQL("SELECT RIDER_ID FROM RIDER");
+        }
 
         $ColumnName = array("Rider ID", "Name of Rider", "eCoins");
         printTable($result, $ColumnName);
 
     }
-    else {
-        $defaulttable = executePlainSQL("SELECT RIDER_ID FROM RIDER");
-
-        $riderTable = array("Rider ID");
-        printTable($defaulttable, $riderTable);
-    }
-
 
     // Commit to save changes...
     OCILogoff($db_conn);
