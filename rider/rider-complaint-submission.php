@@ -61,33 +61,24 @@
                         </p>
 
                         <p>
-                            This complaint is about the following employee:
-                            <select name="employeeId">
-                                <option value="put the employee ID here">Show employee name and ID from the DB here
-                                </option>
-                                <option value="put the employee ID here">Show employee name and ID from the DB here
-                                </option>
-                                <option value="put the employee ID here">Show employee name and ID from the DB here
-                                </option>
-                                <option value="put the employee ID here">Show employee name and ID from the DB here
-                                </option>
-                            </select>
+                            This complaint is about the following customer service rep. (enter ID):
+                            <input type="number" name="cust_rep_ID" size="20">
                         </p>
 
                         <p>
                             Enter your complaint here: <br>
                             <textarea name="description" rows="5"
-                                      cols="40">Use PHP to get the contents of this textarea</textarea>
+                                      cols="40"></textarea>
                         </p>
 
                         <p>
                             What is the priority level of this complaint?
-                            <input type="radio" name="urgency" value="Low">Low
+                            <input type="radio" name="urgency" value="Low" checked>Low
                             <input type="radio" name="urgency" value="Moderate">Moderate
                             <input type="radio" name="urgency" value="High">High
                         </p>
 
-                        <input type="submit" value="Submit Complaint" name="submitcomplaint">
+                        <input type="submit" value="Submit Complaint" name="submitComplaint">
 
                         <p>Display a confirmation message containing the "complaintID" and the current date/time
                             here.</p>
@@ -119,7 +110,7 @@ if ($db_conn) {
     if (array_key_exists('submitComplaint', $_POST)) {
         $tuple = array(
             ":bind1" => $_POST['rider_ID'],
-            ":bind2" => $_POST['employeeID'],
+            ":bind2" => $_POST['cust_rep_ID'],
             ":bind3" => $_POST['description'],
             ":bind4" => $_POST['urgency']
 
@@ -128,8 +119,11 @@ if ($db_conn) {
             $tuple
         );
 
-        if ($_POST['rider_ID'] != "" && $_POST['employeeID'] != "" && $_POST['description'] != "" && $_POST['ugrency'] != "" ) {
-            executeBoundSQL("INSERT INTO COMPLAINT VALUES ('$date', :bind3, NULL, NULL, :bind1, :bind2, '00000011')", $alltuples);
+        if ($_POST['rider_ID'] != "" && $_POST['cust_rep_ID'] != "" && $_POST['description'] != "") {
+
+            $maxID = executePlainSQL("SELECT MAX(EMPLOYEE_ID) FROM CUSTOMER_SERVICE_REP");
+
+            executeBoundSQL("INSERT INTO COMPLAINT VALUES ('$maxID' + 1, :bind1, :bind2, :bind3, null, :bind4, '$date', NULL, 'N')", $alltuples);
 
             OCICommit($db_conn);
 
@@ -137,22 +131,18 @@ if ($db_conn) {
             echo "<h1 style='color: red'>Please fill in all fields!</h1>";
         }
 
-        $result = executePlainSQL("SELECT ISSUEDATETIME, BIKE_ID, RIDER_ID, ISSUE_DESCRIPTION FROM MAINTENANCE_ISSUE ORDER BY ISSUEDATETIME DESC");
+        $result = executePlainSQL("SELECT COMPLAINT_ID, RIDER_ID, CUSTOMER_REP_ID, CUST_DESCRIPTION, URGENCY_LEVEL, COMPLAINTDATETIME FROM COMPLAINT WHERE RIDER_ID = :bind1");
 
-        $columnNames = array("Date", "Bike ID", "Rider ID", "Issue Description");
+        $columnNames = array("Complaint ID", "Rider ID", "Customer Rep ID", "Description", "Urgency", "Date and Time");
         printTable($result, $columnNames);
     }
-    // show bike table before clicking addBike
+    // show employee IDs and names table before clicking submit complaint
     else {
-        // order bike table by bike purchase date to see newest bikes first
-        $result = executePlainSQL("SELECT ISSUEDATETIME, BIKE_ID, RIDER_ID, ISSUE_DESCRIPTION FROM MAINTENANCE_ISSUE ORDER BY ISSUEDATETIME DESC");
+        // order by employee ID
+        $result = executePlainSQL("SELECT EMPLOYEE_ID, NAME FROM CUSTOMER_SERVICE_REP ORDER BY EMPLOYEE_ID ASC");
 
-        $columnNames = array("Date", "Bike ID", "Rider ID", "Issue Description");
+        $columnNames = array("Employee ID", "Employee Name");
         printTable($result, $columnNames);
-    }
-
-    if (!$success) {
-        echo "<h1 style='color: red'>Error!</h1>";
     }
 
     // Commit to save changes...

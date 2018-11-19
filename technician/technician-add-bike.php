@@ -75,7 +75,7 @@
                         <p>
                             Enter bike status:<br>
                             <input type="radio" name="bikeStatus" value="Y">Broken<br>
-                            <input type="radio" name="bikeStatus" value="N">Not Broken<br>
+                            <input type="radio" name="bikeStatus" value="N" checked>Not Broken<br>
                         </p>
 
                         <input type="submit" value="Add Bike" name="addBike">
