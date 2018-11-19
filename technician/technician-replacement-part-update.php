@@ -128,7 +128,7 @@ if ($db_conn) {
 
             echo "<h1 style='color: black'>Part has been updated!</h1>";
         } else {
-            echo "<h1 style='color: red'>Error! Need to enter Part ID and (New Name OR New Quantity)</h1>";
+            echo "<h1 style='color: red'>Error! Need to enter existing Part ID and (New Name OR New Quantity)</h1>";
         }
     }
 
