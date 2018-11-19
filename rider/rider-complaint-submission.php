@@ -52,7 +52,7 @@
                 <div>
                     <h3>RIDER - Complaint Submission Form</h3>
 
-                    <form method="POST" action="new-oracle-test.php">
+                    <form method="POST">
 
                         <p>
                             Logging in as...
@@ -62,7 +62,7 @@
 
                         <p>
                             This complaint is about the following employee:
-                            <select name="employeeIdAndName">
+                            <select name="employeeId">
                                 <option value="put the employee ID here">Show employee name and ID from the DB here
                                 </option>
                                 <option value="put the employee ID here">Show employee name and ID from the DB here
@@ -106,3 +106,61 @@
     </div>
 </div>
 </html>
+<?php
+
+require "../server.php";
+include "../print-table.php";
+
+$date = date("y-m-d h:i:s");
+
+// Connect Oracle...
+if ($db_conn) {
+
+    if (array_key_exists('submitComplaint', $_POST)) {
+        $tuple = array(
+            ":bind1" => $_POST['rider_ID'],
+            ":bind2" => $_POST['employeeID'],
+            ":bind3" => $_POST['description'],
+            ":bind4" => $_POST['urgency']
+
+        );
+        $alltuples = array(
+            $tuple
+        );
+
+        if ($_POST['rider_ID'] != "" && $_POST['employeeID'] != "" && $_POST['description'] != "" && $_POST['ugrency'] != "" ) {
+            executeBoundSQL("INSERT INTO COMPLAINT VALUES ('$date', :bind3, NULL, NULL, :bind1, :bind2, '00000011')", $alltuples);
+
+            OCICommit($db_conn);
+
+        } else {
+            echo "<h1 style='color: red'>Please fill in all fields!</h1>";
+        }
+
+        $result = executePlainSQL("SELECT ISSUEDATETIME, BIKE_ID, RIDER_ID, ISSUE_DESCRIPTION FROM MAINTENANCE_ISSUE ORDER BY ISSUEDATETIME DESC");
+
+        $columnNames = array("Date", "Bike ID", "Rider ID", "Issue Description");
+        printTable($result, $columnNames);
+    }
+    // show bike table before clicking addBike
+    else {
+        // order bike table by bike purchase date to see newest bikes first
+        $result = executePlainSQL("SELECT ISSUEDATETIME, BIKE_ID, RIDER_ID, ISSUE_DESCRIPTION FROM MAINTENANCE_ISSUE ORDER BY ISSUEDATETIME DESC");
+
+        $columnNames = array("Date", "Bike ID", "Rider ID", "Issue Description");
+        printTable($result, $columnNames);
+    }
+
+    if (!$success) {
+        echo "<h1 style='color: red'>Error!</h1>";
+    }
+
+    // Commit to save changes...
+    OCILogoff($db_conn);
+} else {
+    echo "cannot connect";
+    $e = OCI_Error(); // For OCILogon errors pass no handle
+    echo htmlentities($e['message']);
+}
+
+?>
