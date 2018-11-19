@@ -125,7 +125,7 @@ if ($db_conn) {
             $row = OCI_Fetch_Array($maxID, OCI_BOTH);
             $nextNum = $row["MAX"] + 1;
 
-            executeBoundSQL("INSERT INTO COMPLAINT VALUES ($nextNum, :bind1, :bind2, :bind3, null, :bind4, '$date', NULL, 'N')", $alltuples);
+            executeBoundSQL("INSERT INTO COMPLAINT VALUES ('$nextNum', :bind1, :bind2, :bind3, null, :bind4, '$date', NULL, 'N')", $alltuples);
 
             OCICommit($db_conn);
 
