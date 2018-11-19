@@ -1,3 +1,7 @@
+<<<<<<< HEAD
+git<!doctype html>
+=======
+>>>>>>> 3aee1b17eb3c4ba2cb809958b5013ac0823aefa8
 <html lang="en">
 <head>
     <title>Bike Sharing</title>
