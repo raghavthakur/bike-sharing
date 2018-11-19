@@ -65,7 +65,7 @@
                         <p>
                             Sort by:
                             <select name="sortBy">
-                                <option value="MI.RESOLVED_DATE" selected="selected">Resolved Data</option>
+                                <option value="MI.RESOLVED_DATE" selected="selected">Resolved Date</option>
                                 <option value="R.RIDER_ID">Rider ID</option>
                                 <option value="B.BIKE_ID">Bike ID</option>
                                 <option value="MI.ISSUEDATETIME">Date and Time</option>
@@ -73,13 +73,6 @@
                         </p>
 
                         <input type="submit" value="View Maintenance Issues" name="viewIssues">
-
-                        <p>
-                            Display a table here according to the above input. Make sure to include columns for
-                            riderName, riderPhoneNum, bikeLatitude, and bikeLongitude so that we have to join 3 tables.
-                            Could optionally also show the name of the maintenance technician who resolved the issue
-                            (which would be blank if not resolved yet)
-                        </p>
 
                     </form>
                 </div>

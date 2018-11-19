@@ -56,10 +56,7 @@
                         <input type="submit" value="Get Return Area Info" name="getReturnAreaInfo">
 
                         <p>
-                            Table showing all return areas and their info. There should be a column for "Number of
-                            Rides That Ended Here" to satisfy our GROUP BY requirements. In our formal spec document,
-                            under Deliverable 7, the second query we described does not fit well into the current
-                            website design, so the query for this page should serve as a replacement GROUP BY query.
+                            Click the button above to get all return area information.
                         </p>
 
                     </form>

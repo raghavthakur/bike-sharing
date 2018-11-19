@@ -73,12 +73,6 @@
 
                         <input type="submit" value="View Maintenance Issues" name="viewIssues">
 
-                        <p>
-                            Display a table here according to the above input. Make sure to include columns for
-                            riderName,
-                            riderPhoneNum, bikeLatitude, and bikeLongitude so that we have to join 3 tables.
-                        </p>
-
                     </form>
                 </div>
             </main>

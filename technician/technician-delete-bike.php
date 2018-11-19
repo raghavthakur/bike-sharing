@@ -60,10 +60,6 @@
 
                         <input type="submit" value="Delete Bike" name="deleteBike">
 
-                        <p>
-                            Display confirmation message showing bikeID of the deleted bike.
-                        </p>
-
                     </form>
                 </div>
             </main>

@@ -58,14 +58,7 @@
                         <input type="submit" value="Get All Rider Info" name="getAllRiderInfo">
 
                         <p>
-                            Table showing all riders and their info. We have to use a VIEW to satisfy the project
-                            requirements. As we wrote in Deliverable 11 of our formal spec document, we will use
-                            a VIEW for Customer Service Reps for the Rider table to prevent them from gaining access
-                            to the Riders' credit card information (and password if we have that in the database). <br>
-                            <br>
-                            IMPORTANT: we should have a column for "Number of Maintenance Issues Submitted". This is
-                            to satisfy the first query listed under Deliverable 7 in our formal spec - have to do a
-                            GROUP BY. We could also have a column for "Number of Complaints Submitted"
+                            Click the button above to get all rider info.
                         </p>
 
                     </form>

@@ -59,10 +59,6 @@
 
                         <input type="submit" value="View Replacement Parts" name="viewParts">
 
-                        <p>
-                            Display a table here according to the above input.
-                        </p>
-
                     </form>
                 </div>
             </main>

@@ -72,11 +72,6 @@
 
                         <input type="submit" value="Update Existing Part" name="updateExistingPart">
 
-                        <p>
-                            Display the partID, partName, and quantity after updating it in DB. If the partID that they
-                            entered does not exist in the DB, then an error message should be displayed here instead.
-                        </p>
-
                     </form>
                 </div>
             </main>
