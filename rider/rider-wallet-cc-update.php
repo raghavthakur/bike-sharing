@@ -52,7 +52,7 @@
                 <div>
                     <h3>RIDER - Update Credit Card on File</h3>
 
-                    <form method="POST" action="new-oracle-test.php">
+                    <form method="POST">
 
                         <p>
                             Logging in as...
@@ -138,17 +138,18 @@ if ($db_conn) {
         printResult($result);
         OCICommit($db_conn);
 
-    } else {
-        $result = executePlainSQL("SELECT NAME, CREDITCARDNO, CREDITCARDEXP FROM RIDER WHERE RIDER_ID = :bind1");
+    }
+    else {
+        $result = executePlainSQL("SELECT RIDER_ID, NAME, CREDITCARDNO, CREDITCARDEXP FROM RIDER");
 
-        $riderTable = array("Name of Rider", "Credit Card Number", "Credit Card Expiry");
+        $riderTable = array("Rider ID", "Name of Rider", "Credit Card Number", "Credit Card Expiry");
         printTable($result, $riderTable);
     }
     if ($_POST && $success) {
         echo "<h1 style='color: black'>Rider's credit card information has been updated</h1>";
-        $result = executePlainSQL("SELECT NAME, CREDITCARDNO, CREDITCARDEXP FROM RIDER WHERE RIDER_ID = :bind1");
+        $result = executePlainSQL("SELECT RIDER_ID, NAME, CREDITCARDNO, CREDITCARDEXP FROM RIDER WHERE RIDER_ID = :bind1");
 
-        $riderTable = array("Name of Rider", "Credit Card Number", "Credit Card Expiry");
+        $riderTable = array("Rider ID", "Name of Rider", "Credit Card Number", "Credit Card Expiry");
         printTable($result, $riderTable);
     } else if (!$success){
         echo "<h1 style='color: red'>Error!</h1>";

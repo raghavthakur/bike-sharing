@@ -130,16 +130,16 @@ if ($db_conn) {
         OCICommit($db_conn);
 
     } else {
-        $result = executePlainSQL("SELECT NAME, PHONE_NUM, EMAIL, ADDRESS FROM RIDER WHERE RIDER_ID = :bind1");
+        $result = executePlainSQL("SELECT RIDER_ID, NAME, PHONE_NUM, EMAIL, ADDRESS FROM RIDER");
 
-        $riderTable = array("Name of Rider", "Phone Number", "Email", "Address");
+        $riderTable = array("Rider ID", "Name of Rider", "Phone Number", "Email", "Address");
         printTable($result, $riderTable);
     }
     if ($_POST && $success) {
         echo "<h1 style='color: black'>Rider's personal has been updated</h1>";
-        $result = executePlainSQL("SELECT NAME, PHONE_NUM, EMAIL, ADDRESS FROM RIDER WHERE RIDER_ID = :bind1");
+        $result = executePlainSQL("SELECT RIDER_ID, NAME, PHONE_NUM, EMAIL, ADDRESS FROM RIDER WHERE RIDER_ID = :bind1");
 
-        $riderTable = array("Name of Rider", "Phone Number", "Email", "Address");
+        $riderTable = array("Rider ID", "Name of Rider", "Phone Number", "Email", "Address");
         printTable($result, $riderTable);
     } else if (!$success){
         echo "<h1 style='color: red'>Error!</h1>";
