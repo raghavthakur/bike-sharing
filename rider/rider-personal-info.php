@@ -105,7 +105,7 @@ if ($db_conn) {
         printTable($result, $columnNames);
 
     } else {
-        $default = executePlainSQL("SELECT NAME, EMAIL, PHONE_NUM, ADDRESS FROM RIDER");
+        $default = executePlainSQL("SELECT RIDER_ID, NAME, EMAIL, PHONE_NUM, ADDRESS FROM RIDER");
 
         $riderTable = array("Rider ID","Name of Rider", "Email", "Phone Number", "Address");
         printTable($default, $riderTable);
