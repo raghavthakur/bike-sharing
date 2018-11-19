@@ -65,11 +65,11 @@
                         <p>
                             Sort by:
                             <select name="sortBy">
-                                <option value="C.URGENCY_LEVEL">Urgency Level</option>
                                 <option value="C.IS_RESOLVED">Resolved?</option>
                                 <option value="R.RIDER_ID">Rider ID</option>
                                 <option value="C.CUSTOMER_REP_ID">Customer Rep ID</option>
                                 <option value="C.COMPLAINTDATETIME">Date and Time</option>
+                                <option value="C.URGENCY_LEVEL">Urgency Level</option>
                             </select>
                         </p>
 
