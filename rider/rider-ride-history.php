@@ -106,6 +106,13 @@ if ($db_conn) {
             echo "<h1 style='color: red'>Error! Enter Rider ID.</h1>";
         }
     }
+
+    $riders = executePlainSQL("SELECT RIDER_ID FROM TRIP");
+
+    $ridersNames = array("Rider ID");
+
+    printTable($riders, $ridersNames);
+
     // Commit to save changes...
     OCILogoff($db_conn);
 } else {
