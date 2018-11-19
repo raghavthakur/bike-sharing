@@ -130,8 +130,8 @@ if ($db_conn) {
             $row2 = OCI_Fetch_Array($maxID2, OCI_BOTH);
             $startLon = $row2["MAX"] + 1;
 
-            executeBoundSQL("insert into bike values (:bind1, :bind2, :bind3, :bind4, :bind5)", $alltuples);
-            executeBoundSQL("INSERT INTO TRIP VALUES ($nextNum, :bind1, :bind2, NULL, $date, NULL, NULL, $startLat, $startLon, NULL, NULL)", $alltuples);
+
+            executeBoundSQL("INSERT INTO TRIP VALUES ($nextNum, :bind1, :bind2, NULL, '$date', NULL, NULL, $startLat, $startLon, NULL, NULL)", $alltuples);
             OCICommit($db_conn);
 
             $trip = executePlainSQL("SELECT * FROM TRIP");
