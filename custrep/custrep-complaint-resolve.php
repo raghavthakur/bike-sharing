@@ -124,15 +124,13 @@ if ($db_conn) {
             echo "<h1 style='color: red'>Error! All fields must be filled.</h1>";
         }
 
-        $columnNames = array("Complaint ID", "Rider ID", "Rider Name", "Customer Rep. ID", "Customer Rep. Name", "Complaint Description", "Customer Rep. Notes", "Level of Urgency", "Date(YY-MM-DD)/Time(HH-MM-SS)", "Action Taken", "Resolved?");
-        printTable($result, $columnNames);
-    } else {
+        }
+
         $result = executePlainSQL("SELECT C.COMPLAINT_ID, C.RIDER_ID, R.NAME, C.CUSTOMER_REP_ID, CSR.NAME, C.CUST_DESCRIPTION, C.AGENT_NOTES, C.URGENCY_LEVEL, C.COMPLAINTDATETIME, C.ACTION_TAKEN, C.IS_RESOLVED
                                                     FROM COMPLAINT C, RIDER R, CUSTOMER_SERVICE_REP CSR
                                                     WHERE C.RIDER_ID = R.RIDER_ID AND C.CUSTOMER_REP_ID = CSR.EMPLOYEE_ID");
         $columnNames = array("Complaint ID", "Rider ID", "Rider Name", "Customer Rep. ID", "Customer Rep. Name", "Complaint Description", "Customer Rep. Notes", "Level of Urgency", "Date(YY-MM-DD)/Time(HH-MM-SS)", "Action Taken", "Resolved?");
         printTable($result, $columnNames);
-    }
 
     // Commit to save changes...
     OCILogoff($db_conn);
