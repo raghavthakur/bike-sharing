@@ -109,8 +109,6 @@ if ($db_conn) {
         printTable($result, $riderTable);
     }
 
-    echo "<h1 style='color: black'>Rider's eCoins balance</h1>";
-
     $riderTable = array("Rider ID", "Name of Rider", "eCoins");
     printTable($result, $riderTable);
 
