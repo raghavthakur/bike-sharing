@@ -51,7 +51,7 @@
                 <div>
                     <h3>MAINTENANCE TECHNICIAN - Maintenance Issues</h3>
 
-                    <form method="POST" action="new-oracle-test.php">
+                    <form method="POST">
 
                         <p>
                             Enter rider ID (optional): <input type="number" name="riderID" size="20">
@@ -64,10 +64,10 @@
                         <p>
                             Sort by:
                             <select name="sortBy">
-                                <option value="status" selected="selected">Status (Resolved/Unresolved)</option>
-                                <option value="riderID">Rider ID</option>
-                                <option value="bikeID">Bike ID</option>
-                                <option value="date">Date</option>
+                                <option value="MI.RESOLVED_DATE">Resolved?</option>
+                                <option value="MI.RIDER_ID">Rider ID</option>
+                                <option value="MI.BIKE_ID">Bike ID</option>
+                                <option value="MI.ISSUEDATETIME">Date and Time</option>
                             </select>
                         </p>
 
@@ -93,3 +93,56 @@
     </div>
 </div>
 </html>
+
+<?php
+
+require "../server.php";
+include "../print-table.php";
+
+if ($db_conn) {
+
+    if (array_key_exists('viewIssues', $_POST)) {
+
+        $tuple = array(
+            ":bind1" => $_POST['riderID'],
+            ":bind2" => $_POST['bikeID']
+        );
+        $alltuples = array(
+            $tuple
+        );
+
+        if ($_POST['riderID'] != "" && $_POST['bikeID'] == "") {
+            $result = executeResultBoundSQL("SELECT MI.RIDER_ID, R.NAME, R.PHONE_NUM, B.BIKE_ID, B.LATITUDE, B.LONGITUDE, MI.ISSUEDATETIME, MI.ISSUE_DESCRIPTION, MI.TECHNICIAN_ID, MT.NAME, MI.TECHNICIAN_NOTES, MI.RESOLVED_DATE
+                                                    FROM BIKE B, RIDER R, MAINTENANCE_ISSUE MI, MAINTENANCE_TECHNICIAN MT
+                                                    WHERE MI.TECHNICIAN_ID = MT.EMPLOYEE_ID AND MI.BIKE_ID = B.BIKE_ID AND MI.RIDER_ID = R.RIDER_ID AND MI.RIDER_ID = :bind1
+                                                    ORDER BY " . $_POST['sortBy'], $alltuples);
+        } else if ($_POST['riderID'] == "" && $_POST['bikeID'] != "") {
+            $result = executeResultBoundSQL("SELECT MI.RIDER_ID, R.NAME, R.PHONE_NUM, B.BIKE_ID, B.LATITUDE, B.LONGITUDE, MI.ISSUEDATETIME, MI.ISSUE_DESCRIPTION, MI.TECHNICIAN_ID, MT.NAME, MI.TECHNICIAN_NOTES, MI.RESOLVED_DATE
+                                                    FROM BIKE B, RIDER R, MAINTENANCE_ISSUE MI, MAINTENANCE_TECHNICIAN MT
+                                                    WHERE MI.TECHNICIAN_ID = MT.EMPLOYEE_ID AND MI.BIKE_ID = B.BIKE_ID AND MI.RIDER_ID = R.RIDER_ID AND MI.BIKE_ID = :bind2
+                                                    ORDER BY " . $_POST['sortBy'], $alltuples);
+        } else if ($_POST['riderID'] != "" && $_POST['bikeID'] != "") {
+            $result = executeResultBoundSQL("SELECT MI.RIDER_ID, R.NAME, R.PHONE_NUM, B.BIKE_ID, B.LATITUDE, B.LONGITUDE, MI.ISSUEDATETIME, MI.ISSUE_DESCRIPTION, MI.TECHNICIAN_ID, MT.NAME, MI.TECHNICIAN_NOTES, MI.RESOLVED_DATE
+                                                    FROM BIKE B, RIDER R, MAINTENANCE_ISSUE MI, MAINTENANCE_TECHNICIAN MT
+                                                    WHERE MI.TECHNICIAN_ID = MT.EMPLOYEE_ID AND MI.BIKE_ID = B.BIKE_ID AND MI.RIDER_ID = R.RIDER_ID AND MI.RIDER_ID = :bind1 AND MI.BIKE_ID = :bind2
+                                                    ORDER BY " . $_POST['sortBy'], $alltuples);
+        } else {
+            $result = executePlainSQL("SELECT MI.RIDER_ID, R.NAME, R.PHONE_NUM, B.BIKE_ID, B.LATITUDE, B.LONGITUDE, MI.ISSUEDATETIME, MI.ISSUE_DESCRIPTION, MI.TECHNICIAN_ID, MT.NAME, MI.TECHNICIAN_NOTES, MI.RESOLVED_DATE
+                                                    FROM BIKE B, RIDER R, MAINTENANCE_ISSUE MI, MAINTENANCE_TECHNICIAN MT
+                                                    WHERE MI.TECHNICIAN_ID = MT.EMPLOYEE_ID AND MI.BIKE_ID = B.BIKE_ID AND MI.RIDER_ID = R.RIDER_ID
+                                                    ORDER BY " . $_POST['sortBy']);
+        }
+
+        $columnNames = array("Rider ID", "Rider Name", "Phone Number", "Bike ID", "Latitude", "Longitude", "Issue Date(YY-MM-DD)/Time(HH-MM-SS)", "Issue Description", "Technician ID", "Technician Name", "Technician Notes", "Resolved Date");
+        printTable($result, $columnNames);
+    }
+
+    // Commit to save changes...
+    OCILogoff($db_conn);
+} else {
+    echo "cannot connect";
+    $e = OCI_Error(); // For OCILogon errors pass no handle
+    echo htmlentities($e['message']);
+}
+
+?>
