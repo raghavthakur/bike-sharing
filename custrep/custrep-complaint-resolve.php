@@ -27,7 +27,7 @@
             <li><span class="dot"></span><a href="../login.html">Login</a></li>
             <li class="submenu"><span>&gt; </span><a href="../rider/rider-mainpage.html">Rider</a></li>
             <li class="submenu active"><span>&gt; </span><a class="active" href="custrep-mainpage.php">Customer
-                Service</a></li>
+                    Service</a></li>
             <li class="submenu"><span>&gt; </span><a href="../technician/technician-mainpage.html">Maintenance Tech.</a>
             </li>
             <li><span class="dot"></span><a href="../about.html">About</a></li>
@@ -121,16 +121,16 @@ if ($db_conn) {
         } else {
             echo "<h1 style='color: red'>Error! Enter Customer Rep ID and Complaint ID.</h1>";
         }
+    }
 
-        $result = executePlainSQL("SELECT C.COMPLAINT_ID, C.RIDER_ID, R.NAME, C.CUSTOMER_REP_ID, CSR.NAME, C.CUST_DESCRIPTION, C.AGENT_NOTES, C.URGENCY_LEVEL, C.COMPLAINTDATETIME, C.ACTION_TAKEN, C.IS_RESOLVED
+    $result = executePlainSQL("SELECT C.COMPLAINT_ID, C.RIDER_ID, R.NAME, C.CUSTOMER_REP_ID, CSR.NAME, C.CUST_DESCRIPTION, C.AGENT_NOTES, C.URGENCY_LEVEL, C.COMPLAINTDATETIME, C.ACTION_TAKEN, C.IS_RESOLVED
                                                     FROM COMPLAINT C, RIDER R, CUSTOMER_SERVICE_REP CSR
                                                     WHERE C.RIDER_ID = R.RIDER_ID AND C.CUSTOMER_REP_ID = CSR.EMPLOYEE_ID");
-        $columnNames = array("Complaint ID", "Rider ID", "Rider Name", "Customer Rep. ID", "Customer Rep. Name", "Complaint Description", "Customer Rep. Notes", "Level of Urgency", "Date(YY-MM-DD)/Time(HH-MM-SS)", "Action Taken", "Resolved?");
-        printTable($result, $columnNames);
+    $columnNames = array("Complaint ID", "Rider ID", "Rider Name", "Customer Rep. ID", "Customer Rep. Name", "Complaint Description", "Customer Rep. Notes", "Level of Urgency", "Date(YY-MM-DD)/Time(HH-MM-SS)", "Action Taken", "Resolved?");
+    printTable($result, $columnNames);
 
     // Commit to save changes...
     OCILogoff($db_conn);
-    }
 } else {
     echo "cannot connect";
     $e = OCI_Error(); // For OCILogon errors pass no handle
