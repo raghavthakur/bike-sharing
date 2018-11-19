@@ -99,9 +99,9 @@ if ($db_conn) {
             $tuple
         );
         $result = executeResultBoundSQL("SELECT RIDER_ID, NAME, CREDITCARDNO FROM RIDER WHERE RIDER_ID = :bind1", $alltuples);
+
         $columntable = array("Rider ID", "Name of Rider", "Credit Card Number");
         printTable($result, $columntable);
-        OCICommit($db_conn);
 
     }
     else {
