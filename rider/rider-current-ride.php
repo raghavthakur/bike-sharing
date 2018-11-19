@@ -1,4 +1,3 @@
-<!doctype html>
 <html lang="en">
 <head>
     <title>Bike Sharing</title>
@@ -52,7 +51,7 @@
                 <div>
                     <h3>RIDER - Current (Active) Ride</h3>
 
-                    <form method="POST" action="new-oracle-test.php">
+                    <form method="POST">
 
                         <p>
                             Logging in as...
@@ -86,3 +85,48 @@
     </div>
 </div>
 </html>
+
+<?php
+
+require "../server.php";
+include "../print-table.php";
+
+if ($db_conn) {
+
+    if (array_key_exists('getCurrentRentalInfo', $_POST)) {
+
+        $tuple = array(
+            ":bind1" => $_POST['rider_ID']
+        );
+        $alltuples = array(
+            $tuple
+        );
+
+        if ($_POST['rider_ID'] != "") {
+
+            $result = executePlainSQL("SELECT * FROM TRIP WHERE RIDER_ID = :bind1");
+
+            $columnNames = array("Complaint ID", "Rider ID", "Rider Name", "Customer Rep. ID", "Customer Rep. Name", "Complaint Description", "Customer Rep. Notes", "Level of Urgency", "Date(YY-MM-DD)/Time(HH-MM-SS)", "Action Taken", "Resolved?");
+            printTable($result, $columnNames);
+
+            echo "<h1 style='color: black'>Showing trip for Rider ID: " . $_POST['rider_ID'] . " !</h1>";
+        } else {
+            echo "<h1 style='color: red'>Error! Enter Rider ID.</h1>";
+        }
+    } else {
+
+        $result = executePlainSQL("SELECT RIDER_ID FROM TRIP");
+
+        $columnNames = array("Rider ID");
+        printTable($result, $columnNames);
+    }
+
+    // Commit to save changes...
+    OCILogoff($db_conn);
+} else {
+    echo "cannot connect";
+    $e = OCI_Error(); // For OCILogon errors pass no handle
+    echo htmlentities($e['message']);
+}
+
+?>
