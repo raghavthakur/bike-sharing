@@ -133,7 +133,7 @@ if ($db_conn) {
                                                     ORDER BY " . $_POST['sortBy']);
         }
 
-        $columnNames = array("Rider ID", "Rider Name", "Phone Number", "Bike ID", "Latitude", "Longitude", "Issue Date(YY-MM-DD)/Time(HH-MM-SS)", "Technician ID", "Technician Notes", "Resolved Date");
+        $columnNames = array("Rider ID", "Rider Name", "Phone Number", "Bike ID", "Latitude", "Longitude", "Issue Date(YY-MM-DD)/Time(HH-MM-SS)", "Issue Description", "Technician ID", "Technician Name", "Technician Notes", "Resolved Date");
         printTable($result, $columnNames);
     }
 
