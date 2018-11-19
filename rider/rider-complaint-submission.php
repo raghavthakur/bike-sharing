@@ -121,7 +121,7 @@ if ($db_conn) {
 
         if ($_POST['rider_ID'] != "" && $_POST['cust_rep_ID'] != "" && $_POST['description'] != "") {
 
-            $maxID = executePlainSQL("SELECT MAX(EMPLOYEE_ID) FROM COMPLAINT");
+            $maxID = executePlainSQL("SELECT MAX(EMPLOYEE_ID) FROM CUSTOMER_SERVICE_REP");
 
             executeBoundSQL("INSERT INTO COMPLAINT VALUES ('$maxID' + 1, :bind1, :bind2, :bind3, null, :bind4, '$date', NULL, 'N')", $alltuples);
 
