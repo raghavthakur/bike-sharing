@@ -82,7 +82,7 @@ function createTables()
 	resolved_date		date,
 	bike_ID				INTEGER,
 	rider_ID			INTEGER NOT NULL,
-	technician_ID		INTEGER NOT NULL,
+	technician_ID		INTEGER,
 	PRIMARY KEY (issueDateTime, bike_ID),
 	FOREIGN KEY (bike_ID) REFERENCES Bike(bike_ID) ON DELETE CASCADE,
 	FOREIGN KEY (rider_ID) REFERENCES Rider(rider_ID) ON DELETE CASCADE,

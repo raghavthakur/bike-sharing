@@ -68,7 +68,7 @@
                         <p>
                             Describe the maintenance issue here: <br>
                             <textarea name="description" rows="5"
-                                      cols="40">Use PHP to get the contents of this textarea</textarea>
+                                      cols="40"></textarea>
                         </p>
 
                         <input type="submit" value="Submit Issue" name="submitIssue">
@@ -97,6 +97,8 @@
 require "../server.php";
 include "../print-table.php";
 
+$date = date("y-m-d h:i:s");
+
 // Connect Oracle...
 if ($db_conn) {
 
@@ -112,7 +114,7 @@ if ($db_conn) {
         );
 
         if ($_POST['rider_ID'] != "" && $_POST['bikeID'] != "" && $_POST['description'] != "") {
-            executeBoundSQL("INSERT INTO MAINTENANCE_ISSUE VALUES (NULL, :bind3, NULL, NULL, :bind1, :bind2, NULL)", $alltuples);
+            executeBoundSQL("INSERT INTO MAINTENANCE_ISSUE VALUES ('$date', :bind3, NULL, NULL, :bind1, :bind2, NULL)", $alltuples);
 
             OCICommit($db_conn);
 
