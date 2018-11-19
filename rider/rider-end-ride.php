@@ -106,24 +106,24 @@ if ($db_conn) {
 
             OCICommit($db_conn);
 
+            $result = executePlainSQL("SELECT * FROM TRIP ORDER BY TRIP_ID");
+
+            $tripColumnNames = array("Trip ID", "Rider ID", "Bike ID", "End Location ID", "Start Time",
+                "End Time", "Tokens Due", "Start Latitude", "Start Longitude", "End Latitude",
+                "End Longitude");
+            printTable($result, $tripColumnNames);
+
         } else {
             echo "<h1 style='color: red'>Please fill in all fields!</h1>";
         }
-
-        $result = executePlainSQL("SELECT * FROM TRIP ORDER BY TRIP_ID");
-
-        $columnNames = array("Trip ID", "Rider ID", "Bike ID", "End Location ID", "Start Time",
-            "End Time", "Tokens Due", "Start Latitude", "Start Longitude", "End Latitude",
-            "End Longitude");
-        printTable($result, $columnNames);
     }
 
     else {
 
-        $result = executePlainSQL("SELECT T.TRIP_ID, T.RIDER_ID FROM TRIP T WHERE NOT ((T.START_DATETIME IS NOT NULL AND END_DATETIME IS NOT NULL) OR START_DATETIME IS NULL"));
+        $availableTrips = executePlainSQL("SELECT T.TRIP_ID, T.RIDER_ID FROM TRIP T WHERE NOT ((T.START_DATETIME IS NOT NULL AND END_DATETIME IS NOT NULL) OR START_DATETIME IS NULL"));
 
         $columnNames = array("Active Trip ID", "Rider ID");
-        printTable($result, $columnNames);
+        printTable($availableTrips, $columnNames);
     }
 
     if (!$success) {
