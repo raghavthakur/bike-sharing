@@ -68,20 +68,16 @@
                         <p>
                             If you have any notes about the complaint, enter them here: <br>
                             <textarea name="agentNotes" rows="5"
-                                      cols="40">Use PHP to get the contents of this textarea</textarea>
+                                      cols="40">Please enter your notes.</textarea>
                         </p>
 
                         <p>
                             What action is being taken to resolve this complaint? <br>
                             <textarea name="actionTaken" rows="5"
-                                      cols="40">Use PHP to get the contents of this textarea</textarea>
+                                      cols="40">Please enter your action.</textarea>
                         </p>
 
                         <input type="submit" value="Resolve Complaint" name="resolveComplaint">
-
-                        <p>
-                            Display a confirmation message here.
-                        </p>
 
                     </form>
                 </div>
@@ -117,13 +113,13 @@ if ($db_conn) {
             $tuple
         );
 
-        if ($_POST['cust_rep_ID'] != "" && $_POST['complaint_ID'] != "" && $_POST['agentNotes'] != "" && $_POST['actionTaken'] != "") {
+        if ($_POST['cust_rep_ID'] != "" && $_POST['complaint_ID'] != "") {
             executeBoundSQL("UPDATE COMPLAINT SET IS_RESOLVED = 'Y', AGENT_NOTES = :bind3, ACTION_TAKEN = :bind4 WHERE CUSTOMER_REP_ID = :bind1 AND COMPLAINT_ID = :bind2", $alltuples);
             OCICommit($db_conn);
         } else {
-            echo "<h1 style='color: red'>Error! All fields must be filled.</h1>";
+            echo "<h1 style='color: red'>Error! Enter Customer Rep ID and Complaint ID.</h1>";
         }
-
+        echo "<h1 style='color: black'>The complaint " . $_POST['complaint_ID'] . " has been resolved!</h1>";
         }
 
         $result = executePlainSQL("SELECT C.COMPLAINT_ID, C.RIDER_ID, R.NAME, C.CUSTOMER_REP_ID, CSR.NAME, C.CUST_DESCRIPTION, C.AGENT_NOTES, C.URGENCY_LEVEL, C.COMPLAINTDATETIME, C.ACTION_TAKEN, C.IS_RESOLVED
