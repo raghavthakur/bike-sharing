@@ -89,7 +89,7 @@ include "../print-table.php";
 // Connect Oracle...
 if ($db_conn) {
 
-    if (array_key_exists('deleteRider', $_POST)) {
+    if (array_key_exists('getPersonalInfo', $_POST)) {
         //include '../debugger.php';
         // Delete tuple using data from user
         $tuple = array(
