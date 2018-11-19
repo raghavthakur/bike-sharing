@@ -114,7 +114,7 @@ if ($db_conn) {
         );
 
         if ($_POST['rider_ID'] != "" && $_POST['bikeID'] != "" && $_POST['description'] != "") {
-            executeBoundSQL("INSERT INTO MAINTENANCE_ISSUE VALUES ('$date', :bind3, NULL, NULL, :bind1, :bind2, NULL)", $alltuples);
+            executeBoundSQL("INSERT INTO MAINTENANCE_ISSUE VALUES ('$date', :bind3, NULL, NULL, :bind1, :bind2, '00000011')", $alltuples);
 
             OCICommit($db_conn);
 
