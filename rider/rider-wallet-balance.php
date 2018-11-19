@@ -98,7 +98,7 @@ if ($db_conn) {
         $alltuples = array(
             $tuple
         );
-        executeResultBoundSQL("SELECT NAME, ECOINS FROM RIDER WHERE RIDER_ID = :bind1", $alltuples);
+        $result = executeResultBoundSQL("SELECT NAME, ECOINS FROM RIDER WHERE RIDER_ID = :bind1", $alltuples);
         OCICommit($db_conn);
 
     }
@@ -110,7 +110,6 @@ if ($db_conn) {
     }
 
     echo "<h1 style='color: black'>Rider's eCoins balance</h1>";
-    $result = executePlainSQL("SELECT RIDER_ID, NAME, ECOINS FROM RIDER WHERE RIDER_ID=:bind1");
 
     $riderTable = array("Rider ID", "Name of Rider", "eCoins");
     printTable($result, $riderTable);
