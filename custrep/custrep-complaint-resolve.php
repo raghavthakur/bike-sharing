@@ -68,13 +68,13 @@
                         <p>
                             If you have any notes about the complaint, enter them here: <br>
                             <textarea name="agentNotes" rows="5"
-                                      cols="40">Please enter your notes.</textarea>
+                                      cols="40"></textarea>
                         </p>
 
                         <p>
                             What action is being taken to resolve this complaint? <br>
                             <textarea name="actionTaken" rows="5"
-                                      cols="40">Please enter your action.</textarea>
+                                      cols="40"></textarea>
                         </p>
 
                         <input type="submit" value="Resolve Complaint" name="resolveComplaint">
@@ -117,7 +117,7 @@ if ($db_conn) {
             executeBoundSQL("UPDATE COMPLAINT SET IS_RESOLVED = 'Y', AGENT_NOTES = :bind3, ACTION_TAKEN = :bind4 WHERE CUSTOMER_REP_ID = :bind1 AND COMPLAINT_ID = :bind2", $alltuples);
             OCICommit($db_conn);
 
-            echo "<h1 style='color: black'>The Complaint ID = " . $_POST['complaint_ID'] . " has been resolved!</h1>";
+            echo "<h1 style='color: black'>The Complaint ID: " . $_POST['complaint_ID'] . " has been resolved!</h1>";
         } else {
             echo "<h1 style='color: red'>Error! Enter Customer Rep ID and Complaint ID.</h1>";
         }
