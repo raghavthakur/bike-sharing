@@ -100,7 +100,7 @@ if ($db_conn) {
             $tuple
         );
 
-        if ($_POST['deletePart'] != "") {
+        if ($_POST['partIDToDelete'] != "") {
             executeBoundSQL("DELETE FROM REPLACEMENT_PART WHERE PARTNO = :bind1", $alltuples);
             OCICommit($db_conn);
 
