@@ -112,6 +112,11 @@ if ($db_conn) {
             echo "<h1 style='color: black'>Showing trip for Rider ID: " . $_POST['rider_ID'] . " !</h1>";
         } else {
             echo "<h1 style='color: red'>Error! Enter Rider ID.</h1>";
+
+            $result = executePlainSQL("SELECT RIDER_ID FROM TRIP");
+
+            $columnNames = array("Rider ID");
+            printTable($result, $columnNames);
         }
     } else {
 
