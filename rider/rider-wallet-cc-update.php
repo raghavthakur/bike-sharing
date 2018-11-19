@@ -138,11 +138,6 @@ if ($db_conn) {
         printResult($result);
         OCICommit($db_conn);
 
-    } else {
-        $result = executePlainSQL("SELECT NAME, CREDITCARDNO, CREDITCARDEXP FROM RIDER WHERE RIDER_ID = :bind1");
-
-        $riderTable = array("Name of Rider", "Credit Card Number", "Credit Card Expiry");
-        printTable($result, $riderTable);
     }
     if ($_POST && $success) {
         echo "<h1 style='color: black'>Rider's credit card information has been updated</h1>";
