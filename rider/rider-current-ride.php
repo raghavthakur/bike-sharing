@@ -65,12 +65,6 @@
 
                         <input type="submit" value="Get Info About Current Rental" name="getCurrentRentalInfo">
 
-                        <p>
-                            A table which displays information about the rider's current active rental. There should
-                            also be a "Total Cost" column. If they don't have a current active rental, a message
-                            should be displayed to tell them that they don't have an active rental.
-                        </p>
-
                     </form>
                 </div>
             </main>

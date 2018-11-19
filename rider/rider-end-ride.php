@@ -62,10 +62,6 @@
 
                         <input type="submit" value="End Rental" name="endRental">
 
-                        <p>
-                            Display a confirmation message here to say that their ride has been ended.
-                        </p>
-
                     </form>
                 </div>
             </main>
