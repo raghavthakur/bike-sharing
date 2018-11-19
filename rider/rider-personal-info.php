@@ -52,7 +52,7 @@
                 <div>
                     <h3>RIDER - Personal Information</h3>
 
-                    <form method="POST" action="new-oracle-test.php">
+                    <form method="POST">
 
                         <p>
                             Logging in as...
@@ -98,18 +98,16 @@ if ($db_conn) {
         $alltuples = array(
             $tuple
         );
-        executeBoundSQL("SELECT NAME, EMAIL, PHONE_NUM, ADDRESS FROM RIDER WHERE RIDER_ID = :bind1", $alltuples);
+        $result = executeResultBoundSQL("SELECT RIDER_ID, NAME, EMAIL, PHONE_NUM, ADDRESS FROM RIDER WHERE RIDER_ID = :bind1", $alltuples);
         OCICommit($db_conn);
 
-        $result = executePlainSQL("SELECT NAME, EMAIL, PHONE_NUM, ADDRESS FROM RIDER WHERE RIDER_ID = :bind1");
-
-        $columnNames = array("Name of Rider", "Email", "Phone Number", "Address");
+        $columnNames = array("Rider ID", "Name of Rider", "Email", "Phone Number", "Address");
         printTable($result, $columnNames);
 
     } else {
-        $default = executePlainSQL("SELECT NAME, EMAIL, PHONE_NUM, ADDRESS FROM RIDER");
+        $default = executePlainSQL("SELECT RIDER_ID, NAME, EMAIL, PHONE_NUM, ADDRESS FROM RIDER");
 
-        $riderTable = array("Name of Rider", "Email", "Phone Number", "Address");
+        $riderTable = array("Rider ID","Name of Rider", "Email", "Phone Number", "Address");
         printTable($default, $riderTable);
     }
 
