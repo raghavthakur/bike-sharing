@@ -65,12 +65,12 @@
                         </p>
 
                         <p>
-                            Credit Card Number:
+                            New Credit Card Number:
                             <input type="number" name="ccNumber" size="20">
                         </p>
 
                         <p>
-                            Credit Card Expiry:
+                            New Credit Card Expiry:
                             <select name="ccExpiryMonth" id="ccExpiryMonth">
                                 <option value="01">January</option>
                                 <option value="02">February</option>
@@ -138,7 +138,7 @@ if ($db_conn) {
         OCICommit($db_conn);
 
         echo "<h1 style='color: black'>Rider's credit card information has been updated</h1>";
-        $result = executePlainSQL("SELECT RIDER_ID, NAME, CREDITCARDNO, CREDITCARDEXP FROM RIDER WHERE RIDER_ID = . $POST['rider_ID']");
+        $result = executePlainSQL("SELECT RIDER_ID, NAME, CREDITCARDNO, CREDITCARDEXP FROM RIDER");
 
         $riderTable = array("Rider ID", "Name of Rider", "Credit Card Number", "Credit Card Expiry");
         printTable($result, $riderTable);
