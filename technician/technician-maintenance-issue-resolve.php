@@ -51,7 +51,7 @@
                 <div>
                     <h3>MAINTENANCE TECHNICIAN - Resolve a Maintenance Issue</h3>
 
-                    <form method="POST" action="new-oracle-test.php">
+                    <form method="POST">
 
                         <p>
                             Logging in as...
@@ -72,14 +72,10 @@
                         <p>
                             If you have any notes about the repair, enter them here: <br>
                             <textarea name="technicianNotes" rows="5"
-                                      cols="40">Use PHP to get the contents of this textarea</textarea>
+                                      cols="40"></textarea>
                         </p>
 
                         <input type="submit" value="Resolve Issue" name="resolveIssue">
-
-                        <p>
-                            Display a confirmation message here.
-                        </p>
 
                     </form>
                 </div>
@@ -95,3 +91,53 @@
     </div>
 </div>
 </html>
+
+<?php
+
+require "../server.php";
+include "../print-table.php";
+
+$datetime = new DateTime();
+$date = date('y:m:d', strtotime($date));
+echo $date;
+
+
+if ($db_conn) {
+
+    if (array_key_exists('resolveIssue', $_POST)) {
+
+        $tuple = array(
+            ":bind1" => $_POST['technician_ID'],
+            ":bind2" => $_POST['issueID'],
+            ":bind3" => $_POST['partNo'],
+            ":bind4" => $_POST['technicianNotes']
+        );
+        $alltuples = array(
+            $tuple
+        );
+
+        if ($_POST['technician_ID'] != "" && $_POST['issueID'] != "") {
+            executeBoundSQL("UPDATE MAINTENANCE_ISSUE SET IS_RESOLVED = 'Y', AGENT_NOTES = :bind3, ACTION_TAKEN = :bind4 WHERE CUSTOMER_REP_ID = :bind1 AND COMPLAINT_ID = :bind2", $alltuples);
+            OCICommit($db_conn);
+
+            echo "<h1 style='color: black'>The Complaint ID: " . $_POST['complaint_ID'] . " has been resolved!</h1>";
+        } else {
+            echo "<h1 style='color: red'>Error! Enter Customer Rep ID and Complaint ID.</h1>";
+        }
+    }
+
+    $result = executePlainSQL("SELECT C.COMPLAINT_ID, C.RIDER_ID, R.NAME, C.CUSTOMER_REP_ID, CSR.NAME, C.CUST_DESCRIPTION, C.AGENT_NOTES, C.URGENCY_LEVEL, C.COMPLAINTDATETIME, C.ACTION_TAKEN, C.IS_RESOLVED
+                                                    FROM COMPLAINT C, RIDER R, CUSTOMER_SERVICE_REP CSR
+                                                    WHERE C.RIDER_ID = R.RIDER_ID AND C.CUSTOMER_REP_ID = CSR.EMPLOYEE_ID");
+    $columnNames = array("Complaint ID", "Rider ID", "Rider Name", "Customer Rep. ID", "Customer Rep. Name", "Complaint Description", "Customer Rep. Notes", "Level of Urgency", "Date(YY-MM-DD)/Time(HH-MM-SS)", "Action Taken", "Resolved?");
+    printTable($result, $columnNames);
+
+    // Commit to save changes...
+    OCILogoff($db_conn);
+} else {
+    echo "cannot connect";
+    $e = OCI_Error(); // For OCILogon errors pass no handle
+    echo htmlentities($e['message']);
+}
+
+?>
