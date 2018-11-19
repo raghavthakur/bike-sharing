@@ -68,7 +68,7 @@
                         <p>
                             Describe the maintenance issue here: <br>
                             <textarea name="description" rows="5"
-                                      cols="40">Use PHP to get the contents of this textarea</textarea>
+                                      cols="40"></textarea>
                         </p>
 
                         <input type="submit" value="Submit Issue" name="submitIssue">
