@@ -124,9 +124,29 @@ if ($db_conn) {
         }
     }
 
-    $result = executePlainSQL("SELECT MI.RIDER_ID, R.NAME, R.PHONE_NUM, B.BIKE_ID, B.LATITUDE, B.LONGITUDE, MI.ISSUEDATETIME, MI.ISSUE_DESCRIPTION, MI.TECHNICIAN_ID, MT.NAME, MI.TECHNICIAN_NOTES, MI.RESOLVED_DATE, RP.PARTNO, RP.PART_NAME, RP.QUANTITY
-                                                    FROM BIKE B, RIDER R, MAINTENANCE_ISSUE MI, MAINTENANCE_TECHNICIAN MT, REPLACEMENT_PART RP
-                                                    WHERE MI.TECHNICIAN_ID = MT.EMPLOYEE_ID AND MI.BIKE_ID = B.BIKE_ID AND MI.RIDER_ID = R.RIDER_ID");
+    $result = executePlainSQL("SELECT MI.RIDER_ID,
+       R.NAME,
+       R.PHONE_NUM,
+       B.BIKE_ID,
+       B.LATITUDE,
+       B.LONGITUDE,
+       MI.ISSUEDATETIME,
+       MI.ISSUE_DESCRIPTION,
+       MI.TECHNICIAN_ID,
+       MT.NAME,
+       MI.TECHNICIAN_NOTES,
+       MI.RESOLVED_DATE,
+       RP.PARTNO,
+       RP.PART_NAME,
+       RP.QUANTITY
+FROM MAINTENANCE_ISSUE MI
+       JOIN MAINTENANCE_TECHNICIAN MT ON MI.TECHNICIAN_ID = MT.EMPLOYEE_ID
+       JOIN BIKE B ON MI.BIKE_ID = B.BIKE_ID
+       JOIN RIDER R ON MI.RIDER_ID = R.RIDER_ID
+       JOIN ISSUE_REQUIRES_PART IRP ON MI.ISSUEDATETIME = IRP.ISSUEDATETIME AND MI.BIKE_ID = IRP.BIKE_ID
+       JOIN REPLACEMENT_PART RP ON IRP.PARTNO = RP.PARTNO");
+
+
     $columnNames = array("Rider ID", "Rider Name", "Phone Number", "Bike ID", "Latitude", "Longitude", "Issue Date(YY-MM-DD)/Time(HH-MM-SS)", "Issue Description", "Technician ID", "Technician Name", "Technician Notes", "Resolved Date", "Part No.", "Part Name", "Quantity");
     printTable($result, $columnNames);
 
