@@ -128,13 +128,14 @@ if ($db_conn) {
         $tuple = array(
             ":bind1" => $_POST['rider_ID'],
             ":bind2" => $_POST['ccNumber'],
-            ":bind3" => $_POST['ccExpiryMonth.ccExpiryYear']
-
+            ":bind3" => $_POST['ccExpiryMonth'],
+            ":bind4" => $_POST['ccExpiryYear']
         );
         $alltuples = array(
             $tuple
         );
-        executeBoundSQL("UPDATE RIDER SET CREDITCARDNO= :bind2, CREDITCARDEXP=:bind3 WHERE RIDER_ID = :bind1", $alltuples);
+        $expiry = $_POST['ccExpiryMonth'] . $_POST['ccExpiryYear'];
+        executeBoundSQL("UPDATE RIDER SET CREDITCARDNO= :bind2, CREDITCARDEXP=$expiry WHERE RIDER_ID = :bind1", $alltuples);
         OCICommit($db_conn);
 
         echo "<h1 style='color: black'>Rider's credit card information has been updated</h1>";
