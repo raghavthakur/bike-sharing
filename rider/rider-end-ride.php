@@ -100,8 +100,20 @@ if ($db_conn) {
             $tuple
         );
 
+        $maxID1 = executePlainSQL("SELECT MAX(END_LATITUDE) AS MAX FROM TRIP");
+        $row1 = OCI_Fetch_Array($maxID1, OCI_BOTH);
+        $endLat = $row1["MAX"] + 1;
+
+        $maxID2 = executePlainSQL("SELECT MAX(END_LATITUDE) AS MAX FROM TRIP");
+        $row2 = OCI_Fetch_Array($maxID2, OCI_BOTH);
+        $enLon = $row2["MAX"] + 1;
+
+        $maxID3 = executePlainSQL("SELECT MAX(END_LOCATION_ID) AS MAX FROM TRIP");
+        $row3 = OCI_Fetch_Array($maxID3, OCI_BOTH);
+        $enLoc = $row3["MAX"] + 1;
+
         if ($_POST['trip_ID'] != "") {
-            executeBoundSQL("UPDATE TRIP SET END_LOCATION_ID = 00000001, END_LATITUDE = 49.272614, END_LONGITUDE = -123.245232, END_DATETIME = '$date' WHERE TRIP_ID = :bind1", $alltuples);
+            executeBoundSQL("UPDATE TRIP SET END_LOCATION_ID = $enLoc, END_LATITUDE = $endLat, END_LONGITUDE = $enLon, END_DATETIME = '$date' WHERE TRIP_ID = :bind1", $alltuples);
 
             OCICommit($db_conn);
 
