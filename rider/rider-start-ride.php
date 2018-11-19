@@ -116,7 +116,7 @@ if ($db_conn) {
             $tuple
         );
 
-        if ($_POST['rider_ID'] != "") {
+        if ($_POST['rider_ID'] != "" && $_POST['bike_ID']) {
             executeBoundSQL("INSERT INTO TRIP VALUES (TRIP_ID, :bind1, :bind2, NULL, $date, NULL, NULL, 49.254523, -123.243173, NULL, NULL)", $alltuples);
             OCICommit($db_conn);
 
