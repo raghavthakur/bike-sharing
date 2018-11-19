@@ -102,6 +102,19 @@ if ($db_conn) {
         OCICommit($db_conn);
 
     }
+    else {
+        $result = executePlainSQL("SELECT * NAME, ECOINS FROM RIDER");
+
+        $riderTable = array("Name of Rider", "eCoins balance");
+        printTable($result, $riderTable);
+
+    if ($_POST && $success) {
+        echo "<h1 style='color: black'>Rider's personal information</h1>";
+        $result = executePlainSQL("SELECT NAME, ECOINS FROM RIDER WHERE RIDER_ID = :bind1");
+
+        $riderTable = array("Name of Rider", "eCoins balance");
+        printTable($result, $riderTable);
+
     // Commit to save changes...
     OCILogoff($db_conn);
 } else {
