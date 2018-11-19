@@ -118,9 +118,14 @@ if ($db_conn) {
             $tuple
         );
 
-        executeBoundSQL("INSERT INTO BIKE VALUES (:bind1, :bind2, :bind3, :bind4, :bind5)", $alltuples);
+        if ($_POST['bikeID'] != "" && $_POST['datePurchased'] != "" && $_POST['latitude'] != "" && $_POST['longitude'] != "") {
+            executeBoundSQL("INSERT INTO BIKE VALUES (:bind1, :bind2, :bind3, :bind4, :bind5)", $alltuples);
 
-        OCICommit($db_conn);
+            OCICommit($db_conn);
+            echo "<h1 style='color: black'>Bike ID: " . $_POST['bikeID'] . " has been added!</h1>";
+        } else {
+            echo "<h1 style='red: black'>Please fill in all fields!</h1>";
+        }
 
         // order bike table by bike purchase date to see newest bikes first
         $result = executePlainSQL("SELECT * FROM BIKE ORDER BY DATE_PURCHASED DESC");
