@@ -140,16 +140,16 @@ if ($db_conn) {
 
     }
     else {
-        $result = executePlainSQL("SELECT NAME, CREDITCARDNO FROM RIDER");
+        $result = executePlainSQL("SELECT RIDER_ID, NAME, CREDITCARDNO FROM RIDER");
 
-        $riderTable = array("Name of Rider", "Credit Card Number");
+        $riderTable = array("Rider ID", "Name of Rider", "Credit Card Number");
         printTable($result, $riderTable);
     }
     if ($_POST && $success) {
         echo "<h1 style='color: black'>Rider's credit card information has been updated</h1>";
-        $result = executePlainSQL("SELECT NAME, CREDITCARDNO, CREDITCARDEXP FROM RIDER WHERE RIDER_ID = :bind1");
+        $result = executePlainSQL("SELECT RIDER_ID, NAME, CREDITCARDNO, CREDITCARDEXP FROM RIDER WHERE RIDER_ID = :bind1");
 
-        $riderTable = array("Name of Rider", "Credit Card Number", "Credit Card Expiry");
+        $riderTable = array("Rider ID", "Name of Rider", "Credit Card Number", "Credit Card Expiry");
         printTable($result, $riderTable);
     } else if (!$success){
         echo "<h1 style='color: red'>Error!</h1>";

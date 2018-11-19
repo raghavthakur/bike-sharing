@@ -98,21 +98,21 @@ if ($db_conn) {
         $alltuples = array(
             $tuple
         );
-        executeBoundSQL("SELECT NAME, CREDITCARDNO FROM RIDER WHERE RIDER_ID = :bind1", $alltuples);
+        executeBoundSQL("SELECT RIDER_ID, NAME, CREDITCARDNO FROM RIDER WHERE RIDER_ID = :bind1", $alltuples);
         OCICommit($db_conn);
 
     }
     else {
-        $result = executePlainSQL("SELECT NAME, CREDITCARDNO FROM RIDER");
+        $result = executePlainSQL("SELECT RIDER_ID, NAME, CREDITCARDNO FROM RIDER");
 
-        $riderTable = array("Name of Rider", "Credit Card Number");
+        $riderTable = array("Rider ID", "Name of Rider", "Credit Card Number");
         printTable($result, $riderTable);
     }
     if ($_POST && $success) {
         echo "<h1 style='color: black'>Rider's personal information</h1>";
-        $result = executePlainSQL("SELECT NAME, CREDITCARDNO FROM RIDER WHERE RIDER_ID = :bind1");
+        $result = executePlainSQL("SELECT RIDER_ID NAME, CREDITCARDNO FROM RIDER WHERE RIDER_ID = :bind1");
 
-        $riderTable = array("Name of Rider", "Credit Card Number");
+        $riderTable = array("Rider ID", "Name of Rider", "Credit Card Number");
         printTable($result, $riderTable);
     } else if (!$success){
         echo "<h1 style='color: red'>Error!</h1>";
