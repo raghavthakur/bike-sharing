@@ -1,4 +1,3 @@
-<!doctype html>
 <html lang="en">
 <head>
     <title>Bike Sharing</title>
@@ -53,7 +52,7 @@
                 <div>
                     <h3>CUSTOMER SERVICE REP. - Resolve Complaint</h3>
 
-                    <form method="POST" action="new-oracle-test.php">
+                    <form method="POST">
 
                         <p>
                             Logging in as...
@@ -63,7 +62,7 @@
 
                         <p>
                             Enter the complaint ID resolve:
-                            <input type="number" name="issueID" size="20">
+                            <input type="number" name="complaint_ID" size="20">
                         </p>
 
                         <p>
@@ -98,3 +97,51 @@
     </div>
 </div>
 </html>
+
+<?php
+
+require "../server.php";
+include "../print-table.php";
+
+if ($db_conn) {
+
+    if (array_key_exists('viewAllComplaints', $_POST)) {
+
+        $tuple = array(
+            ":bind1" => $_POST['cust_rep_ID'],
+            ":bind2" => $_POST['complaint_ID'],
+            ":bind3" => $_POST['agentNotes'],
+            ":bind4" => $_POST['actionTaken']
+        );
+        $alltuples = array(
+            $tuple
+        );
+
+        if ($_POST['cust_rep_ID'] != "" && $_POST['complaint_ID'] != "" && $_POST['agentNotes'] != "" && $_POST['actionTaken'] != "") {
+            $result = executeResultBoundSQL("SELECT C.COMPLAINT_ID, C.RIDER_ID, R.NAME, C.CUSTOMER_REP_ID, CSR.NAME, C.CUST_DESCRIPTION, C.AGENT_NOTES, C.URGENCY_LEVEL, C.COMPLAINTDATETIME, C.ACTION_TAKEN, C.IS_RESOLVED
+                                                    FROM COMPLAINT C, RIDER R, CUSTOMER_SERVICE_REP CSR
+                                                    WHERE C.RIDER_ID = R.RIDER_ID AND C.CUSTOMER_REP_ID = CSR.EMPLOYEE_ID AND R.RIDER_ID = :bind1
+                                                    ORDER BY " . $_POST['sortBy'], $alltuples);
+        } else {
+            echo "<h1 style='color: red'>Error! All fields must be filled.</h1>";
+        }
+
+        $columnNames = array("Complaint ID", "Rider ID", "Rider Name", "Customer Rep. ID", "Customer Rep. Name", "Complaint Description", "Customer Rep. Notes", "Level of Urgency", "Date(YY-MM-DD)/Time(HH-MM-SS)", "Action Taken", "Resolved?");
+        printTable($result, $columnNames);
+    } else {
+        $result = executePlainSQL("SELECT C.COMPLAINT_ID, C.RIDER_ID, R.NAME, C.CUSTOMER_REP_ID, CSR.NAME, C.CUST_DESCRIPTION, C.AGENT_NOTES, C.URGENCY_LEVEL, C.COMPLAINTDATETIME, C.ACTION_TAKEN, C.IS_RESOLVED
+                                                    FROM COMPLAINT C, RIDER R, CUSTOMER_SERVICE_REP CSR
+                                                    WHERE C.RIDER_ID = R.RIDER_ID AND C.CUSTOMER_REP_ID = CSR.EMPLOYEE_ID");
+        $columnNames = array("Complaint ID", "Rider ID", "Rider Name", "Customer Rep. ID", "Customer Rep. Name", "Complaint Description", "Customer Rep. Notes", "Level of Urgency", "Date(YY-MM-DD)/Time(HH-MM-SS)", "Action Taken", "Resolved?");
+        printTable($result, $columnNames);
+    }
+
+    // Commit to save changes...
+    OCILogoff($db_conn);
+} else {
+    echo "cannot connect";
+    $e = OCI_Error(); // For OCILogon errors pass no handle
+    echo htmlentities($e['message']);
+}
+
+?>
