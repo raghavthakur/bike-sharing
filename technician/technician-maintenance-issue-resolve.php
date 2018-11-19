@@ -114,19 +114,19 @@ if ($db_conn) {
         );
 
         if ($_POST['technician_ID'] != "" && $_POST['issueID'] != "") {
-            executeBoundSQL("UPDATE MAINTENANCE_ISSUE SET RESOLVED_DATE = '$date', AGENT_NOTES = :bind3, ACTION_TAKEN = :bind4 WHERE CUSTOMER_REP_ID = :bind1 AND COMPLAINT_ID = :bind2", $alltuples);
+            executeBoundSQL("UPDATE MAINTENANCE_ISSUE SET RESOLVED_DATE = '$date', TECHNICIAN_NOTES = :bind4, WHERE TECHNICIAN_ID = :bind1", $alltuples);
             OCICommit($db_conn);
 
-            echo "<h1 style='color: black'>The Complaint ID: " . $_POST['complaint_ID'] . " has been resolved!</h1>";
+            echo "<h1 style='color: black'>The Complaint ID: " . $_POST['issueID'] . " has been resolved!</h1>";
         } else {
-            echo "<h1 style='color: red'>Error! Enter Customer Rep ID and Complaint ID.</h1>";
+            echo "<h1 style='color: red'>Error! Enter Technician ID and Issue ID.</h1>";
         }
     }
 
-    $result = executePlainSQL("SELECT C.COMPLAINT_ID, C.RIDER_ID, R.NAME, C.CUSTOMER_REP_ID, CSR.NAME, C.CUST_DESCRIPTION, C.AGENT_NOTES, C.URGENCY_LEVEL, C.COMPLAINTDATETIME, C.ACTION_TAKEN, C.IS_RESOLVED
-                                                    FROM COMPLAINT C, RIDER R, CUSTOMER_SERVICE_REP CSR
-                                                    WHERE C.RIDER_ID = R.RIDER_ID AND C.CUSTOMER_REP_ID = CSR.EMPLOYEE_ID");
-    $columnNames = array("Complaint ID", "Rider ID", "Rider Name", "Customer Rep. ID", "Customer Rep. Name", "Complaint Description", "Customer Rep. Notes", "Level of Urgency", "Date(YY-MM-DD)/Time(HH-MM-SS)", "Action Taken", "Resolved?");
+    $result = executePlainSQL("SELECT MI.RIDER_ID, R.NAME, R.PHONE_NUM, B.BIKE_ID, B.LATITUDE, B.LONGITUDE, MI.ISSUEDATETIME, MI.ISSUE_DESCRIPTION, MI.TECHNICIAN_ID, MT.NAME, MI.TECHNICIAN_NOTES, MI.RESOLVED_DATE
+                                                    FROM BIKE B, RIDER R, MAINTENANCE_ISSUE MI, MAINTENANCE_TECHNICIAN MT
+                                                    WHERE MI.TECHNICIAN_ID = MT.EMPLOYEE_ID AND MI.BIKE_ID = B.BIKE_ID AND MI.RIDER_ID = R.RIDER_ID");
+    $columnNames = array("Rider ID", "Rider Name", "Phone Number", "Bike ID", "Latitude", "Longitude", "Issue Date(YY-MM-DD)/Time(HH-MM-SS)", "Issue Description", "Technician ID", "Technician Name", "Technician Notes", "Resolved Date");
     printTable($result, $columnNames);
 
     // Commit to save changes...
