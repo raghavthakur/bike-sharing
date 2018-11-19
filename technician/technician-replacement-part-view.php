@@ -95,20 +95,19 @@ if ($db_conn) {
         $alltuples = array(
             $tuple
         );
-        $result = executeResultBoundSQL("SELECT * FROM REPLACEMENT_PART WHERE PARTNO = :bind1", $alltuples);
+
+        if ($_POST['partID'] != "") {
+            $result = executeResultBoundSQL("SELECT * FROM REPLACEMENT_PART WHERE PARTNO = :bind1", $alltuples);
+        } else {
+            $result = executePlainSQL("SELECT * FROM REPLACEMENT_PART ORDER BY PARTNO");
+            echo "<h1 style='color: black'>Here are all the replacement parts!</h1>";
+        }
 
         $columnNames = array("Part ID", "Part Name", "Quantity");
         printTable($result, $columnNames);
     }
-    else {
-        $result = executePlainSQL("SELECT * FROM REPLACEMENT_PART ORDER BY PARTNO");
 
-        $columnNames = array("Part ID", "Part Name", "Quantity");
-        printTable($result, $columnNames);
-    }
-    if ($_POST && $success) {
-        echo "<h1 style='color: black'>Here are all the replacement parts!</h1>";
-    } else if (!$success){
+   if (!$success){
         echo "<h1 style='color: red'>Error!</h1>";
     }
 
