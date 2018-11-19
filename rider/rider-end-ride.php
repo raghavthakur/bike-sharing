@@ -56,7 +56,7 @@
                         <p>
                             Ending ride...
                             <input type="number" name="trip_ID" size="20">
-                            (enter a rider_ID)
+                            (enter a trip_ID)
                         </p>
 
                         <p>Thanks for riding with us!</p>
@@ -124,10 +124,6 @@ if ($db_conn) {
 
         $columnNames = array("Active Trip ID", "Rider ID");
         printTable($availableTrips, $columnNames);
-    }
-
-    if (!$success) {
-        echo "<h1 style='color: red'>Error!</h1>";
     }
 
     // Commit to save changes...
