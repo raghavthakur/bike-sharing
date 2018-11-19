@@ -61,10 +61,6 @@
 
                         <input type="submit" value="Get Wallet Balance" name="getWalletBalance">
 
-                        <p>
-                            Current token total displayed here...
-                        </p>
-
                     </form>
                 </div>
             </main>

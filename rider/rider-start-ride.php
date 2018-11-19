@@ -64,24 +64,6 @@
 
                         <input type="submit" value="Start Rental" name="startRental">
 
-
-                        <p>
-                            Note that a rider shouldn't be allowed to rent a bike if they currently have an active bike
-                            rental. They must return the other bike first. We should show an error message if they try
-                            to do this. <br> <br>
-                            IMPORTANT: In our formal spec document, under Deliverable 11, we said that we would create
-                            a VIEW for Riders for the Bike table. Riders are only allowed to see bike_ID, latitude,
-                            and longitude. The VIEW would prevent them from seeing other things. On the other hand,
-                            since it is not possible for a Rider to access that information using our input boxes above,
-                            the VIEW is not really necessary, but I guess we have to do it because of the project
-                            requirements.
-                        </p>
-
-                        <p>
-                            Display a confirmation message here to indicate that the ride has started - or display an
-                            error message otherwise.
-                        </p>
-
                     </form>
                 </div>
             </main>
