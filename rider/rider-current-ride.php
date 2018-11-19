@@ -104,7 +104,7 @@ if ($db_conn) {
 
         if ($_POST['rider_ID'] != "") {
 
-            $result = executePlainSQL("SELECT * FROM TRIP WHERE RIDER_ID = " . $_POST['rider_ID']);
+            $result = executePlainSQL("SELECT * FROM TRIP WHERE END_DATETIME IS NULL AND RIDER_ID = " . $_POST['rider_ID']);
 
             $columnNames = array("Trip ID", "Rider ID", "Bike ID", "End Location", "Start Date Time", "End Date Time", "Tokens Due", "Start Latitude", "Start Longitude", "End Latitude", "End Longitude");
 
