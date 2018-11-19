@@ -97,6 +97,8 @@
 require "../server.php";
 include "../print-table.php";
 
+$date = date("y-m-d h:i:s");
+
 // Connect Oracle...
 if ($db_conn) {
 
@@ -112,7 +114,7 @@ if ($db_conn) {
         );
 
         if ($_POST['rider_ID'] != "" && $_POST['bikeID'] != "" && $_POST['description'] != "") {
-            executeBoundSQL("INSERT INTO MAINTENANCE_ISSUE VALUES (NULL, :bind3, NULL, NULL, :bind1, :bind2, NULL)", $alltuples);
+            executeBoundSQL("INSERT INTO MAINTENANCE_ISSUE VALUES ('$date', :bind3, NULL, NULL, :bind1, :bind2, NULL)", $alltuples);
 
             OCICommit($db_conn);
 
