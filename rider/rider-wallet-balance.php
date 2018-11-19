@@ -89,7 +89,7 @@ include "../print-table.php";
 // Connect Oracle...
 if ($db_conn) {
 
-    if (array_key_exists('getCreditCardOnFile', $_POST)) {
+    if (array_key_exists('getWalletBalance', $_POST)) {
         //include '../debugger.php';
         // Delete tuple using data from user
         $tuple = array(
