@@ -10,7 +10,7 @@
 echo nl2br("Running debugger...\r\n");
 error_reporting(E_ALL);
 ini_set('display_errors', 1);
-//include 'custrep/custrep-mainpage.php';
+include 'rider/rider-end-ride.php';
 //include 'custrep/custrep-delete-rider.php';
 //include 'custrep/custrep-rider-info.php';
 //include 'print-table.php';

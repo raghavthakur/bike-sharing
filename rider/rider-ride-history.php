@@ -60,12 +60,7 @@
                             (enter a rider_ID)
                         </p>
 
-                        <p>Information about your previous rides:</p>
-
-                        <p>
-                            A table which displays information about all of the rider's previous rides. If they have an
-                            active rental at the moment, we should probably not include it in these results.
-                        </p>
+                        <input type="submit" value="Get Ride History" name="getRideHistory">
 
                     </form>
                 </div>
@@ -81,3 +76,42 @@
     </div>
 </div>
 </html>
+
+<?php
+
+require "../server.php";
+include "../print-table.php";
+
+if ($db_conn) {
+
+    if (array_key_exists('getRideHistory', $_POST)) {
+
+        $tuple = array(
+            ":bind1" => $_POST['rider_ID']
+        );
+        $alltuples = array(
+            $tuple
+        );
+
+        if ($_POST['rider_ID'] != "") {
+
+            $result = executePlainSQL("SELECT * FROM TRIP WHERE RIDER_ID = " . $_POST['rider_ID']);
+
+            $columnNames = array("Trip ID", "Rider ID", "Bike ID", "End Location", "Start Date Time", "End Date Time", "Tokens Due", "Start Latitude", "Start Longitude", "End Latitude", "End Longitude");
+
+            echo "<h1 style='color: black'>Showing trip for Rider ID: " . $_POST['rider_ID'] . " !</h1>";
+
+            printTable($result, $columnNames);
+        } else {
+            echo "<h1 style='color: red'>Error! Enter Rider ID.</h1>";
+        }
+    }
+    // Commit to save changes...
+    OCILogoff($db_conn);
+} else {
+    echo "cannot connect";
+    $e = OCI_Error(); // For OCILogon errors pass no handle
+    echo htmlentities($e['message']);
+}
+
+?>

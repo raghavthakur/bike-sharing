@@ -86,6 +86,7 @@
 
 require "../server.php";
 include "../print-table.php";
+include "../debugger.php";
 
 $date = date("y-m-d h:i:s");
 
