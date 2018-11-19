@@ -52,7 +52,7 @@
                 <div>
                     <h3>RIDER - Credit Card Info</h3>
 
-                    <form method="POST" action="new-oracle-test.php">
+                    <form method="POST">
 
                         <p>
                             Logging in as...
