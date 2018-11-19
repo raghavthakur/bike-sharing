@@ -98,8 +98,6 @@ require "../server.php";
 include "../print-table.php";
 
 $date = date("y-m-d");
-echo $date;
-
 
 if ($db_conn) {
 
@@ -116,7 +114,7 @@ if ($db_conn) {
         );
 
         if ($_POST['technician_ID'] != "" && $_POST['issueID'] != "") {
-            executeBoundSQL("UPDATE MAINTENANCE_ISSUE SET IS_RESOLVED = 'Y', AGENT_NOTES = :bind3, ACTION_TAKEN = :bind4 WHERE CUSTOMER_REP_ID = :bind1 AND COMPLAINT_ID = :bind2", $alltuples);
+            executeBoundSQL("UPDATE MAINTENANCE_ISSUE SET RESOLVED_DATE = '$date', AGENT_NOTES = :bind3, ACTION_TAKEN = :bind4 WHERE CUSTOMER_REP_ID = :bind1 AND COMPLAINT_ID = :bind2", $alltuples);
             OCICommit($db_conn);
 
             echo "<h1 style='color: black'>The Complaint ID: " . $_POST['complaint_ID'] . " has been resolved!</h1>";
