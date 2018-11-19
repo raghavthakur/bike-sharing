@@ -63,11 +63,6 @@
 
                         <input type="submit" value="Delete Rider" name="deleteRider">
 
-                        <p>
-                            Display a short confirmation message here to say rider was deleted.
-                        </p>
-
-
                     </form>
                 </div>
             </main>

@@ -1,4 +1,3 @@
-<!doctype html>
 <html lang="en">
 <head>
     <title>Bike Sharing</title>
@@ -29,7 +28,7 @@
             <li class="submenu"><span>&gt; </span><a href="../rider/rider-mainpage.html">Rider</a></li>
             <li class="submenu"><span>&gt; </span><a href="../custrep/custrep-mainpage.php">Customer Service</a></li>
             <li class="submenu active"><span>&gt; </span><a class="active" href="technician-mainpage.html">Maintenance
-                Tech.</a></li>
+                    Tech.</a></li>
             <li><span class="dot"></span><a href="../about.html">About</a></li>
             <li><span class="dot"></span><a href="../faq.html">FAQ</a></li>
             <li><span class="dot"></span><a href="../ourbikes.html">Our Bikes</a></li>
@@ -68,15 +67,10 @@
 
                         <p>
                             Enter new quantity (optional):
-                            <input type="number" name="newQuantity" size="20">
+                            <input type="number" name="quantity" size="20">
                         </p>
 
                         <input type="submit" value="Update Existing Part" name="updateExistingPart">
-
-                        <p>
-                            Display the partID, partName, and quantity after updating it in DB. If the partID that they
-                            entered does not exist in the DB, then an error message should be displayed here instead.
-                        </p>
 
                     </form>
                 </div>
@@ -103,34 +97,41 @@ include "../print-table.php";
 if ($db_conn) {
 
     if (array_key_exists('updateExistingPart', $_POST)) {
-        //include '../debugger.php';
-        // Updates tuple using data from user
         $tuple = array(
             ":bind1" => $_POST['partIDToUpdate'],
             ":bind2" => $_POST['newPartName'],
-            ":bind3" => $_POST['newQuantity']
+            ":bind3" => $_POST['quantity']
 
         );
         $alltuples = array(
             $tuple
         );
-        executeBoundSQL("UPDATE REPLACEMENT_PART SET PART_NAME = :bind2, QUANTITY = :bind3 WHERE PARTNO = :bind1", $alltuples);
 
-        OCICommit($db_conn);
-        $result = executePlainSQL("SELECT * FROM REPLACEMENT_PART ORDER BY PARTNO");
+        if ($_POST['partIDToUpdate'] != "" && $_POST['newPartName'] != "" && $_POST['quantity'] == "") {
+            executeBoundSQL("UPDATE REPLACEMENT_PART SET PART_NAME = :bind2 WHERE PARTNO = :bind1", $alltuples);
+            OCICommit($db_conn);
 
-        $columnNames = array("Part No", "Part Name", "Quantity");
-        printTable($result, $columnNames);
+            echo "<h1 style='color: black'>Part has been updated!</h1>";
+        } else if ($_POST['partIDToUpdate'] != "" && $_POST['newPartName'] == "" && $_POST['quantity'] != "") {
+            executeBoundSQL("UPDATE REPLACEMENT_PART SET QUANTITY = :bind3 WHERE PARTNO = :bind1", $alltuples);
+            OCICommit($db_conn);
 
-    } else {
-        $result = executePlainSQL("SELECT * FROM REPLACEMENT_PART ORDER BY PARTNO");
+            echo "<h1 style='color: black'>Part has been updated!</h1>";
+        } else if ($_POST['partIDToUpdate'] != "" && $_POST['newPartName'] != "" && $_POST['quantity'] != "") {
+            executeBoundSQL("UPDATE REPLACEMENT_PART SET PART_NAME = :bind2, QUANTITY = :bind3 WHERE PARTNO = :bind1", $alltuples);
+            OCICommit($db_conn);
 
-        $columnNames = array("Part No", "Part Name", "Quantity");
-        printTable($result, $columnNames);
+            echo "<h1 style='color: black'>Part has been updated!</h1>";
+        } else {
+            echo "<h1 style='color: red'>Error! Need to enter existing Part ID and (New Name OR New Quantity)</h1>";
+        }
     }
-    if ($_POST && $success) {
-        echo "<h1 style='color: black'>Part has been updated!</h1>";
-    } else if (!$success){
+
+    $result = executePlainSQL("SELECT * FROM REPLACEMENT_PART ORDER BY PARTNO");
+    $columnNames = array("Part No", "Part Name", "Quantity");
+    printTable($result, $columnNames);
+
+    if (!$success) {
         echo "<h1 style='color: red'>Error!</h1>";
     }
 

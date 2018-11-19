@@ -58,15 +58,11 @@
 
                         <p>
                             Enter a part ID:
-                            <input type="number" name="issueID" size="20">
+                            <input type="number" name="partID" size="20">
                         </p>
 
                         <input type="submit" value="Increment Quantity" name="incrementQuantity">
                         <input type="submit" value="Decrement Quantity" name="decrementQuantity">
-
-                        <p>
-                            Display the partID, partName, and quantity after increment/decrement.
-                        </p>
 
                     </form>
                 </div>
@@ -82,3 +78,65 @@
     </div>
 </div>
 </html>
+
+<?php
+
+require '../server.php';
+include "../print-table.php";
+
+
+// Connect Oracle....
+if ($db_conn) {
+
+    if (array_key_exists('incrementQuantity', $_POST)) {
+
+        $tuple = array(
+            ":bind1" => $_POST['partID']
+        );
+        $alltuples = array(
+            $tuple
+        );
+
+        if ($_POST['partID'] != "") {
+            executeBoundSQL("UPDATE REPLACEMENT_PART SET QUANTITY = QUANTITY + 1 WHERE PARTNO = :bind1", $alltuples);
+            OCICommit($db_conn);
+        } else {
+            echo "<h1 style='color: red'>Error! Enter Part ID.</h1>";
+        }
+    }
+
+    if (array_key_exists('decrementQuantity', $_POST)) {
+
+        $tuple = array(
+            ":bind1" => $_POST['partID']
+        );
+        $alltuples = array(
+            $tuple
+        );
+
+        if ($_POST['partID'] != "") {
+            executeBoundSQL("UPDATE REPLACEMENT_PART SET QUANTITY = QUANTITY - 1 WHERE PARTNO = :bind1", $alltuples);
+            OCICommit($db_conn);
+        } else {
+            echo "<h1 style='color: red'>Error! Enter Part ID.</h1>";
+        }
+    }
+
+    $result = executePlainSQL("SELECT * FROM REPLACEMENT_PART ORDER BY PARTNO");
+
+    $columnNames = array("Part ID", "Part Name", "Quantity");
+    printTable($result, $columnNames);
+
+    if (!$success){
+        echo "<h1 style='color: red'>Error!</h1>";
+    }
+
+    // Commit to save changes...
+    OCILogoff($db_conn);
+} else {
+    echo "cannot connect";
+    $e = OCI_Error(); // For OCILogon errors pass no handle
+    echo htmlentities($e['message']);
+}
+
+?>

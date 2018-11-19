@@ -1,4 +1,7 @@
+<<<<<<< HEAD
 git<!doctype html>
+=======
+>>>>>>> 3aee1b17eb3c4ba2cb809958b5013ac0823aefa8
 <html lang="en">
 <head>
     <title>Bike Sharing</title>
@@ -29,7 +32,7 @@ git<!doctype html>
             <li class="submenu"><span>&gt; </span><a href="../rider/rider-mainpage.html">Rider</a></li>
             <li class="submenu"><span>&gt; </span><a href="../custrep/custrep-mainpage.php">Customer Service</a></li>
             <li class="submenu active"><span>&gt; </span><a class="active" href="technician-mainpage.html">Maintenance
-                Tech.</a></li>
+                    Tech.</a></li>
             <li><span class="dot"></span><a href="../about.html">About</a></li>
             <li><span class="dot"></span><a href="../faq.html">FAQ</a></li>
             <li><span class="dot"></span><a href="../ourbikes.html">Our Bikes</a></li>
@@ -63,12 +66,6 @@ git<!doctype html>
 
                         <input type="submit" value="Delete Part" name="deletePart">
 
-                        <p>
-                            Display confirmation message that [partID]-[partName] has been deleted. If the partID that
-                            they entered does not exist in the DB, then an error message should be displayed here
-                            instead.
-                        </p>
-
                     </form>
                 </div>
             </main>
@@ -89,48 +86,34 @@ git<!doctype html>
 require '../server.php';
 include "../print-table.php";
 
-// Prints result from select statement
-function printResult($result)
-{
-    echo "<table>";
-    echo "<tr><th>PARTNO</th><th>PART_NAME</th><th>QUANTITY</th></tr>";
-
-    while ($row = OCI_Fetch_Array($result, OCI_BOTH)) {
-        echo "<tr><td>" . $row["PARTNO"] . "</td><td>" . $row["PART_NAME"] . "</td><td>" . $row["QUANTITY"] . "</td></tr>"; //or just use "echo $row[0]"
-    }
-    echo "</table>";
-
-}
-
 // Connect Oracle...
 if ($db_conn) {
 
     if (array_key_exists('deletePart', $_POST)) {
-        //include '../debugger.php';
-        // Delete tuple using data from user
+
         $tuple = array(
             ":bind1" => $_POST['partIDToDelete']
         );
         $alltuples = array(
             $tuple
         );
-        executeBoundSQL("DELETE FROM REPLACEMENT_PART WHERE PARTNO = :bind1", $alltuples);
-        OCICommit($db_conn);
 
-        $result = executePlainSQL("SELECT * FROM REPLACEMENT_PART ORDER BY PARTNO");
+        if ($_POST['partIDToDelete'] != "") {
+            executeBoundSQL("DELETE FROM REPLACEMENT_PART WHERE PARTNO = :bind1", $alltuples);
+            OCICommit($db_conn);
 
-        $columnNames = array("Part No", "Part Name", "Quantity");
-        printTable($result, $columnNames);
-
-    } else {
-        $result = executePlainSQL("SELECT * FROM REPLACEMENT_PART ORDER BY PARTNO");
-
-        $columnNames = array("Part No", "Part Name", "Quantity");
-        printTable($result, $columnNames);
+            echo "<h1 style='color: black'>Part ID: " . $_POST['partIDToDelete'] . " has been updated!</h1>";
+        } else {
+            echo "<h1 style='color: red'>Error! Need to enter existing Part ID</h1>";
+        }
     }
-    if ($_POST && $success) {
-        echo "<h1 style='color: black'>Part has been removed!</h1>";
-    } else if (!$success){
+
+    $result = executePlainSQL("SELECT * FROM REPLACEMENT_PART ORDER BY PARTNO");
+
+    $columnNames = array("Part No", "Part Name", "Quantity");
+    printTable($result, $columnNames);
+
+    if (!$success) {
         echo "<h1 style='color: red'>Error!</h1>";
     }
 

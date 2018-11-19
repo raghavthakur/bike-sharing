@@ -1,4 +1,3 @@
-<!doctype html>
 <html lang="en">
 <head>
     <title>Bike Sharing</title>
@@ -52,7 +51,7 @@
                 <div>
                     <h3>RIDER - Current (Active) Ride</h3>
 
-                    <form method="POST" action="new-oracle-test.php">
+                    <form method="POST">
 
                         <p>
                             Logging in as...
@@ -86,3 +85,54 @@
     </div>
 </div>
 </html>
+
+<?php
+
+require "../server.php";
+include "../print-table.php";
+
+if ($db_conn) {
+
+    if (array_key_exists('getCurrentRentalInfo', $_POST)) {
+
+        $tuple = array(
+            ":bind1" => $_POST['rider_ID']
+        );
+        $alltuples = array(
+            $tuple
+        );
+
+        if ($_POST['rider_ID'] != "") {
+
+            $result = executePlainSQL("SELECT * FROM TRIP WHERE END_DATETIME IS NULL AND RIDER_ID = " . $_POST['rider_ID']);
+
+            $columnNames = array("Trip ID", "Rider ID", "Bike ID", "End Location", "Start Date Time", "End Date Time", "Tokens Due", "Start Latitude", "Start Longitude", "End Latitude", "End Longitude");
+
+            echo "<h1 style='color: black'>Showing trip for Rider ID: " . $_POST['rider_ID'] . " !</h1>";
+
+            printTable($result, $columnNames);
+        } else {
+            echo "<h1 style='color: red'>Error! Enter Rider ID.</h1>";
+
+            $result = executePlainSQL("SELECT RIDER_ID FROM TRIP WHERE END_DATETIME IS NULL");
+
+            $columnNames = array("Rider ID");
+            printTable($result, $columnNames);
+        }
+    } else {
+
+        $result = executePlainSQL("SELECT RIDER_ID FROM TRIP WHERE END_DATETIME IS NULL");
+
+        $columnNames = array("Rider ID");
+        printTable($result, $columnNames);
+    }
+
+    // Commit to save changes...
+    OCILogoff($db_conn);
+} else {
+    echo "cannot connect";
+    $e = OCI_Error(); // For OCILogon errors pass no handle
+    echo htmlentities($e['message']);
+}
+
+?>

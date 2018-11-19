@@ -1,4 +1,3 @@
-<html lang="en">
 <head>
     <title>Bike Sharing</title>
     <meta charset="utf-8">
@@ -28,7 +27,7 @@
             <li class="submenu"><span>&gt; </span><a href="../rider/rider-mainpage.html">Rider</a></li>
             <li class="submenu"><span>&gt; </span><a href="../custrep/custrep-mainpage.php">Customer Service</a></li>
             <li class="submenu active"><span>&gt; </span><a class="active" href="technician-mainpage.html">Maintenance
-                Tech.</a></li>
+                    Tech.</a></li>
             <li><span class="dot"></span><a href="../about.html">About</a></li>
             <li><span class="dot"></span><a href="../faq.html">FAQ</a></li>
             <li><span class="dot"></span><a href="../ourbikes.html">Our Bikes</a></li>
@@ -63,14 +62,10 @@
 
                         <p>
                             Enter quantity:
-                            <input type="number" name="initialQuantity" size="20">
+                            <input type="number" name="quantity" size="20">
                         </p>
 
                         <input type="submit" value="Add New Part" name="addNewPart">
-
-                        <p>
-                            Display the partID, partName, and quantity after creation in DB.
-                        </p>
 
                     </form>
                 </div>
@@ -96,34 +91,31 @@ include "../print-table.php";
 if ($db_conn) {
 
     if (array_key_exists('addNewPart', $_POST)) {
-        //include '../debugger.php';
-        // Adds tuple using data from user
         $tuple = array(
             ":bind1" => $_POST['newPartNo'],
             ":bind2" => $_POST['newPartName'],
-            ":bind3" => $_POST['initialQuantity']
+            ":bind3" => $_POST['quantity']
 
         );
         $alltuples = array(
             $tuple
         );
-        executeBoundSQL("INSERT INTO REPLACEMENT_PART VALUES (:bind1, :bind2, :bind3)", $alltuples);
-        OCICommit($db_conn);
 
-        $result = executePlainSQL("SELECT * FROM REPLACEMENT_PART ORDER BY PARTNO");
+        if ($_POST['newPartNo'] != "" && $_POST['newPartName'] != "" && $_POST['quantity'] != "") {
+            executeBoundSQL("INSERT INTO REPLACEMENT_PART VALUES (:bind1, :bind2, :bind3)", $alltuples);
+            OCICommit($db_conn);
 
-        $columnNames = array("Part No", "Part Name", "Quantity");
-        printTable($result, $columnNames);
-
-    } else {
-        $result = executePlainSQL("SELECT * FROM REPLACEMENT_PART ORDER BY PARTNO");
-
-        $columnNames = array("Part No", "Part Name", "Quantity");
-        printTable($result, $columnNames);
+            echo "<h1 style='color: black'>New Part has been added!</h1>";
+        } else {
+            echo "<h1 style='color: red'>Error! Please enter in all fields.</h1>";
+        }
     }
-    if ($_POST && $success) {
-        echo "<h1 style='color: black'>New Part has been added!</h1>";
-    } else if (!$success){
+    $result = executePlainSQL("SELECT * FROM REPLACEMENT_PART ORDER BY PARTNO");
+
+    $columnNames = array("Part No", "Part Name", "Quantity");
+    printTable($result, $columnNames);
+
+    if (!$success) {
         echo "<h1 style='color: red'>Error!</h1>";
     }
 

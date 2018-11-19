@@ -5,30 +5,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <script src="../project.js" type="text/javascript" defer></script>
     <link rel="stylesheet" href="../project.css">
-    <style>
-        /* Table */
-        table {
-            width: 100%;
-            border: 1px solid black;
-        }
-
-        th {
-            font-family: Arial, Helvetica, sans-serif;
-            font-size: .7em;
-            background: #666;
-            color: #FFF;
-            padding: 2px 6px;
-            border-collapse: separate;
-            border: 1px solid #000;
-        }
-
-        td {
-            font-family: Arial, Helvetica, sans-serif;
-            font-size: .7em;
-            border: 1px solid #DDD;
-            color: black;
-        }
-    </style>
 </head>
 <div id="wrapper">
 
@@ -85,23 +61,6 @@
 
                         <p>Select the bike you would like to rent:</p>
 
-                        <p>
-                            <select name="bikeIdsAndLocations">
-                                <option value="put the employee ID here">Show bike ID and latitude/longitude from the DB
-                                    here
-                                </option>
-                                <option value="put the employee ID here">Show bike ID and latitude/longitude from the DB
-                                    here
-                                </option>
-                                <option value="put the employee ID here">Show bike ID and latitude/longitude from the DB
-                                    here
-                                </option>
-                                <option value="put the employee ID here">Show bike ID and latitude/longitude from the DB
-                                    here
-                                </option>
-                            </select>
-                        </p>
-
                         <input type="submit" value="Start Rental" name="startRental">
 
 
@@ -137,42 +96,37 @@
 </div>
 </html>
 
-
 <?php
 
-require '../server.php';
+require "../server.php";
+include "../print-table.php";
 
-// Prints result from select statement
-function printResult($result)
-{
-    echo "<table>";
-    echo "<tr><th>BIKE_ID</th><th>LATITUDE</th><th>LONGITUDE</th></tr>";
-
-    while ($row = OCI_Fetch_Array($result, OCI_BOTH)) {
-        echo "<tr><td>" . $row["BIKE_ID"] . "</td><td>" . $row["LATITUDE"] . "</td><td>" . $row["LONGITUDE"] . "</td></tr>"; //or just use "echo $row[0]"
-    }
-    echo "</table>";
-
-}
-// Connect Oracle...
 if ($db_conn) {
 
-    if (array_key_exists('deleteRider', $_POST)) {
-        //include '../debugger.php';
-        // Delete tuple using data from user
-        $tuple = array(
-            ":bind1" => $_POST['riderID']
-        );
-        $alltuples = array(
-            $tuple
-        );
-        executeBoundSQL("DELETE FROM RIDER WHERE RIDER_ID=:bind1", $alltuples);
-        OCICommit($db_conn);
+//    if (array_key_exists('startRental', $_POST)) {
+//
+//        $tuple = array(
+//            ":bind1" => $_POST['rider_ID']
+//        );
+//        $alltuples = array(
+//            $tuple
+//        );
+//
+//        if ($_POST['cust_rep_ID'] != "" && $_POST['complaint_ID'] != "") {
+//            executeBoundSQL("UPDATE COMPLAINT SET IS_RESOLVED = 'Y', AGENT_NOTES = :bind3, ACTION_TAKEN = :bind4 WHERE CUSTOMER_REP_ID = :bind1 AND COMPLAINT_ID = :bind2", $alltuples);
+//            OCICommit($db_conn);
+//
+//            echo "<h1 style='color: black'>The Complaint ID: " . $_POST['complaint_ID'] . " has been resolved!</h1>";
+//        } else {
+//            echo "<h1 style='color: red'>Error! Enter Customer Rep ID and Complaint ID.</h1>";
+//        }
+//    }
 
-    } else {
-        $result = executePlainSQL("SELECT * FROM RIDER_BIKE");
-        printResult($result);
-    }
+    $result = executePlainSQL("SELECT * FROM AVAILABLE_BIKES_FOR_RENT");
+
+    echo "<h1 style='color: black'>Available bikes for rent.</h1>";
+    $columnNames = array("Bike ID", "Latitude", "Longitude");
+    printTable($result, $columnNames);
 
     // Commit to save changes...
     OCILogoff($db_conn);

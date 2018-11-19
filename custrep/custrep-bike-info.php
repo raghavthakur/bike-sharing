@@ -57,7 +57,7 @@
                         <input type="submit" value="Get All Bike Info" name="getAllBikeInfo">
 
                         <p>
-                            Table showing all bikes and their info.
+                            Click the button above to get all bike info.
                         </p>
 
 
