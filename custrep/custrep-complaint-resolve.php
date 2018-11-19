@@ -116,10 +116,10 @@ if ($db_conn) {
         if ($_POST['cust_rep_ID'] != "" && $_POST['complaint_ID'] != "") {
             executeBoundSQL("UPDATE COMPLAINT SET IS_RESOLVED = 'Y', AGENT_NOTES = :bind3, ACTION_TAKEN = :bind4 WHERE CUSTOMER_REP_ID = :bind1 AND COMPLAINT_ID = :bind2", $alltuples);
             OCICommit($db_conn);
+
+            echo "<h1 style='color: black'>The complaint " . $_POST['complaint_ID'] . " has been resolved!</h1>";
         } else {
             echo "<h1 style='color: red'>Error! Enter Customer Rep ID and Complaint ID.</h1>";
-        }
-        echo "<h1 style='color: black'>The complaint " . $_POST['complaint_ID'] . " has been resolved!</h1>";
         }
 
         $result = executePlainSQL("SELECT C.COMPLAINT_ID, C.RIDER_ID, R.NAME, C.CUSTOMER_REP_ID, CSR.NAME, C.CUST_DESCRIPTION, C.AGENT_NOTES, C.URGENCY_LEVEL, C.COMPLAINTDATETIME, C.ACTION_TAKEN, C.IS_RESOLVED
@@ -130,6 +130,7 @@ if ($db_conn) {
 
     // Commit to save changes...
     OCILogoff($db_conn);
+    }
 } else {
     echo "cannot connect";
     $e = OCI_Error(); // For OCILogon errors pass no handle
