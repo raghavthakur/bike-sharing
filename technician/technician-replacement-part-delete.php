@@ -104,7 +104,7 @@ if ($db_conn) {
             executeBoundSQL("DELETE FROM REPLACEMENT_PART WHERE PARTNO = :bind1", $alltuples);
             OCICommit($db_conn);
 
-            echo "<h1 style='color: black'>Part ID: " . $_POST['deletePart'] . " has been updated!</h1>";
+            echo "<h1 style='color: black'>Part ID: " . $_POST['partIDToDelete'] . " has been updated!</h1>";
         } else {
             echo "<h1 style='color: red'>Error! Need to enter existing Part ID</h1>";
         }
