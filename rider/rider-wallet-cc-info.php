@@ -93,7 +93,7 @@ if ($db_conn) {
         //include '../debugger.php';
         // Delete tuple using data from user
         $tuple = array(
-            ":bind1" => $_POST['riderID']
+            ":bind1" => $_POST['rider_ID']
         );
         $alltuples = array(
             $tuple
