@@ -89,7 +89,7 @@ include "../print-table.php";
 // Connect Oracle...
 if ($db_conn) {
 
-    if (array_key_exists('deleteRider', $_POST)) {
+    if (array_key_exists('getPersonalInfo', $_POST)) {
         //include '../debugger.php';
         // Delete tuple using data from user
         $tuple = array(
@@ -101,21 +101,18 @@ if ($db_conn) {
         executeBoundSQL("SELECT NAME, EMAIL, PHONE_NUM, ADDRESS FROM RIDER WHERE RIDER_ID = :bind1", $alltuples);
         OCICommit($db_conn);
 
+        $result = executePlainSQL("SELECT NAME, EMAIL, PHONE_NUM, ADDRESS FROM RIDER WHERE RIDER_ID = :bind1");
+
+        $columnNames = array("Name of Rider", "Email", "Phone Number", "Address");
+        printTable($result, $columnNames);
+
     } else {
-        $result = executePlainSQL("SELECT NAME, EMAIL, PHONE_NUM, ADDRESS FROM RIDER WHERE RIDER_ID = :bind1");
+        $default = executePlainSQL("SELECT NAME, EMAIL, PHONE_NUM, ADDRESS FROM RIDER");
 
         $riderTable = array("Name of Rider", "Email", "Phone Number", "Address");
-        printTable($result, $riderTable);
+        printTable($default, $riderTable);
     }
-    if ($_POST && $success) {
-        echo "<h1 style='color: black'>Rider's personal information</h1>";
-        $result = executePlainSQL("SELECT NAME, EMAIL, PHONE_NUM, ADDRESS FROM RIDER WHERE RIDER_ID = :bind1");
 
-        $riderTable = array("Name of Rider", "Email", "Phone Number", "Address");
-        printTable($result, $riderTable);
-    } else if (!$success){
-        echo "<h1 style='color: red'>Error!</h1>";
-    }
     // Commit to save changes...
     OCILogoff($db_conn);
 } else {
