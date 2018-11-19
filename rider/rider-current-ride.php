@@ -107,9 +107,10 @@ if ($db_conn) {
             $result = executePlainSQL("SELECT * FROM TRIP WHERE RIDER_ID = " . $_POST['rider_ID']);
 
             $columnNames = array("Trip ID", "Rider ID", "Bike ID", "End Location", "Start Date Time", "End Date Time", "Tokens Due", "Start Latitude", "Start Longitude", "End Latitude", "End Longitude");
-            printTable($result, $columnNames);
 
             echo "<h1 style='color: black'>Showing trip for Rider ID: " . $_POST['rider_ID'] . " !</h1>";
+
+            printTable($result, $columnNames);
         } else {
             echo "<h1 style='color: red'>Error! Enter Rider ID.</h1>";
 
