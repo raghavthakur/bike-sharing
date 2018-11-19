@@ -103,23 +103,19 @@ if ($db_conn) {
             $tuple
         );
         executeBoundSQL("UPDATE RIDER SET ECOINS= :bind2 WHERE RIDER_ID= :bind1", $alltuples);
-        printResult($result);
+
         OCICommit($db_conn);
+        echo "<h1 style='color: black'>Rider's eCoins have been loaded</h1>";
+        $result = executePlainSQL("SELECT RIDER_ID, NAME, ECOINS FROM RIDER");
+
+        $riderTable = array("Rider ID", "Name of Rider", "eCoins");
+        printTable($result, $riderTable);
 
     } else {
         $result = executePlainSQL("SELECT RIDER_ID, NAME, ECOINS FROM RIDER");
 
         $riderTable = array("Rider ID", "Name of Rider", "eCoins");
         printTable($result, $riderTable);
-    }
-    if ($_POST && $success) {
-        echo "<h1 style='color: black'>Rider's eCoins have been loaded</h1>";
-        $result = executePlainSQL("SELECT RIDER_ID, NAME, ECOINS FROM RIDER WHERE RIDER_ID=:bind1");
-
-        $riderTable = array("Rider ID", "Name of Rider", "eCoins");
-        printTable($result, $riderTable);
-    } else if (!$success){
-        echo "<h1 style='color: red'>Error!</h1>";
     }
     // Commit to save changes...
     OCILogoff($db_conn);

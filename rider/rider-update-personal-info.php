@@ -52,7 +52,7 @@
                 <div>
                     <h3>RIDER - Update Your Personal Information</h3>
 
-                    <form method="POST" action="new-oracle-test.php">
+                    <form method="POST">
 
                         <p>
                             Logging in as...
@@ -126,23 +126,19 @@ if ($db_conn) {
             $tuple
         );
         executeBoundSQL("UPDATE RIDER SET NAME = :bind2, PHONE_NUM = :bind3, EMAIL = :bind4, ADDRESS = :bind5 WHERE RIDER_ID = :bind1", $alltuples);
-        printResult($result);
+
         OCICommit($db_conn);
 
+        echo "<h1 style='color: black'>Rider's personal has been updated</h1>";
+        $result = executePlainSQL("SELECT RIDER_ID, NAME, PHONE_NUM, EMAIL, ADDRESS FROM RIDER");
+
+        $riderTable = array("Rider ID", "Name of Rider", "Phone Number", "Email", "Address");
+        printTable($result, $riderTable);
     } else {
         $result = executePlainSQL("SELECT RIDER_ID, NAME, PHONE_NUM, EMAIL, ADDRESS FROM RIDER");
 
         $riderTable = array("Rider ID", "Name of Rider", "Phone Number", "Email", "Address");
         printTable($result, $riderTable);
-    }
-    if ($_POST && $success) {
-        echo "<h1 style='color: black'>Rider's personal has been updated</h1>";
-        $result = executePlainSQL("SELECT RIDER_ID, NAME, PHONE_NUM, EMAIL, ADDRESS FROM RIDER WHERE RIDER_ID = :bind1");
-
-        $riderTable = array("Rider ID", "Name of Rider", "Phone Number", "Email", "Address");
-        printTable($result, $riderTable);
-    } else if (!$success){
-        echo "<h1 style='color: red'>Error!</h1>";
     }
 
     // Commit to save changes...
