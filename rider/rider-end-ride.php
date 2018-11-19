@@ -120,7 +120,7 @@ if ($db_conn) {
 
     else {
 
-        $availableTrips = executePlainSQL("SELECT T.TRIP_ID, T.RIDER_ID FROM TRIP T WHERE NOT ((T.START_DATETIME IS NOT NULL AND END_DATETIME IS NOT NULL) OR START_DATETIME IS NULL"));
+        $availableTrips = executePlainSQL("SELECT T.TRIP_ID, T.RIDER_ID FROM TRIP T WHERE NOT ((T.START_DATETIME IS NOT NULL AND END_DATETIME IS NOT NULL) OR START_DATETIME IS NULL)");
 
         $columnNames = array("Active Trip ID", "Rider ID");
         printTable($availableTrips, $columnNames);
