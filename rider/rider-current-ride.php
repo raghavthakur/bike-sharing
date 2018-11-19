@@ -114,14 +114,14 @@ if ($db_conn) {
         } else {
             echo "<h1 style='color: red'>Error! Enter Rider ID.</h1>";
 
-            $result = executePlainSQL("SELECT RIDER_ID FROM TRIP");
+            $result = executePlainSQL("SELECT RIDER_ID FROM TRIP WHERE END_DATETIME IS NULL");
 
             $columnNames = array("Rider ID");
             printTable($result, $columnNames);
         }
     } else {
 
-        $result = executePlainSQL("SELECT RIDER_ID FROM TRIP");
+        $result = executePlainSQL("SELECT RIDER_ID FROM TRIP WHERE END_DATETIME IS NULL");
 
         $columnNames = array("Rider ID");
         printTable($result, $columnNames);
