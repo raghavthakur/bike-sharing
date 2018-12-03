@@ -94,7 +94,7 @@ if ($db_conn) {
         $alltuples = array(
             $tuple
         );
-        executeBoundSQL("DELETE FROM CUSTREP_RIDER_VIEW WHERE RIDER_ID=:bind1", $alltuples);
+        executeBoundSQL("DELETE FROM RIDER WHERE RIDER_ID=:bind1", $alltuples);
         OCICommit($db_conn);
 
     } else {
