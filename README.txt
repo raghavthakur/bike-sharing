@@ -1,5 +1,6 @@
 CPSC 304 - GROUP 23 - TERM PROJECT
 
+LINK TO WEBSITE: http://www.ugrad.cs.ubc.ca/~f4l0b/index.html
 
 SOURCE CODE:
 Our source code files are in HTML and PHP format.
