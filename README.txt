@@ -1,14 +1,16 @@
-CPSC 304 - GROUP 23 - TERM PROJECT
+# Bike Sharing Relational Database
+
+Built a relational database using Oracle SQL PLus, PHP, HTML and CSS. Designed to be used as an internal system among employees and supports client-side functionality.
+
+CPSC 304 W2018 - GROUP 23 - TERM PROJECT
 
 LINK TO WEBSITE: http://www.ugrad.cs.ubc.ca/~f4l0b/index.html
 
 SOURCE CODE:
-Our source code files are in HTML and PHP format.
-
-
+Our source code files are in HTML, CSS and PHP.
 
 SQL FILES:
-See the "./sql" directory.
+Used Oracle SQL PLUS. See "./sql" directory.
 
 
 
